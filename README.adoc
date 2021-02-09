@@ -67,6 +67,8 @@ Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
 
 === Wassermelder
 
+=== Elektronischer Schalter
+
 == License
 
 Siehe auch link:LICENSE[Lizenz]
