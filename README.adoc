@@ -24,7 +24,7 @@ Hier finden Sie Informationen zu den von mir entworfenen RC-Elektronik-Modulen, 
 
 === RC-Quad-D
 
-Anleitung: {rcb}/rcquad.html[RC Hauptschalter] {rcb}/rcquad_r.pdf[pdf]
+Anleitung: {rcb}/rcquad.html[RC Quad] {rcb}/rcquad_r.pdf[pdf]
 
 === RC-Led-D
 
@@ -36,7 +36,7 @@ Anleitung: {rcb}/onoff_telemetrie.html[RC Hauptschalter] {rcb}/onoff_telemetrie_
 
 === DIY RC-Hauptschalter
 
-Anleitung: {rcb}/onoff_simple.html[RC Hauptschalter] {rcb}/onoff_simple_r.pdf[pdf]
+Anleitung: {rcb}/onoff_simple.html[DIY RC Hauptschalter] {rcb}/onoff_simple_r.pdf[pdf]
 
 === RC-Akkuweiche
 
