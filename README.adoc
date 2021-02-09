@@ -1,6 +1,9 @@
 = RC Elektronik
-
+Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 :toc:
+:toc-title: Inhalt
+:toclevels: 4
+:numbered:
 :toc-placement!:
 
 :tip-caption: :bulb:
@@ -16,8 +19,6 @@
 --
 Hier finden Sie Informationen zu den von mir entworfenen RC-Elektronik-Modulen, OpenTx-Addons, LUA-Scripting, und vieles mehr.
 --
-
-== Inhalt
 
 toc::[]
 
