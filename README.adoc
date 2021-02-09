@@ -1,9 +1,12 @@
 = RC Elektronik
 
+:ddir: https://wimalopaan.github.io/Electronics
+:rcb: {ddir}/rc/boards
+
+
 == Module
 
-Das https://github.com/wimalopaan/Electronics/wiki[Wiki] ist hier.
-
-https://github.com/wimalopaan/Electronics/blob/main/rc/boards/rcincr.html[RC Inkr]
 
 https://wimalopaan.github.io/Electronics/rc/boards/rcincr.html[RC Inkr]
+
+{rcb}/rcincr.html[RC Inkr]
