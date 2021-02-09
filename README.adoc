@@ -24,6 +24,8 @@ Hier finden Sie Informationen zu den von mir entworfenen RC-Elektronik-Modulen, 
 
 === RC-Quad-D
 
+Anleitung: {rcb}/rcquad.html[RC Hauptschalter] {rcb}/rcquad_r.pdf[pdf]
+
 === RC-Led-D
 
 === RC-SensorModul
