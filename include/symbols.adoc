@@ -1,0 +1,16 @@
+== Symbolerklärung
+
+[TIP]
+Ein wichtiger allgemeiner Hinweis für den sicheren Aufbau und die sichere Bedienung. Dieser sollte durch den Anwender bachtet werden,
+um einen sicheren Betrieb zu gewährleisten.
+
+[NOTE]
+Ein genereller Hinweis, der durch den Anwender beachtet werden sollte.
+
+[IMPORTANT]
+Ein technischer oder sicherheitstechnischer Hinweis, der unbedingt durch den Anwender beachtet werden muss.
+
+[CAUTION]
+Ein technischer oder sicherheitstechnischer Gefahrenhinweis, der unbedingt durch den Anwender beachtet werden muss. Zur 
+Gefahrenabwendung muss der Anwender unbedingt die gegebenen Anweisungen befolgen und die beschriebenen Maßnahmen ergreifen.
+

@@ -1,0 +1,12 @@
+
+:xrefstyle: short
+
+:section-refsig: Abschnitt
+:chapter-refsig: Kapitel
+
+// build-in
+:listing-caption: Quelltext
+// :table-caption: Tabelle
+//:figure-caption: Bild
+:example-caption: Übersicht
+

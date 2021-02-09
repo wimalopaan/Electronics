@@ -1,0 +1,13 @@
+== Vorwort
+
+image::by-nc-nd.eu.svg[align="center"]
+
+.Lizenz
+****
+Dieses Werk ist unter einer Creative Commons Lizenz vom Typ Namensnennung - Nicht kommerziell - Keine Bearbeitungen 4.0 International zugänglich. Um eine Kopie dieser Lizenz einzusehen, konsultieren Sie http://creativecommons.org/licenses/by-nc-nd/4.0/ oder wenden Sie sich brieflich an Creative Commons, Postfach 1866, Mountain View, California, 94042, USA.
+****
+
+[NOTE]
+Das Modul wie auch diese Doku ist noch unvollständig und _work-in-progess_. 
+Bei jeglichen Unklarheiten in dieser Funktionsbeschreibung und generellem Aufbau und Anschluß, 
+unterlassen Sie den Betrieb und kontaktieren Sie den Bausatzersteller.

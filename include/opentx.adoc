@@ -1,0 +1,526 @@
+== Software für OpenTX für den Betrieb von `{mName}`
+
+Für den Betrieb und zur Konfiguration des `{mName}` sind einige Scripte und Konfigurationsdatein notwendig.
+Diese findet man in der aktuellesten Version jeweils auf https://github.com/wimalopaan/OpenTxSwitch[GitHub].
+
+.Lizenz der Software, des Übertragungsverfahrens und der Dokumentation
+[IMPORTANT]
+--
+image:by-nc-nd.eu.svg[]
+Bitte beachten Sie, dass neben dieser Dokumentation auch die https://github.com/wimalopaan/OpenTxSwitch[Software] und das Übertragungsverfahren als Konzept der einer 
+Lizenz (Nutzungsvereinbarung) unterliegt. Die genauen Bedingungen dieser Lizenz finden Sie https://creativecommons.org/licenses/by-nc-nd/4.0/deed.de[hier].
+--
+
+Für den `{mName}` sind die folgenden Dateien relevant (wie auch bei allen anderen _digitalen_ Modulen):
+
+* Widgets
+** `Widgets/WMSW/main.lua` (Bedienungs-Widget)
+** `Widgets/WMSWC/main.lua` (Konfigurations-Widget)
+
+* Mixer-Scripte
+** `MIXES/encib.lua`
+** `MIXES/encsbm.lua` (für Anlagen mit MPM-HF-Modul)
+** `MIXES/encxjt.lua` (für Anlagen mit internem XJT-HF-Modul)
+** `MIXES/encsb.lua` (nur zu Testzwecken)
+
+* Telemetrie-Scripte (für monochrome Sender)
+** `SCRIPTS/TELEMETRY/wmsw.lua` (Bedienungs-Widget)
+** `SCRIPTS/TELEMETRY/wmswc.lua` (Konfigurations-Widget)
+
+* Bibliotheken
+** `SCRIPTS/CONFIG/wmcfg.lua`
+** `SCRIPTS/WM/wmlib.lua`
+
+* Konfiguration
+** `MODELS/swstd.lua` (Standardkonfiguration für Anlagen mit großem Display)
+** `MODELS/swstdm.lua` (Standardkonfiguration für Anlagen mit mittlerem Display)
+** `MODELS/swstds.lua` (Standardkonfiguration für Anlagen mit kleinem Display)
+** `MODELS/swstdx.lua` (Standardkonfiguration für Anlagen mit kleinem Display und wenigen Modulen)
+** `MODELS/<name>.lua` (modellspezifische Konfigurationen)(z.B. `Abc.lua` für das Model mit dem Namen `Abc`)
+
+=== Installation der Software auf dem Sender
+
+Kopieren Sie die o.g. Dateien in _korrespondierende_ (gleichlautende) Verzeichnisse auf der SD-Karte des Senders. 
+
+[TIP]
+--
+Die Datei `MODELS/swstd.lua` sollte unangetastet bleiben (als _fallback_-Konfiguration). Stattdessen kopieren Sie diese Datei in 
+für jedes Modell jeweils eigene Dateien. Dann ist für das Modell mit dem Namen `ABC` der _Dateiname_ `ABC.lua` zuständig. Verwenden 
+Sie _keine_ Leerzeichen im Namen und nur max. 6 Zeichen vor dem `.lua`.
+
+Kommen weitere Modelle hinzu, so wiederholen Sie diesen Schritt für _jedes_ Modell mit angepasstem Namen.
+
+Anschließend kann der _Datei-Inhalt_ mit einem normalen Texteditor (etwa `NotePad`) editiert werden.
+--
+
+Bitte beachten Sie auch die Unterscheidung zwischen `Sbus` und `IBus`.
+
+==== Unterscheidung der verschiedenen Sendermodelle
+
+Grundsätzlich unterscheiden sich die Sender mit den `480x272`-Pixel großen _Farbdisplay_ von den Sendern mit 
+den `128x64`-Pixel oder `212x64`-Pixel großen _monochromen_ Displays von einander: 
+
+* Typ-1: `128x64`-Pixel oder `212x64`-Pixel großes _monochromes_ Display
+* Typ-2: `480x272`-Pixel großen _Farbdisplay_ (auch _Touchdisplay_)
+
+Bei _Typ-1_ Sendern existieren im Menu-System keine sog. _Widgets_ sondern nur _Telemetrie_-Seiten. Auf der 
+anderen Seite existieren bei den _Typ-2_ Sendern keine _Telemetrie_-Seiten sondern wiederum nur _Widgets_. Dies 
+macht eine Unterscheidung bei den Skripten für die Schaltmodule notwendig.
+
+Zudem sind die _Typ-1_ Sender im verfügbaren `RAM` sehr _eingeschränkt_. Daher kann hier oft das 
+Telemetrie-Skript zur _Bedienung_ und das Telemetrie-Skript zur _Konfiguration_ nicht gleichzeitig 
+geladen werden. Es kommt in diesem Fall zu einer _Fehlermeldung_ des Senders. Man kann sich in so einem Fall behelfen, 
+indem man die (nicht so häufige) Konfiguration und die (häufigere) Bedienung abwechselnd auf _eine_ Telemetrie-Seite legt.
+
+=== Konfiguration des Modells (Sender mit `480x272`-Pixel _Farbdisplay_, Typ-2)
+
+Die folgenden Einstallungen gelten _nur_ für Sender mit `480x272`-Pixel _Farbdisplay_.
+
+==== Widget für die Bedienung
+
+Richten Sie eine Telemetrie-Seite (volle Größe) ein mit dem Widget `Widgets/WMSW/main.lua`. Dieses stellt sich als `Wm MultiModule x.y` dar.
+
+==== Widget für die Konfiguration
+
+Richten Sie eine Telemetrie-Seite (volle Größe) ein mit dem Widget `Widgets/WMSWC/main.lua`. Dieses stellt sich als `Wm MultiModule Config x.y` dar.
+
+[[mixes]]
+==== Mixer-Script
+
+Richten Sie _eines_ der `LUA`-Scripte als _Mixer-Script_ ein. Hier wählen Sie _nur eines_ der Auswahl aus:
+
+* `encib` für `IBus`-Empfänger
+* `encsbm` für `SBus`-Empfänger und Sender mit MPM-Multiprotokoll-HF-Modul
+* `encxjt` für `SBus`-Empfänger und Sender mit XJT-HF-Modul
+
+[[channels]]
+==== Definition eines Übertragungskanals für das `{mName}` am Empfänger
+
+Das Schaltmodul wird über eine serielle Schnittstelle an den Empfänger angeschlossen. Dies ist je nach Empfänger `IBus` oder `SBus`.
+
+Das Schaltmodul ist standardmäßig auf Kanal `10` eingestellt. Es kann jedoch auch ein anderer Kanal angelernt werden (s.a. <<learn>>).
+
+Im Sender muss daher für diesen Kanal als Quelle das entspechende Mixer-Script eingetragen werden.
+
+.Das Mischer-Skript `encsbm.lua`
+image::m1a.png[align="center"]
+
+.Hier wird der Übertragungskanal `10` wird für die Schaltmodule verwendet.
+image::m2a.png[align="center"]
+
+.Als Quelle des Mischers des Übertragungskanals wird das Mischer-Skript `encsbm.lua` eingetragen
+image::m3a.png[align="center"]
+
+.Mögliche Fehlerquelle im späteren Betrieb
+[CAUTION]
+--
+Bei _jedem_ Einschalten scannen die Schaltmodule _alle_ Übertragungskanäle auf ein spezielles Konfigurationssignal,
+um den Übertragungskanal zu finden und ggf. die Adresse des Moduls neu zu lernen. Dieses Konfigurationssignal kann auch 
+durch zufällige Geberposition auf anderen Kanälen unbeabsichtigt entstehen. Um dieses Problem zu umgehen, sollten
+die Übertragungskanäle mit Nummern _oberhalb_ des gewählten Kanals für die digitalen Schaltmodule _unbenutzt_ sein. 
+Um auch bei späteren Erweiterung von Modellen hier vor Fehlern geschützt zu sein, sollte sich der Übertragungskanal für die 
+digitalen Schaltmodule auf der _höchsten_ Kanalnummer befinden. Dies ist bei `SBus` der Kanal `16` und bei `IBus` 
+der Kanal `14` oder `16` (je nach verwendeter Version der Firmware im _4in1-MPM-HF-Modul_).
+--
+
+==== Definition der Geber (Inputs)
+
+.Bedienelemente für die Widgets
+[TIP]
+--
+Die Widgets müssen mit Bedienelementen des Senders bedient werden können (Scroll, Select). 
+
+In `OpenTX`-Version < `2.4.0` kann dies nur durch _normale_ Bedienelemente (Geber) erfolgen. Dazu sind einige Definitionen nötig.
+--
+
+Definieren Sie die folgenden, in den Widgets voreingestellten _Inputs_ nach dem Muster aus <<inputs>>:
+
+* I8 : Navigation von links nach rechts (und vom Zeilenende in den Zeilenanfang der nächsten Zeile)
+* I9 : Navigation von rechts nach linkes (und vom Zeilenanfang in das Zeilenende der vorherigen Zeile)
+* I10 : Selektion
+* (I11) : Navigation nach oben (in Standardeinstellung unbenutzt)
+* (I12) : Navigation nach unten (in Standardeinstellung unbenutzt)
+
+(Lassen die die _unbenutzten_ Inputs in ihrem Modell frei. Andernfalls sind Fehlfunktionen nicht ausgeschlossen.)
+
+Möchten Sie andere Geber-Nummern verwenden, so ist dies auch möglich. Die Gebernummern müssen dann in der entsprechenden _Widget_-Konfiguration 
+definiert werden. Dies ist dann für beide Widgets gleichermaßen notwendig bzw. empfehlenswert.
+ 
+[[inputs]]
+.Benötigte Geber zur Bedienung der Widgets (Darstellung im Companion)
+image::inputs.png[align="center"]
+
+.Benötigte Geber (Darstellung im Sender)
+image::in1.png[align="center"]
+
+.Benötigte Geber (Darstellung im Sender)
+image::in2.png[align="center"]
+
+.Benötigte Geber (Darstellung im Sender)
+image::in3.png[align="center"]
+
+Um die Bedienung weiter zu vereinfachen, werden standardmäßig weitere Bedienelemente für die Widgets verwendet. Diese sind voreingestellt.
+Sie können aber in der Datei `MODELS/swstd.lua` bzw. der modellspezifischen Datein `MODELS/<name>.lua` geändert werden. 
+
+.SpeedDial mit den Gebern `LS` und `RS`
+[TIP]
+--
+Bei Sendern mit den beiden Schiebern `LS` und `RS` sind diese für die direkte Anwahl von Menu-Punkten im Normalfall eingerichtet.
+--
+
+.Menu-Schnellanwahl mit dem 6-Positionentaster `6pos` (_Krähenfüße_)
+[TIP]
+--
+Der 6-Positionentaster `6pos` ist standardmäßig als _Schnellwahl_ für die ersten sechs Menuseiten (Schaltmodule) konfiguriert. Dies ist besondes 
+interessant mit der Möglichkeit der _Overlays_ (Ebenenumschaltung).
+--
+
+.Parameterwerte einstellen mit Potentiometer `S1`
+[NOTE]
+--
+Im Widget für die _Konfiguration_ des `{mName}` kann/muss man einige Parameter einstellen wie etwa die `PWM`-Rate für die Motoren oder die 
+Abschaltströme. Bei anderen Modulen sind dies auch andere Parameter. Wenn dieser Parameter im Menu angewählt ist, kann man den Wert diekt über das Poti `S1` einstellen. Dies wird dann 
+auch im Menu als Wert (oben rechts) angezeigt. Die aktive Selektion wird durch eine _Invers_-Darstellung der Werte oben rechts im Menu kenntlich gemacht.
+--
+
+==== Spezielle Konfiguration für Sender mit Joystick (FrSky X12s)
+
+Der Sender _FrSky Horus X12s_ besitzt ein besonderes Bedienelement: den _Joystick_ links unten. Dieser kann statt der o.g. Trimm-Buttons ebenfalls für die 
+Navigation im Menu-System der Schaltmodule verwendet werden. Da es sich dabei um proportionale Geber handelt, muss mit Hilfe eine Kurve (Sprungfunktion) aus der 
+proportionalen Informations des Gebers eine digitale gemacht werden.
+
+[CAUTION]
+--
+Wird die hier beschriebene Konfiguration ausgeführt, so sollten die Geber `Jsx` und `Jsy` nicht mehr als _normale_ Geber verwendet werden, da sie in jedem Fall den _Cursor_ 
+der Widgets beinflussen. 
+--
+
+Es muss dazu _eine_ Kurve nach dem Muster <<curve1>> erstellt werden. Diese Kurve kann für beide Richtungen (positive und negative Richtung) jeder Achse 
+des Joysticks verwendet werden. Die _Spiegelung_ der Kurve geschieht durch eine _Negation_ (das _Ausrufezeichen `!` in der Input-Konfiguration). Getrue nach der Regel, dass
+_Unzulänglichkeiten_ der Geber in der Input-Konfiguration _korrigiert_ werden, geschieht dies durch _vier_ Input-Definitionen aus den 
+zwei Gebern `Jsx` und `Jsy` für die Navigation `rechts`, `links`, `oben` und `unten`.
+
+[[curve1]]
+.Kurve zur Umwandlung einer JoyStick-Bewegung in eine Navigation
+image::joystick/curveJoy2.png[align="center"]
+
+In <<curve2>> sieht man die Verwendung der Kurve in _einem_ Input.
+
+[[curve2]]
+.Verwendung der Kurve aus <<curve1>> für den Joystick in y-Richtung
+image::joystick/curveJoy.png[align="center"]
+
+In <<curve3>> sieht man den Überblick über die gesamte Konfiguration aller _vier_ Inputs. Man achte auf die _Spiegelung_ der Kurve durch `!`.
+
+[[curve3]]
+.Konfiguration der alternativen Inputs 11...14 für die Bedienung
+image::joystick/inputsJoy2.png[align="center"]
+
+Der letzte Schritt besteht im _Einbau_ der Inputs in die Widget-Konfiguration: 
+
+[[curve4]]
+.Konfiguration des Widget zur Verwendung der alternativen Inputs
+image::joystick/widgetJoy2.png[align="center"]
+
+Diese Konfiguration kann sowohl für das _Bedienungswidget_ `wmsw` wie auch für das _Konfigurationswidget_ `wmswc` durchgeführt werden.
+
+==== Flugphasen
+
+Damit die (oft unbenutzten) zusätzlichen Trimm-Taster für die Bedienung der Widgets benutzt werden können, müssen Sie als Trimm-Funktion deaktiviert werden. 
+Die geschieht in der entsprechenden _Flugphase_, in der die Bedienung der Widgets möglich sein soll. Also am besten in allen Flugphasen bzw. in der 
+Flugphase `0`.
+
+[[flugph]]
+.Deaktivierung der Trimmer `T5` und `T6` in der Flugphase `0` (Darstellung im Companion)
+image::fp.png[align="center"]
+
+.Deaktivierung der Trimmer `T5` und `T6` in der Flugphase `0` (Darstellung im Sender)
+image::fm1.png[align="center"]
+
+=== Konfiguration des Modells (Sender mit `128x64`-Pixel oder `212x54`-Pixel _monochrome Display_: Typ-1)
+
+Die folgenden Einstellungen gelten nur für Sender mit `128x64`-Pixel oder `212x54`-Pixel _monochromem Display_.
+
+==== Telemetrie-Seiten
+
+Richten Sie je eine Telemetrie-Seite mit dem Skript `SCRIPTS/TELEMETRY/wmsw.lua` bzw.
+`SCRIPTS/TELEMETRY/wmswc.lua` ein.
+
+[CAUTION]
+Diese Sender haben sehr wenig RAM. Der Betrieb von _beiden_ o.g. Scripten _gleichzeitig_ ist oft nicht möglich und 
+kann zu unterschiedlichen Fehlermeldungen führen. Sollte das passieren, so können Sie eintweder nur das eine _oder_ 
+das andere Script einstellen. Die Einschränkung ist nicht so groß, da man das Konfigurationsscript ja nur 
+selten (in der Werkstatt) benötigt.
+
+==== Mixer-Script und Übertragungskanal
+
+Für die Einrichtung des passenden _Mixer_-Scripts und _Übertragungskanals_ folgende sie bitte 
+<<mixes>> bzw. <<channels>>.
+
+==== Geber und Flugphasen
+
+Die _Bedienung_ der Skripte erfolgt _vollständig_ über die normalen Bedienelemente für die 
+Benutzerschnittstelle: Navigationstasten bzw. Navigationsrad. Daher ist eine Konfiguration von 
+speziellen Gebern und Flugphasen nicht notwendig.
+
+=== Konfigurationsdateien
+
+[[config]]
+==== Die Datei `MODELS/swstd.lua` und weitere Dateien
+
+In dem Ordner `MODELS` des SD-Karte werden modellspezifische Menu-Konfigurationen abgelegt.
+
+Dabei gilt folgende Suchreihenfolge für ein Model mit dem Namen `ABC`:
+
+. `MODELS/ABC.lua`
+. `MODELS/swstd.lua` (bzw. `MODELS/swstdx.lua` für kleine Sender)
+
+Sinnvollerweise kopiert man die Datei `swstd.lua` in eine Datei `ABC.lua` für das Model `ABC` und editiert diese entsprechend 
+den eigenen Wünschen.
+
+In der Datenstruktur `menu` können an folgenden Elementen Veränderungen vorgenommen werden:
+
+* Namen der Funktionen (`menu.pages.items.name`)
+* Namen der Zustände (`menu.pages.items.states`)
+* Namen der phys. Schalter (`menu.pages.items.data.switch`)
+* Adresse des Moduls (`menu.pages.items.data.module`)
+
+.Unterscheidung zwischen `SBus` und `IBus`
+[NOTE]
+--
+Leider muss durch die Beschränkungen des `SBus`-Protokolls noch an einer zweiten Stelle ein Änderung vorgenommen werden. Damit die folgende Änderung 
+jeweils für ein bestimmtes Modell gültig ist, sollte sie auch in der modellspezifischen Datei bspw. `ABC.lua` vorgenommen werden:
+
+* Für `SBus`: der Parameter `useSbus = 1`
+* Für `IBus`, etc.: der Parameter `useSbus = 0`
+
+Achten Sie ebenfalls darauf, dass Sie das _dazu passende_ Mixer-Script `encsbm.lua`, `encxjt.lua` oder `encib.lua` eingerichtet haben (s.a. <<mixes>>).
+
+Diese Beschränkungen haben zur Folge, dass für `SBus` nur 16 verschieden Parameterwerte (etwa für den PWM-Wert oder das Blink-Intervall) eingestellt werden können.
+
+Am _unteren, rechten_ Rand des Widgets wird angezeigt, ob eine `SBus` oder `IBus` Konfiguration aktiv ist (zur Kontrolle).
+--
+
+.Ausschnitt A (aus der Datei `swstd.lua`, `swstdm.lua`, ...)
+[source,lua,linenums]
+----
+local name = "Default";
+
+local gVariable = 5;
+
+local useSbus = 1; -- only 4 states, only 16 parameter values <1>
+
+local gstates1 = {"aus", "ein", "blink1", "blink2"}; -- <7>
+local gstates2 = {"aus", "ein 1", "ein 2"};
+local gstates3 = {"Pos1", "Pos2", "Pos3", "Pos4", "Pos5"};
+
+local menu = {
+  title = "WM MultiSwitch",
+
+  scrollUpDn = "ls", -- direct navigating
+  scrollLR = "rs",
+
+  parameterDial = "s1",
+  
+  pageSwitch = "6pos";
+
+  remote = "trn16";
+
+  state = {
+    activeRow = 1,
+    activeCol = 1,
+    activePage = nil
+  },
+  pages = {
+    { -- template for digital multiswitch RC-MultiSwitch-D @ Address(1) 
+      items = { -- <2>
+        {name = "M1A", states = gstates1, state = 1, data = {switch = "sa", count = 1, module = 1}}, -- <3>
+        {name = "M1B", states = gstates1, state = 1, data = {switch = "sb", count = 2, module = 1}},
+        {name = "M1C", states = gstates1, state = 1, data = {switch = nil, count = 3, module = 1}},
+        {name = "M1D", states = gstates1, state = 1, data = {switch = "se", count = 4, module = 1}}, -- <5>
+        {name = "M1E", states = gstates1, state = 1, data = {switch = nil, count = 5, module = 1}},
+        {name = "M1F", states = gstates1, state = 1, data = {switch = nil, count = 6, module = 1}},
+        {name = "M1G", states = gstates1, state = 1, data = {switch = nil, count = 7, module = 1}},
+        {name = "M1H", states = gstates1, state = 1, data = {switch = nil, count = 8, module = 1}},
+      }
+    },
+    { -- template for digital multiswitch RC-MultiSwitch-D @ Address(2)
+      items = { -- <4>
+        {name = "M2A", states = gstates1, state = 1, data = {switch = "sc", count = 1, module = 2}},
+        {name = "M2B", states = gstates1, state = 1, data = {switch = "sd", count = 2, module = 2}},
+        {name = "M2C", states = gstates1, state = 1, data = {switch = nil, count = 3, module = 2}},
+        {name = "M2D", states = gstates1, state = 1, data = {switch = "se", count = 4, module = 2}}, -- <6>
+        {name = "M2E", states = gstates1, state = 1, data = {switch = nil, count = 5, module = 2}},
+        {name = "M2F", states = gstates1, state = 1, data = {switch = nil, count = 6, module = 2}},
+        {name = "M2G", states = gstates1, state = 1, data = {switch = nil, count = 7, module = 2}},
+        {name = "M2H", states = gstates1, state = 1, data = {switch = nil, count = 8, module = 2}},
+      }
+    },
+    ...
+};
+...
+----
+<1> Diese Namen für die Schaltzustände können frei gewählt werden.
+<2> Dies ist die Konfiguration für das Module mit der Adresse `1` (s.a. `module = 1`) auf der Seite `1` des Menus (der _erste_ `items` Block).
+<3> Den Namen der Funktion (`name = "M1A"`) können Sie beliebig ändern.
+<4> Dies ist die Konfiguration für das Module mit der Adresse `1` (s.a. `module = 2`)
+<5> Diese Funktion hat einen Schalter zugeordnet (`switch = "se"`).
+<6> Diese Funktion hat einen Schalter zugeordnet (`switch = "se"`). Da es derselbe Schalter ist, der schon für eine Funktion auf der Seite `1` verwendet wurde, ist dies 
+ein sog. _Overlay_ (im Menu dann besonders gekennzeichnet)
+<7> Dies sind die Namen der unterschiedlichen _Zustände_, die eine Funktion annehmen kann.
+
+Wird ein phys. Schalter _einer_ Schaltfunktion zugeordnet, dann kann diese Funktion _immer_ mit diesem Schalter bedient werden. Der Schalter ist dann 
+ein _ShortCut_ (Abkürzung).
+
+Wird ein phys. Schalter _mehr als einer_ Schaltfunktion zugeordnet, dann wird dieser Schalter _automatisch_ zu einem _Overlay_. Dies wird dann im Menu durch 
+ein `*` hinter dem Namen des Schalters dargestellt. Damit wirkt der Schalter dann _nur_ auf die zugeordnete Funktion der _altiven_ Menu-Seite (sichtbar).
+
+.ShortCuts (Abkürzungen)
+[CAUTION]
+Die physichen Schalter stellen gewissermaßen _ShortCuts_ (Abkürzungen) für die Bedienung des Menus dar. Deswegen darf _ein_ Schalter auch nur 
+_einer_ Funktion in der _gesamten_ Menu-Konfiguration zugeordnet werden. Das bedeutet, dass bspw. der Schalter `sa` immer auf die Funktion `Fun3` des 
+Moduls `1` wirkt, und zwar unabhängig, welches Menu gerade angezeigt wird (etwa das Menu vom Modul `2`). 
+
+.Overlays (Ebenen)
+[TIP]
+--
+Manchmal ist es wünschenswert, dass ein phys. Schalter nicht _immer_ auf _dieselbe_ Funktion wirkt, sondern dass man:
+
+. zwischen den Menus der angeschlossenen Schaltmodule wählen kann (Ebenenumschaltung), und dann
+. ein phys. Schalter abhängig von dem so gewählten Schaltmodul eine andere Bedeutung bekommt.
+
+Das bedeutet, dass bspw. der Schalter `sa` bei aktivem Menu des Moduls `1` auf dessen Funktion `Fun3` wirkt, bei aktivem Menu des Moduls `2` aber auf die 
+Funktion `Fun3` des Moduls `2`.
+
+Einige Modellbauer werden diese Funktion als _Ebenenumschaltung_ kennen. Bei analogen Schaltmodulen hat man eine Ebenenumschaltung dadurch realisiert, dann
+man mit einem Schalter und Mischern etwa den Ausgangskanal für das Zeitmultiplexsignal umgeschaltet hat, um mehrere analoge Schaltmodule zu erreichen. Damit 
+wurden die Schaltmodule _als Ganzes_ umgeschaltet. Bei `{mName}` ist dies flexibler bezogen auf individuelle Schalter möglich.
+--
+
+.Menuseiten und Schaltmodule
+[TIP]
+--
+Die Menu-Seiten mit jeweils 8 Zeilen müssen _nicht_ immer der Zuordnung zu den phys. Schaltmodulen entsprechen: auf einer Menu-Seite können 
+Funktionen _unterschiedlicher_ Schaltmodule untergebracht werden. Denn jedes Modul hat eine _Adresse_, und diese Adresse ist Bestandteil der Funktionsdefinition
+in der Datei. Man kann also die Menu-Seiten auch eher nach Funktionsgruppen strukturieren als nach Schaltmodulen.
+--
+
+==== Das Widget `WMSW/main.lua`
+
+In dieser Datei sind üblicherweise keine Änderungen notwendig.
+
+Dieses Widget ist die _Zentrale_ zur Bedienung aller Schaltfunktionen in allen Schaltmodulen. Am Beispiel der Datei `swstd.lua` sieht man 
+eine Gliederung der Funktionen in Gruppen zu je 8 Funktionen, die sich auf einem `{mName}` befinden. Für jeden Ausgang des `{mName}` 
+können dann die unterschiedlichen Zustände ausgewählt werden.
+
+Die Anwahl der Funktion und des Zustandes erfolgt mit `T5`-hoch und -herunter, die Selektion erfolgt mit `T6`-hoch. 
+
+Um auf die nächte Seite (für das nä. Schaltmodul `{mName}`) gelangen, navigiert man mit `T5`-herunter bis unter die letzte Zeile, oder mit 
+`T5`-hoch bis vor die erste Zeile des aktuellen Menus. Damit wird auf die anderen Menuseiten (andere `{mName}`-Module) umgeschaltet.
+
+Alternativ kann mit dem 6-Positionentaster `6pos` umgeschaltet werden (zwischen den _ersten_ 6 Seiten / Modulen).
+
+Zusätzlich steht `LS` zur schnellen Auswahl der Menuzeile und `RS` für die Spalte zur Verfügung.
+
+[[ConfigWidget]]
+==== Das Widget `WMSWC/main.lua` (Konfiguration)
+
+In dieser Datei sind üblicherweise keine Änderungen notwendig.
+
+Dieses Widget dient zur _Konfiguration_ aller Parameter jeder Funktion wie dem _Anlernen_ von Übertragungskanal sowie der Adresse eines Moduls
+
+Die einzelnen Parameter des Menus lassen die _nur_ mit `T5`-hoch und -herunter anwählen sowie `T6`-hoch selektieren. _Nach_ der Selektion wird das 
+Potentiometer `S1` zum Einstellen des Parameterwertes verwendet.
+
+ifndef::model[]
+
+.Die Bedeutung der Parameter für das Modul (allgemein)
+====
+* `RES`: Reset aller Werte der Funktion (Wert _muss_ auf `1` stehen, damit der Reset ausgeführt wird)
+* `PWN`: Einstellen der PWM-Modulation, kann direkt an der _Helligkeit_ der Kontroll-LED beobachtet werden. Beim `RC-ServoSwitch-D` wird hier die _Geschwindigkeit_ 
+eingestellt (1=langsam, 31=schnell).
+* `B1/I`: Intervall des Blinkens für Schaltzustand `blink1` bzw. _Position1_ (aus) beim `RC-ServoSwitch-D`
+* `B1/D`: Einschaltdauer des Blinkens für Schaltzustand `blink1`  bzw. _Position2_ beim `RC-ServoSwitch-D`
+* `B2/I`: Intervall des Blinkens für Schaltzustand `blink2` bzw. _Position3_ beim `RC-ServoSwitch-D`
+* `B2/D`: Einschaltdauer des Blinkens für Schaltzustand `blink2` bzw. _Position4_ beim `RC-ServoSwitch-D`
+* `PThu`: Der sog. PassThrough-Kanal: ein beliebiger `OpenTX`-Kanal (`1` ... `16`) kann zur Weiterleitung an den Ausgang des Schaltmoduls ausgewählt werden. 
+Beim `RC-ServoSwitch` kann bei einem Wert von `1` mit Hilfe des Kanals `1` des Senders (fest zugeordnet) die _Position1_ gelernt werden, beim einem Wert `2` 
+die _Position2_ u.s.w. Bei einem Wert von `11` wird der _Follow_-Mode als _Copy Positions_, bei einem Wert von `12` wird der _Follow_-Mode als `Own-Positions` 
+eingestellt, der Wert von `10` stellt wieder den normalen Bewegungsmodus ein.
+====
+
+Es existiert eine zusätzliche Seite (am Ende) mit modul-globalen Einstellungen.
+
+.Bedeutung der modul-globalen Parameter
+====
+* `Learn Ch/Adr`:  _Anlernen_ der Moduladresse _und_ des Übertragungskanals (s.a. <<learn>>)
+* `TMpx`: Zeitmultiplex-Verfahren für den Ausgang mit der jeweilige Adresse (nur bei `RC-MultiAdapter-DA`, s.u.)
+* `TMode`: 
+..  Anpassung der Impulslänge für ein/aus/ein im Zeitmultiplex-Verfahren für den Ausgang mit der jeweilige Adresse (nur bei `RC-MultiAdapter-DA`) 
+..  Testmuster (nur bei `RC-Quad-D`)
+* `OMpx`: Länge des Synchron-Impulses für analoge Schaltmodul (nur bei `RC-MultiAdapter-DA`), damit lassen sich Toleranzen der analogen Schaltmodule ausgleichen.
+====
+
+Bei der Einstellung des Zeitmultiplexverfahrens gelten folgende Zuordnungen von eingestelltem Wert und Verfahren (nur bei `RC-MultiAdapter-DA`):
+
+* Wert 0 -> Graupner-8K
+* Wert 1 -> Graupner-4K
+* Wert 2 -> Robbe
+* Wert 3 -> CP-Elektronik
+* Wert 4 -> unbenutzt
+* alle anderen Werte -> Graupner-8K
+
+.Einrichten von sog. Multi-Prop-Modulen
+[TIP]
+--
+Zum Betrieb von sog. Multi-Prop-Modulen ist es nötig, für die _gewünschten_ Kanäle Zuordnungen zu den `OpenTx`-Kanälen zu machen. Dies 
+macht man mit dem `PassThru`-Parameter (s.o.).
+
+Konfiguriert man _keinen_ `PassThru`-Kanal, so bewegt sich das dort angeschlossene Servo von _Endstellung_1_ über _Neutral_ zu _Endstellung_2_.
+--
+
+endif::[]
+
+ifeval::["{model}" == "quad"]
+
+.Die Bedeutung der Parameter für das Modul `{mName}`
+====
+* `RES`: Reset aller Werte der Funktion (Wert _muss_ auf `1` stehen, damit der Reset ausgeführt wird)
+* `PWN`: Einstellen PWM-_Startrampe_ beim _Anlaufen_ einer Funktion (1=schnell, 31=langsam).
+* `B1/I`: PWM-Grad für Richtung _vorwärts_. Der Kanal wird für 1 Sekunde eingeschaltet, dabei wird der Betriebsstrom gelernt.
+* `B1/D`: Strombegrenzung für Richtung _vorwärts_. Dies ist _relativ_ zum _gelernten_ Strom.
+* `B2/I`: PWM-Grad für Richtung _rückwärts_.
+* `B2/D`: Strombegrenzung für Richtung _rückwärts_. Dies ist _relativ_ zum _gelernten_ Strom.
+* `PT`: Der sog. PassThrough-Kanal: ein beliebiger `OpenTX`-Kanal (`1` ... `16`) kann zur Weiterleitung an den Ausgang des `{mName}` ausgewählt werden. Damit steuert man den PWM-Grad 
+in den Grenzen, die durch `B1/I` und `B2/I` gesetzt wurden.
+* `Ck`: Stromkennlinie für die Strombegrenzung im _PassThrough_-Betrieb (1=starke Abhängigkeit, 31=keine Abhängigkeit).
+====
+
+Es existiert eine zusätzliche Seite (am Ende, bzw. vor dem Anfang der Menu-Seiten, da diese zyklisch sind) mit modul-globalen Einstellungen.
+
+.Bedeutung der modul-globalen Parameter
+====
+* `Learn Ch/Adr`:  _Anlernen_ der Moduladresse _und_ des Übertragungskanals (s.a. <<learn>>)
+* `TMpx`: unrelevant
+* `TMode`: unrelevant
+* `OMpx`: unrelevant
+====
+
+endif::[]
+
+
+=== Physische Schalter und die Schaltzustände
+
+In den Konfigurationsdateien für die Modelle, also etwa `MODELS/ABC.lua` für das Modell mit dem Namen `ABC` kann man den einzelnen Funktionen
+phys. Schalter mit Hilfe ihrer _Namen_ zuweisen. Die Namen sind `sa`, `sb`, ... `se`, `sg` der 3-Positionen-Schalter. Damit kann man die ersten 
+drei Zustände `aus`, `ein` und `blink1` erreichen.
+
+==== ShortCuts / Abkürzungen
+
+Wird _einer_ Funktionen _genau_ ein Schalter zugewiesen, so ist dieser Schalter ein _ShortCut_ für die ersten drei Zustände dieser Funktion. 
+
+==== Overlays / Ebenenumschaltung
+
+Werden _mehreren_ Funktionen _derselbe_ Schalter zugewiesen, so ist dieser Schalter ein _Overlay_ für die ersten drei 
+Zustände dieser Funktionen. Dies bedeutet, dass dieses phys. Schalter nur dann aktiv sind, wenn das entsprechende 
+Menu _ausgwählt_ ist (etwa durch `6pos`). 

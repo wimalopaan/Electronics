@@ -1,0 +1,63 @@
+[[function]]
+== Funktion
+
+=== Bedienung der Schaltunktionen
+
+Mit dem Widget `WM MultiSwitch` können Schaltfunktionen ausgewählt werden. 
+
+Dies geschieht im Normalfall über `T5 - Up` und `T5 - Down` zur Navigation durch die Zeilen und Spalten des Menus. Mit `T6 - Up` kann eine Funktion ausgewählt
+(selektiert) werden. 
+
+Sind die beiden Schieber `LS` und `RS` vorhanden und erkannt worden, so kann mit `LS` in den Zeilen gescrollt werden und mit 
+`RS` in den Spalten des Menus.
+
+Sind im Menu _mehr_ als eine Seite (also _mehr_ als 8 Schaltfunktionen bzw. mehr als ein Schaltmodul) enthalten. so kommt man auf die nächste Seite, indem man auf
+den Eintrag _ganz unten rechts_ navigiert und dann noch einmal nach unten navigiert (`T5 - Down`). Entsprechend auf die vorige Seite.
+
+Wird der 6-Positionenschalter `6pos` erkannt, so kann damit schnell zwischen den ersten sechs Menu-Seiten navigiert werden.
+
+.ShortCuts
+
+Haben Schaltfunktionen _ShortCuts_ zugeordnet (_ein_ phys. Schalter: `sa` ... `sh`), so können diese Funktionen und die 
+_ersten drei_ Zustände mit diesem Schalter aktiviert werden. Dies gilt _unabhängig_ von der gerade angezeigten Menu-Seite. Daher der Name 
+_ShortCut_ (Abkürzung). Oft benötigte Funktionen sollte also mit einem _eindeutigen_ Schalter belegt werden.
+
+Der Name des Schalters (bspw.: `sg`) wird dann nach dem Funktionsnamen (bspw.: `Fun A`) angegeben: dann `Fun A/sg`.
+
+.Overlays / Ebenenumschaltung 
+
+Wurde eine Schalter _mehreren_ Funktionen zugordnet, so wird zu einem _Overlay_. Dies wird dann mit einem _zusätzlichen_ `!` nach dem Namen 
+gekennzeichnet: etwa `Fun A/sb!` und `Nuf C/sb!`. Der Schalter `sb` schaltet die Zustände von `Fun A` nur dann, wenn die Menu-Seite
+mit `Fun A` aktiv (sichtbar) ist. Ist die Seite mit `Nuf C` sichtbar, so schaltet der Schalter `sb` die Zustände von `Nuf C`. 
+
+=== Konfiguration
+
+Mit dem Widget `WM MultiSwitch Config` können Schaltfunktionen konfiguriert werden. 
+
+Dies über `T5 - Up` und `T5 - Down` zur Navigation durch die Zeilen und Spalten des Menus. Mit `T6 - Up` kann eine Funktion ausgewählt
+(selektiert) werden. 
+
+.Keine unmittelbare Rückmeldung
+[NOTE]
+--
+Im Gegensatz zu vielen anderen technischen Geräten, die über ein Menu-System konfiguriert werden, gibt es im Konfigurationsmenu hier nach der 
+_Selektion_ und dem _Einstellen_ eine _Parameterwertes_ keine besondere _Rückmeldung_ an den Benutzer über den Erfolg oder Misserfolg! Daher ist hier 
+sorgsam vorzugehen.
+
+Wird jedoch ein `RC-MultiAdapter-DA` über das Konfigurationsmenu _angesprochen_, so leuchtet die Kontroll-LED auf, um anzuzeigen, dass ein 
+Parameter des Moduls konfiguriert wird. Wechselt man wieder in das Funktionsmenu, so muss die Kontroll-LED erlischen.
+--
+
+.Delektion nach dem Einstellen eines Parameters
+[TIP]
+--
+Als Schutz vor einem unbeabsichtigen Ändern eines Parameterwertes, sollte man folgendermaßen vorgehen:
+
+. Zum Parameter navigieren
+. Parameter selektieren (oben rechts mit die Wertanzeige _invertiert_ erscheinen).
+. Parameterwert einstellen
+. *Zu einem anderen Parameter navigieren (ohne ihn zu selektieren)*. Die Invertierung der Wertanzeige ist beendet.
+
+Der letze Schritt hebt die vorige Selektion auf. Damit kann nichts mehr unbeabsichtigt verändert werden.
+--
+

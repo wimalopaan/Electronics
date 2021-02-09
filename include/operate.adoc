@@ -1,0 +1,62 @@
+[[Betrieb]]
+== Betrieb
+
+[TIP]
+Beachten Sie unbedingt die Anweisungen unter <<first>>.
+
+[NOTE]
+Die üblichen Sicherheitsvorkehrungen im Betrieb mit ferngesteuerten Modellen, insbesonder Schiffsmodellen sind einzuhalten.
+
+[IMPORTANT]
+Beachten Sie *alle* folgenden Hinweise zum Betrieb.
+
+[CAUTION]
+Eine Verwendung des Moduls in Rennbooten oder Flugmodellen ist nicht zulässig.
+
+[CAUTION]
+Das Modul darf nicht in Kontakt mit Wasser, Wasserdampf oder anderen Flässigkeiten kommen. Wasser oder Wasserdampf bzw. andere 
+Flüssigkeiten können zu einem Totalausfall 
+und damit zu einem Modellverlust sowie Personenschäden führen.
+
+[CAUTION]
+Das Modul verbraucht im Ruhezustand nur sehr wenig Strom. Trotzdem darf ein dauerhafter Anschluß an einen *unüberwachten* Akku nicht erfolgen.
+Hier besteht Brandgefahr! Gefahr von Personenschäden!
+
+[CAUTION]
+Beim Betrieb ist die Erwärmung des Moduls zwingend zu überwachen! Eine Überhitzung kann zu einem Totalausfall und damit 
+zu einem Modellverlust führen. Gefahr von Personenschäden!
+
+[CAUTION]
+Die Spannunsgversorgung ist Moduls ist im Betrieb zu überwachen. Bei Unterspannung kann das Modul abschalten oder bei gleichzeitiger 
+hoher Stromaufnahme überhitzen und so zu einem Totalausfall 
+und damit zu einem Modellverlust sowie Personenschäden führen
+
+[CAUTION]
+Die erforderlichen Kabelquerschnitte für die Verbindung mit dem Akku und auch mit dem elektrischen Verbraucher sind unbedingt einzuhalten. 
+Hier besteht Brandgefahr. Gefahr von Personenschäden!
+
+[CAUTION]
+Beim Betrieb ist der maximale Stromdurchfluß zu begrenzen und zu überwachen. Ein zu langer und zu hoher Stromfluß kann zu einem Totalausfall 
+und damit zu einem Modellverlust sowie Personenschäden führen.
+
+[CAUTION]
+Das Modul ist nicht kurzschlußfest. Ein Kurzschluß führt zu einem Totalausfall 
+und damit zu einem Modellverlust sowie Personenschäden.
+
+[CAUTION]
+Der maximale Schaltstrom ist ist unbedingt einzuhalten und darf nicht überschritten werden. Ein zu hoher Schaltstrom kann zu einem Totalausfall 
+und damit zu einem Modellverlust sowie Personenschäden führen.
+
+[CAUTION]
+Die Kapazitäten (Elkos, Siebelkos) am Ausgang des Moduls, etwa in Fahrtreglern (Stellern) für Motoren, 
+dürfen 10.000µF nicht überschreiten. Zu hohe Kapazitäten können zu einem Totalausfall 
+und damit zu einem Modellverlust sowie Personenschäden führen.
+
+[CAUTION]
+Das Modul darf keinen Vibrationen ausgesetzt werden. Treffen Sie entsprechende Vorkehrungen zu einem vibrationsgeschützten Einbau. Zu starke 
+Vibrationen können zu einem Totalausfall und damit zu einem Modellverlust sowie Personenschäden führen.
+
+[CAUTION]
+Das Modul darf nur innerhalb eines Temperaturbereiches von -10°C bis +55°C betrieben werden. Ein Betrieb außerhalb dieses 
+Bereiches kann zu einem Totalausfall und damit zu einem Modellverlust sowie Personenschäden führen.
+

@@ -1,0 +1,44 @@
+== Einbau 
+
+=== IBus oder SBus
+
+Die Module sind fest programmiert für `IBus` oder `SBus`-Eingangssignale. 
+
+*Zusätzlich* braucht man für den Anschluß an ein `SBus` noch einen *Signal-Inverter*. Dieser muss in die Zuleitung vom `SBus` zum 
+`RC Quad-D` oder `RC MultiAdapter-DA` oder `RC-MultiSwitch-D` eingeschleift werden (wie ein Verlängerungskabel).
+
+[[inverter]]
+.Einfacher Inverter mit einem Kleinsignal-MosFet
+image::inverter.png[pdfwidth=50%,align="center"]
+
+Ein Inverter wie in <<inverter>> kann einfach in ein Servokabel eingebaut werden.
+
+.SBus ist nicht gleich SBus
+[CAUTION]
+--
+Leider ist der _Werte-Bereich_, in denen die einzelnen Kanäle eines SBus-Signal skaliert werden, nicht wohl definiert, und 
+einige Hersteller legen unterschiedliche Grenzen des Wertebereiches fest. Dies führt zu Problemen!
+
+Als Referenz wurde der Wertebereich eines `FrSky R8X`- Empfängers zu Grunde gelegt.
+
+Abweichend hiervon sind:
+
+* `FlySky FS-iA4B` in der Einstellung `SBus,PWM`
+* `FlySky FS-iA6B` in der Einstellung `SBus,PWM`
+* `FlySky FS-iA10B` in der Einstellung `SBus,PWM`
+--
+
+Mit den o.g. Empfängern funktioniert das Modul derzeit nur im Modus `IBus,PWM` oder `IBus,PPM`.
+
+=== Anschluß an den Akku
+
+Achten Sie auf richtige Polung (auf der Platine markiert).
+
+=== Schutz 
+
+Um das Modul gegen Feuchtigkeit zu schützen, empfielt es sich, das Modul 
+mit Polyurethan-Lack-Schutzlack (z.B. Kontakt 70) zu überziehen. Bitte kleben Sie jedoch voher die Pfostenverbinder für alle externen Kontakte und die Pads für die weiteren 
+Anschlußkabel ab. Schützen Sie auch ggf. vorhandene Schraubklemmen.
+
+Ein Einschrumpfen mit Schrumpfschlauch ist auch möglich.
+

@@ -1,0 +1,13 @@
+== Rechtliches
+
+Der vorliegende Bausatz wird dem Anwender für eigene Experimente überlassen. Er stellt kein Produkt im Sinne des ProdHaftG 
+oder elektronisches Gerät im Sinne des ElektroG dar und wird als Gerät nicht kommerziell vertrieben. 
+
+[IMPORTANT]
+--
+Die Überlassung gegen Unkostenerstattung erfolgt unter Ausschluss jeglicher Sach­mangelhaftung.
+
+Für den vorliegenden Bausatz werden keine Funktionsgarantien gegeben. Für Schäden am Bausatz oder an damit verbundenen Geräten oder Modulen
+wird keine Haftung übernommen. Gewährleistungen, Garantien und Widerrufsrechte gibt es nicht.
+--
+

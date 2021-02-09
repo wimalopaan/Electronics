@@ -1,0 +1,193 @@
+[[tests]]
+== Fehlersuche und Tests
+
+ifeval::["{model}" == "quad"]
+Das `{mName}` kann dem Benutzer keine direkte Rückmeldung über ihre Einstellungen geben. Daher ist die 
+Fehlersuche auf ein klar strukturiertes Vorgehen angewiesen.
+endif::[]
+ifeval::["{model}" == "adapter"]
+Das `{mName}` kann dem Benutzer keine direkte Rückmeldung über ihre Einstellungen geben. Daher ist die 
+Fehlersuche auf ein klar strukturiertes Vorgehen angewiesen.
+endif::[]
+ifeval::["{model}" == "servo"]
+Das `{mName}` kann dem Benutzer keine direkte Rückmeldung über ihre Einstellungen geben. Daher ist die 
+Fehlersuche auf ein klar strukturiertes Vorgehen angewiesen.
+endif::[]
+ifeval::["{model}" == "switch"]
+Das `{mName}` kann dem Benutzer nur eingeschränkt direkte Rückmeldung über ihre Einstellungen geben. Daher ist die 
+Fehlersuche auf ein klar strukturiertes Vorgehen angewiesen.
+endif::[]
+
+
+Die häufigsten Fehlerquellen sind:
+
+* Unterscheidung `IBus` / `SBus` 
+** Unterscheidung `SBus` mit `XJT`-Sendemodul oder MPM-Sendemodul.
+* `SBus`-Inverter
+* Addressvergabe
+
+=== Checkliste `IBus`
+
+`IBus` ist ein Bus-System der Fa. _FlySky_ und kommt daher nur bei _FlySky_-Empfängern vor.
+
+.*Richtiger `IBus`-Ausgang*?
+
+An den Empfängern gibt es _zwei_ `IBus`-Ausgänger: `IBus`-Servo und `IBus`-Sensor. 
+Es muss der `IBus`-Servo Ausgang gewählt werden.
+
+.Aufbau mit einem Empfänger, der `IBus`-Servo liefert
+[ditaa]
+....
+
+ +----------------+      +---------------------+
+ |                |      |                     |
+ | Empfänger IBus | -+-> | RC_MultiSwitch_D    | --> Verbraucher
+ |                |  |   |                     |
+ +----------------+  |   +---------------------+
+                     |  
+                     |   +---------------------+
+                     |   |                     |
+                     +-> | RC_MultiAdapater_DA | --> analoge Schaltmodule
+                     |   |                     |
+                     |   +---------------------+
+                     |
+                     |   +---------------------+
+                     |   |                     |
+                     +-> | RC_ServoSwitch_D    | --> Servo
+                     |   |                     |
+                     |   +---------------------+
+                     |             
+                     |   +---------------------+
+                     |   |                     |
+                     +-> | RC_Quad_D           | --> Verbraucher / Motor
+                     |   |                     |
+                         +---------------------+
+                     ^               ^     
+                     :               |
+                     :               |
+                     :               |
+                IBus-Servo           |
+                                  IBus-Sensor
+....
+
+.*Korrekte Verkabelung*?
+
+Anders als beim `IBus`-Sensor werden beim `IBus`-Servo - wie bei einem Bus-System üblich - alle Teilnehmer _parallel_ geschaltet.
+
+ifeval::["{model}" == "adapter"]
+Beim `RC-MultiAdapter-DA` existieren keine _Kontroll-LEDs_. Man muss also zur Funktionskontrolle ein analoges Schaltmodul anschließen. Und auch hier an dessen
+Ausgänge z.B. Leuchtdioden zur Kontrolle anschließen sowie eine Spannungsversorgung.
+endif::[]
+
+.*Richtige Konfiguration Multi-Protokol-HF-Modul*?
+
+Das _MPM_ im Sender muss auf `MULTI FlySky_2A PWM,IBUS` oder `MULTI FlySky_2A PWM,IB16` eingestellt sein.
+
+.*Richtige Konfiguration des Models*?
+
+In den Konfigurationsdateien muss _ebenfalls_ der richtige Bus-Typ ausgewählt werden. Dies geschieht am Anfang der Konfigurationsdatei.
+
+.Ausschnitt aus der Datei `swstd.lua`, `swstdm.lua` oder `swstds.lua`
+[source,lua,linenums]
+----
+local name = "Default";
+
+local gVariable = 5;
+
+local useSbus = 0; -- only 4 states, only 16 parameter values <1>
+
+local gstates1 = {"aus", "ein", "blink1", "blink2"};
+local gstates2 = {"aus", "ein 1", "ein 2"};----
+----
+<1> Richtige Einstellung für `IBus` ist: `useSbus = 0`
+
+Achten Sie auf die korrekte Auswahl der Konfigurationsdatei (ggf. Name des Modells): der verwendete Name wird am Fuß des _Widget_ angezeigt.
+
+.*Korrektes Mixer-Script*?
+
+Es muss das Script `encib` eingerichtet sein.
+
+=== Checkliste `SBus`
+
+`SBus` wird von vielen Herstellen als Bus-System verwendet, so auch von der Fa. _FrSky_.
+
+.*Richtiger `SBus`-Ausgang*?
+
+Viele `SBus`-fähige Empfänger haben auch eine Telemetrie-Möglichkeit. Der dafür verwendete Bus heißt `S.Port` und ist anders am Empfänger gekennzeichnet.
+
+.Aufbau mit einem Empfänger, der `SBus`-Servo liefert
+[ditaa]
+....
+
+ +----------------+                              +---------------------+
+ |                |      +---------------+       |                     |
+ | Empfänger SBus |--+-> | SBus-Inverter |  -+-> | RC_MultiSwitch_D    | --> Verbraucher
+ |                |  |   +---------------+   |   |                     |
+ +----------------+  |                       |   +---------------------+
+                     |                       |  
+                     |                       |   +---------------------+
+                     |                       |   |                     |
+                     |                       +-> | RC_MultiAdapater_DA | --> analoge Schaltmodule
+                     |                       |   |                     |
+                     |                       |   +---------------------+
+                     |                       |  
+                     |                       |   +---------------------+
+                     |                       +-> |                     |
+                     |                       |   | RC_ServoSwitch_D    | --> Servos
+                     |                       |   |                     |
+                     |                       |   +---------------------+
+                     |                       |
+                     |                       |   +---------------------+
+                     |                       +-> |                     |
+                     |                           | RC_Quad_D           | --> Verbraucher / Motor
+                     |                           |                     |
+                     |                           +---------------------+
+                     |
+                     |       +-------------+
+                     +-----> | andere SBus |
+                             | Teilnehmer  |
+                             +-------------+
+                
+....
+
+.*Korrekte Verkabelung*?
+
+Für das `{mName}` benötigt man einen `SBus`-Inverter. _Andere_ `SBus`-Teilnehmer sind nach wie vor _vor_ 
+dem Inverter anzuschließen.
+
+ifeval::["{model}" == "adapter"]
+Beim `RC-MultiAdapter-DA` existieren keine _Kontroll-LEDs_. Man muss also zur Funktionskontrolle ein analoges Schaltmodul anschließen. Und auch hier an dessen
+Ausgänge z.B. Leuchtdioden zur Kontrolle anschließen sowie eine Spannungsversorgung.
+endif::[]
+
+.*Richtige Konfiguration des Models*?
+
+In den Konfigurationsdateien muss _ebenfalls_ der richtige Bus-Typ ausgewählt werden. Dies geschieht am Anfang der Konfigurationsdatei.
+
+.Ausschnitt aus der Datei `swstd.lua`, `swstdm.lua` oder `swstds.lua`
+[source,lua,linenums]
+----
+local name = "Default";
+
+local gVariable = 5;
+
+local useSbus = 1; -- only 4 states, only 16 parameter values <1>
+
+local gstates1 = {"aus", "ein", "blink1", "blink2"};
+local gstates2 = {"aus", "ein 1", "ein 2"};----
+----
+<1> Richtige Einstellung für `SBus` ist: `useSbus = 1`
+
+Achten Sie auf die korrekte Auswahl der Konfigurationsdatei (ggf. Name des Modells): der verwendete Name wird am Fuß des _Widget_ angezeigt.
+
+.*Korrektes Mixer-Script*?
+
+Je nach verwendetem HF-Modul im Sender ist eine Unterscheidung zu treffen:
+
+[horizontal]
+
+`XJT`-Modul:: es muss das Script `encxjt` eingerichtet sein.
+
+`MPM`-Modul:: es muss das Script `encsbm` eingerichtet sein.
+
+

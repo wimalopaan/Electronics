@@ -1,0 +1,102 @@
+[[first]]
+== Erste Einrichtung und Anlernen
+
+Im Auslieferungszustand sind die `{mName}` auf den Übertragungskanal `10` und die Adress `0` eingestellt. 
+Damit kann an einem Übertragungskanal natürlich nur ein Modul betrieben werden (jedes Modul _muss_ eine eigene eindeutige Adresse haben).
+
+[[learn]]
+=== Kanal und Adresse
+
+Das _Anlernen_ von _Kanal_ und _Adresse_ geschieht in _einem_ Schritt. Dazu _muss_ das zu konfigurierende `{mName}` 
+_allein_ am betreffenden `IBus` oder `SBus` hängen. Weiterhin sollten außer dem zu konfiguriereden Übertragungskanal 
+für die `{mName}`-Module alle anderen Übertragungskanäle im Sender _dekativiert_ werden (keine _Mischer_ aktivieren).
+
+.Spezielles Modell für das Anlernen der Module
+[TIP]
+--
+Um den Anlernvorgang zu erleichtern, kann man sich ein spezielles _Modell_ nur für das Anlernen einrichten. 
+Dieses Modell wird _niemals_ für die Steuerung eines realen Modells verwendet.
+Bei diesem Modell sind _alle_ Übertragungskanäle bis auf den Kanal für die digitalen Schaltmodule deaktiviert 
+(keine Mischer).
+
+Natürlich muss man dann im _realen_ Modell _denselben_ Übertragungskanal konfigurieren (Mischer).
+--
+
+.Anschluß des Moduls zum Anlernen
+[CAUTION]
+--
+* Dass anzulernende Modul _muss allein_ am IBus/SBus angeschlossen sein.
+* An den Ausgängen des Moduls dürfen keine Verbraucher angeschlossen sein (aus Sicherheitsgründen).
+--
+
+.Ablauf:
+
+. Sender und Empfänger sowie Schaltmodule aus.
+. Ein `{mName}` an den `IBus` oder `SBus` anschließen.
+. Die Mischer-Skripte `encsbm.lua`, `encxjt.lua` oder `encib.lua` für den gewünschten Übertragungskanal einrichten (s.o.).
+. Sender einschalten.
+. Konfigurationsmenu auswählen
+. Im Konfigurationsmenu auf der _letzten_ Seite (modul-spezifische Einstellungen) den Parameter `Learn Ch/Adr` selektieren. Oben rechts muss dann 
+der Wert dunkel unterlegt sein. Mit dem Potentiometer `S1` die _Adresse_ einstellen (Wert `1` ... `8` bedeutet Adresse `1` ... `8`).
+. Empfänger einschalten
+ifeval::["{model}" == "quad"]
+.. Die Logik des `{mName}` wird über den Empfänger versorgt. Ein Betriebsspannung für die Motoren ist zunächst nicht erforderlich.
+endif::[]
+ifndef::mName[]
+. Das zu konfigurierende Modul einschalten, sofern nicht über BEC versorgt
+endif::[]
+ifeval::["{model}" == "quad"]
+.. Die Kontroll-LED leuchtet für 3 Sekunden, anschließend blinkt sie `1` ... `8` mal, je nach eingestellter Adresse. 
+endif::[]
+ifeval::["{model}" == "adapter"]
+.. Die Kontroll-LED leuchtet für 3 Sekunden, anschließend blinkt sie `1` ... `8` mal, je nach eingestellter Adresse. 
+endif::[]
+ifeval::["{model}" == "servo"]
+.. Die Kontroll-LED leuchtet für 3 Sekunden, anschließend blinkt sie `1` ... `8` mal, je nach eingestellter Adresse. 
+endif::[]
+ifeval::["{model}" == "switch"]
+.. Entsprechend der gelernten Adresse leuchtet ein Kanal auf. 
+endif::[]
+.. Sollte dies nicht passieren, so wurde der Übertragungskanal nicht gefunden.
+. Nach ca. 2 weiteren Sekunden das `{mName}` zusammen mit dem Empfänger ausschalten.
+. Für weitere `{mName}` Module die nä. Adresse am Sender einstellen und selektieren.
+. Das nä. `{mName}` anschließen und einschalten
+. ...
+
+.Kontrolle:
+
+Nach dem Anlernen von Kanal und Adresse kann man auch sofort ins Bedien-Menu wechseln, dort die Seite für die Modul-Adresse 
+auswählen und kontrollieren, ob sich das Schaltmodul ansprechen lässt. Schalten Sie bspw. die erste Funktion in den Zustand `ein`. 
+
+ifeval::["{model}" == "quad"]
+Das Modul ist zur Funktionskontrolle natürlich mit einer externen Betriebsspannung zu versorgen und ein Verbraucher ist anzuschließen.
+endif::[]
+ifeval::["{model}" == "adapter"]
+Zur Kontrolle muss natürlich bspw. an den Ausgang 1 auch ein analoges altes Schaltmodul angeschlossen werden. Dies ist auch mit einer Betriebsspannung zu versorgen 
+und ein Verbraucher ist anzuschließen.
+endif::[]
+ifeval::["{model}" == "servo"]
+Zur Kontrolle ist natürlich ein Servo anzuschließen.
+endif::[]
+ifeval::["{model}" == "switch"]
+Ein Kontrolle kann auch _ohne_ externe Verbraucher durchgeführt werden.
+endif::[]
+
+Andernfalls ist der Anlernvorgang zu wiederholen.
+
+ifeval::["{model}" == "adapter"]
+
+=== Adressen beim `RC MultiAdapter-DA`
+
+Weil der `RC MultiAdapter-DA` insgesamt 5 alte Schaltmodule ansteuern kann, belegt er auch 5 
+_unmittelbar aufeinanderfolgende_ Adressen.
+
+Damit gilt das folgende Schema für die Zuordnung von Adressen zu den Ausgängen des `RC MultiAdapter-DA` und den daran angeschlossenen Schaltmodulen:
+
+* erlernte Adresse `A` -> Ausgang `S2`
+* Adresse `(A+1)` -> Ausgang `S1`
+* Adresse `(A+2)` -> Ausgang `Q0`
+* Adresse `(A+3)` -> Ausgang `S3`
+* Adresse `(A+4)` -> Ausgang `S4`
+
+endif::[]
