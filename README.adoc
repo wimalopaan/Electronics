@@ -20,3 +20,7 @@ Bla
 
 
 {rcb}/rcincr.html[RC Inkr]
+
+== License
+
+Siehe auch link:LICENCE[Lizenz]
