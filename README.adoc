@@ -16,11 +16,20 @@ Hier finden Sie Informationen zu den von mir entworfenen RC-Elektronik-Modulen, 
 
 == RC-Elektronik-Module
 
+[[msd]]
 === RC-Multiswitch-D
+
+Anleitung: {rcb}/rcmultiswitch.html[RC MultiSwitch] {rcb}/rcmultiswitch_r.pdf[pdf]
+
+Anleitung (Hott): {rcb}/rcmultiswitch_h.html[RC MultiSwitch] {rcb}/rcmultiswitch_h_r.pdf[pdf]
 
 === RC-MultiAdapter-DA
 
+s.a. <<msd,RC-MultiSwitch-D>>
+
 === RC-ServoSwitch-D
+
+s.a. <<msd,RC-MultiSwitch-D>>
 
 === RC-Quad-D
 
