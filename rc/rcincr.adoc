@@ -1,0 +1,426 @@
+= RC Inkremental 
+Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
+:revnumber: 0.1
+:revremark: HW_0.1
+:revdate: 01.01.1970
+:lang: de
+:toc:
+:toc-title: Inhalt
+:toclevels: 4
+:numbered:
+:pagenums:
+:src_numbered: 
+:icons: font
+:icontype: svg
+:figure-caption: Abbildung
+:description: RC Inkremental
+:title: RC Inkremental : Inkrementalgeber für RC-Sender
+:title-page:
+:sectanchors:
+:sectlinks:
+:experimental:
+:copyright: Wilhelm Meier
+:duration: 90
+:source-highlighter: pygments
+:pygments-css: class
+:showtitle:
+:docinfo1:
+:stem:
+// for attributes in link:[] macro like link:xxx[window="_blank"]
+:linkattrs:
+
+:imagesdir: ../../doc/images
+:idir: ../../doc
+
+:mName: RC-Incr
+:model: incr
+
+include::{idir}/defs.adoc[]
+
+<<<
+
+include::{idir}/preface.adoc[]
+ 
+<<<
+
+include::{idir}/symbols.adoc[]
+
+include::{idir}/law.adoc[]
+
+include::{idir}/security.adoc[]
+
+<<< 
+
+== Einführung
+
+Der `RC-Inkremental` ist ein sog. _Inkrementalgeber_. Dies ist ein _Drehgeber_ ähnlich wie ein Potentiometer, 
+jedoch kann dieser Geber beliebig oft gedreht werden. Er besitzt _keinen_ Anschlag wie ein Potentiometer. 
+Man kennt diese Art von Gebern etwa aus der Unterhaltungselektronik oder anderen Bedienfunktionen. 
+
+Zusätzlich besitzt der Geber noch einen _Taster_.
+
+Der `RC-Inkremental` hat die Baugröße eines Potentiometers und kann auch als solches eingebaut und an die 
+Senderelektronik angeschlossen werden. Allerdings sind auch noch andere Anschlussmöglichkeiten vorgesehen.
+
+=== Ansicht
+
+
+In den Bildern <<top>> und <<bottom>> ist jeweils die Ansicht von oben und unten abgebildet. 
+
+Die Maße betragen ca. 15mm x 15mm. Die Welle des Drehgebers hat einen Durchmesser von 6mm.
+Die Befestigung erfolgt mit einer zentralen Mutter. Der Durchmesser des Bohrlochs muss 7,5mm betragen.
+
+[[top]]
+.Ansicht des Inkrementalgebers von oben
+image::{localimages}/top.PNG[align="center"]
+
+[[bottom]]
+.Ansicht des Inkrementalgebers von unten
+image::{localimages}/bottom.PNG[align="center"]
+
+Die Spannungsversorgung erfolgt vom Sender über den Pfostensteckverbinder.
+
+* `Pin 1`: Masse 
+* `Pin 2`:
+** Konfigurations-Modus: Kontrollleuchte
+** `Poti`-Modus: analoges Gebersignal
+** `Cppm-Master`: Verbindung zum _Slave_
+** `Cppm-Slave`: Verbingung zum _Master_
+* `Pin 3`:
+** `Poti`-Modus: Taster
+** `Cppm-Master`: `Cppm`-Signal zur Verbing zur `DSC`-Buchse des Senders
+** `Cppm-Slave`: unbenutzt
+* `Pin 4`: `V+` (<= 5,5V) Versorgungsspannung
+
+.Achtung
+[CAUTION]
+--
+Die *maximale Spannung* (Senderspannung) darf 5,5V *nicht* überschreiten. Eine höhere Spannung kann das 
+Modul zerstören, ebenso eine Verpolung. Um einen zuverlässigen Betrieb
+zu gewährleisten, sollte die Betriebsspannung *nicht* unter 2,8V sinken. 
+--
+
+[[connect]]
+.Anschlüsse
+image::{localimages}/top2.png[align="center"]
+
+== Einbau
+
+Der Einbau erfolgt unproblematisch über ein zentrales Loch mit 7,5mm Durchmesser an einer geeigneten Stelle 
+im Sendergehäuse. Stellen Sie sicher, dass _hinter_ dem Loch auch genügend Platz ist, um die mit dem Drehgeber 
+verbundene, kleine Platine zu platzieren. 
+
+Vergessen Sie auch nicht, ggf. noch die Höhe eines Steckverbinders einzuplanen.
+
+Wenn Sie ein neues Loch in das Sendergehäuse bohren, vergewissern Sie sich, dass _hinter_ dem geplanten Bohrloch 
+keine weiteren Kabel verlaufen, die ggf. beschädigt werden könnten.
+
+== Konfiguration
+
+Die Konfiguration des Gebers wird beim _Einschalten_ eingestellt. Ist der Geber schon im Sender eingebaut, 
+so muss dazu der Sender eingeschaltet werden. In diesem Fall sollte man besondere Vorsicht walten lassen, um 
+den Sender nicht zu beschädigen.
+
+.Empfehlung für die Konfiguration
+[TIP]
+Es wird empfohlen, für die Konfiguration das Modul _nur_ mit der Spannungsversorgung und der Kontrollleuchte zu
+verbinden. Idealerweise erfolgt die Konfiguration _vor_ dem Einbau.
+
+=== LED zur Kontrolle der eingestellten Konfiguration
+
+Da der Inkrementalgeber nicht in der Lage ist, seine Konfiguration direkt dem Benutzer zurück zu melden, sollte 
+man sich eine LED *mit* Vorwiderstand (390 Ohm) als Kontrollleuchte wie in <<led>> anfertigen.
+
+Die _Anode_ wird über den Vorwiderstand mit dem `Pin 2` des 4-poligen Pfostensteckverbinders verbunden.
+
+[[led]]
+.Kontrollleuchte
+image::{localimages}/wirering1.svg[align="center",width=75%,pdfwidth=75%]
+
+Die Kontrollleuchte zeigt mit einem Blinkmuster an, welche Konfiguration gerade gewählt ist.
+
+=== Konfigurationsmodus
+
+Um in den _Konfigurationsmodus_ zu gelangen, muss _beim Einschalten_ der Taster mindestens 3s lang gedrückt (gehalten) 
+werden. Anschließend beginnt die Kontrollleuchte mit einem Blinkmuster.
+
+Folgende Konfigurationen <<configs>> sind möglich: 
+
+. 1x Blinken: Poti-Modus <<c1>>
+. 2x Blinken: Cppm-Master-Modus <<c2>>
+. 3x Blinken: Cppm-Slave-Modus <<c3>>
+
+[[configs]]
+=== Konfigurationen
+
+[[c1]]
+==== Poti-Modus
+
+Der Inkrementalgeber verhält sich wie ein Potentiometer (Spannungsteiler). 
+
+Der Poti-Ausgang kann mit einem Geber-Eingang des Senders verbunden werden. Die Ausgangsspannung der Gebers 
+kann maximal 2,5V erreichen. Diese bedeutet, dass der Sender ggf. auf das Spannungsintervall `[0;2,5]V` 
+für diesen Geber kalibriert werden muss.
+
+Der Taster-Ausgang kann ebenfalls mit einem Eingang des Senders verbunden werden. Die Spannung am 
+Ausgang dieses Ausgangs umfasst das Intervall `[0;U_b]` mit `U_b` die interne Betriebsspannung des Senders.
+
+
+[[bc1]]
+.Verkabelung im `Poti`-Modus
+image::{localimages}/wirering_p.svg[align="center",width=75%,pdfwidth=75%]
+
+[[c2]]
+==== Cppm-Master-Modus
+
+Es gibt Situationen, in denen im Sender auf der Hauptplatine des Senders keine Möglichkeit mehr besteht, 
+einen oder zwei weitere Geber direkt anzuschließen. Jedoch bietet (fast) jeder Sender die Möglichkeit zu einem 
+Betrieb im sog. _Lehrer-/Schüler_-Betrieb (LS) an. 
+
+In diesem Fall generiert dann der Inkrementalgeber ein übliches _Schüler_-Signal, was über den LS-Eingang 
+eingespeist werden kann. Dies kann über die vorhandene externe LS-Buchse im Sender erfolgen. Besonders wenn der Geber 
+ggf. extern am Sender montiert wird, ist dies sinnvoll und einfach. Jedoch benötigt der Geber auch eine Spannungsversorgung 
+aus dem Sender. Dazu ist u.U. ein weiteres Kabel notwendig. Denn die meisten Sender stellem an der LS-Buchse _keine_ 
+Spannungsversorgung zur Verfügung. 
+
+Die LS-Buchse wird auch oft als `DSC`-Buchse bezeichnet.
+
+Meistens sinnvoller ist die Verkabelung zur `DSC`-Buchse im Sender intern. Dazu muss vom `Cppm`-Pin des 
+Gebers ein Kabel zur `DSC`-Buchse gezogen werden. Welcher Pin der Buchse das ist, kann nicht mit Sicherheit 
+allgemein gesagt werden. Es ist _üblicherweise_ der der Spitze des 3,5mm-Klinkensteckers zugeordnete Pin. 
+leider gibt es auch viele andere Ausführungen der `DSC`-Buchse.
+
+Der Werte des Inkrementalgebers steht als Schülersignal Kanal `1`, und der des Tasters 
+als Schülersignal Kanal `2` zur Verfügung.
+
+[CAUTION]
+Ist der Inkrementalgeber intern an die `DSC`-Buchse wie oben beschrieben angeschlossen, so 
+kann die `DSC`-Buchse *nicht* mehr als _normale_ Schülerbuchse verwendet werden.
+
+[[bc2]]
+.Verkabelung im `Cppm-Master`-Modus
+image::{localimages}/wirering_m.svg[align="center",width=75%,pdfwidth=75%]
+
+[[c3]]
+==== Cppm-Slave-Modus
+
+Damit man einen _weitere_ Inkrementalgeber anschließen kann, wenn der Sender keine direkte Anschlussmöglichkeit 
+mehr hat _und_ schon ein Inkrementalgeber im `Cppm-Master`-Modus eingebaut ist, kann man 
+_einen_ weiteren Inkrementalgeber im `Cppm-Slave`-Modus an den `Cpmm-Master` anschließen.
+
+Der Werte des Inkrementalgebers steht als Schülersignal Kanal `3`, und der des Tasters 
+als Schülersignal Kanal `4` zur Verfügung.
+
+[[bc3]]
+.Verkabelung im `Cppm-Slave`-Modus
+image::{localimages}/wirering_s.svg[align="center",width=75%,pdfwidth=75%]
+
+== Bedienung
+
+Die Rotation des Inkrementalgebers kann unterschiedliche Ausgangswerte produzieren:
+
+. Modus: Absolutwerte mit _direktem Übergang_ vom maximalen zum minimalen Wert und umgekehrt (_wrap-around_).
+. Modus: Absolutwerte mit _Begrenzung_ auf den maximalen bzw. minimalen Wert (_no wrap-around_).
+. Modus: Wert protortional zur Änderungsrate des Gebers (_echter_ Inkrementalbetrieb). 
+
+Die _Umschaltung_ zwischen diesen Betriebsarten wird durch eine _langen_ Tastendruch (> 3s) erreicht. 
+Es erfolgt keine _direkte_ Rückmeldung an den Benutzer. Nach einem derartigen Umschalten muss 
+das Verhalten durch Drehen am Geber verifiziert werden.
+
+Die Einstellung wird gespeichert.
+
+== Anwendungen
+
+Es folgen einige Einsatzbeispiele des Inkrementalgebers.
+
+=== Bewegungen mit natürlicher Begrenzung
+
+Beispiele für Bewegungen mit _natürlicher_ Begrenzung im Modell sind etwa:
+
+* Segelwinde
+* Kranausleger auf/ab
+* Lukendeckel 
+
+Sofern diese Abläufe protortional bedient werden sollen, haben die in jeder Richtung einen _maximalen_
+Ausschlag.  In diesem Fall ist eine Bedienung im 2. Modus (_ohne_ direktem Übergang der Extremwerte) sinnvoll.
+
+=== Kontinuierliche Drehbewegungen am Modell
+
+Es gibt Bewegungen im Modell die grundsätzlich kontinuierlich im Kreis erfolgen sollen / können.
+Dazu zählt etwa:
+
+* Schottelbewegung
+* Krandrehung
+* Löschmonitor- / Geschützturm-Drehung
+
+Werden hierzu im Modell sog. 360°-Servos (mit Rückmeldung) so kann mit dem Inkrementalgeber dies auch so 
+am Sender bedient werden. Ein permanentes Drehen des Gebers in eine Richtung wird dann auch als eine solche Rotation 
+im Modell in eine Richtung umgesetzt - eben auch beliebig oft hinterweinander im Kreis.
+
+[TIP]
+Diese Betriebsart benötigt im Modell spezielle Servos und (meistens) eine spezielle Ansteuerelektronik 
+(s.a. Schottelsteuerung).
+
+=== Ebenenumschaltungen
+
+Als sog. _Ebenenumschaltung_ bezeichnet man oft das Verteilen (Umschalten) _eines_ Gebers auf _unterschiedliche_ 
+Kanäle. Die Umschaltung wird durch ein weiteres Bedienelement im Sender gemacht. Bei mehr als 2 Ebenen werden 
+dadurch also Bedienelemente im Sender eingespart. Natürlich kann dann immer nur die Funktion der entsprechenden 
+Ebene an den Empfänger übermittelt werden.
+
+Die _Ebenenumschaltung_ hat jedoch ein Problem (sofern sie ausschließlich im Sender realisiert wird):
+
+* Der Geber wird auf eine bestimmte Position `P1` eingestellt.
+* Das in dieser Ebene / Kanal `E1` angeschlossene Servo folgt der Bewegung.
+* Die Ebene wird umgeschaltet auf Ebene `E2`.
+* Das in dieser Ebene / Kanal `E2` angeschlossene Servo bewegt sich _schlagartig_ auf die Position `P1`
+* u.s.w.
+
+Dies ist natürlich nicht erwünscht.
+
+Das o.g. Problem lässt sich mit einem selbstneutralisierenden Geber lösen. Die selbstneutralisierenden 
+Knüppelaggregate eines jeden Senders sind dazu geeignet. Wird hier dann in Neutralstellung der Knüppel 
+umgeschaltet, so passiert dies ja immer von der Neutralposition des Servos der einen Ebene auf die Neutralposition 
+des Servos der anderen Ebene. Die Servos bewegen sich also nicht beim Umschalten. Nachteilig ist hier, dass 
+die Umschaltung nur in der Neutralstellung des Knüppels erfolgt (sofern man ihn beim Umschalten auch loslässt). 
+Oder anders ausgedrückt: vor dem Umschalten der Ebenen fährt das beteiligte Servo zunächst in die 
+Neutralposition.
+
+Ggf. hat man aber auch keine _selbstneutralisierenden_ Geber mehr frei am Sender. In diesem Fall kann man 
+den RC-Inkrementalgeber im Modus `3` benutzen. Dreht man _nicht_ am Inkrementalgeber, so ist sein Ausgangswert 
+auch `0` so wie einem selbstneutralisierenden Knüppel.
+
+==== Der Geschwingkeit/Weg-Umformer (Integrator)
+
+Wesentlich eleganter lässt sich die Ebenenumschaltung realisieren, wenn man den Wert, der von dem selbstneutralisierenden 
+Geber (Inkrementalgeber, Knüppel) nicht als Absolutwert auffasst, sondern als eine _Geschwindigkeit_, mit der sich 
+das Servo am Ausgang bewegen soll: ist der Wert des Gebers groß, so dreht sich das Servo schnell, ist der Wert klein, 
+so dreht es sich langsam, und ist der Wert `0`, so bleibt das Servo an der erreichten Position stehen. 
+
+Diese Funktion ist ein _Geschwindigkeit / Weg_-Umformer (mathematisch: Integrator). Einige wenige Sender haben 
+diese Funktion eingebaut, bei _OpenTx_ wird dies durch ein _Mischerscript_ bereitgestellt.
+
+==== Konfiguration in `OpenTx`
+
+Im folgenden wird eine Ebenenumschaltung für 3 Ebenen exemplarisch eingerichtet. Dabei wird das 
+folgende Schema zu Grunde gelegt:
+
+* Ausgang der Ebene 1: Kanal 1
+* Ausgang der Ebene 2: Kanal 2
+* Ausgang der Ebene 3: Kanal 3
+* Schalter zum Umschalten der 3 Ebenen: `SA` 
+* Inkrementalgeber: Schülersignal Kanal 1 `TR1`
+
+[[setin]]
+===== Einrichten der Inputs (Geber)
+
+Zunächst werden die virtuellen Geber (_Inputs_) eingerichtet. Ziel ist es ja, den _einen_ physischen Geber
+(Inkrementalgeber) durch den Schalter `SA` zu _verdreifachen_: je nach Schalterstellung von `SA` soll der 
+Wert des physischen Inkrementalgebers als Wert des ausgewählten _Inputs_ zur Verfügung stehen. Die anderen beiden 
+_Inputs_ sollen in diesem Fall den Wert `0` liefern.
+
+[[inputs]]
+.Übersicht der `Inputs` (Geber) mit der jeweiligen Aktivierung durch den Schalter `SA`
+image::{localimages}/inputs.png[align="center"]
+
+Um die <<inputs, obige>> Menge an _Inputs_ einzustellen, verfahren wir für jeden der _Inputs_ nach dem folgenden 
+Muster (<<input1>>):
+
+[[input1]]
+.Einrichtung des `Inputs 1`
+image::{localimages}/input1.png[align="center"]
+
+Man beachte die Wahl der Quelle (hier: `TR1`) und die Aktivierung des _Input_ durch die gewünschte 
+Schalterstellung von `SA`.
+
+Ähnlich verfahren wir mit dem _Input 2_ (<<input2>>). Hier wählen wir natürlich die zweite Schalterstellung von `SA` 
+als Aktivierung:
+
+[[input2]]
+.Einrichtung des `Inputs 2`
+image::{localimages}/input2.png[align="center"]
+
+Auch _Input 3_ (<<input3>>) ist wie oben aufgebaut, jedoch auch wieder mit einer _anderen_ Schalterstellung von `SA`:
+
+[[input3]]
+.Einrichtung des `Inputs 3`
+image::{localimages}/input3.png[align="center"]
+
+Damit sollte sich die Situation <<inputs>> ergeben.
+
+[[setlua]]
+===== Einrichten des Mischerscriptes
+
+Zunächst muss das Mischerscript zur _Geschwindigkeit / Weg_-Umformung eingerichtet werden.
+Das https://github.com/wimalopaan/OpenTxLua/blob/main/SCRIPTS/MIXES/increm.lua[Script] wird auf die 
+SD-Karte des Sender unter `SCRIPTS/MIXES/` kopiert. 
+
+Dann wird es im Sender geladen. Dies geschieht im Menue `LUA-Scripte`:
+
+[[lua]]
+.Das leere Menue `LUA-Skripte`
+image::{localimages}/lua.png[align="center"]
+
+Hier selektieren wir die erste Zeile. Im Dialog für das Script, wählen wir zunächst 
+das `Lua Skript` aus: `increm`. 
+
+Im Dialog für dieses _erste_ Mischerscript (<<lua1>>) ist zunächt die Einstellung für den _Input_ wichtig: 
+dieser _Geschwindigkeit / Weg_-Umformer soll ja den Wert des _Input 1_, also den Wert des ersten _virtualisierten_ 
+Inkrementalgebers in einen Weg (Ausschlag) umformen (ausummieren). Deswegen stellen wir hier als _Input_ 
+den _Input 1_ ein:
+
+[[lua1]]
+.Das erste Mischerscript
+image::{localimages}/lua1.png[align="center"]
+
+Es kann sein, dass für eine konkrete Anwendung der Inkrementalgeber zu oft gedreht werden muss, um den 
+gewünschten Ausschlag des Servos zu erzielen. In diesem Fall kann die _Skalierung_ geändert (erhöht) werden. U.U. kann 
+es sinnvoll sein, den Ausgangswert dieses Umformers auf `0` zu setzen: dies kann durch die Eintragung eines 
+Schalters / Tasters bei `Reset` erreicht werden.
+
+So wie in <<lua1>> verfahren wir analog für den _zweiten_ (<<lua2>>) und den dritten (<<lua3>>) Umformer.
+
+[[lua2]]
+.Das zweite Mischerscript
+image::{localimages}/lua2.png[align="center"]
+
+[[lua3]]
+.Das dritte Mischerscript
+image::{localimages}/lua3.png[align="center"]
+
+Am Ende dieses Schrittes ergibt sich dann die folgende (<<lua4>>) Übersicht an Mischerscripten:
+
+[[lua4]]
+.Das endgültige Menue `LUA-Skripte`
+image::{localimages}/lua4.png[align="center"]
+
+[[setmix]]
+===== Einrichten der Mischer für die Ebenen 1...3
+
+Nach den Schritten <<setin>> und <<setlua>> stehen nun an den Ausgängen der _Mischerscripte_ die gewünschten 
+Werte zur Verfügung: jeder der _virtualisierten_ Inkrementalgeber wird von einer _Geschwindigkeit_ in einen 
+_Servoweg_ umgeformt. Nun sollen diese Werte noch an den Kanälen 1...3 zum Empfänger übertragen werden.
+
+Für jeden der Kanäle 1 ... 3 richten wir wie üblich einen Mischer ein. Jeder diese Mischer ist allerdings in einem 
+Punkten besonders:
+
+* Der Eingang ist nicht wie üblich ein sog. `Input`, sondern jeweils eines der drei Mischerscripte.
+
+.Achtung: Auswahl des Mischerscriptes
+[TIP]
+Wir haben zwar für jede Ebene ein eigenes Mischerscript eingerichtet, jedoch tragen sie alle _denselben_ Namen, 
+und sie werden leider bei der Auflistung im Michermenue von `OpenTx` _nicht_ unterschieden. Man muss also 
+bei der Auswahl _mitzählen_, welches der Scripte (1...3) man selektiert.
+
+[[mixer1]]
+.Einrichtung der Mischer für die drei Ebenen auf den Kanälen 1...3
+image::{localimages}/mix1.png[align="center"]
+
+
+<<<
+
+include::{idir}/operate.adoc[]
+
+<<<
+
+include::{idir}/contact.adoc[]
