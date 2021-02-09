@@ -49,6 +49,8 @@ Anleitung: {rcb}/onoff_simple.html[DIY RC Hauptschalter] {rcb}/onoff_simple_r.pd
 
 === RC-Akkuweiche
 
+Anleitung: {rcb}/power_or.html[Akkuweiche] {rcb}/power_or_r.pdf[pdf]
+
 === RC-BEC-Weiche
 
 === RC-Inkrementalgeber
