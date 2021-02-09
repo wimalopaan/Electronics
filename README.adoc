@@ -45,6 +45,10 @@ s.a. <<msd,RC-MultiSwitch-D>>
 
 Anleitung: {rcb}/rcquad.html[RC Quad] {rcb}/rcquad_r.pdf[pdf]
 
+=== RC-ThreeSixty-D
+
+Schottelsteuerung
+
 === RC-Led-D
 
 === RC-Cellwatch
@@ -76,6 +80,12 @@ Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
 === Wassermelder
 
 === Elektronischer Schalter
+
+== OpenTx
+
+=== Schottelsteuerung
+
+=== Voith-Schneider-Steuerung
 
 == Anleitungen
 
