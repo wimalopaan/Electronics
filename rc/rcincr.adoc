@@ -38,14 +38,14 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
-ifdef::env-github[]
+//ifdef::env-github[]
 :imagesdir: ../include/images
 :idir: ../include
-endif::[]
-ifndef::env-github[]
-:imagesdir: ../../doc/images
-:idir: ../../doc
-endif::[]
+//endif::[]
+//ifndef::env-github[]
+//:imagesdir: ../../doc/images
+//:idir: ../../doc
+//endif::[]
 
 :mName: RC-Incr
 :model: incr
