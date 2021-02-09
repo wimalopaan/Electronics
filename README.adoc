@@ -1,12 +1,22 @@
 = RC Elektronik
 
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+
 :ddir: https://wimalopaan.github.io/Electronics
 :rcb: {ddir}/rc/boards
 
 
+[TIP]
+--
+Bla
+--
+
 == Module
 
 
-https://wimalopaan.github.io/Electronics/rc/boards/rcincr.html[RC Inkr]
 
 {rcb}/rcincr.html[RC Inkr]
