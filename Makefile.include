@@ -1,0 +1,262 @@
+# -*- mode: makefile-gmake; -*-
+#
+# WMuCpp - Bare Metal C++ 
+# Copyright (C) 2016, 2017, 2018 Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+export LC_ALL=C
+
+.PHONY: all clean subclean subdirs ${subdirs}
+
+all: $(targets) subdirs
+
+subdirs: ${subdirs}
+
+${subdirs}:
+	@if [ -d $@ ]; then ${MAKE} -C $@ all; fi
+
+CCSRC = $(wildcard *.cc)
+CCOBJ = $(patsubst %.cc, %.o, $(CCSRC))
+CCDEP = $(patsubst %.cc, %.d, $(CCSRC))
+CCASM = $(patsubst %.cc, %.s, $(CCSRC))
+
+CSRC = $(wildcard *.c)
+COBJ = $(patsubst %.c, %.o, $(CSRC))
+CDEP = $(patsubst %.c, %.d, $(CSRC))
+CASM = $(patsubst %.c, %.s, $(CSRC))
+
+HSRC = $(wildcard *.h)
+
+SRC += $(CCSRC) 
+SRC += $(CSRC) 
+
+OBJ += $(CCOBJ)
+OBJ += $(COBJ)
+
+ASM += $(CCASM)
+ASM += $(CASM)
+
+DEP += $(CCDEP)
+DEP += $(CDEP)
+
+MCUFLAGS = -mmcu=$(MCU)
+
+SIMAVR = ~/Projekte/simavr/simavr/run_avr
+
+AXTRACTOR = $(HOME)/Projekte/wmgit/extract/axtractor
+EXTRACTOR = $(HOME)/Projekte/wmgit/extract/extractor
+EXTRACTDIR = .extractor
+EXTRACTDIRNC = .extractornc
+SRCHI = source-highlight
+
+cchtml = $(patsubst %.cc, %.cc.html, $(CCSRC))
+chtml = $(patsubst %.cc, %.cc.html, $(CSRC))
+hhtml = $(patsubst %.h, %.h.html, $(HSRC))
+ahtml = $(patsubst %.s, %.s.html, $(ASM))
+shtml: $(cchtml) $(chtml) $(hhtml) $(ahtml)
+
+#CPPFLAGS += -DNDEBUG
+
+ifndef OPTFLAGS
+OPTFLAGS = -Os
+endif
+
+#CXXFLAGS += $(OPTFLAGS) -std=c++17 #-pedantic
+CXXFLAGS += $(OPTFLAGS) -std=c++2a # -pedantic
+#CXXFLAGS += -O3 -std=c++17 # -pedantic
+#CXXFLAGS += -nostdlib -fno-exceptions -fno-unwind-tables -fno-rtti -fno-threadsafe-statics
+CXXFLAGS += -fno-exceptions -fno-unwind-tables -fno-rtti -fno-threadsafe-statics #-Wgnu-string-literal-operator-template
+CXXFLAGS += -funsigned-char -funsigned-bitfields -fshort-enums 
+#CXXFLAGS += -ffunction-sections  -fdata-sections # seperate sections -> see --gc-sections 
+CXXFLAGS += -fconcepts
+CXXFLAGS += -ftemplate-depth=2048
+CXXFLAGS += -fstrict-aliasing -Wstrict-aliasing=1 
+CXXFLAGS += -Wall -Wextra
+CXXFLAGS += -DF_OSC=$(F_OSC) -DF_CPU=$(F_OSC)
+#CXXFLAGS += -I/usr/local/avr/avr/include
+CXXFLAGS += -I. -I../../include -I../include -I../../../include
+CXXFLAGS += -I. -I../../include/std -I../include/std -I../../../include/std
+CXXFLAGS += -I/usr/include/simavr
+#CXXFLAGS += -I/usr/avr/include
+CXXFLAGS += $(MCUFLAGS)
+#CXXFLAGS +=  -Wa,-mgcc-isr # only for target atmega324pb - was missing in specs-atmega24pb
+#CXXFLAGS += -fno-tree-switch-conversion
+
+CFLAGS += $(OPTFLAGS) -std=gnu11 # wegen __flash
+#CFLAGS += -Os -std=c11 -pedantic
+CFLAGS += -funsigned-char -funsigned-bitfields -fshort-enums
+CFLAGS += -Wall -Wextra
+CFLAGS += -fstrict-aliasing -Wstrict-aliasing=1 
+CFLAGS += -DF_OSC=$(F_OSC) -DF_CPU=$(F_OSC)
+CFLAGS += -I/usr/local/avr/avr/include
+CFLAGS += -I. -I../../include
+CFLAGS += -I../include
+CFLAGS += -I/usr/include/simavr
+#CFLAGS += -I/usr/avr/include
+CFLAGS += $(MCUFLAGS)
+#CFLAGS +=  -Wa,-mgcc-isr # only for target atmega324pb - was missing in specs-atmega24pb
+
+ASMFLAGS += -fverbose-asm
+ASMFLAGS +=  -Wa,-adhln
+#ASMFLAGS +=  -Wa,-mgcc-isr
+
+LDFLAGS = $(MCUFLAGS) -Wl,-Map=main.map,--cref # -Wl,--gc-sections # remove unused function (s.a. byte.h) 
+#LDFLAGS += "-Wl,--undefined=_mmcu,--section-start=.mmcu=0x910000" # simavrconsole.c
+LDFLAGS += "-Wl,--section-start=.mmcu=0x910000"
+
+AVRDUDE_PROGRAMMER = avrisp2
+AVRDUDE_PORT = usb
+AVRDUDE_NO_VERIFY = -V
+AVRDUDE_FLAGS = -p $(MCU) -P $(AVRDUDE_PORT) -c $(AVRDUDE_PROGRAMMER)
+AVRDUDE_FLAGS += $(AVRDUDE_NO_VERIFY)
+AVRDUDE_FLAGS += $(AVRDUDE_VERBOSE)
+AVRDUDE_FLAGS += $(AVRDUDE_ERASE_COUNTER)
+AVRDUDE_FLAGS += -C+/home/lmeier/Projekte/wmucpp/avrdude.conf
+
+CC = /usr/local/bin/avr-gcc
+CXX = /usr/local/bin/avr-g++
+#CC = /usr/bin/avr-gcc
+#CXX = /usr/bin/avr-g++
+OBJCOPY = avr-objcopy
+OBJDUMP = avr-objdump
+SIZE = avr-size
+NM = avr-nm
+AVRDUDE = avrdude
+
+%.s: %.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(ASMFLAGS) -S -o $@ $(shell pwd)/$<
+
+%.s: %.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(ASMFLAGS) -S -o $@ $(shell pwd)/$<
+
+%.S: %.s
+	cat $< | c++filt | grep -v "^[ \t]*;" | grep -v "^[ \t]*\/\*.*\*\/$$" | grep -v "^[ \t]*__[Stz]" | grep -v "^\.L__" | grep -v "^.L[FV]" | grep -v "^\s*\.[fgi]" | grep -v "^[ \t]*$$" > $@
+	#cat $< | grep -v "^#" | grep -v "^[ \t]*$$" | grep -v "[ \t]*\.cfi_" | grep -v "^\.L[A-Z][A-Z]" > $@
+
+%.s: %.s.save
+	cp $< $@
+	
+%.size: %.elf
+	avr-size $< > $@
+
+# Program the device.  
+%.pgr: %.hex %.eep
+	$(AVRDUDE) $(AVRDUDE_FLAGS) -U flash:w:$< $(AVRDUDE_WRITE_EEPROM)
+
+%.btl: %.hex
+	$(AVRDUDE) -p $(MCU) -P /dev/ttyUSB0 -c arduino -b 57600 -U flash:w:$< 
+
+# Create final output files (.hex, .eep) from ELF output file.
+%.hex: %.elf
+	$(OBJCOPY) -O ihex -R .eeprom $< $@
+
+%.eep: %.elf
+	-$(OBJCOPY) -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+	--change-section-lma .eeprom=0 -O ihex $< $@
+
+# Create extended listing file from ELF output file.
+%.lss: %.elf
+	$(OBJDUMP) -h -S $< > $@
+
+# Create a symbol table from ELF output file.
+%.sym: %.elf
+	$(NM) -n $< > $@
+
+%: %.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS)  $(shell pwd)/$< --output $@ $(LDFLAGS) $(LOADLIBES)
+
+%.elf: %.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS)  $(shell pwd)/$< --output $@ $(LDFLAGS) $(LOADLIBES)
+
+%.elf: %.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(shell pwd)/$< --output $@ $(LDFLAGS) $(LOADLIBES)
+
+%.hex: %.elf
+	$(OBJCOPY) -O ihex -R .eeprom $(shell pwd)/$< $@
+
+%.d: %.cc
+	$(CXX) -MM -MG $(CXXFLAGS) $< | sed 's/$*\.o/& $@ $*.elf $<.extract/g' > $@
+
+%.cc.extract: %.cc
+	$(EXTRACTOR) -lcpp -aA2 -aN -o$@ -d$(EXTRACTDIR) $<
+
+%.h.extract: %.h
+	$(EXTRACTOR) -lcpp -aA2 -aN -o$@ -d$(EXTRACTDIR) $<
+
+%.s.axtract: %.s
+	$(AXTRACTOR) -o$@ $<
+
+%.cc.extractnc: %.cc
+	$(EXTRACTOR) -lcpp -aA2 -aN --sc -d$(EXTRACTDIRNC) -o$@ $<
+
+%.h.extractnc: %.h
+	$(EXTRACTOR) -lcpp -aA2 -aN --sc -d$(EXTRACTDIRNC) -o$@ $<
+
+%.cc.html: %.cc
+	$(EXTRACTOR) -x --eb --io $< | $(SRCHI) -scpp > $@
+
+%.h.html: %.h
+	$(EXTRACTOR) -x --eb --io $< | $(SRCHI) -scpp > $@
+
+%.s.html: %.s
+	$(SRCHI) -sasm -i $< -o $@
+
+%.out: %
+	./$< $(PARGS) > $@
+
+%.aout: %
+	echo -n ".{output-caption} {counter:output}. Ausgabe des Programms: \`" > $@
+	echo -n $< >> $@
+	echo "\`" >> $@
+	echo "[role=\"output\"]" >> $@
+	echo "...." >> $@
+	-SIMPLETEST=${SIMPLETEST} ./$< $(PARGS) >> $@ 2>&1
+	echo "...." >> $@
+
+%.aout2: %
+	echo -n ".{output-caption} {counter:output}. Ausgabe des Programms: \`" > $@
+	echo -n $< >> $@
+	echo "\`" >> $@
+	echo "[role=\"output\"]" >> $@
+	echo "...." >> $@
+	-SIMPLETEST=${SIMPLETEST} ./$< $(PARGS) >> $@ 2>/dev/null
+	echo "...." >> $@
+
+subclean:
+	@for d in ${subdirs}; do \
+		if [ -d $$d ]; then \
+			${MAKE} -C $$d clean; \
+		fi \
+	done
+
+clean:	subclean
+	$(RM) $(targets)
+	$(RM) $(OBJ)
+	$(RM) $(DEP)
+	$(RM) $(ASM)
+	$(RM) *.hex
+	$(RM) *.elf
+	$(RM) *.map
+	$(RM) *.lss
+	$(RM) *.eep
+	$(RM) *.size
+	$(RM) *.html
+	$(RM) *.s
+	$(RM) *.S
+
+
+-include $(DEP)
+

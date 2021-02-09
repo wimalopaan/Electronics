@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="31cm" height="17cm" viewBox="135 42 614 332" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="538" y="233" width="210" height="140"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="538" y="233" width="210" height="140"/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="549.526" y="257.5">
+    <tspan x="549.526" y="257.5">Pin1</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="399" y1="283" x2="532" y2="282"/>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="547.5" y="288">
+    <tspan x="547.5" y="288">Pin 2</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="547.5" y="322">
+    <tspan x="547.5" y="322">Pin 3</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="547.5" y="355">
+    <tspan x="547.5" y="355">Pin 4</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="531" y1="252" x2="217" y2="251"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="531" y1="349" x2="222" y2="351"/>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="163" y="255">
+    <tspan x="163" y="255">Masse</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="200" y="364">
+    <tspan x="200" y="364">V+</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="274.804" y1="316.804" x2="529.804" y2="317.804"/>
+  <g>
+    <rect style="fill: #ffffff" x="535.1" y="43.6" width="210" height="140"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="535.1" y="43.6" width="210" height="140"/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="546.626" y="68.1">
+    <tspan x="546.626" y="68.1">Pin1</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="400" y1="92" x2="529.1" y2="92.6"/>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="544.6" y="98.6">
+    <tspan x="544.6" y="98.6">Pin 2</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="544.6" y="132.6">
+    <tspan x="544.6" y="132.6">Pin 3</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="544.6" y="165.6">
+    <tspan x="544.6" y="165.6">Pin 4</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="528.1" y1="62.6" x2="214.1" y2="61.6"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="528.1" y1="159.6" x2="219.1" y2="161.6"/>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="160.1" y="65.6">
+    <tspan x="160.1" y="65.6">Masse</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="197.1" y="174.6">
+    <tspan x="197.1" y="174.6">V+</tspan>
+  </text>
+  <text font-size="22.5774" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="668" y="121">
+    <tspan x="668" y="121">Slave</tspan>
+  </text>
+  <text font-size="22.5774" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="656" y="314">
+    <tspan x="656" y="314">Master</tspan>
+  </text>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="135" y="320">
+    <tspan x="135" y="320">Cppm (DSC-Buchse)</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="400" y1="95" x2="401" y2="283"/>
+</svg>

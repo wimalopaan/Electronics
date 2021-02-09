@@ -29,6 +29,7 @@ Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 // for attributes in link:[] macro like link:xxx[window="_blank"]
 :linkattrs:
 
+// github stuff
 ifdef::env-github[]
 :tip-caption: :bulb:
 :note-caption: :information_source:
@@ -37,8 +38,14 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
+ifdef::env-github[]
+:imagesdir: ../include/images
+:idir: ../include
+endif::[]
+ifndef::env-github[]
 :imagesdir: ../../doc/images
 :idir: ../../doc
+endif::[]
 
 :mName: RC-Incr
 :model: incr
