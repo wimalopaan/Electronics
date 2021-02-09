@@ -93,7 +93,7 @@ Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
 
 == License
 
-Siehe auch link:LICENSE[Lizenz]
+Siehe auch link:LICENSE[Lizenz], sofern in der Anleitung, dem Code oder sonstigem Artefakt nicht anders angegeben.
 
 == Kontakt
 
