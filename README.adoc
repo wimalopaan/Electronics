@@ -30,9 +30,11 @@ Hier finden Sie Informationen zu den von mir entworfenen RC-Elektronik-Modulen, 
 
 === RC-Hauptschalter
 
-Anleitung: {rcb}/onoff.html[RC Hauptschalter] {rcb}/onoff_r.pdf[pdf]
+Anleitung: {rcb}/onoff_telemetrie.html[RC Hauptschalter] {rcb}/onoff_telemetrie_r.pdf[pdf]
 
 === DIY RC-Hauptschalter
+
+Anleitung: {rcb}/onoff_simple.html[RC Hauptschalter] {rcb}/onoff_simple_r.pdf[pdf]
 
 === RC-Akkuweiche
 
