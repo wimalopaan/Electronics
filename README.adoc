@@ -19,6 +19,8 @@ Hier finden Sie Informationen zu den von mir entworfenen RC-Elektronik-Modulen, 
 [[msd]]
 === RC-Multiswitch-D
 
+Der `RC-Multiswitch-D` ist ein _digitales_ Schaltmodul mit 8-Kanälen
+
 Anleitung: {rcb}/rcmultiswitch.html[RC MultiSwitch] {rcb}/rcmultiswitch_r.pdf[pdf]
 
 Anleitung (Hott): {rcb}/rcmultiswitch_h.html[RC MultiSwitch] {rcb}/rcmultiswitch_h_r.pdf[pdf]
@@ -36,6 +38,10 @@ s.a. <<msd,RC-MultiSwitch-D>>
 Anleitung: {rcb}/rcquad.html[RC Quad] {rcb}/rcquad_r.pdf[pdf]
 
 === RC-Led-D
+
+=== RC-Cellwatch
+
+Anleitung: {rcb}/cellwatch.html[RC Cellwatch] {rcb}/cellwatch_r.pdf[pdf]
 
 === RC-SensorModul
 
@@ -57,6 +63,9 @@ Anleitung: {rcb}/power_or.html[Akkuweiche] {rcb}/power_or_r.pdf[pdf]
 
 Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
 
+=== RC-Desk
+
+=== Wassermelder
 
 == License
 
