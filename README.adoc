@@ -9,18 +9,44 @@
 :ddir: https://wimalopaan.github.io/Electronics
 :rcb: {ddir}/rc/boards
 
-
-[TIP]
+[NOTE]
 --
-Bla
+Hier finden Sie Informationen zu den von mir entworfenen RC-Elektronik-Modulen, OpenTx-Addons, LUA-Scripting, und vieles mehr.
 --
 
-== Module
+== RC-Elektronik-Module
 
+=== RC-Multiswitch-D
 
+=== RC-MultiAdapter-DA
 
-{rcb}/rcincr.html[RC Inkr]
+=== RC-ServoSwitch-D
+
+=== RC-Quad-D
+
+=== RC-Led-D
+
+=== RC-SensorModul
+
+=== RC-Hauptschalter
+
+Anleitung: {rcb}/onoff.html[RC Hauptschalter] {rcb}/onoff_r.pdf[pdf]
+
+=== DIY RC-Hauptschalter
+
+=== RC-Akkuweiche
+
+=== RC-BEC-Weiche
+
+=== RC-Inkrementalgeber
+
+Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
+
 
 == License
 
-Siehe auch link:LICENCE[Lizenz]
+Siehe auch link:LICENSE[Lizenz]
+
+== Kontakt
+
+mailto:wilhelm.wm.meier@googlemail.com[email]
