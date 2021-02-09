@@ -1,5 +1,8 @@
 = RC Elektronik
 
+:toc:
+:toc-placement!:
+
 :tip-caption: :bulb:
 :note-caption: :information_source:
 :important-caption: :heavy_exclamation_mark:
@@ -13,6 +16,10 @@
 --
 Hier finden Sie Informationen zu den von mir entworfenen RC-Elektronik-Modulen, OpenTx-Addons, LUA-Scripting, und vieles mehr.
 --
+
+== Inhalt
+
+toc::[]
 
 == RC-Elektronik-Module
 
@@ -68,6 +75,10 @@ Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
 === Wassermelder
 
 === Elektronischer Schalter
+
+== Anleitungen
+
+=== Umbau 40MHz-JR-Sendermodul
 
 == License
 
