@@ -27,6 +27,8 @@ toc::[]
 Die leeren Kapitel sind für mich Gedankenstützen, dass hier noch etwas zu tun ist ;-) 
 --
 
+image::images/zfcf.jpg[]
+
 == RC-Elektronik-Module
 
 [[msd]]
@@ -104,9 +106,21 @@ https://www.youtube.com/channel/UCedl1hS-dfWh-V4WBz_jGog[YouTube]
 
 == Audio
 
+=== Werner-GWS-Box
+
+image::audio/images/gws1.jpg[]
+
+image::audio/images/gws2.jpg[]
+
+=== Daytonetta
+
+image::audio/images/daytonetta.jpg[]
+
 == Uhren
 
 === WordClock 1
+
+image::clocks/images/wc.jpg[]
 
 === WordClock 2
 
@@ -117,6 +131,10 @@ https://www.youtube.com/channel/UCedl1hS-dfWh-V4WBz_jGog[YouTube]
 === Servo-Uhr
 
 === Fahradketten-Uhr
+
+=== Ikea-Uhr
+
+image::clocks/images/ikea.jpg[]
 
 == License
 
