@@ -27,7 +27,7 @@ toc::[]
 Die leeren Kapitel sind für mich Gedankenstützen, dass hier noch etwas zu tun ist ;-) 
 --
 
-image::images/zfcf.jpg[]
+image::images/zfcf.jpg[width=50%]
 
 == RC-Elektronik-Module
 
@@ -111,19 +111,19 @@ Dort gibt es viele Videos in loser Folge mit Tips zu speziellen Themen rund um O
 
 === Werner-GWS-Box
 
-image::audio/images/gws1.jpg[]
+image::audio/images/gws1.jpg[width=50%]
 
-image::audio/images/gws2.jpg[]
+image::audio/images/gws2.jpg[width=50%]
 
 === Daytonetta
 
-image::audio/images/daytonetta.jpg[]
+image::audio/images/daytonetta.jpg[width=50%]
 
 == Uhren
 
 === WordClock 1
 
-image::clocks/images/wc.jpg[]
+image::clocks/images/wc.jpg[width=50%]
 
 === WordClock 2
 
@@ -137,7 +137,7 @@ image::clocks/images/wc.jpg[]
 
 === Ikea-Uhr
 
-image::clocks/images/ikea.jpg[]
+image::clocks/images/ikea.jpg[width=50%]
 
 == License
 
