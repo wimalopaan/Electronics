@@ -22,6 +22,11 @@ Hier finden Sie Informationen zu den von mir entworfenen RC-Elektronik-Modulen, 
 
 toc::[]
 
+[TIP]
+--
+Die leeren Kapitel sind für mich Gedankenstützen, dass hier noch etwas zu tun ist ;-) 
+--
+
 == RC-Elektronik-Module
 
 [[msd]]
@@ -67,6 +72,8 @@ Anleitung: {rcb}/onoff_simple.html[DIY RC Hauptschalter] {rcb}/onoff_simple_r.pd
 
 === RC-Akkuweiche
 
+Die Anleitung enthält auch eine ausführliche Betrachtung über das Thema _Parallelschalten_ von Akkus.
+
 Anleitung: {rcb}/power_or.html[Akkuweiche] {rcb}/power_or_r.pdf[pdf]
 
 === RC-BEC-Weiche
@@ -94,6 +101,22 @@ https://www.youtube.com/channel/UCedl1hS-dfWh-V4WBz_jGog[YouTube]
 == Anleitungen
 
 === Umbau 40MHz-JR-Sendermodul
+
+== Audio
+
+== Uhren
+
+=== WordClock 1
+
+=== WordClock 2
+
+=== Binär-Uhr
+
+=== Nixie-Uhr
+
+=== Servo-Uhr
+
+=== Fahradketten-Uhr
 
 == License
 
