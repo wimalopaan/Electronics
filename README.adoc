@@ -87,6 +87,10 @@ Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
 
 === Voith-Schneider-Steuerung
 
+=== OpenTx Weekly
+
+https://www.youtube.com/channel/UCedl1hS-dfWh-V4WBz_jGog[YouTube]
+
 == Anleitungen
 
 === Umbau 40MHz-JR-Sendermodul
