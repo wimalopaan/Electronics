@@ -98,7 +98,10 @@ Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
 
 === OpenTx Weekly
 
-https://www.youtube.com/channel/UCedl1hS-dfWh-V4WBz_jGog[YouTube]
+_OpenTx weekly_ ist eine Video-Reihe auf meinem
+https://www.youtube.com/channel/UCedl1hS-dfWh-V4WBz_jGog[YouTube]-Kanal.
+
+Dort gibt es viele Videos in loser Folge mit Tips zu speziellen Themen rund um OpenTx.
 
 == Anleitungen
 
