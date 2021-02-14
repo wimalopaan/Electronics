@@ -50,6 +50,8 @@ s.a. <<msd,RC-MultiSwitch-D>>
 
 === RC-Quad-D
 
+(need docu update)
+
 Anleitung: {rcb}/rcquad.html[RC Quad] {rcb}/rcquad_r.pdf[pdf]
 
 * Hardware-Revision: 04
