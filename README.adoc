@@ -91,7 +91,12 @@ Anleitung: {rcb}/power_or.html[Akkuweiche] {rcb}/power_or_r.pdf[pdf]
 
 === RC-Inkrementalgeber
 
+(need docu update)
+
 Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
+
+* Firmware V20
+** Gr/SJ-Cppm-mode
 
 === RC-Desk
 
