@@ -52,6 +52,13 @@ s.a. <<msd,RC-MultiSwitch-D>>
 
 Anleitung: {rcb}/rcquad.html[RC Quad] {rcb}/rcquad_r.pdf[pdf]
 
+* Hardware-Revision: 04
+** BEC-Spannung (vom dem Empfänger) bis 12V möglich. Damit aus HV-Servos einsetzbar im Model ;-) 
+** Weitere LED zur Indikation des Empfängerprotokolls (Sbus, Sbus-Inv, IBus, SumD)
+
+* Firmware: V20
+** FrSky: Sensor-ID für die Zustandsanzeige (Aus, Vor, Rück, Anlauf, Stromabschaltung, Endlagenabschaltung, ...) einstellbar
+
 === RC-ThreeSixty-D
 
 Schottelsteuerung
