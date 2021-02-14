@@ -40,6 +40,11 @@ Anleitung: {rcb}/rcmultiswitch.html[RC MultiSwitch] {rcb}/rcmultiswitch_r.pdf[pd
 
 Anleitung (Hott): {rcb}/rcmultiswitch_h.html[RC MultiSwitch] {rcb}/rcmultiswitch_h_r.pdf[pdf]
 
+* Firmware:
+
+* OpenTx:
+** Fixed page switch if not 6pos
+
 === RC-MultiAdapter-DA
 
 s.a. <<msd,RC-MultiSwitch-D>>
