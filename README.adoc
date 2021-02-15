@@ -61,12 +61,10 @@ s.a. <<msd,RC-MultiSwitch-D>>
 
 === RC-Quad-D
 
-(need docu update)
-
 Anleitung: {rcb}/rcquad.html[RC Quad] {rcb}/rcquad_r.pdf[pdf]
 
 * Hardware-Revision: 04
-** BEC-Spannung (vom dem Empfänger) bis 12V möglich. Damit aus HV-Servos einsetzbar im Model ;-) 
+** BEC-Spannung (vom dem Empfänger) bis 16V möglich. Damit aus HV-Servos einsetzbar im Model ;-) 
 ** Weitere LED zur Indikation des Empfängerprotokolls (Sbus, Sbus-Inv, IBus, SumD)
 
 * Firmware: V20
