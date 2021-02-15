@@ -103,6 +103,12 @@ Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
 * Firmware V20
 ** Gr/SJ-Cppm-mode
 
+==== Diskretisierung
+
+Emulation eines Mehrstufenschalters etwa für die Ansteuerung eines _Sound-Moduls_ wie _Benedini_ oder clones.
+
+
+
 === RC-Desk
 
 === Wassermelder
@@ -110,6 +116,18 @@ Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
 === Elektronischer Schalter
 
 == OpenTx
+
+=== Mehrstufenschalter-Emulation
+
+Emulation eine Mehrstufenschalter ähnlich wie der `6pos` in _OpenTx_.
+
+==== Mischer-Skript
+
+Umwandlung der Geberwerte in Stufenwerte
+
+==== Widget
+
+Anzeige als Text
 
 === Integral-Mischer
 
