@@ -111,9 +111,19 @@ Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
 
 == OpenTx
 
+=== Integral-Mischer
+
+==== Mischer-Skript
+
+==== Rückgekopplerter Mischer (t_n -> t_(n+1) )
+
 === Schottelsteuerung
 
+==== Mischerskript
+
 === Voith-Schneider-Steuerung
+
+==== Mischerskript
 
 === OpenTx Weekly
 
