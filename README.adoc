@@ -43,6 +43,8 @@ image::images/zfcf.jpg[width=50%]
 
 == RC-Elektronik-Module
 
+Es folgt eine Übersicht über die von mir entwickelten Elektronik-Module für den RC-Modellbau.
+
 [[msd]]
 === RC-Multiswitch-D
 
