@@ -20,6 +20,12 @@ Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 Hier finden Sie Informationen zu den von mir entworfenen RC-Elektronik-Modulen, OpenTx-Addons, LUA-Scripting, und vieles mehr.
 --
 
+.Aktualisierung
+[TIP]
+--
+Wer auf dem Laufenden bleiben möchte, kann _rechts oben_ auf den `watch` Button drücken. 
+--
+
 toc::[]
 
 [TIP]
