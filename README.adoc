@@ -20,12 +20,20 @@ Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 Hier finden Sie Informationen zu den von mir entworfenen RC-Elektronik-Modulen, OpenTx-Addons, LUA-Scripting, und vieles mehr.
 --
 
+.Aktualisierung
+[TIP]
+--
+Wer auf dem Laufenden bleiben möchte, kann _rechts oben_ auf den `watch` Button drücken. 
+--
+
 toc::[]
 
 [TIP]
 --
 Die leeren Kapitel sind für mich Gedankenstützen, dass hier noch etwas zu tun ist ;-) 
 --
+
+image::images/zfcf.jpg[width=50%]
 
 == RC-Elektronik-Module
 
@@ -38,6 +46,11 @@ Anleitung: {rcb}/rcmultiswitch.html[RC MultiSwitch] {rcb}/rcmultiswitch_r.pdf[pd
 
 Anleitung (Hott): {rcb}/rcmultiswitch_h.html[RC MultiSwitch] {rcb}/rcmultiswitch_h_r.pdf[pdf]
 
+* Firmware:
+
+* OpenTx:
+** Fixed page switch if not 6pos
+
 === RC-MultiAdapter-DA
 
 s.a. <<msd,RC-MultiSwitch-D>>
@@ -48,7 +61,16 @@ s.a. <<msd,RC-MultiSwitch-D>>
 
 === RC-Quad-D
 
+(need docu update)
+
 Anleitung: {rcb}/rcquad.html[RC Quad] {rcb}/rcquad_r.pdf[pdf]
+
+* Hardware-Revision: 04
+** BEC-Spannung (vom dem Empfänger) bis 12V möglich. Damit aus HV-Servos einsetzbar im Model ;-) 
+** Weitere LED zur Indikation des Empfängerprotokolls (Sbus, Sbus-Inv, IBus, SumD)
+
+* Firmware: V20
+** FrSky: Sensor-ID für die Zustandsanzeige (Aus, Vor, Rück, Anlauf, Stromabschaltung, Endlagenabschaltung, ...) einstellbar
 
 === RC-ThreeSixty-D
 
@@ -80,7 +102,18 @@ Anleitung: {rcb}/power_or.html[Akkuweiche] {rcb}/power_or_r.pdf[pdf]
 
 === RC-Inkrementalgeber
 
+(need docu update)
+
 Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
+
+* Firmware V20
+** Gr/SJ-Cppm-mode
+
+==== Diskretisierung
+
+Emulation eines Mehrstufenschalters etwa für die Ansteuerung eines _Sound-Moduls_ wie _Benedini_ oder clones.
+
+
 
 === RC-Desk
 
@@ -90,13 +123,38 @@ Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
 
 == OpenTx
 
+=== Mehrstufenschalter-Emulation
+
+Emulation eine Mehrstufenschalter ähnlich wie der `6pos` in _OpenTx_.
+
+==== Mischer-Skript
+
+Umwandlung der Geberwerte in Stufenwerte
+
+==== Widget
+
+Anzeige als Text
+
+=== Integral-Mischer
+
+==== Mischer-Skript
+
+==== Rückgekopplerter Mischer (t_n -> t_(n+1) )
+
 === Schottelsteuerung
+
+==== Mischerskript
 
 === Voith-Schneider-Steuerung
 
+==== Mischerskript
+
 === OpenTx Weekly
 
-https://www.youtube.com/channel/UCedl1hS-dfWh-V4WBz_jGog[YouTube]
+_OpenTx weekly_ ist eine Video-Reihe auf meinem
+https://www.youtube.com/channel/UCedl1hS-dfWh-V4WBz_jGog[YouTube]-Kanal.
+
+Dort gibt es viele Videos in loser Folge mit Tips zu speziellen Themen rund um OpenTx.
 
 == Anleitungen
 
@@ -104,9 +162,21 @@ https://www.youtube.com/channel/UCedl1hS-dfWh-V4WBz_jGog[YouTube]
 
 == Audio
 
+=== Werner-GWS-Box
+
+image::audio/images/gws1.jpg[width=50%]
+
+image::audio/images/gws2.jpg[width=50%]
+
+=== Daytonetta
+
+image::audio/images/daytonetta.jpg[width=50%]
+
 == Uhren
 
 === WordClock 1
+
+image::clocks/images/wc.jpg[width=50%]
 
 === WordClock 2
 
@@ -117,6 +187,10 @@ https://www.youtube.com/channel/UCedl1hS-dfWh-V4WBz_jGog[YouTube]
 === Servo-Uhr
 
 === Fahradketten-Uhr
+
+=== Ikea-Uhr
+
+image::clocks/images/ikea.jpg[width=50%]
 
 == License
 
