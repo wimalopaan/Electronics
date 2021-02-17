@@ -477,7 +477,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <span id="author" class="author">Wilhelm Meier</span><br>
 <span id="email" class="email"><a href="mailto:wilhelm.wm.meier@googlemail.com">wilhelm.wm.meier@googlemail.com</a></span><br>
 <span id="revnumber">version 0.4,</span>
-<span id="revdate">15.02.2021</span>
+<span id="revdate">17.02.2021</span>
 <br><span id="revremark">-</span>
 </div>
 <div id="toc" class="toc">
@@ -619,7 +619,8 @@ meistens <em>nur</em> die elektrische Energie verteilt).</p>
 <p>Die <em>einfachste</em> Form eines Bus-Systems ist der sog. <em>unidirektionale</em> <em>Master</em>/<em>Slave</em>-Bus:
 hier hat man <strong>einen</strong> <em>Master</em> und <em>mehrere</em> <em>Slaves</em>. Als <em>Master</em> bezeichnet man das Gerät, das die Kommunikation
 einleitet und Nachrichten versendet. Als <em>Slave</em> bezeichnet man die Geräte, die in diesem Fall nur Nachrichten
-empfangen. <em>Unidirektional</em> bedeutet, dass immer nur der Master sendet, die Slaves immer nur passiv mithören.</p>
+empfangen. <em>Unidirektional</em> bedeutet, dass immer nur der Master sendet, die Slaves immer nur passiv mithören und die
+für sie selbst bestimmten Nachrichten verarbeiten.</p>
 </div>
 <div class="paragraph">
 <p>Ein andere Form eines Bus-Systems ist der sog. <em>bidirektionale</em> Master/Slave-Bus:
@@ -627,7 +628,7 @@ der Unterschied zur unidirektionalen Variante ist, dass hier auch die Slaves etw
 können. Dies tun sie aber eben nur nach einer <em>Aufforderung</em> durch den <em>Master</em>.</p>
 </div>
 <div class="paragraph">
-<p>Andere Formen von Bus-Systemen sind derzeit im RC-Modellbau nicht üblich.</p>
+<p>Andere Formen von Bus-Systemen (etwa <em>Multi-Master</em>-Busse) sind derzeit im RC-Modellbau nicht üblich.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -638,8 +639,8 @@ können. Dies tun sie aber eben nur nach einer <em>Aufforderung</em> durch den <
 <td class="content">
 <div class="title">Unidirektionaler Master-Slave-Bus im RC-Modellbau (<strong>Aktor</strong>-Bus)</div>
 <div class="paragraph">
-<p>Vereinfacht: der RC-Empfänger sendet eine Nachricht, alle angeschlossenen Servos oder ESC (<em>electronic speed controller</em>)
-empfangen diese Nachricht und suchen sich das Passende heraus.</p>
+<p>Vereinfacht: der RC-Empfänger sendet eine Nachricht, alle angeschlossenen Servos, ESC (<em>electronic speed controller</em>)
+oder sonstige Module (Schaltmodule, etc.) empfangen diese Nachricht und suchen sich das Passende heraus.</p>
 </div>
 </td>
 </tr>
@@ -654,8 +655,8 @@ empfangen diese Nachricht und suchen sich das Passende heraus.</p>
 <td class="content">
 <div class="title">Bidirektionaler Master-Slave-Bus im RC-Modellbau (<strong>Sensor</strong>-Bus)</div>
 <div class="paragraph">
-<p>Vereinfacht: der RC-Empfänger sendet eine spezielle Nachricht als Aufforderung zum Antworten, alle angeschlossenen Servos
-oder ESC (<em>electronic speed controller</em>) antworten, wenn sie angesprochen wurden.</p>
+<p>Vereinfacht: der RC-Empfänger sendet eine spezielle Nachricht als Aufforderung zum Antworten, alle angeschlossenen Servos,
+ESC (<em>electronic speed controller</em>) oder andere Module antworten, wenn sie angesprochen wurden (und nur dann).</p>
 </div>
 </td>
 </tr>
@@ -685,6 +686,31 @@ könnte der Inhalt eines weiteren Dokumentes werden, gerade wenn man an <em>Mult
 </tr>
 </table>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Was ist mit der Luft?</div>
+<div class="paragraph">
+<p>Bei genauerer Betrachtung ist die <em>Luft</em> auch ein <em>Bus</em>-System. Denn auch hier gibt es einen <em>Master</em> (den RC-Sender)
+und einen oder mehrere <em>Slaves</em> die Empfänger. Hier haben wir natürlich auch mehrere Master.</p>
+</div>
+<div class="paragraph">
+<p>Bei solchen <em>Multi-Master</em> Bussen ergibt sich immer das Problem der <em>Arbitrierung</em>: die verschiedenen Master müssen sich darüber
+einig werden, <em>wer</em> zu einem bestimmten Zeitpunkt senden darf. Wenn zwei Master <em>gleichzeitig</em> senden gibt es sicherlich ein Problem!
+Zur Lösung dieses Problems gibt es diverse Verfahren. Das bekannteste dürfte <code>CSMA/CD</code> (<em>carrier sense, multiple access, collision detection</em>)
+sein, was bei vielen Computer-Netzwerken zum Einsatz kommt.</p>
+</div>
+<div class="paragraph">
+<p>Ein solches Verfahren ist für <em>RC-Sender</em> im 2,4-GHZ-Bereich in der EU vorgeschrieben. Es nennt sich <code>LBT</code> (<em>listen before talk</em>).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -707,7 +733,7 @@ in der Computertechnik) ist derzeit recht ungewiss.</p>
 <td class="content">
 <div class="title">Anzahl der Kanäle bei den Aktor-Bus-Systemen</div>
 <div class="paragraph">
-<p>Die Aktor-Bus-Systeme wie etwa <a href="#sbus">SBus</a> übertragen meistens <em>mehr</em> Kanäle (bei <code>SBus</code>: 16) als der
+<p>Die Aktor-Bus-Systeme wie etwa <a href="#sbus">SBus</a> übertragen meistens <em>mehr</em> Kanäle (bei <code>SBus</code>: 16 proportionale Kanäle) als der
 Empfänger Servo-Anschlüsse hat (s.a. <a href="#ext">Erweiterungen</a>).</p>
 </div>
 </td>
@@ -717,7 +743,7 @@ Empfänger Servo-Anschlüsse hat (s.a. <a href="#ext">Erweiterungen</a>).</p>
 <div class="sect2">
 <h3 id="_technische_realisierung"><a class="anchor" href="#_technische_realisierung"></a><a class="link" href="#_technische_realisierung">4.1. Technische Realisierung</a></h3>
 <div class="paragraph">
-<p><em>Alle</em> im folgenden beschriebenen Bus_Systeme arbeiten mit Hilfe einer
+<p><em>Alle</em> im folgenden beschriebenen Bus-Systeme arbeiten mit Hilfe einer
 <a href="https://de.wikipedia.org/wiki/Serielle_Daten%C3%BCbertragung">seriellen</a> Datenübertragung: bei den unidirektionalen
 Bus-Systemen ist es eine <em>no-duplex</em>, <em>asynchrone</em> serielle Übertragung, bei den bidirektionalen ist es eine
 <em>half-duplex</em>, <em>asynchrone</em> serielle Übertragung der einzelnen Bits. Formate und
@@ -737,7 +763,7 @@ auch die darauf aufbauenden <a href="https://de.wikipedia.org/wiki/Kommunikation
 <code>SBus</code>-Servos, doch sind diese noch recht teuer. Außerdem müsste man hierbei jedes Servo immer extra
 konfigurieren, weil das Servo ja wissen muss, auf welchen der vielen übertragenen Kanäle es reagieren soll.
 Dies ist den meisten RC-Modellbauern zu umständlich. Derartige Servos kommen überlicherweise in der Robotok zum
-Einsatz. Für den RC-Modellbauer ist es einfacher, das Servo an den passenden Empfängerausgang einzustecken.</p>
+Einsatz. Für den RC-Modellbauer ist es einfacher, das Servo direkt an den passenden Empfängerausgang einzustecken.</p>
 </div>
 </td>
 </tr>
@@ -752,7 +778,7 @@ Einsatz. Für den RC-Modellbauer ist es einfacher, das Servo an den passenden Em
 <td class="content">
 <div class="title">Digitale Servos</div>
 <div class="paragraph">
-<p>Als <em>digitale</em> Servos werden heute solche bezeichnet, die intern digital arbeiten. Das hat aber nicht mit der
+<p>Als <em>digitale</em> Servos werden heute solche bezeichnet, die intern digital arbeiten. Das hat aber nichts mit der
 Schnittstelle / Verbindung zum RC-Empfänger zu tun: die ist nach wie vor analog (s.a. <a href="#pwm">PWM-Servosignal</a>). Rein technisch
 ist dies zwar nicht sinnvoll (s.a. <a href="#dservo">Servos oder andere Aktoren am Aktor-Bus</a>), aber man hat eine Schnittstelle, die sowohl von intern analogen
 wie auch von intern digitalen Servos verwendet werden kann.</p>
@@ -765,9 +791,9 @@ wie auch von intern digitalen Servos verwendet werden kann.</p>
 <div class="sect2">
 <h3 id="_graupner_sj"><a class="anchor" href="#_graupner_sj"></a><a class="link" href="#_graupner_sj">4.2. Graupner / SJ</a></h3>
 <div class="paragraph">
-<p>Die Empfänger haben einen Anschluß für das Aktor-Protokoll <code>Sumd</code> und einen anderen für das Sensor-Protokoll
+<p>Die Empfänger haben einen Anschluß für das Aktor-Protokoll <code>SumD</code> und einen anderen für das Sensor-Protokoll
 <code>Hott-Sensor</code>. Bei manchen Empfängern mit <em>begrenzter</em> Anzahl von Anschlüssen muss man im Konfigurationsmenu
-des Empfängers ggf. die Bedeutung eines der Anschlüsse auf <code>Sumd</code> oder <code>Hott-Sensor</code> umschalten (z.B. beim GR-12L).</p>
+des Empfängers ggf. die Bedeutung eines der Anschlüsse auf <code>SumD</code> oder <code>Hott-Sensor</code> umschalten (z.B. beim GR-12L).</p>
 </div>
 <div class="sect3">
 <h4 id="sumd"><a class="anchor" href="#sumd"></a><a class="link" href="#sumd">4.2.1. Aktoren: SumD</a></h4>
@@ -785,42 +811,50 @@ zu 32 Kanäle und 64 Schalter.</p>
 <div class="paragraph">
 <p>Das Sensor-Protokoll fasst immer viele einzelne Sensoren zusammen. Diese Sensorgruppen werden dann
 etwa als <code>EAM</code> (<em>electric air module</em>) oder <code>GAM</code> (<em>general air module</em>) bezeichnet. Insgesamt existieren
-nur 6 unterschiedliche Sensor-Module (RX, GAM, EAM, ESC, Vario, GPS).</p>
+nur 6 unterschiedliche Sensor-Module (RX, GAM, EAM, ESC, Vario, GPS). An einem solchen Buss darf hierbei
+von jeder Sensorgruppen-Art immer <em>maximal ein</em> Modul angeschlossen sein: <em>zwei</em> oder mehr Module derselben
+Art (etwa EAM) sind <em>verboten</em> und führen zu Kommunikationsproblemen.</p>
 </div>
 <div class="paragraph">
 <p>Dies hat zur Folge, dass man bei den Sendern mit monochromen LCD Anzeigen nur vorgefertige Ansichten für
-ein Sensor-Modul auswählen kann. <em>Einzelne</em> Sensoren aus einem Modul können nicht einzeln angezeigt werden.</p>
+ein Sensor-Modul auswählen kann. <em>Einzelne</em> Sensoren aus einem Modul können nicht einzeln angezeigt werden.
+Bei den neuen Systemen mit Farbdisplay und neuester Firmware ist diese Beschränkung für die Anzeige aufgehoben.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_besonderheiten"><a class="anchor" href="#_besonderheiten"></a><a class="link" href="#_besonderheiten">4.2.3. Besonderheiten</a></h4>
 <div class="paragraph">
 <p>Das <em>Hott-Sensor</em>-Protokoll hat zudem noch zwei Modi: einen Daten- und einen Text-Modus. Im <em>Daten</em>-Modus werden
-die Sensorwerte eines Sensor-Moduls übertragen und am Sender angezeigt.</p>
+die Sensorwerte eines Sensor-Moduls übertragen und am Sender angezeigt. Hierbei entscheidet der <em>Sender</em>, wie
+die Darstellung erfolgt. Dies kann im einfachsten Fall (Sender mit <em>monochromen</em> LCD-Anzeige) als <em>vorgefertigte</em>
+Ansicht erfolgen. Bei modernen Sendern (mit <em>color</em>-Display) kann man sich diese Ansichten auch als Anwender selbst
+zusammenstellen.</p>
 </div>
 <div class="paragraph">
 <p>Im <em>Text</em>-Modus erzeugt das Sensor-Modul ein <em>Menu</em>, dieses wird dann im Sender angezeigt. Dies dient üblicherweise
 zum <em>Konfigurieren</em> des Moduls, etwas des Empfängers oder anderer angeschlossener Module wie etwa einen ESC.
-Im Sender gelangt man in diese spezielle Ansicht über <code>Menu</code> &#8594; <code>Telemetrie</code> &#8594; <code>Einstellungen</code>.</p>
+Im Sender gelangt man in diese spezielle Ansicht über <code>Menu</code> &#8594; <code>Telemetrie</code> &#8594; <code>Einstellungen</code>. Achtung: hierbei
+muss gezielt eines der am <em>Sensorbus</em> angeschlossenen Module vorher ausgewählt werden.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_frsky_bzw_futaba"><a class="anchor" href="#_frsky_bzw_futaba"></a><a class="link" href="#_frsky_bzw_futaba">4.3. FrSky bzw. Futaba</a></h3>
 <div class="paragraph">
-<p>Futaba hat ürsprünglich den sog. <code>SBus</code> entwickelt. Er hat sich zu einem quasi-Standard entwickelt und wird
+<p>Futaba hat ürsprünglich den sog. <code>SBus</code> entwickelt. Er hat sich zu einem <em>quasi</em>-Standard entwickelt und wird
 trotz einiger Merkwürdigkeiten von vielen anderen Herstellern ebenfalls angeboten.</p>
 </div>
 <div class="sect3">
 <h4 id="sbus"><a class="anchor" href="#sbus"></a><a class="link" href="#sbus">4.3.1. Aktoren: SBus</a></h4>
 <div class="paragraph">
 <p>Eine der <em>Merkwürdigkeiten</em> ist, dass das elektrische Signal <em>invertiert</em> übertragen wird. Zudem ist die ursprüngliche
-Spzifikation so, das +/- 12V als elektrische Pegel verwendet wird. Dies wird aber heute üblicherweise von den Mastern
-(Empfängern) nicht gemacht, sondern nur wie sonst üblich 0/3V bzw. 0/5V für die logischen Pegel verwendet. Andernfalls
+Spzifikation so, das <code>+/- 12V</code> als elektrische Pegel verwendet wird. Dies wird aber heute üblicherweise von den Mastern
+(Empfängern) nicht gemacht, sondern nur wie sonst üblich <code>0/3V</code> bzw. <code>0/5V</code> für die logischen Pegel verwendet. Andernfalls
 würden die angeschlossenen Slaves mit Sicherheit elektrisch zerstört. Trotzdem ist hier etwas Vorsciht geboten.</p>
 </div>
 <div class="paragraph">
-<p><code>SBus</code> überträgt immer 16 Kanäle (s.a. <a href="#extsbus"><code>SBus</code>-<code>PWM</code>-Adapter</a>).</p>
+<p><code>SBus</code> überträgt immer 16 proportionale Kanäle (s.a. <a href="#extsbus"><code>SBus</code>-<code>PWM</code>-Adapter</a>). Zudem werden auch noch <em>zwei</em> binäre Schaltkanäle und
+Zustandsinformation des Empfängers (<em>Failsafe</em> und <em>frame lost</em>) übertragen.</p>
 </div>
 <div class="paragraph">
 <p>Achtung: nicht jeder FrSky-Empfänger hat <code>SBus</code> und <code>S.Port</code>.</p>
@@ -829,7 +863,7 @@ würden die angeschlossenen Slaves mit Sicherheit elektrisch zerstört. Trotzdem
 <div class="sect3">
 <h4 id="_sensoren_s_port"><a class="anchor" href="#_sensoren_s_port"></a><a class="link" href="#_sensoren_s_port">4.3.2. Sensoren: S.Port</a></h4>
 <div class="paragraph">
-<p>Die ist das <em>aktuelle</em> Sensorprotokoll, ein neueres, hierzu wieder inkompatibles heißt <code>FPort</code>. Auch bei <code>S.Port</code> wird
+<p>Dies ist das <em>aktuelle</em> Sensorprotokoll, ein neueres, hierzu wieder inkompatibles heißt <code>FPort</code>. Auch bei <code>S.Port</code> wird
 mit <em>invertierten</em> Signalen gearbeitet.</p>
 </div>
 </div>
@@ -861,16 +895,41 @@ elektrischen Signale <em>nicht invertiert</em>, was es gerade für Selbstbauer i
 <p>Es gibt zwei Varianten: <code>IBus</code>-14 und <code>IBus</code>-18, die entsprechend jeweils 14 oder 18 Kanäle übertragen
 (s.a. <a href="#extibus"><code>IBus</code>-<code>PWM</code>-Adapter</a>).</p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Augen auf OpenTx zusammen mit dem <em>Multi-Protocol-Module</em></div>
+<div class="paragraph">
+<p>Das Senderbetriebssystem <code>OpenTx</code> ist agnostisch gegenüber der Übertragung der Kanalinformation an den Empfänger. <code>OpenTx</code> kann 32 Kanäle
+zur Verfügung stellen. Ob und wie die zum Empfänger transportiert werden, das ist die Aufgabe des <em>HF-Moduls</em>, das im Sender eingebaut ist.
+Die beliebten Versionen des sog. <em>Multi-Protocol-RF-Module</em> können sich auch mit <em>FlySky</em>-Empfängern über das HF-Protokoll <code>AFHDS2A</code> binden. Bei
+diesem Protokoll gab es aufwärtkompatible eine Veränderung, die die Übertragung von 18 proportionalen Kanälen erlaubt. Die Kommunikation
+eines Sendes mit <code>OpenTx</code> mit einem <em>Multi-Protocol-Module</em> geschieht jedoch über ein an <code>SBus</code> angelehntes Protokoll, so dass auf diesem Wege
+auch <em>nur</em> 16 proportionale Kanle transportiert werden können. Damit stehen <em>de-facto</em> die beiden Varianten einmal mit 14 Kanälen und einmal mit 16
+Kanälen (Beschränkung durch <code>SBus</code>) zur Verfügung. Dies muss extra als <code>PWM,IB16</code> für das <em>MPM</em> in <code>OpenTx</code> eingestellt werden.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_sensoren_ibus"><a class="anchor" href="#_sensoren_ibus"></a><a class="link" href="#_sensoren_ibus">4.4.2. Sensoren: IBus</a></h4>
 <div class="paragraph">
 <p>Zwar ist der Sensor-<code>IBus</code> logisch ein Bus-System, technisch ist er jedoch als
-sog. <a href="https://de.wikipedia.org/wiki/Daisy_Chain#:~:text=Als%20Daisy%20Chain%20(engl.,(Computer%2C%20Bus)%20verbunden">Daisy-Chain</a> ausgeführt. Dies bedeutet, dass die anzuschließenden Sensoren als Sonsor-<em>Kette</em> anzuschließen sind:
+sog. <a href="https://de.wikipedia.org/wiki/Daisy_Chain#:~:text=Als%20Daisy%20Chain%20(engl.,(Computer%2C%20Bus)%20verbunden">Daisy-Chain</a> ausgeführt.
+Dies bedeutet, dass die anzuschließenden Sensoren als Sensor-<em>Kette</em> anzuschließen sind:
 Empfänger &#8594; Sensor_1 &#8594; Sensor_2 &#8594; &#8230;&#8203;</p>
 </div>
 <div class="paragraph">
 <p>Leider können in dieser Kette nur bis zu 15 Sensoren angeschlossen werden.</p>
+</div>
+<div class="paragraph">
+<p>Dies ist eine Beschränkung, die leider im Funktionsmodellbau schmerzlich zu spüren ist.</p>
 </div>
 </div>
 </div>
@@ -898,11 +957,28 @@ Sender werden aber in der Regel <em>mehr</em> Kanäle übertragen. Um die weiter
 dem Markt sog. <code>SBus2PWM</code>-Adapter: sollte der Empfänger einen <code>SBus</code>-Ausgang besitzen, kann man diesen Adapter
 dort anschließen und bekommt bis zu 16 Kanal-Ausgänge.</p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Und was ist mit <code>SumD</code>?</div>
+<div class="paragraph">
+<p>Die meisten Graupner/SJ-Empfänger lassen sich auf <code>SBus</code> umstellen. D.h. einer der Ausgänge produziert weder ein <code>PWM</code>-Servo-Signal noch
+das Graupner/SJ-spezifische <code>SumD</code> sondern den de-facto Standard <code>SBus</code>. Dort kann man dann auch einen solchen Adapter anschließen. So kann man
+auch einem <em>kleinen</em> Empfänger wie etwa dem <code>GR-12L</code> auch 16 proportionale Kanäle entlocken.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="extibus"><a class="anchor" href="#extibus"></a><a class="link" href="#extibus">5.2. <code>IBus</code>-<code>PWM</code>-Adapter</a></h3>
 <div class="paragraph">
-<p>Es gilt dasselbe wie unter <a href="#extsbus"><code>SBus</code>-<code>PWM</code>-Adapter</a>.</p>
+<p>Es gilt dasselbe wie unter <a href="#extsbus"><code>SBus</code>-<code>PWM</code>-Adapter</a>. Man braucht <em>nur</em> einen <code>IBus</code>-<code>PWM</code>-Adapter.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -912,7 +988,7 @@ dort anschließen und bekommt bis zu 16 Kanal-Ausgänge.</p>
 <h2 id="_analoges"><a class="anchor" href="#_analoges"></a><a class="link" href="#_analoges">6. Analoges</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Es gibt auch <em>analoge</em> Bus-Systeme, auch den der Begriff <code>Bus</code> originär aus der Informatik stammt und
+<p>Es gibt auch <em>analoge</em> Bus-Systeme, auch wenn der Begriff <code>Bus</code> originär aus der Informatik stammt und
 damit eigentlich immer <em>digitale</em> Bus-Systeme gemeint sind.</p>
 </div>
 <div class="paragraph">
@@ -923,7 +999,8 @@ damit eigentlich immer <em>digitale</em> Bus-Systeme gemeint sind.</p>
 <div class="paragraph">
 <p>Fast alle RC-Empfänger haben sog. Servo-Ausgänge. Es gibt jedoch mittlerweile einige Klein- und Kleinst-Empfänger,
 die aus Platzgründen auf die analogen Servo-Ausgänge verzichten, oder solche, die speziell für den <em>Copter</em>- oder
-<em>Dronen</em>-Betrieb ausgerichtet sind, wo eine digitale Übertragung alle Kanäle über ein Bus besser geeignet ist.</p>
+<em>Dronen</em>-Betrieb ausgerichtet sind, wo eine digitale Übertragung alle Kanäle über ein Bus besser geeignet ist. Denn
+letztlich übernimmt hier der <em>Flightcontroller</em> die Auswertung.</p>
 </div>
 <div class="paragraph">
 <p>Man kann die <em>Verbindung</em> von einem Servosignal-Ausgang des RC-Empfängers zu einem Servo auch als einen <em>Bus</em>
@@ -931,7 +1008,7 @@ auffassen: in diesem Fall mit einem Master und nur <em>einem</em> Slave (dem Ser
 nur <em>eine</em> Information übertragen, eben genau die gewünschte Position für dieses eine Servo.</p>
 </div>
 <div class="paragraph">
-<p>Es spricht aber nicht dagegen, auf zwei oder mehr Servos an demselben Servosignal-Ausgang anzuschließen.
+<p>Es spricht aber nichts dagegen, auch zwei oder mehr Servos an demselben Servosignal-Ausgang anzuschließen.
 Diese Servos bewegen sich dann immer gleichförmig. Dies kann sinnvoll sein, wenn etwa an <em>räumlich getrennten</em> Orten
 <em>dieselben</em> Bewegungen ausgeführt werden sollen, etwa bei mehreren Rudern, die nicht durch ein Gestänge verbunden
 werden können (s.a. Langeklappen im Flugmodellbau). Dafür setzt man elektrisch gerne ein sog. <em>Y-Kabel</em> ein.</p>
@@ -948,8 +1025,29 @@ werden können (s.a. Langeklappen im Flugmodellbau). Dafür setzt man elektrisch
 <p>Die gewünschte Position des Servoabtriebs wird hierbei als die zeitliche Impulslänge eines elektrischen
 Impulses analog codiert: eine Impulslänge von ca. 1,5ms bedeutet üblicherweise Neutralposition, ca. 2ms oder ca. 1ms
 die jeweiligen Endpositionen (leider ist dies auch von Hersteller zu Hersteller unterschiedlich, weswegen man auch
-bspw. ESCs _anlernen muss, damit korrekt die Lagen erkannt werden). Diese Impulse werden aus historischen Gründen
+bspw. ESCs <em>anlernen muss, damit korrekt die Lagen _voll-vorwärts</em> und <em>voll-rückwärts</em> erkannt werden). Diese Impulse werden aus historischen Gründen
 alle ca. 20ms gesendet. Die Aktualisierungsrate ist damit ca. 50Hz.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="title">Warum ist den das eine <em>analoge</em> Übertragung?</div>
+<div class="paragraph">
+<p>Die Frage ist berechtigt! Denn die Servo-Signale werden doch mit nur <em>zwei</em> Pegeln, also <code>0V</code> und <code>5V</code> oder <code>0V</code> und <code>3,3V</code> übertragen.
+Das sind doch nur <em>zwei</em> Werte.</p>
+</div>
+<div class="paragraph">
+<p>Die Information steckt aber hier eben nicht im <em>Pegel</em> des Signals, sondern in der <em>Impulslänge</em>. Diese ist jedoch nicht <em>diskretisiert</em>, sondern
+<em>analog</em>. Sie wird also vom rezeptierenden Gerät (Servo o.ä.) als eine kontinuierliche Größe gemessen und verarbeitet. Geringe Schwankungen in der
+<em>Impulslänge</em> werden also als Störungen wahrgenommen.</p>
 </div>
 </td>
 </tr>
@@ -960,14 +1058,16 @@ alle ca. 20ms gesendet. Die Aktualisierungsrate ist damit ca. 50Hz.</p>
 <h3 id="cppm"><a class="anchor" href="#cppm"></a><a class="link" href="#cppm">6.2. CPPM</a></h3>
 <div class="paragraph">
 <p>Als <code>CPPM</code> (<em>combined pulse position modulation</em>) oder auch manchmal nur <code>PPM</code> wird die analoge Übertragung von
-bis zu 8 Servokanälen bezeichnet (s.a. <a href="https://de.wikipedia.org/wiki/Puls-Pausen-Modulation">PPM</a>). Dies kommt
+bis zu 8 (oder mehr) Servokanälen bezeichnet (s.a. <a href="https://de.wikipedia.org/wiki/Puls-Pausen-Modulation">PPM</a>). Dies kommt
 einem digitalen Aktor-Bus schon recht nahe, werden hier doch mehrere Informationen übertragen. Dieses
 Verfahren findet heute nur noch selten statt, teilweise wird es <em>innerhalb</em> eines <em>Senders</em> eingesetzt, um die
 Kanäle zum HF-Modul zu übertragen. Sehr selten kommt es noch im Copter- oder Dronen-Bereich zum Einsatz, um
 die Kanäle zum <em>Flightcontroller</em> zu übertragen (hier herrscht <code>SBus</code> vor).</p>
 </div>
 <div class="paragraph">
-<p><code>CPPM</code> wird als <em>Zeitmultiplex</em>-Verfahren bezeichnet.</p>
+<p><code>CPPM</code> wird als <em>Zeitmultiplex</em>-Verfahren bezeichnet. Denn bei <code>Cppm</code> werden in einem <em>Zweitrahmen</em> von <code>20ms</code> die
+Informationen von typischerweise 8 Kanäle übertragen. Die Zeitspanne von <code>20ms</code> wird also in 8 <em>Zeitschlitze</em> unterteilt, die
+durch die Impulsflanken markiert werden.</p>
 </div>
 </div>
 <div class="sect2">
@@ -977,7 +1077,7 @@ die Kanäle zum <em>Flightcontroller</em> zu übertragen (hier herrscht <code>SB
 bezeichnet. Dies ist bei <a href="#cppm">CPPM</a> ja der Fall.</p>
 </div>
 <div class="paragraph">
-<p>Im Funktions- und Schiffsmodellbau hat man oft Anforderung, dass man einfache <em>ein</em>/<em>aus</em> Schaltfunktionen
+<p>Im Funktions- und Schiffsmodellbau hat man oft die Anforderung, dass man einfache <em>ein</em>/<em>aus</em> Schaltfunktionen
 auslösen möchte. Eine zum Geber proportionale Servoabtriebsbewegung ist hierbei nicht gefragt.</p>
 </div>
 <div class="paragraph">
@@ -988,7 +1088,7 @@ Machbaren, denn mehr als 16 Schaltfunktionen sind nicht selten.</p>
 <div class="paragraph">
 <p>Dasselbe Prinzip des Zeitmultiplex kann man nun auch bezogen auf einen <em>einzelnen</em> Übertragungskanal anwenden:
 hier werden dann - wieder nacheinander - die Schaltzustände übertragen. An einem analogen Servoausgang des
-RC-Empfängers werden alo nacheinander die Schaltzustände als Servo-Impulse  ausgegeben. Damit
+RC-Empfängers werden also zeitlich nacheinander die Schaltzustände als Servo-Impulse  ausgegeben. Damit
 verringert sich natürlich die Aktualisierungsrate nochmals, die Schaltfunktionen reagieren damit nicht
 unmittelbar. Weil auch noch 1 bis 2 _Synchronimpulse übertragen werden müssen, kann es bis zu 200ms dauern,
 bis eine Reaktion erfolgt.</p>
@@ -1002,7 +1102,7 @@ Als <em>Synchronimpulse</em> muss eine Impulslänge gewählt werden, die bei den
 vorkommt.</p>
 </div>
 <div class="paragraph">
-<p>Es haben sich Verfahren eingebürgert, die einen oder zwei extrem lange (&gt;2ms) oder kurze Impulse (&lt;1ms)
+<p>Es haben sich Verfahren eingebürgert, die einen oder zwei extrem lange (&gt;= 2ms) oder extrem kurze Impulse (&#8656; 1ms)
 verwenden, so dass sich insgesamt vier Möglichkeiten ergeben. Die Schaltzustände werden dann mit Impulsen
 von etwa 1,8ms, 1ms und 1,2ms übertragen. Damit kann jede Schaltfunktion drei Zustände annehmen: <code>aus</code>, <code>ein_1</code> und
 <code>ein_2</code>.</p>
@@ -1062,6 +1162,10 @@ von etwa 1,8ms, 1ms und 1,2ms übertragen. Damit kann jede Schaltfunktion drei Z
 <div class="sect1">
 <h2 id="_die_protokolle_im_detail"><a class="anchor" href="#_die_protokolle_im_detail"></a><a class="link" href="#_die_protokolle_im_detail">7. Die Protokolle im Detail</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Im folgenden sollen die Protokolle im Detail beschrieben werden. Dies ist zwar für den <em>normalen</em> RC-Modellbauer wenig interessant.
+Aber es gibt ja genügend <em>Elektroniker</em> unter den Modellbauern, die diese Information u.U. nützlich finden.</p>
+</div>
 <div class="sect2">
 <h3 id="_sumd"><a class="anchor" href="#_sumd"></a><a class="link" href="#_sumd">7.1. SumD</a></h3>
 
@@ -1097,6 +1201,13 @@ von etwa 1,8ms, 1ms und 1,2ms übertragen. Damit kann jede Schaltfunktion drei Z
 <ul>
 <li>
 <p>Fa. Graupner</p>
+<div class="ulist">
+<ul>
+<li>
+<p>WM</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -1161,7 +1272,7 @@ von etwa 1,8ms, 1ms und 1,2ms übertragen. Damit kann jede Schaltfunktion drei Z
 <div id="footer">
 <div id="footer-text">
 Version 0.4<br>
-Last updated 2021-02-15 20:53:33 +0100
+Last updated 2021-02-17 18:54:41 +0100
 </div>
 </div>
 <script type="text/x-mathjax-config">
