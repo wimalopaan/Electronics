@@ -107,15 +107,30 @@ Eine 16-Kanal LED-Ansteuerung mit einer Konstantstromquelle je Kanal, je Kanal e
 
 === RC-Cellwatch
 
+Ein Akkuzellenmonitor für bis zu 4-Zellen für `IBus` und `SPort` (und sehr geringem Leckstrom = geringe Entladung des Akkus).
+
 Anleitung: {rcb}/cellwatch.html[RC Cellwatch] {rcb}/cellwatch_r.pdf[pdf]
 
 === RC-SensorModul
 
+Vielfältiges Sensor-Modul (`IBus`) für
+
+* Drehzahlen
+* Temperaturen
+* GPS-Geschwindigkeit
+* Wassereinbruch
+* Ströme
+
 === RC-Hauptschalter
+
+Zentraler elektronischer Schalter zur Bedienung per Taster oder Magnet, Telemetrie für Strom und Spannung, für `IBus`, `SPort` und `Hott`.
+Akustische Rückmeldung.
 
 Anleitung: {rcb}/onoff_telemetrie.html[RC Hauptschalter] {rcb}/onoff_telemetrie_r.pdf[pdf]
 
 === DIY RC-Hauptschalter
+
+Zentraler elektronischer Schalter zur Bedienung per Taster oder Magnet, _ohne_ Telemtrie
 
 Anleitung: {rcb}/onoff_simple.html[DIY RC Hauptschalter] {rcb}/onoff_simple_r.pdf[pdf]
 
@@ -126,6 +141,11 @@ Die Anleitung enthält auch eine ausführliche Betrachtung über das Thema _Para
 Anleitung: {rcb}/power_or.html[Akkuweiche] {rcb}/power_or_r.pdf[pdf]
 
 === RC-BEC-Weiche
+
+Hat man mehrere BEC-Quellen (etwa mehrere _Steller_ mit je einem `BEC`) entsteht immer die Frage nache dem _Parallelbetrieb_ der 
+`BEC` der Steller. Normalerweise verkraften die Steller-BEC das Parallelschalten _nicht_, mit diesem Modul ist das jedoch effektiv möglich. 
+Damit verteilt sich die Last auf _beide_ `BEC` der Steller, das _Deaktivieren_ der anderen `BEC` durch Unterbrechen des _Plus_-Zuleitung ist _nicht_ 
+mehr notwendig.
 
 === RC-Inkrementalgeber
 
@@ -138,9 +158,17 @@ Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
 
 Emulation eines Mehrstufenschalters etwa für die Ansteuerung eines _Sound-Moduls_ wie _Benedini_ oder clones.
 
-
-
 === RC-Desk
+
+`Rc-Desk` ist ein _Senderpult_ mit Erweiterungsmöglichkeiten für `OpenTx`-Sender wie für Sender mit einem _üblichen_ Lehrer/Schüler-Eingang (etwas Graupner/SJ).
+
+Das _Senderpult_ ermögicht
+
+* bis zu 16 zusätzliche proportionale Geber für den Sender
+* Ankoppelung eines _SmartPhones_ oder _NotePad_ per _Bluetooth_ zur Realisierung _virtueller_ Bedienelemente (Potis, Schieber, Taster, Schalter)
+* 4 Inkrementalgeber
+* 8 Poti-Geber
+* 16 Schalter / Taster
 
 === Wassermelder
 
