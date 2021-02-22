@@ -39,6 +39,9 @@ image::images/zfcf.jpg[width=50%]
 
 === News
 
+* Schrittweise Einführung der _automatischen Erkennung_ der Bus-Systeme: `IBus`, `SBus`, `SBus` (inv.), `Hott`. Darüber hinaus auch Detektion 
+eines `PWM`-Signals (falls sinnvoll). 
+
 === Bus-Systeme im RC-Modellbau
 
 (_work-in-progress_)
