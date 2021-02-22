@@ -37,6 +37,8 @@ image::images/zfcf.jpg[width=50%]
 
 == Allgemein
 
+=== News
+
 === Bus-Systeme im RC-Modellbau
 
 (_work-in-progress_)
@@ -50,7 +52,13 @@ Es folgt eine Übersicht über die von mir entwickelten Elektronik-Module für d
 [[msd]]
 === RC-Multiswitch-D
 
-Der `RC-Multiswitch-D` ist ein _digitales_ Schaltmodul mit 8-Kanälen
+Der `RC-Multiswitch-D` ist ein _digitales_ Schaltmodul mit 8-Kanälen. 
+
+Die Ansteuerung erfolgt rein digital über
+
+* `OpenTx` und einen `Sbus`-Empfänger
+* `OpenTx` und einen `Ibus`-Empfänger
+* `Hott` und einen `Hott`-Empfänger
 
 Anleitung: {rcb}/rcmultiswitch.html[RC MultiSwitch] {rcb}/rcmultiswitch_r.pdf[pdf]
 
@@ -63,13 +71,22 @@ Anleitung (Hott): {rcb}/rcmultiswitch_h.html[RC MultiSwitch] {rcb}/rcmultiswitch
 
 === RC-MultiAdapter-DA
 
+Der `Rc_MultiAdapter-DA` dient dazu, _alte_, _analoge_ Schaltmodule wie etwa das _Graupner_ 16-Kanal (4159) an
+einer `OpenTx`-Anlage zu betreiben. Dies ist für Anwender interessant, die ein bestehendes Modell mit derartigen 
+alten analogen Schaltmodulen auf neue Technik umrüsten möchten, _ohne_ die _gesamte_ Elektronik im Model zu erneuern.
+
 s.a. <<msd,RC-MultiSwitch-D>>
 
 === RC-ServoSwitch-D
 
+Mit dem `RC-ServoSwitch-D` kann man Bewegungsabläufe als _Schaltfunktion_ realisieren. Je _Funktion_ können _vier_ 
+unterschiedliche Positionen für eines der 5 Servos angefahren werden. Servos können auch _gekoppelt_ werden.
+
 s.a. <<msd,RC-MultiSwitch-D>>
 
 === RC-Quad-D
+
+Ein Sonderfunktionssteuerung mit vier Funktionen. Eigent sich gut, um bis zu 4-Achsen-Kräne anzusteuern (inkl. Endabschaltung und Telemetrie).
 
 Anleitung: {rcb}/rcquad.html[RC Quad] {rcb}/rcquad_r.pdf[pdf]
 
@@ -82,9 +99,11 @@ Anleitung: {rcb}/rcquad.html[RC Quad] {rcb}/rcquad_r.pdf[pdf]
 
 === RC-ThreeSixty-D
 
-Schottelsteuerung
+Dies ist eine Schottelsteuerung für einen Schottelantrieb.
 
 === RC-Led-D
+
+Eine 16-Kanal LED-Ansteuerung mit einer Konstantstromquelle je Kanal, je Kanal einstellbarem Strom und unterschiedlichen Schaltmustern.
 
 === RC-Cellwatch
 
