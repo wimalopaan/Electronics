@@ -170,6 +170,19 @@ Das _Senderpult_ ermögicht
 * 8 Poti-Geber
 * 16 Schalter / Taster
 
+Geeignet für alle Sender (`OpenTx`) mit
+
+* einer freien _seriellen_ Schnittstelle 
+** Radiomaster TX16s
+** FrSky X9e
+** FrSky X10s
+** FrSky X12s
+** ...
+* Leher-Schüler Eingang (und sinnvollerweise Kanal-_Mapping_)
+** Graupner/SJ
+
+
+
 === Wassermelder
 
 === Elektronischer Schalter
