@@ -80,6 +80,9 @@ alten analogen Schaltmodulen auf neue Technik umrüsten möchten, _ohne_ die _ge
 
 s.a. <<msd,RC-MultiSwitch-D>>
 
+* Firmware:
+** neue Firmware (V21) erkennt automatisch IBus/SBus/SBus(Inv), SBus-Inverter nicht mehr notwendig
+
 === RC-ServoSwitch-D
 
 Mit dem `RC-ServoSwitch-D` kann man Bewegungsabläufe als _Schaltfunktion_ realisieren. Je _Funktion_ können _vier_ 
