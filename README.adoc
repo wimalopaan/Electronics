@@ -37,7 +37,14 @@ image::images/zfcf.jpg[width=50%]
 
 == Allgemein
 
+=== News
+
+* Schrittweise Einführung der _automatischen Erkennung_ der Bus-Systeme: `IBus`, `SBus`, `SBus` (inv.), `Hott`. Darüber hinaus auch Detektion 
+eines `PWM`-Signals (falls sinnvoll). 
+
 === Bus-Systeme im RC-Modellbau
+
+(_work-in-progress_)
 
 Übersicht: {ddir}/rc/rcBusSysteme.html[RC Bus Systeme] {ddir}/rc/rcBusSysteme_r.pdf[pdf]
 
@@ -48,7 +55,13 @@ Es folgt eine Übersicht über die von mir entwickelten Elektronik-Module für d
 [[msd]]
 === RC-Multiswitch-D
 
-Der `RC-Multiswitch-D` ist ein _digitales_ Schaltmodul mit 8-Kanälen
+Der `RC-Multiswitch-D` ist ein _digitales_ Schaltmodul mit 8-Kanälen. 
+
+Die Ansteuerung erfolgt rein digital über
+
+* `OpenTx` und einen `Sbus`-Empfänger
+* `OpenTx` und einen `Ibus`-Empfänger
+* `Hott` und einen `Hott`-Empfänger
 
 Anleitung: {rcb}/rcmultiswitch.html[RC MultiSwitch] {rcb}/rcmultiswitch_r.pdf[pdf]
 
@@ -61,13 +74,25 @@ Anleitung (Hott): {rcb}/rcmultiswitch_h.html[RC MultiSwitch] {rcb}/rcmultiswitch
 
 === RC-MultiAdapter-DA
 
+Der `Rc_MultiAdapter-DA` dient dazu, _alte_, _analoge_ Schaltmodule wie etwa das _Graupner_ 16-Kanal (4159) an
+einer `OpenTx`-Anlage zu betreiben. Dies ist für Anwender interessant, die ein bestehendes Modell mit derartigen 
+alten analogen Schaltmodulen auf neue Technik umrüsten möchten, _ohne_ die _gesamte_ Elektronik im Model zu erneuern.
+
 s.a. <<msd,RC-MultiSwitch-D>>
 
+* Firmware:
+** neue Firmware (V21) erkennt automatisch IBus/SBus/SBus(Inv), SBus-Inverter nicht mehr notwendig
+
 === RC-ServoSwitch-D
+
+Mit dem `RC-ServoSwitch-D` kann man Bewegungsabläufe als _Schaltfunktion_ realisieren. Je _Funktion_ können _vier_ 
+unterschiedliche Positionen für eines der 5 Servos angefahren werden. Servos können auch _gekoppelt_ werden.
 
 s.a. <<msd,RC-MultiSwitch-D>>
 
 === RC-Quad-D
+
+Ein Sonderfunktionssteuerung mit vier Funktionen. Eigent sich gut, um bis zu 4-Achsen-Kräne anzusteuern (inkl. Endabschaltung und Telemetrie).
 
 Anleitung: {rcb}/rcquad.html[RC Quad] {rcb}/rcquad_r.pdf[pdf]
 
@@ -80,21 +105,38 @@ Anleitung: {rcb}/rcquad.html[RC Quad] {rcb}/rcquad_r.pdf[pdf]
 
 === RC-ThreeSixty-D
 
-Schottelsteuerung
+Dies ist eine Schottelsteuerung für einen Schottelantrieb.
 
 === RC-Led-D
 
+Eine 16-Kanal LED-Ansteuerung mit einer Konstantstromquelle je Kanal, je Kanal einstellbarem Strom und unterschiedlichen Schaltmustern.
+
 === RC-Cellwatch
+
+Ein Akkuzellenmonitor für bis zu 4-Zellen für `IBus` und `SPort` (und sehr geringem Leckstrom = geringe Entladung des Akkus).
 
 Anleitung: {rcb}/cellwatch.html[RC Cellwatch] {rcb}/cellwatch_r.pdf[pdf]
 
 === RC-SensorModul
 
+Vielfältiges Sensor-Modul (`IBus`) für
+
+* Drehzahlen
+* Temperaturen
+* GPS-Geschwindigkeit
+* Wassereinbruch
+* Ströme
+
 === RC-Hauptschalter
+
+Zentraler elektronischer Schalter zur Bedienung per Taster oder Magnet, Telemetrie für Strom und Spannung, für `IBus`, `SPort` und `Hott`.
+Akustische Rückmeldung.
 
 Anleitung: {rcb}/onoff_telemetrie.html[RC Hauptschalter] {rcb}/onoff_telemetrie_r.pdf[pdf]
 
 === DIY RC-Hauptschalter
+
+Zentraler elektronischer Schalter zur Bedienung per Taster oder Magnet, _ohne_ Telemtrie
 
 Anleitung: {rcb}/onoff_simple.html[DIY RC Hauptschalter] {rcb}/onoff_simple_r.pdf[pdf]
 
@@ -105,6 +147,11 @@ Die Anleitung enthält auch eine ausführliche Betrachtung über das Thema _Para
 Anleitung: {rcb}/power_or.html[Akkuweiche] {rcb}/power_or_r.pdf[pdf]
 
 === RC-BEC-Weiche
+
+Hat man mehrere BEC-Quellen (etwa mehrere _Steller_ mit je einem `BEC`) entsteht immer die Frage nache dem _Parallelbetrieb_ der 
+`BEC` der Steller. Normalerweise verkraften die Steller-BEC das Parallelschalten _nicht_, mit diesem Modul ist das jedoch effektiv möglich. 
+Damit verteilt sich die Last auf _beide_ `BEC` der Steller, das _Deaktivieren_ der anderen `BEC` durch Unterbrechen des _Plus_-Zuleitung ist _nicht_ 
+mehr notwendig.
 
 === RC-Inkrementalgeber
 
@@ -117,9 +164,30 @@ Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
 
 Emulation eines Mehrstufenschalters etwa für die Ansteuerung eines _Sound-Moduls_ wie _Benedini_ oder clones.
 
-
-
 === RC-Desk
+
+`Rc-Desk` ist ein _Senderpult_ mit Erweiterungsmöglichkeiten für `OpenTx`-Sender wie für Sender mit einem _üblichen_ Lehrer/Schüler-Eingang (etwas Graupner/SJ).
+
+Das _Senderpult_ ermögicht
+
+* bis zu 16 zusätzliche proportionale Geber für den Sender
+* Ankoppelung eines _SmartPhones_ oder _NotePad_ per _Bluetooth_ zur Realisierung _virtueller_ Bedienelemente (Potis, Schieber, Taster, Schalter)
+* 4 Inkrementalgeber
+* 8 Poti-Geber
+* 16 Schalter / Taster
+
+Geeignet für alle Sender (`OpenTx`) mit
+
+* einer freien _seriellen_ Schnittstelle 
+** Radiomaster TX16s
+** FrSky X9e
+** FrSky X10s
+** FrSky X12s
+** ...
+* Leher-Schüler Eingang (und sinnvollerweise Kanal-_Mapping_)
+** Graupner/SJ
+
+
 
 === Wassermelder
 
