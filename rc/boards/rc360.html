@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.12">
+<meta name="description" content="RC ThreeSixty-D">
+<meta name="author" content="Wilhelm Meier">
+<meta name="copyright" content="Wilhelm Meier">
+<title>RC ThreeSixty-D : Schottelsteuerung</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment @import statement to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede;word-wrap:normal}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details>summary:first-of-type{cursor:pointer;display:list-item;outline:none;margin-bottom:.75em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
+table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
+table.frame-sides{border-width:0 1px}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:50%;border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.listingblock a.view-result {
+  float: right;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 0.9em;
+  line-height: 1.4;
+  margin-top: 0.15em;
+}
+</style>
+<script>
+function toggle_result_block(e) {
+  var resultNode = e.target.parentNode.parentNode.nextElementSibling;
+  resultNode.style.display = getComputedStyle(resultNode).display == 'none' ? '' : 'none';
+  return false;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  [].forEach.call(document.querySelectorAll('.result'), function(resultNode) {
+    resultNode.style.display = 'none';
+    var viewLink = document.createElement('a');
+    viewLink.className = 'view-result';
+    viewLink.appendChild(document.createTextNode('[ view result ]'));
+    resultNode.previousElementSibling.querySelector('.title').appendChild(viewLink);
+    viewLink.addEventListener('click', toggle_result_block);
+  });
+});
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>RC ThreeSixty-D</h1>
+<div class="details">
+<span id="author" class="author">Wilhelm Meier</span><br>
+<span id="email" class="email"><a href="mailto:wilhelm.wm.meier@googlemail.com">wilhelm.wm.meier@googlemail.com</a></span><br>
+<span id="revnumber">version 0.1,</span>
+<span id="revdate">26.02.2021</span>
+<br><span id="revremark">HW_0.1</span>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle">Inhalt</div>
+<ul class="sectlevel1">
+<li><a href="#_vorwort">1. Vorwort</a></li>
+<li><a href="#_symbolerklärung">2. Symbolerklärung</a></li>
+<li><a href="#_rechtliches">3. Rechtliches</a></li>
+<li><a href="#_sicherheitshinweise">4. Sicherheitshinweise</a></li>
+<li><a href="#_spezieller_sicherheitshinweis_kleinteile">5. Spezieller Sicherheitshinweis: Kleinteile</a></li>
+<li><a href="#_einführung">6. Einführung</a>
+<ul class="sectlevel2">
+<li><a href="#_ansicht">6.1. Ansicht</a></li>
+</ul>
+</li>
+<li><a href="#_beschreibung">7. Beschreibung</a>
+<ul class="sectlevel2">
+<li><a href="#_voraussetzungen">7.1. Voraussetzungen</a></li>
+<li><a href="#_einbau_und_anschluß">7.2. Einbau und Anschluß</a>
+<ul class="sectlevel3">
+<li><a href="#_anschluß">7.2.1. Anschluß</a></li>
+</ul>
+</li>
+<li><a href="#_opentx">7.3. OpenTx</a>
+<ul class="sectlevel3">
+<li><a href="#_installation_der_mischer_skripte">7.3.1. Installation der Mischer-Skripte</a></li>
+<li><a href="#_konfiguration_der_mischer_für_fahrmotorsteller_und_servo">7.3.2. Konfiguration der Mischer für Fahrmotorsteller und Servo</a></li>
+</ul>
+</li>
+<li><a href="#_konfiguration">7.4. Konfiguration</a>
+<ul class="sectlevel3">
+<li><a href="#_konfiguration_des_bus_typs">7.4.1. Konfiguration des <code>Bus</code>-Typs</a></li>
+<li><a href="#_konfiguration_der_übertragungskanäle">7.4.2. Konfiguration der Übertragungskanäle</a></li>
+<li><a href="#_kalibrierung">7.4.3. Kalibrierung</a></li>
+</ul>
+</li>
+<li><a href="#_bedienung">7.5. Bedienung</a></li>
+</ul>
+</li>
+<li><a href="#_zubehör">8. Zubehör</a>
+<ul class="sectlevel2">
+<li><a href="#_bus_verteiler">8.1. <code>Bus</code>-Verteiler</a></li>
+<li><a href="#_bec_weiche">8.2. <code>BEC</code>-Weiche</a></li>
+</ul>
+</li>
+<li><a href="#Betrieb">9. Betrieb</a></li>
+<li><a href="#_kontakt">10. Kontakt</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vorwort"><a class="anchor" href="#_vorwort"></a><a class="link" href="#_vorwort">1. Vorwort</a></h2>
+<div class="sectionbody">
+<div class="imageblock text-center">
+<div class="content">
+<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgo8c3ZnCiAgIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIKICAgeG1sbnM6Y2M9Imh0dHA6Ly93ZWIucmVzb3VyY2Uub3JnL2NjLyIKICAgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zOnNvZGlwb2RpPSJodHRwOi8vc29kaXBvZGkuc291cmNlZm9yZ2UubmV0L0RURC9zb2RpcG9kaS0wLmR0ZCIKICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiCiAgIHdpZHRoPSIxMjAiCiAgIGhlaWdodD0iNDIiCiAgIGlkPSJzdmcyNzU5IgogICBzb2RpcG9kaTp2ZXJzaW9uPSIwLjMyIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIwLjQ1K2RldmVsIgogICB2ZXJzaW9uPSIxLjAiCiAgIHNvZGlwb2RpOmRvY25hbWU9ImJ5LW5jLW5kLnN2ZyIKICAgaW5rc2NhcGU6b3V0cHV0X2V4dGVuc2lvbj0ib3JnLmlua3NjYXBlLm91dHB1dC5zdmcuaW5rc2NhcGUiPgogIDxkZWZzCiAgICAgaWQ9ImRlZnMyNzYxIiAvPgogIDxzb2RpcG9kaTpuYW1lZHZpZXcKICAgICBpZD0iYmFzZSIKICAgICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgICAgYm9yZGVyY29sb3I9IiM4YjhiOGIiCiAgICAgYm9yZGVyb3BhY2l0eT0iMSIKICAgICBncmlkdG9sZXJhbmNlPSIxMDAwMCIKICAgICBndWlkZXRvbGVyYW5jZT0iMTAiCiAgICAgb2JqZWN0dG9sZXJhbmNlPSIxMCIKICAgICBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMC4wIgogICAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6em9vbT0iMi42OTMyNTE1IgogICAgIGlua3NjYXBlOmN4PSI5MSIKICAgICBpbmtzY2FwZTpjeT0iMzQuNSIKICAgICBpbmtzY2FwZTpkb2N1bWVudC11bml0cz0icHgiCiAgICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ibGF5ZXIxIgogICAgIHdpZHRoPSIxMjBweCIKICAgICBoZWlnaHQ9IjQycHgiCiAgICAgaW5rc2NhcGU6c2hvd3BhZ2VzaGFkb3c9ImZhbHNlIgogICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTE5OCIKICAgICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSI2MjQiCiAgICAgaW5rc2NhcGU6d2luZG93LXg9IjEwOSIKICAgICBpbmtzY2FwZTp3aW5kb3cteT0iMjUxIiAvPgogIDxtZXRhZGF0YQogICAgIGlkPSJtZXRhZGF0YTI3NjQiPgogICAgPHJkZjpSREY+CiAgICAgIDxjYzpXb3JrCiAgICAgICAgIHJkZjphYm91dD0iIj4KICAgICAgICA8ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD4KICAgICAgICA8ZGM6dHlwZQogICAgICAgICAgIHJkZjpyZXNvdXJjZT0iaHR0cDovL3B1cmwub3JnL2RjL2RjbWl0eXBlL1N0aWxsSW1hZ2UiIC8+CiAgICAgIDwvY2M6V29yaz4KICAgIDwvcmRmOlJERj4KICA8L21ldGFkYXRhPgogIDxnCiAgICAgaW5rc2NhcGU6bGFiZWw9IkxheWVyIDEiCiAgICAgaW5rc2NhcGU6Z3JvdXBtb2RlPSJsYXllciIKICAgICBpZD0ibGF5ZXIxIj4KICAgIDxnCiAgICAgICBpZD0iZzIzNzAiPgogICAgICA8cGF0aAogICAgICAgICBpZD0icGF0aDM4MTdfNF8iCiAgICAgICAgIG5vZGV0eXBlcz0iY2NjY2NjYyIKICAgICAgICAgZD0iTSAzLjQwOTMwNzMsMC40NDU4ODkzNiBMIDExNi43NjI0OSwwLjY0NzcyMzUzIEMgMTE4LjM0NjMyLDAuNjQ3NzIzNTMgMTE5Ljc2MTI4LDAuNDEyNDAyNjkgMTE5Ljc2MTI4LDMuODA3NzcxNyBMIDExOS42MjI1LDQxLjEzNjg0OCBMIDAuNTQ4MzI0ODYsNDEuMTM2ODQ4IEwgMC41NDgzMjQ4NiwzLjY2OTAwNTggQyAwLjU0ODMyNDg2LDEuOTk1MDk5OCAwLjcxMDM5OTI3LDAuNDQ1ODg5MzYgMy40MDkzMDczLDAuNDQ1ODg5MzYgeiIKICAgICAgICAgc3R5bGU9ImZpbGw6I2FhYjJhYiIgLz4KICAgICAgPHBhdGgKICAgICAgICAgZD0iTSAxMTcuNzUzMzUsMCBMIDIuMjQ3NjQ2NSwwIEMgMS4wMDgzNDIzLDAgMS4wNzIwMTkyZS0wNSwxLjAwODIyNjkgMS4wNzIwMTkyZS0wNSwyLjI0NjkxNTUgTCAxLjA3MjAxOTJlLTA1LDQxLjQ5Mjk3OSBDIDEuMDcyMDE5MmUtMDUsNDEuNzcyOTM2IDAuMjI3MTA3NjgsNDEuOTk5OTk5IDAuNTA3NTcwMjQsNDEuOTk5OTk5IEwgMTE5LjQ5MjQ1LDQxLjk5OTk5OSBDIDExOS43NzI5Myw0MS45OTk5OTkgMTIwLjAwMDAxLDQxLjc3MjkyNiAxMjAuMDAwMDEsNDEuNDkyOTc5IEwgMTIwLjAwMDAxLDIuMjQ2OTE1NSBDIDEyMC4wMDAwMSwxLjAwODIyNjkgMTE4Ljk5MTY4LDAgMTE3Ljc1MzM1LDAgeiBNIDIuMjQ3NjQ2NSwxLjAxNTAxMzYgTCAxMTcuNzUzMzUsMS4wMTUwMTM2IEMgMTE4LjQzMjY5LDEuMDE1MDEzNiAxMTguOTg0OSwxLjU2NzY0MyAxMTguOTg0OSwyLjI0NjkxNTUgQyAxMTguOTg0OSwyLjI0NjkxNTUgMTE4Ljk4NDksMTguMDM3NDI4IDExOC45ODQ5LDI5LjQ2MTI0IEwgMzYuNDI4OTY5LDI5LjQ2MTI0IEMgMzMuNDAzMDEsMzQuOTMxNzU5IDI3LjU3MjM1NiwzOC42NDYzNzQgMjAuODgxODYsMzguNjQ2Mzc0IEMgMTQuMTg5NDE3LDM4LjY0NjM3NCA4LjM2MDcxMDcsMzQuOTM1MTU4IDUuMzM2Njg5OSwyOS40NjEyNCBMIDEuMDE1MTM5NywyOS40NjEyNCBDIDEuMDE1MTM5NywxOC4wMzc0MzggMS4wMTUxMzk3LDIuMjQ2OTE1NSAxLjAxNTEzOTcsMi4yNDY5MTU1IEMgMS4wMTUxMjk4LDEuNTY3NjUyOSAxLjU2ODMwMzUsMS4wMTUwMTM2IDIuMjQ3NjQ2NSwxLjAxNTAxMzYgeiIKICAgICAgICAgaWQ9InBhdGgzNjQiIC8+CiAgICAgIDxnCiAgICAgICAgIGlkPSJnNTkwOF80XyIKICAgICAgICAgdHJhbnNmb3JtPSJtYXRyaXgoMC44Njc0ODUxLDAsMCwwLjg2NzM5NTEsLTM4Ny4zMDY1NywxNDIuMzA3OCkiPgogICAgICAgIDxwYXRoCiAgICAgICAgICAgaWQ9InBhdGg1OTA2XzRfIgogICAgICAgICAgIGN4PSIyOTYuMzU0MTYiCiAgICAgICAgICAgcnk9IjIyLjkzOTU0OCIKICAgICAgICAgICBjeT0iMjY0LjM1NzciCiAgICAgICAgICAgdHlwZT0iYXJjIgogICAgICAgICAgIHJ4PSIyMi45Mzk1NDgiCiAgICAgICAgICAgZD0iTSA0ODYuMjY3MDksLTE0MS41MzA1MiBDIDQ4Ni4yNzI3MSwtMTMyLjg1MDI4IDQ3OS4yMzkyLC0xMjUuODA5NTcgNDcwLjU1OTAyLC0xMjUuODAzNDEgQyA0NjEuODc4NzgsLTEyNS43OTg0MSA0NTQuODM3NTIsLTEzMi44MzEyNCA0NTQuODMxOTEsLTE0MS41MTE0OCBDIDQ1NC44MzE5MSwtMTQxLjUxODE5IDQ1NC44MzE5MSwtMTQxLjUyNDM2IDQ1NC44MzE5MSwtMTQxLjUzMDUyIEMgNDU0LjgyNjI5LC0xNTAuMjExODYgNDYxLjg1OTc0LC0xNTcuMjUyNTcgNDcwLjUzOTk4LC0xNTcuMjU3NjMgQyA0NzkuMjIxMzIsLTE1Ny4yNjI2MyA0ODYuMjYyNjQsLTE1MC4yMjk3NCA0ODYuMjY3MDksLTE0MS41NDk1IEMgNDg2LjI2NzA5LC0xNDEuNTQzOTUgNDg2LjI2NzA5LC0xNDEuNTM3MjMgNDg2LjI2NzA5LC0xNDEuNTMwNTIgeiIKICAgICAgICAgICBzdHlsZT0iZmlsbDojZmZmZmZmIiAvPgogICAgICAgIDxnCiAgICAgICAgICAgaWQ9Imc1NzA2XzRfIgogICAgICAgICAgIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yODkuNjE1Nyw5OS4wNjUzKSI+CiAgICAgICAgICA8cGF0aAogICAgICAgICAgICAgaWQ9InBhdGg1NzA4XzRfIgogICAgICAgICAgICAgZD0iTSA3NzIuOTQyODEsLTI1My4zOTgwMSBDIDc3Ni40Mjc2MSwtMjQ5LjkxMjYgNzc4LjE3MDU5LC0yNDUuNjQ0NjUgNzc4LjE3MDU5LC0yNDAuNTk1ODIgQyA3NzguMTcwNTksLTIzNS41NDY0NCA3NzYuNDU3ODIsLTIzMS4zMjQzNCA3NzMuMDMyMjgsLTIyNy45Mjc4NSBDIDc2OS4zOTY0MiwtMjI0LjM1MTg2IDc2NS4xMDA0NiwtMjIyLjU2NDE0IDc2MC4xNDIyNywtMjIyLjU2NDE0IEMgNzU1LjI0NDUsLTIyMi41NjQxNCA3NTEuMDIyNCwtMjI0LjMzNjcyIDc0Ny40NzgyNywtMjI3Ljg4MzY2IEMgNzQzLjkzMTg4LC0yMzEuNDI5NSA3NDIuMTU5ODUsLTIzNS42NjY2OCA3NDIuMTU5ODUsLTI0MC41OTU4MiBDIDc0Mi4xNTk4NSwtMjQ1LjUyNDM1IDc0My45MzE4OCwtMjQ5Ljc5MTc0IDc0Ny40NzgyNywtMjUzLjM5ODAxIEMgNzUwLjkzMjkyLC0yNTYuODg1MDcgNzU1LjE1NDk3LC0yNTguNjI3NSA3NjAuMTQyMjcsLTI1OC42Mjc1IEMgNzY1LjE5MTEsLTI1OC42Mjc1IDc2OS40NTY4NSwtMjU2Ljg4NTA3IDc3Mi45NDI4MSwtMjUzLjM5ODAxIHogTSA3NDkuODI0MjIsLTI1MS4wNTM3MSBDIDc0Ni44Nzc1LC0yNDguMDc3MzMgNzQ1LjQwNDEyLC0yNDQuNTkwODIgNzQ1LjQwNDEyLC0yNDAuNTkxMzEgQyA3NDUuNDA0MTIsLTIzNi41OTMwMiA3NDYuODYyOTgsLTIzMy4xMzYxMSA3NDkuNzc4MzksLTIzMC4yMjAxNiBDIDc1Mi42OTYwNSwtMjI3LjMwNDIxIDc1Ni4xNjc0MywtMjI1Ljg0NTk1IDc2MC4xOTU5OSwtMjI1Ljg0NTk1IEMgNzY0LjIyNDU1LC0yMjUuODQ1OTUgNzY3LjcyNjE0LC0yMjcuMzE4NzMgNzcwLjcwMzA3LC0yMzAuMjY0OSBDIDc3My41MjksLTIzMy4wMDA3NCA3NzQuOTQxOTYsLTIzNi40NDE5NiA3NzQuOTQxOTYsLTI0MC41OTEzMiBDIDc3NC45NDE5NiwtMjQ0LjcwOTM2IDc3My41MDU1LC0yNDguMjA0ODUgNzcwLjYzMzczLC0yNTEuMDc2MDYgQyA3NjcuNzYzMDYsLTI1My45NDY3MyA3NjQuMjgzODIsLTI1NS4zODI2NCA3NjAuMTk1OTksLTI1NS4zODI2NCBDIDc1Ni4xMDgxNiwtMjU1LjM4MjY0IDc1Mi42NDkwNSwtMjUzLjkzOTQ1IDc0OS44MjQyMiwtMjUxLjA1MzcxIHogTSA3NTcuNTc4MTIsLTI0Mi4zNTA1MiBDIDc1Ny4xMjg0MSwtMjQzLjMzMjIxIDc1Ni40NTQ5NSwtMjQzLjgyMjgxIDc1NS41NTU0OCwtMjQzLjgyMjgxIEMgNzUzLjk2NjkyLC0yNDMuODIyODEgNzUzLjE3MjYxLC0yNDIuNzUzMjkgNzUzLjE3MjYxLC0yNDAuNjE0MjUgQyA3NTMuMTcyNjEsLTIzOC40NzQ3MiA3NTMuOTY2OTIsLTIzNy40MDU3NSA3NTUuNTU1NDgsLTIzNy40MDU3NSBDIDc1Ni42MDQ4NiwtMjM3LjQwNTc1IDc1Ny4zNTQ0MywtMjM3LjkyNjUgNzU3LjgwNDE0LC0yMzguOTcwMjYgTCA3NjAuMDA2OSwtMjM3Ljc5NzI5IEMgNzU4Ljk1NjQyLC0yMzUuOTMxODEgNzU3LjM4MTIzLC0yMzQuOTk4MjIgNzU1LjI4MTM4LC0yMzQuOTk4MjIgQyA3NTMuNjYxNTEsLTIzNC45OTgyMiA3NTIuMzYzNzgsLTIzNS40OTQ5OSA3NTEuMzg5MzUsLTIzNi40ODc4NCBDIDc1MC40MTM4MywtMjM3LjQ4MTI1IDc0OS45MjYwMywtMjM4Ljg1MDU3IDc0OS45MjYwMywtMjQwLjU5NTgxIEMgNzQ5LjkyNjAzLC0yNDIuMzExMzkgNzUwLjQyOTQ1LC0yNDMuNjcyODQgNzUxLjQzNDA5LC0yNDQuNjgxMzggQyA3NTIuNDM4NzMsLTI0NS42ODk5MiA3NTMuNjkxNzIsLTI0Ni4xOTMzNCA3NTUuMTkxOSwtMjQ2LjE5MzM0IEMgNzU3LjQxMjYsLTI0Ni4xOTMzNCA3NTkuMDAxMTcsLTI0NS4zMTkwNyA3NTkuOTYzMjYsLTI0My41NzEwMyBMIDc1Ny41NzgxMiwtMjQyLjM1MDUyIHogTSA3NjcuOTQyMDgsLTI0Mi4zNTA1MiBDIDc2Ny40OTEyMSwtMjQzLjMzMjIxIDc2Ni44MzAwMiwtMjQzLjgyMjgxIDc2NS45NTk2NiwtMjQzLjgyMjgxIEMgNzY0LjMzODYzLC0yNDMuODIyODEgNzYzLjUyNzUzLC0yNDIuNzUzMjkgNzYzLjUyNzUzLC0yNDAuNjE0MjUgQyA3NjMuNTI3NTMsLTIzOC40NzQ3MiA3NjQuMzM4NjMsLTIzNy40MDU3NSA3NjUuOTU5NjYsLTIzNy40MDU3NSBDIDc2Ny4wMTEzLC0yMzcuNDA1NzUgNzY3Ljc0NzM4LC0yMzcuOTI2NSA3NjguMTY2OTQsLTIzOC45NzAyNiBMIDc3MC40MTg5NSwtMjM3Ljc5NzI5IEMgNzY5LjM3MDY3LC0yMzUuOTMxODEgNzY3Ljc5NzczLC0yMzQuOTk4MjIgNzY1LjcwMTI0LC0yMzQuOTk4MjIgQyA3NjQuMDgzNTYsLTIzNC45OTgyMiA3NjIuNzg5MTksLTIzNS40OTQ5OSA3NjEuODE0NzcsLTIzNi40ODc4NCBDIDc2MC44NDI2LC0yMzcuNDgxMjUgNzYwLjM1NDg3LC0yMzguODUwNTcgNzYwLjM1NDg3LC0yNDAuNTk1ODEgQyA3NjAuMzU0ODcsLTI0Mi4zMTEzOSA3NjAuODQ5MzIsLTI0My42NzI4NCA3NjEuODM4MjcsLTI0NC42ODEzOCBDIDc2Mi44MjYxMiwtMjQ1LjY4OTkyIDc2NC4wODM1NywtMjQ2LjE5MzM0IDc2NS42MTE3NywtMjQ2LjE5MzM0IEMgNzY3LjgyNzk2LC0yNDYuMTkzMzQgNzY5LjQxNTQyLC0yNDUuMzE5MDcgNzcwLjM3MzA2LC0yNDMuNTcxMDMgTCA3NjcuOTQyMDgsLTI0Mi4zNTA1MiB6IiAvPgogICAgICAgIDwvZz4KICAgICAgPC9nPgogICAgICA8ZwogICAgICAgICB0cmFuc2Zvcm09Im1hdHJpeCgwLjk5Mzc3MjgsMCwwLDAuOTkzNjY5NiwtNDM3LjExOTc5LDApIgogICAgICAgICBlbmFibGUtYmFja2dyb3VuZD0ibmV3ICAgICIKICAgICAgICAgaWQ9ImczNzAiPgogICAgICAgIDxwYXRoCiAgICAgICAgICAgZD0iTSA0ODguMjUzNDIsMzIuOTU2MDUgQyA0ODguNTcwOCwzMi45NTYwNSA0ODguODYxODIsMzIuOTg0MzcgNDg5LjEyMzU0LDMzLjA0MDAzIEMgNDg5LjM4NTI2LDMzLjA5NTY5IDQ4OS42MDg4OSwzMy4xODc0OSA0ODkuNzk2MzksMzMuMzE1NDIgQyA0ODkuOTgyOTEsMzMuNDQyMzcgNDkwLjEyNzQ0LDMzLjYxMjMgNDkwLjIzMDk2LDMzLjgyMzIzIEMgNDkwLjMzMzUsMzQuMDM1MTQgNDkwLjM4NTI2LDM0LjI5NTg5IDQ5MC4zODUyNiwzNC42MDc0MSBDIDQ5MC4zODUyNiwzNC45NDMzNSA0OTAuMzA5MDksMzUuMjIyNjQgNDkwLjE1NTc3LDM1LjQ0NjI4IEMgNDkwLjAwMzQzLDM1LjY3MDg5IDQ4OS43Nzc4NCwzNS44NTM1MSA0ODkuNDc4MDQsMzUuOTk3MDYgQyA0ODkuODkwMTUsMzYuMTE1MjIgNDkwLjE5Nzc3LDM2LjMyMjI2IDQ5MC40MDA4OSwzNi42MTgxNSBDIDQ5MC42MDQwMSwzNi45MTQwNCA0OTAuNzA1NTgsMzcuMjcwNDkgNDkwLjcwNTU4LDM3LjY4NzQ5IEMgNDkwLjcwNTU4LDM4LjAyMzQzIDQ5MC42NDAxNSwzOC4zMTQ0NCA0OTAuNTA5MjksMzguNTYwNTQgQyA0OTAuMzc4NDMsMzguODA1NjYgNDkwLjIwMTY3LDM5LjAwNjgzIDQ4OS45ODA5NywzOS4xNjIxIEMgNDg5Ljc1OTI5LDM5LjMxODM1IDQ4OS41MDYzNiwzOS40MzM1OCA0ODkuMjIzMTYsMzkuNTA3OCBDIDQ4OC45Mzg5OCwzOS41ODMgNDg4LjY0Nzk2LDM5LjYyMDEgNDg4LjM0ODE2LDM5LjYyMDEgTCA0ODUuMTExODMsMzkuNjIwMSBMIDQ4NS4xMTE4MywzMi45NTYwNCBMIDQ4OC4yNTM0MiwzMi45NTYwNCBMIDQ4OC4yNTM0MiwzMi45NTYwNSB6IE0gNDg4LjA2Njg5LDM1LjY1MTM3IEMgNDg4LjMyNzYzLDM1LjY1MTM3IDQ4OC41NDM0NSwzNS41ODg4NyA0ODguNzExNDIsMzUuNDY0ODUgQyA0ODguODc5MzksMzUuMzQwODMgNDg4Ljk2MzM3LDM1LjEzOTY1IDQ4OC45NjMzNywzNC44NjAzNiBDIDQ4OC45NjMzNywzNC43MDUwOSA0ODguOTM1MDUsMzQuNTc3MTYgNDg4Ljg3OTM5LDM0LjQ3ODUyIEMgNDg4LjgyMjc1LDM0LjM3ODkxIDQ4OC43NDg1MywzNC4zMDE3NiA0ODguNjU0NzgsMzQuMjQ1MTIgQyA0ODguNTYxMDMsMzQuMTg5NDYgNDg4LjQ1MzYxLDM0LjE1MDM5IDQ4OC4zMzI1MSwzNC4xMjg5MSBDIDQ4OC4yMTE0MSwzNC4xMDc0MyA0ODguMDg0NDYsMzQuMDk2NjggNDg3Ljk1MzYsMzQuMDk2NjggTCA0ODYuNTgwNTUsMzQuMDk2NjggTCA0ODYuNTgwNTUsMzUuNjUxMzcgTCA0ODguMDY2ODksMzUuNjUxMzcgeiBNIDQ4OC4xNTE4NiwzOC40Nzk0OSBDIDQ4OC4yOTU0MSwzOC40Nzk0OSA0ODguNDMyMTMsMzguNDY1ODIgNDg4LjU2Mjk5LDM4LjQzNzUgQyA0ODguNjkzODUsMzguNDA5MTggNDg4LjgwOTA4LDM4LjM2MjMgNDg4LjkwOTY3LDM4LjI5Nzg1IEMgNDg5LjAwOTI4LDM4LjIzMjQyIDQ4OS4wODgzOCwzOC4xNDM1NSA0ODkuMTQ3OTUsMzguMDMxMjUgQyA0ODkuMjA3NTIsMzcuOTE5OTIgNDg5LjIzNjgyLDM3Ljc3NjM3IDQ4OS4yMzY4MiwzNy42MDI1NCBDIDQ4OS4yMzY4MiwzNy4yNjA3NCA0ODkuMTQwMTQsMzcuMDE2NiA0ODguOTQ2NzgsMzYuODcwMTIgQyA0ODguNzUzNDIsMzYuNzI0NjEgNDg4LjQ5ODU0LDM2LjY1MTM3IDQ4OC4xODAxOCwzNi42NTEzNyBMIDQ4Ni41ODA1NywzNi42NTEzNyBMIDQ4Ni41ODA1NywzOC40Nzk0OSBMIDQ4OC4xNTE4NiwzOC40Nzk0OSB6IgogICAgICAgICAgIGlkPSJwYXRoMzcyIgogICAgICAgICAgIHN0eWxlPSJmaWxsOiNmZmZmZmYiIC8+CiAgICAgICAgPHBhdGgKICAgICAgICAgICBkPSJNIDQ5MC45NjQzNiwzMi45NTYwNSBMIDQ5Mi42MDc5MSwzMi45NTYwNSBMIDQ5NC4xNjg0NiwzNS41ODc4OSBMIDQ5NS43MTkyNCwzMi45NTYwNSBMIDQ5Ny4zNTMwMywzMi45NTYwNSBMIDQ5NC44Nzk0LDM3LjA2MjUgTCA0OTQuODc5NCwzOS42MjAxMiBMIDQ5My40MTA2NSwzOS42MjAxMiBMIDQ5My40MTA2NSwzNy4wMjUzOSBMIDQ5MC45NjQzNiwzMi45NTYwNSB6IgogICAgICAgICAgIGlkPSJwYXRoMzc0IgogICAgICAgICAgIHN0eWxlPSJmaWxsOiNmZmZmZmYiIC8+CiAgICAgIDwvZz4KICAgICAgPGcKICAgICAgICAgdHJhbnNmb3JtPSJtYXRyaXgoMC45OTM3NzI4LDAsMCwwLjk5MzY2OTYsLTQzNy4xMTk3OSwwKSIKICAgICAgICAgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAgICAiCiAgICAgICAgIGlkPSJnMzc2Ij4KICAgICAgICA8cGF0aAogICAgICAgICAgIGQ9Ik0gNTEyLjgzMDU3LDMyLjk1NjA1IEwgNTE1LjYxNDc1LDM3LjQyNjc1IEwgNTE1LjYzMDM3LDM3LjQyNjc1IEwgNTE1LjYzMDM3LDMyLjk1NjA1IEwgNTE3LjAwNTM3LDMyLjk1NjA1IEwgNTE3LjAwNTM3LDM5LjYyMDExIEwgNTE1LjUzOTU1LDM5LjYyMDExIEwgNTEyLjc2NjExLDM1LjE1ODIgTCA1MTIuNzQ3NTYsMzUuMTU4MiBMIDUxMi43NDc1NiwzOS42MjAxMSBMIDUxMS4zNzI1NiwzOS42MjAxMSBMIDUxMS4zNzI1NiwzMi45NTYwNSBMIDUxMi44MzA1NywzMi45NTYwNSB6IgogICAgICAgICAgIGlkPSJwYXRoMzc4IgogICAgICAgICAgIHN0eWxlPSJmaWxsOiNmZmZmZmYiIC8+CiAgICAgICAgPHBhdGgKICAgICAgICAgICBkPSJNIDUyMi41Njg4NSwzNC43MzE0NSBDIDUyMi40ODE5NCwzNC41OTA4MyA1MjIuMzcyNTYsMzQuNDY3NzggNTIyLjI0MTcsMzQuMzYyMzEgQyA1MjIuMTEwODQsMzQuMjU2ODQgNTIxLjk2MzM4LDM0LjE3MzgzIDUyMS43OTgzNCwzNC4xMTUyNCBDIDUyMS42MzMzLDM0LjA1NTY3IDUyMS40NjA0NSwzNC4wMjYzNyA1MjEuMjgwNzYsMzQuMDI2MzcgQyA1MjAuOTUwNjgsMzQuMDI2MzcgNTIwLjY3MDQxLDM0LjA4OTg1IDUyMC40Mzk5NCwzNC4yMTc3OCBDIDUyMC4yMDk0NywzNC4zNDQ3MyA1MjAuMDIyOTUsMzQuNTE1NjMgNTE5Ljg4MDM3LDM0LjczMDQ4IEMgNTE5LjczNjgyLDM0Ljk0NTMyIDUxOS42MzIzMiwzNS4xODk0NiA1MTkuNTY2ODksMzUuNDYyOSBDIDUxOS41MDE0NiwzNS43MzYzNCA1MTkuNDY5MjMsMzYuMDE5NTQgNTE5LjQ2OTIzLDM2LjMxMTUzIEMgNTE5LjQ2OTIzLDM2LjU5MTggNTE5LjUwMTQ2LDM2Ljg2NDI2IDUxOS41NjY4OSwzNy4xMjc5NCBDIDUxOS42MzIzMiwzNy4zOTI1OSA1MTkuNzM2ODEsMzcuNjMwODcgNTE5Ljg4MDM3LDM3Ljg0MTgxIEMgNTIwLjAyMjk1LDM4LjA1MzcyIDUyMC4yMDk0NywzOC4yMjI2NyA1MjAuNDM5OTQsMzguMzUwNiBDIDUyMC42NzA0MSwzOC40Nzg1MyA1MjAuOTUwNjgsMzguNTQyMDEgNTIxLjI4MDc2LDM4LjU0MjAxIEMgNTIxLjcyODAzLDM4LjU0MjAxIDUyMi4wNzg2MSwzOC40MDUyOSA1MjIuMzMwNTYsMzguMTMwODggQyA1MjIuNTgyNTEsMzcuODU3NDQgNTIyLjczNjgxLDM3LjQ5NjExIDUyMi43OTI0NywzNy4wNDc4NyBMIDUyNC4yMTE0MiwzNy4wNDc4NyBDIDUyNC4xNzQzMSwzNy40NjQ4NiA1MjQuMDc3NjMsMzcuODQxODIgNTIzLjkyMjM2LDM4LjE3Nzc1IEMgNTIzLjc2NzA5LDM4LjUxNDY2IDUyMy41NjEwMywzOC44MDA4IDUyMy4zMDYxNSwzOS4wMzgxIEMgNTIzLjA1MTI3LDM5LjI3NTQgNTIyLjc1MjQ0LDM5LjQ1NjA3IDUyMi40MDk2NywzOS41ODEwNyBDIDUyMi4wNjc4NywzOS43MDYwNyA1MjEuNjkwOTIsMzkuNzY4NTcgNTIxLjI4MDc2LDM5Ljc2ODU3IEMgNTIwLjc3MDAyLDM5Ljc2ODU3IDUyMC4zMTEwMywzOS42Nzk3IDUxOS45MDI4MywzOS41MDE5NyBDIDUxOS40OTU2LDM5LjMyNTIxIDUxOS4xNTA4OCwzOS4wODAwOSA1MTguODcwNiwzOC43Njk1NSBDIDUxOC41ODkzNSwzOC40NTgwMyA1MTguMzc0NTEsMzguMDkxODIgNTE4LjIyNTA5LDM3LjY3MTg5IEMgNTE4LjA3NTY4LDM3LjI1MDk5IDUxOC4wMDA0OCwzNi43OTg4NCA1MTguMDAwNDgsMzYuMzEyNTEgQyA1MTguMDAwNDgsMzUuODE0NDYgNTE4LjA3NTY4LDM1LjM1MjU1IDUxOC4yMjUwOSwzNC45MjU3OSBDIDUxOC4zNzQ1LDM0LjQ5OTAzIDUxOC41ODkzNSwzNC4xMjY5NiA1MTguODcwNiwzMy44MDk1OCBDIDUxOS4xNTA4NywzMy40OTIyIDUxOS40OTU2LDMzLjI0MzE3IDUxOS45MDI4MywzMy4wNjI1MSBDIDUyMC4zMTEwMywzMi44ODE4NSA1MjAuNzcwMDIsMzIuNzkyIDUyMS4yODA3NiwzMi43OTIgQyA1MjEuNjQ3OTUsMzIuNzkyIDUyMS45OTQ2MywzMi44NDQ3MyA1MjIuMzIxNzgsMzIuOTUxMTggQyA1MjIuNjQ3OTUsMzMuMDU2NjUgNTIyLjk0MDkyLDMzLjIxMDk1IDUyMy4xOTg3MywzMy40MTQwNyBDIDUyMy40NTc1MiwzMy42MTYyMiA1MjMuNjcwNDEsMzMuODY3MTkgNTIzLjgzODM4LDM0LjE2NjAyIEMgNTI0LjAwNjM1LDM0LjQ2NDg1IDUyNC4xMTE4MiwzNC44MDc2MiA1MjQuMTU1NzYsMzUuMTkzMzYgTCA1MjIuNzM2ODEsMzUuMTkzMzYgQyA1MjIuNzEyNCwzNS4wMjUzOSA1MjIuNjU1NzYsMzQuODcxMDkgNTIyLjU2ODg1LDM0LjczMTQ1IHoiCiAgICAgICAgICAgaWQ9InBhdGgzODAiCiAgICAgICAgICAgc3R5bGU9ImZpbGw6I2ZmZmZmZiIgLz4KICAgICAgPC9nPgogICAgICA8ZwogICAgICAgICB0cmFuc2Zvcm09Im1hdHJpeCgwLjk5Mzc3MjgsMCwwLDAuOTkzNjY5NiwtNDM3LjExOTc5LDApIgogICAgICAgICBlbmFibGUtYmFja2dyb3VuZD0ibmV3ICAgICIKICAgICAgICAgaWQ9ImczODIiPgogICAgICAgIDxwYXRoCiAgICAgICAgICAgZD0iTSA1MzguODMwNTcsMzIuOTU2MDUgTCA1NDEuNjE0NzUsMzcuNDI2NzUgTCA1NDEuNjMwMzcsMzcuNDI2NzUgTCA1NDEuNjMwMzcsMzIuOTU2MDUgTCA1NDMuMDA1MzcsMzIuOTU2MDUgTCA1NDMuMDA1MzcsMzkuNjIwMTEgTCA1NDEuNTM5NTUsMzkuNjIwMTEgTCA1MzguNzY2MTEsMzUuMTU4MiBMIDUzOC43NDc1NiwzNS4xNTgyIEwgNTM4Ljc0NzU2LDM5LjYyMDExIEwgNTM3LjM3MjU2LDM5LjYyMDExIEwgNTM3LjM3MjU2LDMyLjk1NjA1IEwgNTM4LjgzMDU3LDMyLjk1NjA1IHoiCiAgICAgICAgICAgaWQ9InBhdGgzODQiCiAgICAgICAgICAgc3R5bGU9ImZpbGw6I2ZmZmZmZiIgLz4KICAgICAgICA8cGF0aAogICAgICAgICAgIGQ9Ik0gNTQ3LjE2NzQ4LDMyLjk1NjA1IEMgNTQ3LjU5ODE0LDMyLjk1NjA1IDU0Ny45OTc1NiwzMy4wMjQ0MSA1NDguMzY4NjUsMzMuMTYxMTMgQyA1NDguNzM5NzQsMzMuMjk3ODUgNTQ5LjA2MDA2LDMzLjUwMzkgNTQ5LjMzMTU0LDMzLjc3NzM0IEMgNTQ5LjYwMjA1LDM0LjA1MDc4IDU0OS44MTM5NiwzNC4zOTM1NSA1NDkuOTY2MzEsMzQuODAzNzEgQyA1NTAuMTE5NjMsMzUuMjE0ODQgNTUwLjE5NTgsMzUuNjk3MjYgNTUwLjE5NTgsMzYuMjUwOTggQyA1NTAuMTk1OCwzNi43MzYzMyA1NTAuMTMzMywzNy4xODM2IDU1MC4wMDkyOCwzNy41OTQ3MyBDIDU0OS44ODQyOCwzOC4wMDQ4OSA1NDkuNjk1OCwzOC4zNjAzNSA1NDkuNDQzODUsMzguNjU4MjEgQyA1NDkuMTkwOTIsMzguOTU3MDQgNTQ4Ljg3NjQ3LDM5LjE5MjM5IDU0OC40OTk1MSwzOS4zNjMyOSBDIDU0OC4xMjI1NSwzOS41MzQxOSA1NDcuNjc5MiwzOS42MjAxMyA1NDcuMTY3NDgsMzkuNjIwMTMgTCA1NDQuMjg5NTUsMzkuNjIwMTMgTCA1NDQuMjg5NTUsMzIuOTU2MDcgTCA1NDcuMTY3NDgsMzIuOTU2MDcgTCA1NDcuMTY3NDgsMzIuOTU2MDUgeiBNIDU0Ny4wNjQ5NCwzOC4zODU3NCBDIDU0Ny4yNzY4NSwzOC4zODU3NCA1NDcuNDgxOTMsMzguMzUxNTYgNTQ3LjY4MTE1LDM4LjI4MzIgQyA1NDcuODgwMzcsMzguMjE0ODQgNTQ4LjA1ODEsMzguMTAxNTYgNTQ4LjIxMzM4LDM3Ljk0MjM4IEMgNTQ4LjM2ODY1LDM3Ljc4NDE4IDU0OC40OTM2NSwzNy41NzgxMiA1NDguNTg3NCwzNy4zMjMyNCBDIDU0OC42ODAxNywzNy4wNjgzNiA1NDguNzI3MDUsMzYuNzU2ODMgNTQ4LjcyNzA1LDM2LjM5MDYyIEMgNTQ4LjcyNzA1LDM2LjA1NDY4IDU0OC42OTQ4MiwzNS43NTE5NSA1NDguNjI5MzksMzUuNDgxNDQgQyA1NDguNTYzOTYsMzUuMjEwOTMgNTQ4LjQ1NjU0LDM0Ljk3OTQ5IDU0OC4zMDcxMiwzNC43ODcxIEMgNTQ4LjE1NzcsMzQuNTk0NzEgNTQ3Ljk2MDQ0LDM0LjQ0NjI4IDU0Ny43MTQzNSwzNC4zNDM3NCBDIDU0Ny40NjgyNiwzNC4yNDEyIDU0Ny4xNjQ1NSwzNC4xOTA0MiA1NDYuODA0MTksMzQuMTkwNDIgTCA1NDUuNzU4MjksMzQuMTkwNDIgTCA1NDUuNzU4MjksMzguMzg1NzMgTCA1NDcuMDY0OTQsMzguMzg1NzMgTCA1NDcuMDY0OTQsMzguMzg1NzQgeiIKICAgICAgICAgICBpZD0icGF0aDM4NiIKICAgICAgICAgICBzdHlsZT0iZmlsbDojZmZmZmZmIiAvPgogICAgICA8L2c+CiAgICAgIDxnCiAgICAgICAgIGlkPSJnNjM5NF8xXyIKICAgICAgICAgdHJhbnNmb3JtPSJtYXRyaXgoMC42MjExMDMsMCwwLDAuNjIxMDM4NSwtMTI2LjIxNjg4LDMxNC45MjY0OSkiPgogICAgICAgIDxwYXRoCiAgICAgICAgICAgaWQ9InBhdGg2Mzk2XzFfIgogICAgICAgICAgIGN4PSI0NzUuOTcxMTkiCiAgICAgICAgICAgcnk9IjI5LjIwOTg3NyIKICAgICAgICAgICBjeT0iMjUyLjA4NjQ2IgogICAgICAgICAgIHR5cGU9ImFyYyIKICAgICAgICAgICByeD0iMjkuMjA5ODc3IgogICAgICAgICAgIGQ9Ik0gMzg3LjgzNDM1LC00ODIuOTczNjYgQyAzODcuODQyMTYsLTQ3My41NjI2NSAzODAuMjE3MSwtNDY1LjkyNjY2IDM3MC44MDYwOSwtNDY1LjkxODg1IEMgMzYxLjM5MzQ5LC00NjUuOTEzNDIgMzUzLjc1NzUxLC00NzMuNTM2ODkgMzUzLjc1MTIyLC00ODIuOTUwMjIgQyAzNTMuNzUxMjIsLTQ4Mi45NTczIDM1My43NTEyMiwtNDgyLjk2NjY0IDM1My43NTEyMiwtNDgyLjk3MzY2IEMgMzUzLjc0NDk5LC00OTIuMzg1NDYgMzYxLjM2ODQ3LC01MDAuMDIxNDUgMzcwLjc4MTA3LC01MDAuMDI4NTMgQyAzODAuMTkyMDgsLTUwMC4wMzYzNCAzODcuODI4MDcsLTQ5Mi40MTEyOCAzODcuODM0MzUsLTQ4Mi45OTk0OCBDIDM4Ny44MzQzNSwtNDgyLjk5MDA4IDM4Ny44MzQzNSwtNDgyLjk4MzA2IDM4Ny44MzQzNSwtNDgyLjk3MzY2IHoiCiAgICAgICAgICAgc3R5bGU9ImZpbGw6I2ZmZmZmZiIgLz4KICAgICAgICA8ZwogICAgICAgICAgIGlkPSJnNjM5OF8xXyIKICAgICAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjMuOTUyMSwtODcuOTIxMDIpIj4KICAgICAgICAgIDxwYXRoCiAgICAgICAgICAgICBpZD0icGF0aDY0MDBfMV8iCiAgICAgICAgICAgICBkPSJNIDM5NC40Nzg0NSwtNDEzLjcyMzExIEMgMzg5LjMwNjUxLC00MTMuNzIzMTEgMzg0LjkyODQsLTQxMS45MjAwMSAzODEuMzQ1NTIsLTQwOC4zMDk3OCBDIDM3Ny42Njg5NSwtNDA0LjU3NjIgMzc1LjgzMTQyLC00MDAuMTU4MTcgMzc1LjgzMTQyLC0zOTUuMDUyNjQgQyAzNzUuODMxNDIsLTM4OS45NDk0OSAzNzcuNjY4OTQsLTM4NS41NjI3MSAzODEuMzQ1NTIsLTM4MS44OTA4NCBDIDM4NS4wMjA1NywtMzc4LjIxODk2IDM4OS40MDAyNywtMzc2LjM4Mjk3IDM5NC40Nzg0NSwtMzc2LjM4Mjk3IEMgMzk5LjYxOTE0LC0zNzYuMzgyOTcgNDA0LjA3Mzg1LC0zNzguMjM1MzMgNDA3Ljg0NDE3LC0zODEuOTM2MTMgQyA0MTEuMzk0MjIsLTM4NS40NTMzNCA0MTMuMTcyMzYsLTM4OS44MjYwOCA0MTMuMTcyMzYsLTM5NS4wNTI2NSBDIDQxMy4xNzIzNiwtNDAwLjI4MjM5IDQxMS4zNjQ1NiwtNDA0LjY5OTYyIDQwNy43NTA0MiwtNDA4LjMwOTc5IEMgNDA0LjEzNjM1LC00MTEuOTIwMDEgMzk5LjcxMTMsLTQxMy43MjMxMSAzOTQuNDc4NDUsLTQxMy43MjMxMSB6IE0gMzk0LjUyMzgsLTQxMC4zNjQ1MyBDIDM5OC43NjEyOSwtNDEwLjM2NDUzIDQwMi4zNTk4LC00MDguODY5OTYgNDA1LjMyMDc0LC00MDUuODgxNjggQyA0MDguMzExNCwtNDAyLjkyNjE3IDQwOS44MDUxOCwtMzk5LjMxNzUzIDQwOS44MDUxOCwtMzk1LjA1MjY0IEMgNDA5LjgwNTE4LC0zOTAuNzU4ODggNDA4LjM0MjY2LC0zODcuMTk2MzggNDA1LjQxNDQ5LC0zODQuMzY1MDggQyA0MDIuMzI4NTUsLTM4MS4zMTUwMyAzOTguNjk4NzksLTM3OS43OTIzOSAzOTQuNTIzOCwtMzc5Ljc5MjM5IEMgMzkwLjM0ODc1LC0zNzkuNzkyMzkgMzg2Ljc1MDMsLTM4MS4zMDAyIDM4My43MjgzOSwtMzg0LjMxOTc5IEMgMzgwLjcwNjQ4LC0zODcuMzM3IDM3OS4xOTU1NSwtMzkwLjkxNTkyIDM3OS4xOTU1NSwtMzk1LjA1MjY0IEMgMzc5LjE5NTU1LC0zOTkuMTkzMzMgMzgwLjcyMjEsLTQwMi44MDE5NyAzODMuNzc2NzksLTQwNS44ODE2OCBDIDM4Ni43MDQ5NiwtNDA4Ljg2OTk2IDM5MC4yODYyNSwtNDEwLjM2NDUzIDM5NC41MjM4LC00MTAuMzY0NTMgeiIgLz4KICAgICAgICAgIDxnCiAgICAgICAgICAgICBpZD0iZzY0MDJfMV8iPgogICAgICAgICAgICA8cGF0aAogICAgICAgICAgICAgICBpZD0icGF0aDY0MDRfMV8iCiAgICAgICAgICAgICAgIGQ9Ik0gNDAxLjU1NTA1LC0zOTkuNDc4NDkgTCAzODcuOTg0NjgsLTM5OS40Nzg0OSBMIDM4Ny45ODQ2OCwtMzk2LjI2MzU5IEwgNDAxLjU1NTA1LC0zOTYuMjYzNTkgTCA0MDEuNTU1MDUsLTM5OS40Nzg0OSB6IE0gNDAxLjU1NTA1LC0zOTMuNDc3NjMgTCAzODcuOTg0NjgsLTM5My40Nzc2MyBMIDM4Ny45ODQ2OCwtMzkwLjI2MzU4IEwgNDAxLjU1NTA1LC0zOTAuMjYzNTggTCA0MDEuNTU1MDUsLTM5My40Nzc2MyB6IiAvPgogICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgICAgPC9nPgogICAgICA8ZwogICAgICAgICB0cmFuc2Zvcm09Im1hdHJpeCgwLjk5Mzc3MjgsMCwwLDAuOTkzNjY5NiwtNDM3LjExOTc5LDApIgogICAgICAgICBpZD0iZzM5OCI+CiAgICAgICAgPGNpcmNsZQogICAgICAgICAgIGN4PSI0OTEuOTQ3MyIKICAgICAgICAgICBjeT0iMTUuMzEzOTYiCiAgICAgICAgICAgcj0iMTAuODA2MTUiCiAgICAgICAgICAgaWQ9ImNpcmNsZTQwMCIKICAgICAgICAgICBzb2RpcG9kaTpjeD0iNDkxLjk0NzMiCiAgICAgICAgICAgc29kaXBvZGk6Y3k9IjE1LjMxMzk2IgogICAgICAgICAgIHNvZGlwb2RpOnJ4PSIxMC44MDYxNSIKICAgICAgICAgICBzb2RpcG9kaTpyeT0iMTAuODA2MTUiCiAgICAgICAgICAgc3R5bGU9ImZpbGw6I2ZmZmZmZiIgLz4KICAgICAgICA8ZwogICAgICAgICAgIGlkPSJnNDAyIj4KICAgICAgICAgIDxwYXRoCiAgICAgICAgICAgICBkPSJNIDQ5NS4wNzQ3NCwxMi4xODcwMSBDIDQ5NS4wNzQ3NCwxMS43NzA1MSA0OTQuNzM2ODUsMTEuNDMzNTkgNDk0LjMyMDgzLDExLjQzMzU5IEwgNDg5LjU0ODM3LDExLjQzMzU5IEMgNDg5LjEzMjM1LDExLjQzMzU5IDQ4OC43OTQ0NiwxMS43NzA1IDQ4OC43OTQ0NiwxMi4xODcwMSBMIDQ4OC43OTQ0NiwxNi45NTk5NiBMIDQ5MC4xMjU1MSwxNi45NTk5NiBMIDQ5MC4xMjU1MSwyMi42MTIzIEwgNDkzLjc0MjcsMjIuNjEyMyBMIDQ5My43NDI3LDE2Ljk1OTk2IEwgNDk1LjA3NDczLDE2Ljk1OTk2IEwgNDk1LjA3NDczLDEyLjE4NzAxIEwgNDk1LjA3NDc0LDEyLjE4NzAxIHoiCiAgICAgICAgICAgICBpZD0icGF0aDQwNCIgLz4KICAgICAgICAgIDxjaXJjbGUKICAgICAgICAgICAgIGN4PSI0OTEuOTM0NiIKICAgICAgICAgICAgIGN5PSI5LjE3MjM2MDQiCiAgICAgICAgICAgICByPSIxLjYzMjMyIgogICAgICAgICAgICAgaWQ9ImNpcmNsZTQwNiIKICAgICAgICAgICAgIHNvZGlwb2RpOmN4PSI0OTEuOTM0NiIKICAgICAgICAgICAgIHNvZGlwb2RpOmN5PSI5LjE3MjM2MDQiCiAgICAgICAgICAgICBzb2RpcG9kaTpyeD0iMS42MzIzMiIKICAgICAgICAgICAgIHNvZGlwb2RpOnJ5PSIxLjYzMjMyIiAvPgogICAgICAgIDwvZz4KICAgICAgICA8cGF0aAogICAgICAgICAgIGNsaXAtcnVsZT0iZXZlbm9kZCIKICAgICAgICAgICBkPSJNIDQ5MS45MTk0NiwzLjQwNzcxIEMgNDg4LjY4ODAxLDMuNDA3NzEgNDg1Ljk1MTY5LDQuNTM1MTUgNDgzLjcxMjQzLDYuNzkxNSBDIDQ4MS40MTQ1OCw5LjEyNDUxIDQ4MC4yNjYxNCwxMS44ODY3MSA0ODAuMjY2MTQsMTUuMDc1NjggQyA0ODAuMjY2MTQsMTguMjY0NjUgNDgxLjQxNDU4LDIxLjAwNzgxIDQ4My43MTI0MywyMy4zMDI3MyBDIDQ4Ni4wMTAyOCwyNS41OTcxNiA0ODguNzQ2NjEsMjYuNzQ0NjIgNDkxLjkxOTQ2LDI2Ljc0NDYyIEMgNDk1LjEzMjM1LDI2Ljc0NDYyIDQ5Ny45MTc1MSwyNS41ODc4OCA1MDAuMjczOTUsMjMuMjcyOTQgQyA1MDIuNDkzNjgsMjEuMDc2MTYgNTAzLjYwMzA1LDE4LjM0MzI1IDUwMy42MDMwNSwxNS4wNzU2NyBDIDUwMy42MDMwNSwxMS44MDgwOSA1MDIuNDc0MTQsOS4wNDczNSA1MDAuMjE1MzUsNi43OTE0OSBDIDQ5Ny45NTY1Nyw0LjUzNTE2IDQ5NS4xOTE5MywzLjQwNzcxIDQ5MS45MTk0NiwzLjQwNzcxIHogTSA0OTEuOTQ5NzQsNS41MDczMiBDIDQ5NC41OTgxOCw1LjUwNzMyIDQ5Ni44NDYyMiw2LjQ0MDkxIDQ5OC42OTU4Myw4LjMwODEgQyA1MDAuNTY1OTUsMTAuMTU1MjcgNTAxLjUwMDUyLDEyLjQxMTYyIDUwMS41MDA1MiwxNS4wNzU2OCBDIDUwMS41MDA1MiwxNy43NTkyNyA1MDAuNTg1NDgsMTkuOTg2ODEgNDk4Ljc1NDQzLDIxLjc1NjM0IEMgNDk2LjgyNjcsMjMuNjYyMSA0OTQuNTU4MTQsMjQuNjE0NzQgNDkxLjk0OTc0LDI0LjYxNDc0IEMgNDg5LjMzOTM5LDI0LjYxNDc0IDQ4Ny4wOTAzNiwyMy42NzE4NyA0ODUuMjAxNjksMjEuNzg1NjQgQyA0ODMuMzEzMDIsMTkuODk4OTIgNDgyLjM2ODY4LDE3LjY2MjU5IDQ4Mi4zNjg2OCwxNS4wNzU2OCBDIDQ4Mi4zNjg2OCwxMi40ODkyNSA0ODMuMzIyNzgsMTAuMjMzMzkgNDg1LjIzMDk4LDguMzA4MSBDIDQ4Ny4wNjIwNCw2LjQ0MDkyIDQ4OS4zMDEzLDUuNTA3MzIgNDkxLjk0OTc0LDUuNTA3MzIgeiIKICAgICAgICAgICBpZD0icGF0aDQwOCIKICAgICAgICAgICBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQiIC8+CiAgICAgIDwvZz4KICAgICAgPGcKICAgICAgICAgaWQ9ImcyMzY2Ij4KICAgICAgICA8cGF0aAogICAgICAgICAgIHN0eWxlPSJmaWxsOiNmZmZmZmYiCiAgICAgICAgICAgZD0iTSA4Ny44MDEzOTksMTQuOTgxMjIxIEMgODcuODA2MjMxLDIwLjQ4MTgwOCA4My4zNDk3OTYsMjQuOTQzMTM4IDc3Ljg0ODE0OCwyNC45NDc1MjUgQyA3Mi4zNDc0MzQsMjQuOTUwODk4IDY3Ljg4NTE2MywyMC40OTU0MTUgNjcuODgxMywxNC45OTU3NjIgQyA2Ny44ODEzLDE0Ljk4OTk1MSA2Ny44ODEzLDE0Ljk4NTU3NSA2Ny44ODEzLDE0Ljk4MTIyMSBDIDY3Ljg3NzQwMiw5LjQ4MDE0NDUgNzIuMzMzODcyLDUuMDE4ODE1NSA3Ny44MzQ1NTEsNS4wMTQ0Mzk2IEMgODMuMzM1MjMxLDUuMDExMDMyMyA4Ny43OTc1MDEsOS40NjY1NDk1IDg3LjgwMTM5OSwxNC45NjYxNjggQyA4Ny44MDEzOTksMTQuOTcxMDM0IDg3LjgwMTM5OSwxNC45NzYzNTYgODcuODAxMzk5LDE0Ljk4MTIyMSB6IgogICAgICAgICAgIHJ4PSIyOS4yMDk4NzciCiAgICAgICAgICAgdHlwZT0iYXJjIgogICAgICAgICAgIGN5PSIyNTIuMDg2NDYiCiAgICAgICAgICAgcnk9IjI5LjIwOTg3NyIKICAgICAgICAgICBjeD0iNDc1Ljk3MTE5IgogICAgICAgICAgIGlkPSJwYXRoNjM3Ml8xXyIgLz4KICAgICAgICA8cGF0aAogICAgICAgICAgIGQ9Ik0gODYuMDcwMzY5LDYuNzQ1NTY0NiBDIDgzLjgyNTI0OSw0LjUwMzI3MjYgODEuMDc3NTg5LDMuMzgyODMyNiA3Ny44MjY2ODksMy4zODI4MzI2IEMgNzQuNjE0MDA5LDMuMzgyODMyNiA3MS44OTUzNjksNC41MDMyNzI2IDY5LjY3MDA2OSw2Ljc0NTU2NDYgQyA2Ny4zODYwMTksOS4wNjUwMDY2IDY2LjI0NTA0OSwxMS44MDkxMjcgNjYuMjQ1MDQ5LDE0Ljk3OTMzNSBDIDY2LjI0NTA0OSwxOC4xNDg4MzcgNjcuMzg2MDE5LDIwLjg3NDU1NSA2OS42NzAwNjksMjMuMTU0MzU4IEMgNzEuOTUzNDA5LDI1LjQzNTU3OCA3NC42NzIwNDksMjYuNTc1ODM3IDc3LjgyNjY4OSwyNi41NzU4MzcgQyA4MS4wMTk1NDksMjYuNTc1ODM3IDgzLjc4NzAxOSwyNS40MjU2NzEgODYuMTI4Mzk5LDIzLjEyNjA0OCBDIDg4LjMzNDU5OSwyMC45NDE3OTYgODkuNDM4MDQ5LDE4LjIyNTk5IDg5LjQzODA0OSwxNC45NzkzMzUgQyA4OS40MzgwNDksMTEuNzMxOTc0IDg4LjMxNTQ4OSw4Ljk4NzE0NjYgODYuMDcwMzY5LDYuNzQ1NTY0NiB6IE0gODQuNjE4Njc5LDIxLjYxODQ0NSBDIDgyLjcwMjY3OSwyMy41MTI1MDEgODAuNDQ4MzU5LDI0LjQ1ODgyMyA3Ny44NTU3MDksMjQuNDU4ODIzIEMgNzUuMjYyMzQ5LDI0LjQ1ODgyMyA3My4wMjcxMjksMjMuNTIxNzAzIDcxLjE1MDA1OSwyMS42NDY3NTUgQyA2OS4yNzI5ODksMTkuNzcxODA3IDY4LjMzNDQ1OSwxNy41NDkzMzQgNjguMzM0NDU5LDE0Ljk3OTMzMiBDIDY4LjMzNDQ1OSwxMy44OTIxNiA2OC41MDYwOTksMTIuODY0NDQxIDY4Ljg0NTQ4OSwxMS44OTU0NyBMIDcxLjkxODM2OSwxMy4yNTU0OTcgTCA3MS42OTY4MjksMTMuMjU1NDk3IEwgNzEuNjk2ODI5LDE0LjYzMzU3MSBMIDcyLjc4NDM1OSwxNC42MzM1NzEgQyA3Mi43ODQzNTksMTQuODI4MjE1IDcyLjc2NDg5OSwxNS4wMjIxNTIgNzIuNzY0ODk5LDE1LjIxNjA4NSBMIDcyLjc2NDg5OSwxNS41NDY2MjUgTCA3MS42OTY4MjksMTUuNTQ2NjI1IEwgNzEuNjk2ODI5LDE2LjkyNDY5OSBMIDcyLjk1ODgyOSwxNi45MjQ2OTkgQyA3My4xMzM2NDksMTcuOTUzODMxIDczLjUyMTg3OSwxOC43ODgzMjIgNzQuMDQ1OTk5LDE5LjQ0ODY5MiBDIDc1LjEzMzE2OSwyMC44ODU1MTMgNzYuODgwMzU5LDIxLjY2MTk2NCA3OC43ODI5MTksMjEuNjYxOTY0IEMgODAuMDI1Nzk5LDIxLjY2MTk2NCA4MS4xNTExOTksMjEuMjkzMjAzIDgxLjgxMTU2OSwyMC45MjM3MzUgTCA4MS4zNDUxMjksMTguNzY5MjEgQyA4MC45Mzc0MzksMTguOTgyOTYyIDgwLjAyNTc5OSwxOS4yNzM4NjggNzkuMTMyNTU5LDE5LjI3Mzg2OCBDIDc4LjE2MTQ2OSwxOS4yNzM4NjggNzcuMjQ5NDc5LDE4Ljk4Mjk2NiA3Ni42MjgwMzksMTguMjgzNjY0IEMgNzYuMzM2Nzc5LDE3Ljk1MzgzMSA3Ni4xMjMzNzksMTcuNTA3MjEzIDc1Ljk4NzgzOSwxNi45MjQ2OTkgTCA4MC4yMDg0MDksMTYuOTI0Njk5IEwgODYuMjA1NTQ5LDE5LjU3OTI4MyBDIDg1Ljc5MDA3OSwyMC4zMTUzOTcgODUuMjYyNzc5LDIwLjk5NTU4NiA4NC42MTg2NzksMjEuNjE4NDQ1IHogTSA3Ny4wNzY0MjksMTUuNTQ2NjMyIEwgNzcuMDUwOTQ5LDE1LjUyNzE2OCBMIDc3LjA5NDgyOSwxNS41NDY2MzIgTCA3Ny4wNzY0MjksMTUuNTQ2NjMyIHogTSA4MC42ODY4NzksMTQuNjMzNTc4IEwgODAuODYwMjk5LDE0LjYzMzU3OCBMIDgwLjg2MDI5OSwxMy4yNTU1MDQgTCA3Ny41NzMyOTksMTMuMjU1NTA0IEwgNzYuMjM4MDQ5LDEyLjY2NDQ5NiBDIDc2LjM1MzA1OSwxMi40MDYxNTEgNzYuNDg4OTU5LDEyLjE3NTA1NSA3Ni42NDc0OTksMTEuOTk0MjE1IEMgNzcuMjQ5NDc5LDExLjI1NTI3OCA3OC4xMDM0MzksMTAuOTQ1MjY0IDc5LjAzNTU5OSwxMC45NDUyNjQgQyA3OS44ODk5MDksMTAuOTQ1MjY0IDgwLjY4NTQ2OSwxMS4xOTcyMzggODEuMTkwMTI5LDExLjQxMDk5NCBMIDgxLjczMzcwOSw5LjE5NzcyMTYgQyA4MS4wMzQ0MDksOC44ODc3MDY2IDgwLjAwNTk3OSw4LjYxNTkxMzYgNzguODIxODM5LDguNjE1OTEzNiBDIDc2Ljk5NzE0OSw4LjYxNTkxMzYgNzUuNDQzODk5LDkuMzUzNDM2NiA3NC4zMzcyNTksMTAuNTk1NjE1IEMgNzQuMDkxNjU5LDEwLjg3OTQzOSA3My44Nzg2MDksMTEuMTk3OTQ4IDczLjY4NTM3OSwxMS41MzQ4NTkgTCA2OS44NzE3NzksOS44NDcxMjE2IEMgNzAuMjQxMjQ5LDkuMjkyOTE3NiA3MC42NzU4MzksOC43NjA2NTY2IDcxLjE3OTA3OSw4LjI1MzE2ODYgQyA3Mi45OTg4MTksNi4zOTczMzI2IDc1LjIyMzQxOSw1LjQ2OTQxMzYgNzcuODU1Njk5LDUuNDY5NDEzNiBDIDgwLjQ4NzI3OSw1LjQ2OTQxMzYgODIuNzIyNDk5LDYuMzk3MzMyNiA4NC41NjEzNDksOC4yNTMxNjg2IEMgODYuNDE4NTk5LDEwLjA4OTE4OCA4Ny4zNDcyMjksMTIuMzMwNzcgODcuMzQ3MjI5LDE0Ljk3OTMzOSBDIDg3LjM0NzIyOSwxNS44NTIwNDggODcuMjQ4MTI5LDE2LjY3NTIxNSA4Ny4wNTI3NzksMTcuNDUwOTU2IEwgODAuNjg2ODc5LDE0LjYzMzU3OCB6IgogICAgICAgICAgIGlkPSJwYXRoNDUiIC8+CiAgICAgIDwvZz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPgo=" alt="by nc nd.eu">
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Lizenz</div>
+<div class="paragraph">
+<p>Dieses Werk ist unter einer Creative Commons Lizenz vom Typ Namensnennung - Nicht kommerziell - Keine Bearbeitungen 4.0 International zugänglich. Um eine Kopie dieser Lizenz einzusehen, konsultieren Sie <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" class="bare">http://creativecommons.org/licenses/by-nc-nd/4.0/</a> oder wenden Sie sich brieflich an Creative Commons, Postfach 1866, Mountain View, California, 94042, USA.</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Das Modul wie auch diese Doku ist noch unvollständig und <em>work-in-progess</em>.
+Bei jeglichen Unklarheiten in dieser Funktionsbeschreibung und generellem Aufbau und Anschluß,
+unterlassen Sie den Betrieb und kontaktieren Sie den Bausatzersteller.
+</td>
+</tr>
+</table>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_symbolerklärung"><a class="anchor" href="#_symbolerklärung"></a><a class="link" href="#_symbolerklärung">2. Symbolerklärung</a></h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Ein wichtiger allgemeiner Hinweis für den sicheren Aufbau und die sichere Bedienung. Dieser sollte durch den Anwender bachtet werden,
+um einen sicheren Betrieb zu gewährleisten.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Ein genereller Hinweis, der durch den Anwender beachtet werden sollte.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Ein technischer oder sicherheitstechnischer Hinweis, der unbedingt durch den Anwender beachtet werden muss.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Ein technischer oder sicherheitstechnischer Gefahrenhinweis, der unbedingt durch den Anwender beachtet werden muss. Zur
+Gefahrenabwendung muss der Anwender unbedingt die gegebenen Anweisungen befolgen und die beschriebenen Maßnahmen ergreifen.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rechtliches"><a class="anchor" href="#_rechtliches"></a><a class="link" href="#_rechtliches">3. Rechtliches</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Der vorliegende Bausatz wird dem Anwender für eigene Experimente überlassen. Er stellt kein Produkt im Sinne des ProdHaftG
+oder elektronisches Gerät im Sinne des ElektroG dar und wird als Gerät nicht kommerziell vertrieben.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Die Überlassung gegen Unkostenerstattung erfolgt unter Ausschluss jeglicher Sach­mangelhaftung.</p>
+</div>
+<div class="paragraph">
+<p>Für den vorliegenden Bausatz werden keine Funktionsgarantien gegeben. Für Schäden am Bausatz oder an damit verbundenen Geräten oder Modulen
+wird keine Haftung übernommen. Gewährleistungen, Garantien und Widerrufsrechte gibt es nicht.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sicherheitshinweise"><a class="anchor" href="#_sicherheitshinweise"></a><a class="link" href="#_sicherheitshinweise">4. Sicherheitshinweise</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Beim Umgang mit Produkten, die mit elektrischer Spannung in Berührung kommen, müssen die gültigen VDE-Vorschriften beachtet werden, insbesondere
+VDE 0100, VDE 0550/0551, VDE 0700, VDE 0711 und VDE 0860.</p>
+</div>
+<div class="paragraph">
+<p>Werkzeuge dürfen an Geräten, Bauteilen oder Baugruppen nur benutzt werden, wenn sichergestellt ist, dass die Geräte von der Versorgungsspannung
+getrennt sind und elektrische Ladungen, die in den im Gerät befindlichen Bauteilen gespeichert sind, vorher entladen wurden.</p>
+</div>
+<div class="paragraph">
+<p>Spannungsführende Kabel oder Leitungen, mit denen das Gerät, das Bauteil oder die Baugruppe verbunden ist, müssen stets auf Isolationsfehler
+oder Bruchstellen untersucht werden. Bei Feststellen eines Fehlers in der Zuleitung muss das Gerät unverzüglich aus dem Betrieb genommen werden,
+bis die defekte Leitung ausgewechselt worden ist. Bei Einsatz von Bauelementen oder Baugruppen muss stets auf die strikte Einhaltung der in der
+zugehörigen Beschreibung genannten Kenndaten für elektrische Größen hingewiesen werden. Wenn aus einer vorliegenden Beschreibung für den nicht
+gewerblichen Endverbraucher nicht eindeutig hervorgeht, welche elektrischen Kennwerte für ein Bauteil oder eine Baugruppe gelten, wie eine
+externe Beschaltung durchzuführen ist oder welche externen Bauteile oder Zusatzgeräte angeschlossen werden dürfen und welche Anschlusswerte
+diese externen Komponenten haben dürfen, so muss stets ein Fachmann um Auskunft ersucht werden. Es ist vor der Inbetriebnahme eines Gerätes
+generell zu prüfen, ob dieses Gerät oder Baugruppe grundsätzlich für den Anwendungsfall, für den es verwendet werden soll, geeignet ist!</p>
+</div>
+<div class="paragraph">
+<p>Im Zweifelsfalle sind unbedingt Rückfragen bei Fachleuten, Sachverständigen oder den Herstellern der verwendeten Baugruppen notwendig!</p>
+</div>
+<div class="paragraph">
+<p>Bitte beachten Sie, dass Bedien- und Anschlussfehler außerhalb unseres Einflussbereiches liegen. Verständlicherweise können wir für Schäden, die
+daraus entstehen, keinerlei Haftung übernehmen. Bei Installationen und beim Umgang mit Netzspannung sind unbedingt die VDE-Vorschriften zu
+beachten. Geräte, die an einer Spannung über 35 V betrieben werden, dürfen nur vom Fachmann angeschlossen werden. In jedem Fall ist zu prüfen,
+ob der Bausatz oder die Platine für den jeweiligen Anwendungsfall und Einsatzort geeignet ist bzw. eingesetzt werden kann.</p>
+</div>
+<div class="paragraph">
+<p>Derjenige, der eine Schaltung oder einen Bausatz aufbaut und fertigstellt oder eine Baugruppe durch Erweiterung bzw. Gehäuseeinbau
+betriebsbereit macht, gilt nach DIN VDE 0869 als Hersteller und ist verpflichtet, bei der Weitergabe des Gerätes alle Begleitpapiere
+mitzuliefern und auch seinen Namen und Anschrift anzugeben. Geräte, die aus Bausätzen selbst zusammengestellt werden, sind sicherheitstechnisch
+wie ein industrielles Produkt zu betrachten.</p>
+</div>
+<div class="paragraph">
+<p>Für alle Personen- und Sachschäden, die aus nicht bestimmungsgemäßer Verwendung entstehen, ist nicht der Hersteller sondern der Betreiber
+verantwortlich. Bitte beachten Sie, das Bedien- und/und Anschlussfehler außerhalb unseres Einfußbereiches liegen. Verständlicherweise können wir
+für Schäden, die daraus entstehen, keinerlei Haftung übernehmen.</p>
+</div>
+<div class="paragraph">
+<p>Jegliche Vorschriften und Vorsichtsmaßnahmen im Umgang mit elektrischen Komponenten sind vom Anwender einzuhalten.</p>
+</div>
+<div class="paragraph">
+<p>Beachten Sie ebenfalls die Richtlinien unter <a href="#Betrieb">Abschnitt 9</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_spezieller_sicherheitshinweis_kleinteile"><a class="anchor" href="#_spezieller_sicherheitshinweis_kleinteile"></a><a class="link" href="#_spezieller_sicherheitshinweis_kleinteile">5. Spezieller Sicherheitshinweis: Kleinteile</a></h2>
+<div class="sectionbody">
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>ACHTUNG: Der Bausatz enthält verschluckbare Kleinteile. Von Kindern fernhalten.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_einführung"><a class="anchor" href="#_einführung"></a><a class="link" href="#_einführung">6. Einführung</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Das vorliegende Modul <code>RC-ThreeSixty-D</code> ist eine <em>Schottelsteuerung</em> für Sender mit <code>OpenTx</code>. Zu dem <em>Modul</em> gehören weitere Funktionen in Form von <em>Skripten</em>
+für <code>OpenTx</code>. Da es ein <em>digitales</em> Modul ist, muss es ebenso wie etwa die digitalen Schaltmodule <code>RC-MultiSwitch-D</code>, das Servoschaltmodul <code>RC-ServoSwitch-D</code> oder
+die Kran- und Sonderfunktionssteuerung <code>RC-Quad-D</code> an ein empfängerseitiges <em>Actor-Bus</em>-System angeschlossen werden. In diesem Fall eignen sich <code>SBus</code>, <code>IBus</code> oder <code>SumD</code>.
+Welche Art von <em>Bus</em> verwendet wird ist unerheblich, da das Modul die Art des Busses <em>automatisch</em> erkennt.</p>
+</div>
+<div class="paragraph">
+<p>Die <em>wesentliche</em> Funktion besteht darin, ein <em>spezielles</em> Servo proportional zum <em>Winkel</em>, den etwa ein Kreuzknüppel zur horizontalen Achse eines gedachten karthesischen
+Koordinationsystems am Sender bildet, zu bewegen. Die <em>Auslenkung</em> des Knüppels von seier senkrechten Stellung, also der Winkel des Knüppels zur <em>Hochachse</em> des Senders,
+ist dann proportional zum Schub für eine Fahrtsteller im Boot. Anders ausgedrückt: die Position des Kreuzknüppels im karthesischen Koordinationsystem wird in ein
+Polarkoordinationsystem umgerechnet. Betrag und Winkel werden als Kanalwerte an den Empfänger und damit an das Modul übermittelt.</p>
+</div>
+<div class="sect2">
+<h3 id="_ansicht"><a class="anchor" href="#_ansicht"></a><a class="link" href="#_ansicht">6.1. Ansicht</a></h3>
+<div class="paragraph">
+<p>In den Bildern <a href="#top">[top]</a> und <a href="#bottom">[bottom]</a> ist jeweils die Ansicht von oben und unten abgebildet.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_beschreibung"><a class="anchor" href="#_beschreibung"></a><a class="link" href="#_beschreibung">7. Beschreibung</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_voraussetzungen"><a class="anchor" href="#_voraussetzungen"></a><a class="link" href="#_voraussetzungen">7.1. Voraussetzungen</a></h3>
+<div class="paragraph">
+<p>Um das Modul erfolgreich verwenden zu können, sind die folgenden Punkte zu beachten:</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Servo
+</td>
+<td class="hdlist2">
+<p>Es können nur sog. <em>Feedback</em>-Servos eingesetzt werden, die zudem noch eine <em>n-fache</em> Rotation um die eigene Achse ermöglichen (ohne Anschlag). Es muss
+ein Servo mit im RC-Bereich üblicher Ansteuerung per <code>PWM</code>-Signal sein. Bei den
+<em>Feedback</em>-Servos gibt es Typen mit <em>analoger</em> Positionsrückmeldung über ein Spannungssignal oder ein <code>PWM</code>-Signal. Derzeit gilt die Einschränkung, dass nur Servos mit einer
+Spannungsrückmeldung in Frage kommen. Als <em>Beispiel</em> diene das Servo <em>Feetech FB5317M-360</em>.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Fahrmotorsteller
+</td>
+<td class="hdlist2">
+<p>Als Steller kommen sowohl <em>uni</em>- wie <em>bidirektionale</em> Steller in Frage. Diese können auch über das Modul angelernt werden. Bitte beachten Sie den
+Punkt zum <code>BEC</code> des Stellers</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Das <code>BEC</code> des Stellers, oder: ein Schottel kommt selten allein!</div>
+<div class="paragraph">
+<p>Üblicherweise werden für ein Modellschiff mit Schottelsteuerung <em>zwei</em> Schottelantriebe eingesetzt. Daher beötigt man zwei Module <code>RC-ThreeSixty-D</code>, die natürlich
+beide an den <em>Actor-Bus</em> des Empfängers angeschlossen werden müssen. Zwar wird jedes Modul von <em>seinem</em> Fahrmotorsteller und dessen <code>BEC</code> mit Spannung versorgt.
+Allerdings werden spätestens am Bus-System beide <code>BEC</code> parallel geschaltet. <strong>Achtung</strong>: hier muss <em>vorher</em> geklärt werden, ob das <em>zulässig</em> ist.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="title">Uffbasse</div>
+<div class="paragraph">
+<p>Klären Sie vor in Betriebnahme, ob die <code>BEC</code> Ihrer Fahrmotorsteller das <em>Parallelschalten</em> erlauben. Als <em>Faustregel</em> kann dienen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>bei einem <em>linearen</em> Spannungsregler als <code>BEC</code> kann eine Parallelschaltung in den meisten Fällen erfolgen. Diese <code>BEC</code> haben eine geringe Belastbarkeit von je etwa
+maximal <code>1A</code>.</p>
+</li>
+<li>
+<p>bei <em>geschalteten</em> Spannungsregler als <code>BEC</code> (Step-Down), oft als <code>SBEC</code> bezeichnet, darf <em>nicht</em> parallel geschaltet werden.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Mögliche Lösungen für den <code>BEC</code>-Überfluss</div>
+<div class="paragraph">
+<p>Zwei Lösungen sind möglich:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Aus <em>einem</em> der <em>Modulanschlusskabel</em> wir das <em>rote</em> Anschlusskabel aus dem Stecker entfernt. Damit wird das zugehörige Modul <em>und</em> das Servo über
+das <code>BEC</code> des Stellers versorgt. Dies ist besser, als aus dem Stelleranschlusskabel das rote Kabel zu entfernen, denn sonst würden dieses Servo über das Modul,
+über den Empfänger über das andere Modul versorgt, wes sicher nicht gut ist.</p>
+</li>
+<li>
+<p>Die <em>beiden</em> Anschlusskabel der <em>Steller</em> über eine <code>BEC</code>-Weiche mit den beiden Modulen zu verbinden, und diese wiederum mit dem Bus-System, was den Empfänger
+versorgt.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_einbau_und_anschluß"><a class="anchor" href="#_einbau_und_anschluß"></a><a class="link" href="#_einbau_und_anschluß">7.2. Einbau und Anschluß</a></h3>
+<div class="paragraph">
+<p>Das Modul hat eine <em>Anschlusspeitsche</em> mit einem normalen Servostecker. Dies ist die Verbindung zum Empfänger. Jedoch <em>nicht</em> zu einem normalen <code>PWM</code>-Servo-Ausgang
+des Empfängers, sondern zum <code>SBus</code> oder <code>IBus</code> oder <code>SumD</code>-Ausgang. Auf diesem Bus-System werden <em>alle</em> vom Empfänger empfangenen Kanalinformationen zu den
+Bus-Teilnehmern übertragen. Dies bedingt jedoch auch, dass jeder einzelnen Bus-Teilnehmern sich genau die Informationen vom Bus holen muss,
+die für ihn wichtig sind.</p>
+</div>
+<div class="paragraph">
+<p>Daher: das <code>RC-ThreeSixty-D</code>-Modul muss konfiguriert werden.</p>
+</div>
+<div class="sect3">
+<h4 id="_anschluß"><a class="anchor" href="#_anschluß"></a><a class="link" href="#_anschluß">7.2.1. Anschluß</a></h4>
+<div class="paragraph">
+<p>Für die Steckplätze am Modul gilt:</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+SO1
+</td>
+<td class="hdlist2">
+<p>Fahrmotorsteller</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+SO2
+</td>
+<td class="hdlist2">
+<p>Servo</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+SO3
+</td>
+<td class="hdlist2">
+<p>Feedback-Anschluß</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+SO4
+</td>
+<td class="hdlist2">
+<p>(Config-Brücke)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Q0
+</td>
+<td class="hdlist2">
+<p>Fahrmotorsteller-Kalibrierung</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_opentx"><a class="anchor" href="#_opentx"></a><a class="link" href="#_opentx">7.3. OpenTx</a></h3>
+<div class="sect3">
+<h4 id="_installation_der_mischer_skripte"><a class="anchor" href="#_installation_der_mischer_skripte"></a><a class="link" href="#_installation_der_mischer_skripte">7.3.1. Installation der Mischer-Skripte</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="_konfiguration_der_mischer_für_fahrmotorsteller_und_servo"><a class="anchor" href="#_konfiguration_der_mischer_für_fahrmotorsteller_und_servo"></a><a class="link" href="#_konfiguration_der_mischer_für_fahrmotorsteller_und_servo">7.3.2. Konfiguration der Mischer für Fahrmotorsteller und Servo</a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="_konfiguration"><a class="anchor" href="#_konfiguration"></a><a class="link" href="#_konfiguration">7.4. Konfiguration</a></h3>
+<div class="paragraph">
+<p>In die Konfigurationseinstellung gelangt man, wenn beim <em>Einschalten</em> die <em>Brücke</em> am Steckplatz <code>SO4</code> gesteckt ist.</p>
+</div>
+<div id="states" class="imageblock">
+<div class="content">
+<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnIHN0YW5kYWxvbmU9J25vJz8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cgo8c3ZnIGhlaWdodD0nNDI4cHQnIHByZXNlcnZlQXNwZWN0UmF0aW89J3hNaWRZTWlkIG1lZXQnIHZpZXdCb3g9JzAuMDAgMC4wMCAzMTAuMDAgNDI4LjAwJyB3aWR0aD0nMzEwcHQnIHhtbG5zOnhsaW5rPSdodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rJyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnPgo8ZyBjbGFzcz0nZ3JhcGgnIGlkPSdncmFwaDAnIHRyYW5zZm9ybT0nc2NhbGUoMSAxKSByb3RhdGUoMCkgdHJhbnNsYXRlKDQgNDI0KSc+Cjx0aXRsZT5zdGF0ZSB0cmFuc2l0aW9uczwvdGl0bGU+Cjxwb2x5Z29uIGZpbGw9JyNmZmZmZmYnIHBvaW50cz0nLTQsNCAtNCwtNDI0IDMwNiwtNDI0IDMwNiw0IC00LDQnIHN0cm9rZT0ndHJhbnNwYXJlbnQnLz4KCjxnIGNsYXNzPSdub2RlJyBpZD0nbm9kZTEnPgo8dGl0bGU+b2ZmPC90aXRsZT4KPHBvbHlnb24gZmlsbD0ndHJhbnNwYXJlbnQnIHBvaW50cz0nMTYxLC00MjAgNjUsLTQyMCA2NSwtMzg0IDE2MSwtMzg0IDE2MSwtNDIwJyBzdHJva2U9J3RyYW5zcGFyZW50JyBzdHJva2Utd2lkdGg9JzInLz4KPHRleHQgZmlsbD0nIzAwMDAwMCcgZm9udC1mYW1pbHk9J0hlbHZldGljYSxzYW5zLVNlcmlmJyBmb250LXNpemU9JzEyLjAwJyB0ZXh0LWFuY2hvcj0nc3RhcnQnIHg9Jzc1Ljk4NicgeT0nLTM5OC4yJz5hdXNnZXNjaGFsdGV0PC90ZXh0Pgo8cGF0aCBkPSdNNzcuMzMzMywtMzg1Qzc3LjMzMzMsLTM4NSAxNDguNjY2NywtMzg1IDE0OC42NjY3LC0zODUgMTU0LjMzMzMsLTM4NSAxNjAsLTM5MC42NjY3IDE2MCwtMzk2LjMzMzMgMTYwLC0zOTYuMzMzMyAxNjAsLTQwNy42NjY3IDE2MCwtNDA3LjY2NjcgMTYwLC00MTMuMzMzMyAxNTQuMzMzMywtNDE5IDE0OC42NjY3LC00MTkgMTQ4LjY2NjcsLTQxOSA3Ny4zMzMzLC00MTkgNzcuMzMzMywtNDE5IDcxLjY2NjcsLTQxOSA2NiwtNDEzLjMzMzMgNjYsLTQwNy42NjY3IDY2LC00MDcuNjY2NyA2NiwtMzk2LjMzMzMgNjYsLTM5Ni4zMzMzIDY2LC0zOTAuNjY2NyA3MS42NjY3LC0zODUgNzcuMzMzMywtMzg1JyBmaWxsPSdub25lJyBzdHJva2U9JyMwMDAwMDAnIHN0cm9rZS13aWR0aD0nMicvPgo8L2c+Cgo8ZyBjbGFzcz0nbm9kZScgaWQ9J25vZGUzJz4KPHRpdGxlPnNjYW48L3RpdGxlPgo8cG9seWdvbiBmaWxsPSd0cmFuc3BhcmVudCcgcG9pbnRzPScxODIsLTM1NiA0NCwtMzU2IDQ0LC0zMjAgMTgyLC0zMjAgMTgyLC0zNTYnIHN0cm9rZT0ndHJhbnNwYXJlbnQnIHN0cm9rZS13aWR0aD0nMicvPgo8dGV4dCBmaWxsPScjMDAwMDAwJyBmb250LWZhbWlseT0nSGVsdmV0aWNhLHNhbnMtU2VyaWYnIGZvbnQtc2l6ZT0nMTIuMDAnIHRleHQtYW5jaG9yPSdzdGFydCcgeD0nNTQuOTc3NicgeT0nLTMzNC4yJz5CdXMgc2Nhbm5lbjogTEVEIGFuPC90ZXh0Pgo8cGF0aCBkPSdNNTYuMzMzMywtMzIxQzU2LjMzMzMsLTMyMSAxNjkuNjY2NywtMzIxIDE2OS42NjY3LC0zMjEgMTc1LjMzMzMsLTMyMSAxODEsLTMyNi42NjY3IDE4MSwtMzMyLjMzMzMgMTgxLC0zMzIuMzMzMyAxODEsLTM0My42NjY3IDE4MSwtMzQzLjY2NjcgMTgxLC0zNDkuMzMzMyAxNzUuMzMzMywtMzU1IDE2OS42NjY3LC0zNTUgMTY5LjY2NjcsLTM1NSA1Ni4zMzMzLC0zNTUgNTYuMzMzMywtMzU1IDUwLjY2NjcsLTM1NSA0NSwtMzQ5LjMzMzMgNDUsLTM0My42NjY3IDQ1LC0zNDMuNjY2NyA0NSwtMzMyLjMzMzMgNDUsLTMzMi4zMzMzIDQ1LC0zMjYuNjY2NyA1MC42NjY3LC0zMjEgNTYuMzMzMywtMzIxJyBmaWxsPSdub25lJyBzdHJva2U9JyMwMDAwMDAnIHN0cm9rZS13aWR0aD0nMicvPgo8L2c+Cgo8ZyBjbGFzcz0nZWRnZScgaWQ9J2VkZ2UxJz4KPHRpdGxlPm9mZiYjNDU7Jmd0O3NjYW48L3RpdGxlPgo8cGF0aCBkPSdNMTEzLC0zODMuODMxNEMxMTMsLTM3OC40NzI4IDExMywtMzcyLjQ3MzUgMTEzLC0zNjYuNjI2MicgZmlsbD0nbm9uZScgc3Ryb2tlPScjMDAwMDAwJy8+Cjxwb2x5Z29uIGZpbGw9JyMwMDAwMDAnIHBvaW50cz0nMTE2LjUwMDEsLTM2Ni40MzYzIDExMywtMzU2LjQzNjMgMTA5LjUwMDEsLTM2Ni40MzYzIDExNi41MDAxLC0zNjYuNDM2Mycgc3Ryb2tlPScjMDAwMDAwJy8+Cjx0ZXh0IGZpbGw9JyMwMDAwMDAnIGZvbnQtZmFtaWx5PSdIZWx2ZXRpY2Esc2Fucy1TZXJpZicgZm9udC1zaXplPScxMC4wMCcgdGV4dC1hbmNob3I9J3N0YXJ0JyB4PScxMTMnIHk9Jy0zNjcnPlZlcnNvcmd1bmcgZWluICYjMTYwOyYjMTYwOzwvdGV4dD4KPC9nPgoKPGcgY2xhc3M9J25vZGUnIGlkPSdub2RlMic+Cjx0aXRsZT5ydW48L3RpdGxlPgo8cG9seWdvbiBmaWxsPSd0cmFuc3BhcmVudCcgcG9pbnRzPScxODgsLTM2IDM4LC0zNiAzOCwwIDE4OCwwIDE4OCwtMzYnIHN0cm9rZT0ndHJhbnNwYXJlbnQnIHN0cm9rZS13aWR0aD0nMicvPgo8dGV4dCBmaWxsPScjMDAwMDAwJyBmb250LWZhbWlseT0nSGVsdmV0aWNhLHNhbnMtU2VyaWYnIGZvbnQtc2l6ZT0nMTIuMDAnIHRleHQtYW5jaG9yPSdzdGFydCcgeD0nNDguOTkyNicgeT0nLTE0LjInPk5vcm1hbGJldHJpZWI6IExFRCBhdXM8L3RleHQ+CjxwYXRoIGQ9J001MC4zMzMzLC0xQzUwLjMzMzMsLTEgMTc1LjY2NjcsLTEgMTc1LjY2NjcsLTEgMTgxLjMzMzMsLTEgMTg3LC02LjY2NjcgMTg3LC0xMi4zMzMzIDE4NywtMTIuMzMzMyAxODcsLTIzLjY2NjcgMTg3LC0yMy42NjY3IDE4NywtMjkuMzMzMyAxODEuMzMzMywtMzUgMTc1LjY2NjcsLTM1IDE3NS42NjY3LC0zNSA1MC4zMzMzLC0zNSA1MC4zMzMzLC0zNSA0NC42NjY3LC0zNSAzOSwtMjkuMzMzMyAzOSwtMjMuNjY2NyAzOSwtMjMuNjY2NyAzOSwtMTIuMzMzMyAzOSwtMTIuMzMzMyAzOSwtNi42NjY3IDQ0LjY2NjcsLTEgNTAuMzMzMywtMScgZmlsbD0nbm9uZScgc3Ryb2tlPScjMDAwMDAwJyBzdHJva2Utd2lkdGg9JzInLz4KPC9nPgoKPGcgY2xhc3M9J25vZGUnIGlkPSdub2RlNic+Cjx0aXRsZT5zcmVzdWx0PC90aXRsZT4KPHBvbHlnb24gZmlsbD0ndHJhbnNwYXJlbnQnIHBvaW50cz0nMjI2LC0yOTIgMCwtMjkyIDAsLTI1NiAyMjYsLTI1NiAyMjYsLTI5Micgc3Ryb2tlPSd0cmFuc3BhcmVudCcgc3Ryb2tlLXdpZHRoPScyJy8+Cjx0ZXh0IGZpbGw9JyMwMDAwMDAnIGZvbnQtZmFtaWx5PSdIZWx2ZXRpY2Esc2Fucy1TZXJpZicgZm9udC1zaXplPScxMi4wMCcgdGV4dC1hbmNob3I9J3N0YXJ0JyB4PScxMC45NzknIHk9Jy0yNzAuMic+QnVzIGFuemVpZ2VuOiBMRUQgYmxpbmt0ICgxLCAyKSBlaW5tYWw8L3RleHQ+CjxwYXRoIGQ9J00xMi4zMzMzLC0yNTdDMTIuMzMzMywtMjU3IDIxMy42NjY3LC0yNTcgMjEzLjY2NjcsLTI1NyAyMTkuMzMzMywtMjU3IDIyNSwtMjYyLjY2NjcgMjI1LC0yNjguMzMzMyAyMjUsLTI2OC4zMzMzIDIyNSwtMjc5LjY2NjcgMjI1LC0yNzkuNjY2NyAyMjUsLTI4NS4zMzMzIDIxOS4zMzMzLC0yOTEgMjEzLjY2NjcsLTI5MSAyMTMuNjY2NywtMjkxIDEyLjMzMzMsLTI5MSAxMi4zMzMzLC0yOTEgNi42NjY3LC0yOTEgMSwtMjg1LjMzMzMgMSwtMjc5LjY2NjcgMSwtMjc5LjY2NjcgMSwtMjY4LjMzMzMgMSwtMjY4LjMzMzMgMSwtMjYyLjY2NjcgNi42NjY3LC0yNTcgMTIuMzMzMywtMjU3JyBmaWxsPSdub25lJyBzdHJva2U9JyMwMDAwMDAnIHN0cm9rZS13aWR0aD0nMicvPgo8L2c+Cgo8ZyBjbGFzcz0nZWRnZScgaWQ9J2VkZ2UyJz4KPHRpdGxlPnNjYW4mIzQ1OyZndDtzcmVzdWx0PC90aXRsZT4KPHBhdGggZD0nTTExMywtMzE5LjgzMTRDMTEzLC0zMTQuNDcyOCAxMTMsLTMwOC40NzM1IDExMywtMzAyLjYyNjInIGZpbGw9J25vbmUnIHN0cm9rZT0nIzAwMDAwMCcvPgo8cG9seWdvbiBmaWxsPScjMDAwMDAwJyBwb2ludHM9JzExNi41MDAxLC0zMDIuNDM2MyAxMTMsLTI5Mi40MzYzIDEwOS41MDAxLC0zMDIuNDM2MyAxMTYuNTAwMSwtMzAyLjQzNjMnIHN0cm9rZT0nIzAwMDAwMCcvPgo8dGV4dCBmaWxsPScjMDAwMDAwJyBmb250LWZhbWlseT0nSGVsdmV0aWNhLHNhbnMtU2VyaWYnIGZvbnQtc2l6ZT0nMTAuMDAnIHRleHQtYW5jaG9yPSdtaWRkbGUnIHg9JzExNC4zODk1JyB5PSctMzAzJz4gPC90ZXh0Pgo8L2c+Cgo8ZyBjbGFzcz0nbm9kZScgaWQ9J25vZGU0Jz4KPHRpdGxlPnNlYXJjaDwvdGl0bGU+Cjxwb2x5Z29uIGZpbGw9J3RyYW5zcGFyZW50JyBwb2ludHM9JzMwMiwtMjI4IDEyOCwtMjI4IDEyOCwtMTkyIDMwMiwtMTkyIDMwMiwtMjI4JyBzdHJva2U9J3RyYW5zcGFyZW50JyBzdHJva2Utd2lkdGg9JzInLz4KPHRleHQgZmlsbD0nIzAwMDAwMCcgZm9udC1mYW1pbHk9J0hlbHZldGljYSxzYW5zLVNlcmlmJyBmb250LXNpemU9JzEyLjAwJyB0ZXh0LWFuY2hvcj0nc3RhcnQnIHg9JzEzOC45ODMnIHk9Jy0yMDYuMic+S2FuYWwgc3VjaGVuOiBMRUQgYmxpbmt0ICg1KTwvdGV4dD4KPHBhdGggZD0nTTE0MC4zMzMzLC0xOTNDMTQwLjMzMzMsLTE5MyAyODkuNjY2NywtMTkzIDI4OS42NjY3LC0xOTMgMjk1LjMzMzMsLTE5MyAzMDEsLTE5OC42NjY3IDMwMSwtMjA0LjMzMzMgMzAxLC0yMDQuMzMzMyAzMDEsLTIxNS42NjY3IDMwMSwtMjE1LjY2NjcgMzAxLC0yMjEuMzMzMyAyOTUuMzMzMywtMjI3IDI4OS42NjY3LC0yMjcgMjg5LjY2NjcsLTIyNyAxNDAuMzMzMywtMjI3IDE0MC4zMzMzLC0yMjcgMTM0LjY2NjcsLTIyNyAxMjksLTIyMS4zMzMzIDEyOSwtMjE1LjY2NjcgMTI5LC0yMTUuNjY2NyAxMjksLTIwNC4zMzMzIDEyOSwtMjA0LjMzMzMgMTI5LC0xOTguNjY2NyAxMzQuNjY2NywtMTkzIDE0MC4zMzMzLC0xOTMnIGZpbGw9J25vbmUnIHN0cm9rZT0nIzAwMDAwMCcgc3Ryb2tlLXdpZHRoPScyJy8+CjwvZz4KCjxnIGNsYXNzPSdub2RlJyBpZD0nbm9kZTUnPgo8dGl0bGU+Y2ZvdW5kPC90aXRsZT4KPHBvbHlnb24gZmlsbD0ndHJhbnNwYXJlbnQnIHBvaW50cz0nMjkwLC0xNjQgMTMyLC0xNjQgMTMyLC0xMjggMjkwLC0xMjggMjkwLC0xNjQnIHN0cm9rZT0ndHJhbnNwYXJlbnQnIHN0cm9rZS13aWR0aD0nMicvPgo8dGV4dCBmaWxsPScjMDAwMDAwJyBmb250LWZhbWlseT0nSGVsdmV0aWNhLHNhbnMtU2VyaWYnIGZvbnQtc2l6ZT0nMTIuMDAnIHRleHQtYW5jaG9yPSdzdGFydCcgeD0nMTQyLjYzNzInIHk9Jy0xNDIuMic+S2FuYWwgZ2VmdW5kZW46IExFRCBhdXM8L3RleHQ+CjxwYXRoIGQ9J00xNDQuMzMzMywtMTI5QzE0NC4zMzMzLC0xMjkgMjc3LjY2NjcsLTEyOSAyNzcuNjY2NywtMTI5IDI4My4zMzMzLC0xMjkgMjg5LC0xMzQuNjY2NyAyODksLTE0MC4zMzMzIDI4OSwtMTQwLjMzMzMgMjg5LC0xNTEuNjY2NyAyODksLTE1MS42NjY3IDI4OSwtMTU3LjMzMzMgMjgzLjMzMzMsLTE2MyAyNzcuNjY2NywtMTYzIDI3Ny42NjY3LC0xNjMgMTQ0LjMzMzMsLTE2MyAxNDQuMzMzMywtMTYzIDEzOC42NjY3LC0xNjMgMTMzLC0xNTcuMzMzMyAxMzMsLTE1MS42NjY3IDEzMywtMTUxLjY2NjcgMTMzLC0xNDAuMzMzMyAxMzMsLTE0MC4zMzMzIDEzMywtMTM0LjY2NjcgMTM4LjY2NjcsLTEyOSAxNDQuMzMzMywtMTI5JyBmaWxsPSdub25lJyBzdHJva2U9JyMwMDAwMDAnIHN0cm9rZS13aWR0aD0nMicvPgo8L2c+Cgo8ZyBjbGFzcz0nZWRnZScgaWQ9J2VkZ2U1Jz4KPHRpdGxlPnNlYXJjaCYjNDU7Jmd0O2Nmb3VuZDwvdGl0bGU+CjxwYXRoIGQ9J00yMTMuODY0NSwtMTkxLjgzMTRDMjEzLjUyOTYsLTE4Ni40NzI4IDIxMy4xNTQ2LC0xODAuNDczNSAyMTIuNzg5MSwtMTc0LjYyNjInIGZpbGw9J25vbmUnIHN0cm9rZT0nIzAwMDAwMCcvPgo8cG9seWdvbiBmaWxsPScjMDAwMDAwJyBwb2ludHM9JzIxNi4yNjkzLC0xNzQuMTk4NSAyMTIuMTUyMywtMTY0LjQzNjMgMjA5LjI4MywtMTc0LjYzNTIgMjE2LjI2OTMsLTE3NC4xOTg1JyBzdHJva2U9JyMwMDAwMDAnLz4KPHRleHQgZmlsbD0nIzAwMDAwMCcgZm9udC1mYW1pbHk9J0hlbHZldGljYSxzYW5zLVNlcmlmJyBmb250LXNpemU9JzEwLjAwJyB0ZXh0LWFuY2hvcj0nc3RhcnQnIHg9JzIxMycgeT0nLTE3NSc+R2ViZXIgYmV0w6R0aWdlbiAmIzE2MDsmIzE2MDs8L3RleHQ+CjwvZz4KCjxnIGNsYXNzPSdub2RlJyBpZD0nbm9kZTcnPgo8dGl0bGU+Y2FsPC90aXRsZT4KPHBvbHlnb24gZmlsbD0ndHJhbnNwYXJlbnQnIHBvaW50cz0nMTk1LjUsLTEwMCAzMC41LC0xMDAgMzAuNSwtNjQgMTk1LjUsLTY0IDE5NS41LC0xMDAnIHN0cm9rZT0ndHJhbnNwYXJlbnQnIHN0cm9rZS13aWR0aD0nMicvPgo8dGV4dCBmaWxsPScjMDAwMDAwJyBmb250LWZhbWlseT0nSGVsdmV0aWNhLHNhbnMtU2VyaWYnIGZvbnQtc2l6ZT0nMTIuMDAnIHRleHQtYW5jaG9yPSdzdGFydCcgeD0nNDEuODI4MicgeT0nLTc4LjInPkthbGlicmllcnVuZzogTEVEIGJsaW5rdCAoNCk8L3RleHQ+CjxwYXRoIGQ9J000Mi44MzMzLC02NUM0Mi44MzMzLC02NSAxODMuMTY2NywtNjUgMTgzLjE2NjcsLTY1IDE4OC44MzMzLC02NSAxOTQuNSwtNzAuNjY2NyAxOTQuNSwtNzYuMzMzMyAxOTQuNSwtNzYuMzMzMyAxOTQuNSwtODcuNjY2NyAxOTQuNSwtODcuNjY2NyAxOTQuNSwtOTMuMzMzMyAxODguODMzMywtOTkgMTgzLjE2NjcsLTk5IDE4My4xNjY3LC05OSA0Mi44MzMzLC05OSA0Mi44MzMzLC05OSAzNy4xNjY3LC05OSAzMS41LC05My4zMzMzIDMxLjUsLTg3LjY2NjcgMzEuNSwtODcuNjY2NyAzMS41LC03Ni4zMzMzIDMxLjUsLTc2LjMzMzMgMzEuNSwtNzAuNjY2NyAzNy4xNjY3LC02NSA0Mi44MzMzLC02NScgZmlsbD0nbm9uZScgc3Ryb2tlPScjMDAwMDAwJyBzdHJva2Utd2lkdGg9JzInLz4KPC9nPgoKPGcgY2xhc3M9J2VkZ2UnIGlkPSdlZGdlNic+Cjx0aXRsZT5jZm91bmQmIzQ1OyZndDtjYWw8L3RpdGxlPgo8cGF0aCBkPSdNMTgzLjE3OTMsLTEyNy44MzE0QzE3Mi43MzA4LC0xMjEuMDA3OSAxNjAuNjkxNCwtMTEzLjE0NTQgMTQ5LjU2NzQsLTEwNS44ODA4JyBmaWxsPSdub25lJyBzdHJva2U9JyMwMDAwMDAnLz4KPHBvbHlnb24gZmlsbD0nIzAwMDAwMCcgcG9pbnRzPScxNTEuMTc2OCwtMTAyLjc1MTYgMTQwLjg5MDMsLTEwMC4yMTQxIDE0Ny4zNDkyLC0xMDguNjEyNSAxNTEuMTc2OCwtMTAyLjc1MTYnIHN0cm9rZT0nIzAwMDAwMCcvPgo8dGV4dCBmaWxsPScjMDAwMDAwJyBmb250LWZhbWlseT0nSGVsdmV0aWNhLHNhbnMtU2VyaWYnIGZvbnQtc2l6ZT0nMTAuMDAnIHRleHQtYW5jaG9yPSdzdGFydCcgeD0nMTcwJyB5PSctMTExJz5HZWJlciBuZXV0cmFsICYjMTYwOyYjMTYwOzwvdGV4dD4KPC9nPgoKPGcgY2xhc3M9J2VkZ2UnIGlkPSdlZGdlNCc+Cjx0aXRsZT5zcmVzdWx0JiM0NTsmZ3Q7c2VhcmNoPC90aXRsZT4KPHBhdGggZD0nTTE0MS45NTYzLC0yNTUuODMxNEMxNTIuOTM4OSwtMjQ4Ljk0MDMgMTY1LjYxMDMsLTI0MC45ODk2IDE3Ny4yODM3LC0yMzMuNjY1MicgZmlsbD0nbm9uZScgc3Ryb2tlPScjMDAwMDAwJy8+Cjxwb2x5Z29uIGZpbGw9JyMwMDAwMDAnIHBvaW50cz0nMTc5LjM2MDksLTIzNi40OTM4IDE4NS45NzEzLC0yMjguMjE0MSAxNzUuNjQwNCwtMjMwLjU2NDMgMTc5LjM2MDksLTIzNi40OTM4JyBzdHJva2U9JyMwMDAwMDAnLz4KPHRleHQgZmlsbD0nIzAwMDAwMCcgZm9udC1mYW1pbHk9J0hlbHZldGljYSxzYW5zLVNlcmlmJyBmb250LXNpemU9JzEwLjAwJyB0ZXh0LWFuY2hvcj0nc3RhcnQnIHg9JzE3MycgeT0nLTIzOSc+bWl0IEJyw7xja2UgJiMxNjA7JiMxNjA7PC90ZXh0Pgo8L2c+Cgo8ZyBjbGFzcz0nZWRnZScgaWQ9J2VkZ2UzJz4KPHRpdGxlPnNyZXN1bHQmIzQ1OyZndDtjYWw8L3RpdGxlPgo8cGF0aCBkPSdNMTEzLC0yNTUuOTM3MUMxMTMsLTIyMi40MTY4IDExMywtMTUwLjM2MTcgMTEzLC0xMTAuMzA5OCcgZmlsbD0nbm9uZScgc3Ryb2tlPScjMDAwMDAwJy8+Cjxwb2x5Z29uIGZpbGw9JyMwMDAwMDAnIHBvaW50cz0nMTE2LjUwMDEsLTExMC4xNTQ3IDExMywtMTAwLjE1NDggMTA5LjUwMDEsLTExMC4xNTQ4IDExNi41MDAxLC0xMTAuMTU0Nycgc3Ryb2tlPScjMDAwMDAwJy8+Cjx0ZXh0IGZpbGw9JyMwMDAwMDAnIGZvbnQtZmFtaWx5PSdIZWx2ZXRpY2Esc2Fucy1TZXJpZicgZm9udC1zaXplPScxMC4wMCcgdGV4dC1hbmNob3I9J3N0YXJ0JyB4PScxMTMnIHk9Jy0xNzUnPm9obmUgQnLDvGNrZSAmIzE2MDsmIzE2MDs8L3RleHQ+CjwvZz4KCjxnIGNsYXNzPSdlZGdlJyBpZD0nZWRnZTcnPgo8dGl0bGU+Y2FsJiM0NTsmZ3Q7cnVuPC90aXRsZT4KPHBhdGggZD0nTTExMywtNjMuODMxNEMxMTMsLTU4LjQ3MjggMTEzLC01Mi40NzM1IDExMywtNDYuNjI2MicgZmlsbD0nbm9uZScgc3Ryb2tlPScjMDAwMDAwJy8+Cjxwb2x5Z29uIGZpbGw9JyMwMDAwMDAnIHBvaW50cz0nMTE2LjUwMDEsLTQ2LjQzNjMgMTEzLC0zNi40MzYzIDEwOS41MDAxLC00Ni40MzYzIDExNi41MDAxLC00Ni40MzYzJyBzdHJva2U9JyMwMDAwMDAnLz4KPHRleHQgZmlsbD0nIzAwMDAwMCcgZm9udC1mYW1pbHk9J0hlbHZldGljYSxzYW5zLVNlcmlmJyBmb250LXNpemU9JzEwLjAwJyB0ZXh0LWFuY2hvcj0nbWlkZGxlJyB4PScxMTQuMzg5NScgeT0nLTQ3Jz4gPC90ZXh0Pgo8L2c+CjwvZz4KPC9zdmc+Cg==" alt="Diagram" width="412" height="569">
+</div>
+<div class="title">Abbildung 1. Ablauf der Konfiguration</div>
+</div>
+<div class="sect3">
+<h4 id="_konfiguration_des_bus_typs"><a class="anchor" href="#_konfiguration_des_bus_typs"></a><a class="link" href="#_konfiguration_des_bus_typs">7.4.1. Konfiguration des <code>Bus</code>-Typs</a></h4>
+<div class="paragraph">
+<p>Der <code>Bus</code>-Typ wie <code>Sbus</code>, <code>IBus</code> oder <code>SumD</code> des Bus-Systems werdenvom Modul automatisch erkannt und anschließend über ein <em>Blinkmuster</em> der <code>LED</code> angezeigt.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_konfiguration_der_übertragungskanäle"><a class="anchor" href="#_konfiguration_der_übertragungskanäle"></a><a class="link" href="#_konfiguration_der_übertragungskanäle">7.4.2. Konfiguration der Übertragungskanäle</a></h4>
+<div class="paragraph">
+<p>Das <code>RC-ThreeSixty-D</code> benötigt maximal <em>drei</em> Übertragungskanäle, jedoch im Normalbetrieb nur <em>zwei</em>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Kanal <code>A</code> für Schub</p>
+</li>
+<li>
+<p>Kanal <code>B</code> für Schottelposition / Servoposition</p>
+</li>
+<li>
+<p>Kanal <code>C</code> für Fahrmotorsteller-Kalibrierung (direkt vom Sender)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Bei der Kanalsuche (s.a. <a href="#states">Abbildung 1</a>) wird ausgehend vom Kanal <code>1</code> aufsteigend alle Kanäle untersucht, ob sie einen Ausschlag / Wert von mehr als 50% aufweisen.
+Ist dies der Fall, so bekommt Kanal <code>A</code> des Moduls diese Übertragnugskanalnummer. Kanal <code>B</code> und <code>C</code> folgen ohne Lücke.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>erster</em> Übertragungskanal mit Wert &gt; 50% &#8594; Kanal <code>A</code> (Beispiel: 4)</p>
+</li>
+<li>
+<p><em>nächster</em> Übertragungskanal &#8594; Kanal <code>B</code> (Beispiel: 5)</p>
+</li>
+<li>
+<p><em>nächster</em> Übertragungskanal &#8594; Kanal <code>C</code> (Beispiel: 6)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_kalibrierung"><a class="anchor" href="#_kalibrierung"></a><a class="link" href="#_kalibrierung">7.4.3. Kalibrierung</a></h4>
+<div class="paragraph">
+<p>Die <em>Kalibrierung</em> des Schottelservos ist ein automatischer Prozess. Stellen Sie <em>sicher</em>, der der Schottelantrieb sich <em>frei</em> komplett um seine
+eigene Achse drehen kann.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bedienung"><a class="anchor" href="#_bedienung"></a><a class="link" href="#_bedienung">7.5. Bedienung</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_zubehör"><a class="anchor" href="#_zubehör"></a><a class="link" href="#_zubehör">8. Zubehör</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_bus_verteiler"><a class="anchor" href="#_bus_verteiler"></a><a class="link" href="#_bus_verteiler">8.1. <code>Bus</code>-Verteiler</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_bec_weiche"><a class="anchor" href="#_bec_weiche"></a><a class="link" href="#_bec_weiche">8.2. <code>BEC</code>-Weiche</a></h3>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Betrieb"><a class="anchor" href="#Betrieb"></a><a class="link" href="#Betrieb">9. Betrieb</a></h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Beachten Sie unbedingt die Anweisungen unter <a href="#first">[first]</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Die üblichen Sicherheitsvorkehrungen im Betrieb mit ferngesteuerten Modellen, insbesonder Schiffsmodellen sind einzuhalten.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Beachten Sie <strong>alle</strong> folgenden Hinweise zum Betrieb.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Eine Verwendung des Moduls in Rennbooten oder Flugmodellen ist nicht zulässig.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Das Modul darf nicht in Kontakt mit Wasser, Wasserdampf oder anderen Flässigkeiten kommen. Wasser oder Wasserdampf bzw. andere
+Flüssigkeiten können zu einem Totalausfall
+und damit zu einem Modellverlust sowie Personenschäden führen.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Das Modul verbraucht im Ruhezustand nur sehr wenig Strom. Trotzdem darf ein dauerhafter Anschluß an einen <strong>unüberwachten</strong> Akku nicht erfolgen.
+Hier besteht Brandgefahr! Gefahr von Personenschäden!
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Beim Betrieb ist die Erwärmung des Moduls zwingend zu überwachen! Eine Überhitzung kann zu einem Totalausfall und damit
+zu einem Modellverlust führen. Gefahr von Personenschäden!
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Die Spannunsgversorgung ist Moduls ist im Betrieb zu überwachen. Bei Unterspannung kann das Modul abschalten oder bei gleichzeitiger
+hoher Stromaufnahme überhitzen und so zu einem Totalausfall
+und damit zu einem Modellverlust sowie Personenschäden führen
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Die erforderlichen Kabelquerschnitte für die Verbindung mit dem Akku und auch mit dem elektrischen Verbraucher sind unbedingt einzuhalten.
+Hier besteht Brandgefahr. Gefahr von Personenschäden!
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Beim Betrieb ist der maximale Stromdurchfluß zu begrenzen und zu überwachen. Ein zu langer und zu hoher Stromfluß kann zu einem Totalausfall
+und damit zu einem Modellverlust sowie Personenschäden führen.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Das Modul ist nicht kurzschlußfest. Ein Kurzschluß führt zu einem Totalausfall
+und damit zu einem Modellverlust sowie Personenschäden.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Der maximale Schaltstrom ist ist unbedingt einzuhalten und darf nicht überschritten werden. Ein zu hoher Schaltstrom kann zu einem Totalausfall
+und damit zu einem Modellverlust sowie Personenschäden führen.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Die Kapazitäten (Elkos, Siebelkos) am Ausgang des Moduls, etwa in Fahrtreglern (Stellern) für Motoren,
+dürfen 10.000µF nicht überschreiten. Zu hohe Kapazitäten können zu einem Totalausfall
+und damit zu einem Modellverlust sowie Personenschäden führen.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Das Modul darf keinen Vibrationen ausgesetzt werden. Treffen Sie entsprechende Vorkehrungen zu einem vibrationsgeschützten Einbau. Zu starke
+Vibrationen können zu einem Totalausfall und damit zu einem Modellverlust sowie Personenschäden führen.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Das Modul darf nur innerhalb eines Temperaturbereiches von -10°C bis +55°C betrieben werden. Ein Betrieb außerhalb dieses
+Bereiches kann zu einem Totalausfall und damit zu einem Modellverlust sowie Personenschäden führen.
+</td>
+</tr>
+</table>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_kontakt"><a class="anchor" href="#_kontakt"></a><a class="link" href="#_kontakt">10. Kontakt</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Anfragen: <a href="mailto:wilhelm.wm.meier@googlemail.com">wilhelm.wm.meier@googlemail.com</a></p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 0.1<br>
+Last updated 2021-02-26 20:07:30 +0100
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>
