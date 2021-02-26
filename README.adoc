@@ -163,6 +163,10 @@ Hat man mehrere BEC-Quellen (etwa mehrere _Steller_ mit je einem `BEC`) entsteht
 Damit verteilt sich die Last auf _beide_ `BEC` der Steller, das _Deaktivieren_ der anderen `BEC` durch Unterbrechen des _Plus_-Zuleitung ist _nicht_ 
 mehr notwendig.
 
+=== RC-`Bus`-Verteiler
+
+`RC-Distri` 
+
 === RC-Inkrementalgeber
 
 Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
