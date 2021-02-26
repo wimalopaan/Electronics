@@ -39,8 +39,15 @@ image::images/zfcf.jpg[width=50%]
 
 === News
 
-* Schrittweise Einführung der _automatischen Erkennung_ der Bus-Systeme: `IBus`, `SBus`, `SBus` (inv.), `Hott`. Darüber hinaus auch Detektion 
-eines `PWM`-Signals (falls sinnvoll). 
+* Schrittweise Einführung der _automatischen Erkennung_ der Bus-Systeme: `IBus`, `SBus`, `SBus` (inv.), `Hott`. Die Verwendung eines
+_Inverters_ bei `SBus` entfällt.
+Darüber hinaus auch Detektion eines `PWM`-Signals (falls sinnvoll). 
+
+[options="header"]
+|====
+| Version  | Modul mit _Bus_-Erkennung
+| >= V21   | `RC-MultiAdapter-DA`, `RC-Quad-D`
+|====
 
 === Bus-Systeme im RC-Modellbau
 
@@ -100,6 +107,9 @@ Anleitung: {rcb}/rcquad.html[RC Quad] {rcb}/rcquad_r.pdf[pdf]
 ** BEC-Spannung (vom dem Empfänger) bis 16V möglich. Damit aus HV-Servos einsetzbar im Model ;-) 
 ** Weitere LED zur Indikation des Empfängerprotokolls (Sbus, Sbus-Inv, IBus, SumD)
 
+* Firmware: V21
+** _Automatische_ Erkennung des Bus-Systems
+
 * Firmware: V20
 ** FrSky: Sensor-ID für die Zustandsanzeige (Aus, Vor, Rück, Anlauf, Stromabschaltung, Endlagenabschaltung, ...) einstellbar
 
@@ -152,6 +162,10 @@ Hat man mehrere BEC-Quellen (etwa mehrere _Steller_ mit je einem `BEC`) entsteht
 `BEC` der Steller. Normalerweise verkraften die Steller-BEC das Parallelschalten _nicht_, mit diesem Modul ist das jedoch effektiv möglich. 
 Damit verteilt sich die Last auf _beide_ `BEC` der Steller, das _Deaktivieren_ der anderen `BEC` durch Unterbrechen des _Plus_-Zuleitung ist _nicht_ 
 mehr notwendig.
+
+=== RC-`Bus`-Verteiler
+
+`RC-Distri` 
 
 === RC-Inkrementalgeber
 
