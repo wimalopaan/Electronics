@@ -117,6 +117,9 @@ Anleitung: {rcb}/rcquad.html[RC Quad] {rcb}/rcquad_r.pdf[pdf]
 
 Dies ist eine Schottelsteuerung für einen Schottelantrieb.
 
+Anleitung: {rcb}/rc360.html[RC MultiSwitch] {rcb}/rc360_r.pdf[pdf]
+
+
 === RC-Led-D
 
 Eine 16-Kanal LED-Ansteuerung mit einer Konstantstromquelle je Kanal, je Kanal einstellbarem Strom und unterschiedlichen Schaltmustern.
