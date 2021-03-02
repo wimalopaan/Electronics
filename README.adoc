@@ -117,7 +117,7 @@ Anleitung: {rcb}/rcquad.html[RC Quad] {rcb}/rcquad_r.pdf[pdf]
 
 Dies ist eine Schottelsteuerung für einen Schottelantrieb.
 
-Anleitung: {rcb}/rc360.html[RC MultiSwitch] {rcb}/rc360_r.pdf[pdf]
+Anleitung: {rcb}/rc360.html[RC-ThreeSixty-D] {rcb}/rc360_r.pdf[pdf]
 
 
 === RC-Led-D
