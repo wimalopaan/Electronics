@@ -119,6 +119,8 @@ Dies ist eine Schottelsteuerung für einen Schottelantrieb.
 
 Anleitung: {rcb}/rc360.html[RC-ThreeSixty-D] {rcb}/rc360_r.pdf[pdf]
 
+* Firmware: V21
+** _Automatische_ Erkennung des Bus-Systems
 
 === RC-Led-D
 
