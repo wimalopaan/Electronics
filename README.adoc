@@ -46,7 +46,7 @@ Darüber hinaus auch Detektion eines `PWM`-Signals (falls sinnvoll).
 [options="header"]
 |====
 | Version  | Modul mit _Bus_-Erkennung
-| >= V21   | `RC-MultiAdapter-DA`, `RC-Quad-D`
+| >= V21   | `RC-MultiAdapter-DA`, `RC-Quad-D`, `RC-ThreeSixty-D`
 |====
 
 === Bus-Systeme im RC-Modellbau
