@@ -46,7 +46,7 @@ Darüber hinaus auch Detektion eines `PWM`-Signals (falls sinnvoll).
 [options="header"]
 |====
 | Version  | Modul mit _Bus_-Erkennung
-| >= V21   | `RC-MultiAdapter-DA`, `RC-Quad-D`
+| >= V21   | `RC-MultiAdapter-DA`, `RC-Quad-D`, `RC-ThreeSixty-D`
 |====
 
 === Bus-Systeme im RC-Modellbau
@@ -119,10 +119,32 @@ Dies ist eine Schottelsteuerung für einen Schottelantrieb.
 
 Anleitung: {rcb}/rc360.html[RC-ThreeSixty-D] {rcb}/rc360_r.pdf[pdf]
 
+* Firmware: V21
+** _Automatische_ Erkennung des Bus-Systems
 
 === RC-Led-D
 
 Eine 16-Kanal LED-Ansteuerung mit einer Konstantstromquelle je Kanal, je Kanal einstellbarem Strom und unterschiedlichen Schaltmustern.
+Mit automatischer Erkennung des Bus-Systems.
+
+=== RC-BMC-D
+
+BMC: _Brushed-Motor-Control_, also ein Steller für Bürstenmotoren
+
+* Features:
+** max. 36V, max 30A
+** parallelschaltbares BEC (5V/1A)
+** SBus / IBus / SumD / Servo-PWM
+** S.Port / IBus / Hott - Telemetrie
+*** Versorgungsspannung
+*** Motorstrom
+*** Temperatur des Stellers
+*** Temperatur des Motors
+*** Drehzahl des Motors
+** Adaptive PWM-Frequenz (Kennlinie)
+** Aktive Drehzahlrückführung
+** _Kickstart_
+** bequeme _Konfiguration_ über _zweiten_ Kanal (auch bei Servo-PWM)
 
 === RC-Cellwatch
 
