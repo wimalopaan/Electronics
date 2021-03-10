@@ -277,7 +277,7 @@ Dort gibt es viele Videos in loser Folge mit Tips zu speziellen Themen rund um O
 
 Die Anleitung zum Umbau:
 
-https://github.com/wimalopaan/Electronics/rc/jr40mhz.html[]
+{ddir}/rc/jr40mhz.html[]
 
 == Audio
 
