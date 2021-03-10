@@ -275,6 +275,10 @@ Dort gibt es viele Videos in loser Folge mit Tips zu speziellen Themen rund um O
 
 === Umbau 40MHz-JR-Sendermodul
 
+Die Anleitung zum Umbau:
+
+{ddir}/rc/jr40mhz.html[]
+
 == Audio
 
 === Werner-GWS-Box
