@@ -30,7 +30,8 @@ toc::[]
 
 [TIP]
 --
-Die leeren Kapitel sind für mich Gedankenstützen, dass hier noch etwas zu tun ist ;-) 
+Die leeren Kapitel sind für mich Gedankenstützen, dass hier noch etwas zu tun ist ;-) Es liegt einfach nur an der mangelnden Zeit, alles zu 
+dokumentieren. Wer Fragen zu einer Überschrift ohne Inhalt halt, möge einfach fragen.
 --
 
 image::images/zfcf.jpg[width=50%]
