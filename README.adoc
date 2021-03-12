@@ -46,7 +46,7 @@ Darüber hinaus auch Detektion eines `PWM`-Signals (falls sinnvoll).
 [options="header"]
 |====
 | Version  | Modul mit _Bus_-Erkennung
-| >= V21   | `RC-MultiAdapter-DA`, `RC-Quad-D`, `RC-ThreeSixty-D`
+| >= V21   | `RC-MultiAdapter-DA`, `RC-Quad-D`, `RC-ThreeSixty-D`, `RC-Bmc-D`
 |====
 
 === Bus-Systeme im RC-Modellbau
@@ -140,7 +140,7 @@ BMC: _Brushed-Motor-Control_, also ein Steller für Bürstenmotoren
 * Features:
 ** max. 36V, max 30A
 ** parallelschaltbares BEC (5V/1A)
-** SBus / IBus / SumD / Servo-PWM
+** SBus / IBus / SumD / Servo-PWM (Auto-Erkennung)
 ** S.Port / IBus / Hott - Telemetrie
 *** Versorgungsspannung
 *** Motorstrom
@@ -155,6 +155,7 @@ BMC: _Brushed-Motor-Control_, also ein Steller für Bürstenmotoren
 === RC-Cellwatch
 
 Ein Akkuzellenmonitor für bis zu 4-Zellen für `IBus` und `SPort` (und sehr geringem Leckstrom = geringe Entladung des Akkus).
+Kaskadierbar für 7-Zellen (10, 13, ...)
 
 Anleitung: {rcb}/cellwatch.html[RC Cellwatch] {rcb}/cellwatch_r.pdf[pdf]
 
