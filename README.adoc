@@ -126,6 +126,8 @@ Dies ist eine Schottelsteuerung für einen Schottelantrieb.
 
 Anleitung: {rcb}/rc360.html[RC-ThreeSixty-D] {rcb}/rc360_r.pdf[pdf]
 
+Video: https://www.youtube.com/watch?v=n65u5VO-_PI[Video]
+
 * Firmware: V21
 ** _Automatische_ Erkennung des Bus-Systems
 
@@ -137,6 +139,14 @@ Mit automatischer Erkennung des Bus-Systems.
 === RC-BMC-D
 
 BMC: _Brushed-Motor-Control_, also ein Steller für Bürstenmotoren
+
+https://www.youtube.com/watch?v=YcGqh6H6jHw[Video-1]
+
+https://www.youtube.com/watch?v=bvdUeQNDzLk&t=4s[Video-2]
+
+https://www.youtube.com/watch?v=zHA3FsItgLM[Video 3]
+
+https://www.youtube.com/watch?v=5HorOrrKEpc[Video-4]
 
 * Features:
 ** max. 36V, max 30A
@@ -203,6 +213,8 @@ mehr notwendig.
 === RC-Inkrementalgeber
 
 Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
+
+https://www.youtube.com/watch?v=jsHxym2csJ4&t=2s[Video]
 
 * Firmware V20
 ** Gr/SJ-Cppm-mode
