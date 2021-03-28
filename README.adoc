@@ -165,7 +165,7 @@ https://www.youtube.com/watch?v=5HorOrrKEpc[Video-4]
 
 === RC-Cellwatch
 
-Ein Akkuzellenmonitor für bis zu 4-Zellen für `IBus` und `SPort` (und sehr geringem Leckstrom = geringe Entladung des Akkus).
+Ein Akkuzellenmonitor für bis zu 4-Zellen für `IBus`, `Hott` und `SPort` (und sehr geringem Leckstrom = geringe Entladung des Akkus).
 Kaskadierbar für 7-Zellen (10, 13, ...)
 
 Anleitung: {rcb}/cellwatch.html[RC Cellwatch] {rcb}/cellwatch_r.pdf[pdf]
