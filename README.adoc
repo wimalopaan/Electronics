@@ -30,7 +30,8 @@ toc::[]
 
 [TIP]
 --
-Die leeren Kapitel sind für mich Gedankenstützen, dass hier noch etwas zu tun ist ;-) 
+Die leeren Kapitel sind für mich Gedankenstützen, dass hier noch etwas zu tun ist ;-) Es liegt einfach nur an der mangelnden Zeit, alles zu 
+dokumentieren. Wer Fragen zu einer Überschrift ohne Inhalt halt, möge einfach fragen.
 --
 
 image::images/zfcf.jpg[width=50%]
@@ -46,7 +47,7 @@ Darüber hinaus auch Detektion eines `PWM`-Signals (falls sinnvoll).
 [options="header"]
 |====
 | Version  | Modul mit _Bus_-Erkennung
-| >= V21   | `RC-MultiAdapter-DA`, `RC-Quad-D`, `RC-ThreeSixty-D`
+| >= V21   | `RC-MultiAdapter-DA`, `RC-Quad-D`, `RC-ThreeSixty-D`, `RC-Bmc-D`
 |====
 
 === Bus-Systeme im RC-Modellbau
@@ -125,6 +126,8 @@ Dies ist eine Schottelsteuerung für einen Schottelantrieb.
 
 Anleitung: {rcb}/rc360.html[RC-ThreeSixty-D] {rcb}/rc360_r.pdf[pdf]
 
+Video: https://www.youtube.com/watch?v=n65u5VO-_PI[Video]
+
 * Firmware: V21
 ** _Automatische_ Erkennung des Bus-Systems
 
@@ -137,10 +140,18 @@ Mit automatischer Erkennung des Bus-Systems.
 
 BMC: _Brushed-Motor-Control_, also ein Steller für Bürstenmotoren
 
+https://www.youtube.com/watch?v=YcGqh6H6jHw[Video-1]
+
+https://www.youtube.com/watch?v=bvdUeQNDzLk&t=4s[Video-2]
+
+https://www.youtube.com/watch?v=zHA3FsItgLM[Video 3]
+
+https://www.youtube.com/watch?v=5HorOrrKEpc[Video-4]
+
 * Features:
 ** max. 36V, max 30A
 ** parallelschaltbares BEC (5V/1A)
-** SBus / IBus / SumD / Servo-PWM
+** SBus / IBus / SumD / Servo-PWM (Auto-Erkennung)
 ** S.Port / IBus / Hott - Telemetrie
 *** Versorgungsspannung
 *** Motorstrom
@@ -154,7 +165,8 @@ BMC: _Brushed-Motor-Control_, also ein Steller für Bürstenmotoren
 
 === RC-Cellwatch
 
-Ein Akkuzellenmonitor für bis zu 4-Zellen für `IBus` und `SPort` (und sehr geringem Leckstrom = geringe Entladung des Akkus).
+Ein Akkuzellenmonitor für bis zu 4-Zellen für `IBus`, `Hott` und `SPort` (und sehr geringem Leckstrom = geringe Entladung des Akkus).
+Kaskadierbar für 7-Zellen (10, 13, ...)
 
 Anleitung: {rcb}/cellwatch.html[RC Cellwatch] {rcb}/cellwatch_r.pdf[pdf]
 
@@ -201,6 +213,8 @@ mehr notwendig.
 === RC-Inkrementalgeber
 
 Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
+
+https://www.youtube.com/watch?v=jsHxym2csJ4&t=2s[Video]
 
 * Firmware V20
 ** Gr/SJ-Cppm-mode
@@ -275,9 +289,7 @@ Dort gibt es viele Videos in loser Folge mit Tips zu speziellen Themen rund um O
 
 === Umbau 40MHz-JR-Sendermodul
 
-Die Anleitung zum Umbau:
-
-{ddir}/rc/jr40mhz.html[]
+Die Anleitung zum Umbau: {ddir}/rc/jr40mhz.html[Umbau] {ddir}/rc/jr40mhz_r.pdf[pdf]
 
 == Audio
 
