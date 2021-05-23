@@ -50,6 +50,11 @@ Darüber hinaus auch Detektion eines `PWM`-Signals (falls sinnvoll).
 | >= V21   | `RC-MultiAdapter-DA`, `RC-Quad-D`, `RC-ThreeSixty-D`, `RC-Bmc-D`
 |====
 
+=== Parallelschalten von Akkus (im Modellbau)
+
+Die Anleitung der <<poweror, Akkuweiche>> enthält viel nützliche Information über das Thema *Parallelschalten* von Akkus.
+Hier geht es direkt zur {rcb}/power_or.html[Info über das Parallelschalten von Akkus] und der Zweck einer <<poweror,Akkuweiche>>.
+
 === Bus-Systeme im RC-Modellbau
 
 (_work-in-progress_)
@@ -193,9 +198,10 @@ Zentraler elektronischer Schalter zur Bedienung per Taster oder Magnet, _ohne_ T
 
 Anleitung: {rcb}/onoff_simple.html[DIY RC Hauptschalter] {rcb}/onoff_simple_r.pdf[pdf]
 
+[[poweror]]
 === RC-Akkuweiche
 
-Die Anleitung enthält auch eine ausführliche Betrachtung über das Thema _Parallelschalten_ von Akkus.
+Die Anleitung enthält auch eine ausführliche Betrachtung über das Thema *Parallelschalten* von Akkus.
 
 Anleitung: {rcb}/power_or.html[Akkuweiche] {rcb}/power_or_r.pdf[pdf]
 
