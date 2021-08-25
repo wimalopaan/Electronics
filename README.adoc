@@ -65,8 +65,10 @@ Hier geht es direkt zur {rcb}/power_or.html[Info über das Parallelschalten von 
 
 Es folgt eine Übersicht über die von mir entwickelten Elektronik-Module für den RC-Modellbau.
 
+=== Module zum Einbau in ein Modell (empfängerseitig)
+
 [[msd]]
-=== RC-Multiswitch-D
+==== RC-Multiswitch-D
 
 Der `RC-Multiswitch-D` ist ein _digitales_ Schaltmodul mit 8-Kanälen. 
 
@@ -85,7 +87,7 @@ Anleitung (Hott): {rcb}/rcmultiswitch_h.html[RC MultiSwitch] {rcb}/rcmultiswitch
 * OpenTx:
 ** Fixed page switch if not 6pos
 
-=== RC-MultiAdapter-DA
+==== RC-MultiAdapter-DA
 
 Der `Rc_MultiAdapter-DA` dient dazu, _alte_, _analoge_ Schaltmodule wie etwa das _Graupner_ 16-Kanal (4159) an
 einer `OpenTx`-Anlage zu betreiben. Dies ist für Anwender interessant, die ein bestehendes Modell mit derartigen 
@@ -96,14 +98,14 @@ s.a. <<msd,RC-MultiSwitch-D>>
 * Firmware:
 ** neue Firmware (V21) erkennt automatisch IBus/SBus/SBus(Inv), SBus-Inverter nicht mehr notwendig
 
-=== RC-ServoSwitch-D
+==== RC-ServoSwitch-D
 
 Mit dem `RC-ServoSwitch-D` kann man Bewegungsabläufe als _Schaltfunktion_ realisieren. Je _Funktion_ können _vier_ 
 unterschiedliche Positionen für eines der 5 Servos angefahren werden. Servos können auch _gekoppelt_ werden.
 
 s.a. <<msd,RC-MultiSwitch-D>>
 
-=== RC-Quad-D
+==== RC-Quad-D
 
 Ein Sonderfunktionssteuerung mit vier Funktionen. Eigent sich gut, um bis zu 4-Achsen-Kräne anzusteuern (inkl. Endabschaltung und Telemetrie).
 
@@ -125,7 +127,8 @@ Anleitung: {rcb}/rcquad.html[RC Quad] {rcb}/rcquad_r.pdf[pdf]
 * OpenTx: V1.06
 ** XJT: Bug-Fix für Adressen oberhalb von 5 (5, 6, 7, 8) 
 
-=== RC-ThreeSixty-D
+[[rc360]]
+==== RC-ThreeSixty-D (ausgelaufen)
 
 Dies ist eine Schottelsteuerung für einen Schottelantrieb.
 
@@ -136,12 +139,18 @@ Video: https://www.youtube.com/watch?v=n65u5VO-_PI[Video]
 * Firmware: V21
 ** _Automatische_ Erkennung des Bus-Systems
 
-=== RC-Led-D
+==== RC-720-D
+
+Wie <<rc360>> jedoch als Doppel-Steuerung (wie 2x <<rc360>>).
+
+Zusätzlich Telemetrie: Positionssensor für die tatsächliche Lage des Antriebs.
+
+==== RC-Led-D
 
 Eine 16-Kanal LED-Ansteuerung mit einer Konstantstromquelle je Kanal, je Kanal einstellbarem Strom und unterschiedlichen Schaltmustern.
 Mit automatischer Erkennung des Bus-Systems.
 
-=== RC-BMC-D
+==== RC-BMC-D
 
 BMC: _Brushed-Motor-Control_, also ein Steller für Bürstenmotoren
 
@@ -168,14 +177,14 @@ https://www.youtube.com/watch?v=5HorOrrKEpc[Video-4]
 ** _Kickstart_
 ** bequeme _Konfiguration_ über _zweiten_ Kanal (auch bei Servo-PWM)
 
-=== RC-Cellwatch
+==== RC-Cellwatch
 
 Ein Akkuzellenmonitor für bis zu 4-Zellen für `IBus`, `Hott` und `SPort` (und sehr geringem Leckstrom = geringe Entladung des Akkus).
 Kaskadierbar für 7-Zellen (10, 13, ...)
 
 Anleitung: {rcb}/cellwatch.html[RC Cellwatch] {rcb}/cellwatch_r.pdf[pdf]
 
-=== RC-SensorModul
+==== RC-SensorModul
 
 Vielfältiges Sensor-Modul (`IBus`) für
 
@@ -185,38 +194,69 @@ Vielfältiges Sensor-Modul (`IBus`) für
 * Wassereinbruch
 * Ströme
 
-=== RC-Hauptschalter
+==== RC-Hauptschalter
 
 Zentraler elektronischer Schalter zur Bedienung per Taster oder Magnet, Telemetrie für Strom und Spannung, für `IBus`, `SPort` und `Hott`.
 Akustische Rückmeldung.
 
 Anleitung: {rcb}/onoff_telemetrie.html[RC Hauptschalter] {rcb}/onoff_telemetrie_r.pdf[pdf]
 
-=== DIY RC-Hauptschalter
+==== DIY RC-Hauptschalter
 
 Zentraler elektronischer Schalter zur Bedienung per Taster oder Magnet, _ohne_ Telemtrie
 
 Anleitung: {rcb}/onoff_simple.html[DIY RC Hauptschalter] {rcb}/onoff_simple_r.pdf[pdf]
 
 [[poweror]]
-=== RC-Akkuweiche
+==== RC-Akkuweiche
 
 Die Anleitung enthält auch eine ausführliche Betrachtung über das Thema *Parallelschalten* von Akkus.
 
 Anleitung: {rcb}/power_or.html[Akkuweiche] {rcb}/power_or_r.pdf[pdf]
 
-=== RC-BEC-Weiche
+==== RC-BEC-Weiche
 
 Hat man mehrere BEC-Quellen (etwa mehrere _Steller_ mit je einem `BEC`) entsteht immer die Frage nache dem _Parallelbetrieb_ der 
 `BEC` der Steller. Normalerweise verkraften die Steller-BEC das Parallelschalten _nicht_, mit diesem Modul ist das jedoch effektiv möglich. 
 Damit verteilt sich die Last auf _beide_ `BEC` der Steller, das _Deaktivieren_ der anderen `BEC` durch Unterbrechen des _Plus_-Zuleitung ist _nicht_ 
 mehr notwendig.
 
-=== RC-`Bus`-Verteiler
+==== RC-`Bus`-Verteiler
 
 `RC-Distri` 
 
-=== RC-Inkrementalgeber
+=== Wassermelder
+
+Kleines Modul zum Detektieren eines Wassereinbruchs. Mit LED, kann / sollte an Telemetrie angeschlossen werden.
+
+=== Elektronischer Schalter
+
+Einfach High-Side-Switch, etwa zum Anschluss an den Wassermelder , um eine Pumpe einzuschalten.
+
+=== Module zum Einbau in den Sender
+
+==== Digitales Sendemodul für den JR-Modulschacht von OpenTx / EdgeTx-Sendern
+
+https://www.youtube.com/watch?v=NoHuX-6Vqxw&t=4s[Video]
+
+==== RC-Haptic-Control
+
+RC-Haptic-Control ist eine neuartige Möglichkeit
+
+* Geber mit beliebigen Eigenschaften zu simulieren, und / oder
+* Modelle mit "Motion-Feedback" zu steuern
+
+https://www.youtube.com/watch?v=i7hTHSYI2aA[Video 5]
+
+https://www.youtube.com/watch?v=G81UkoHOj9A[Video 4]
+
+https://www.youtube.com/watch?v=1llRP9EBrLc[Video 3]
+
+https://www.youtube.com/watch?v=Rj6FijD5dco[Video 2]
+
+https://www.youtube.com/watch?v=KmKqtQulzzM[Video 1]
+
+==== RC-Inkrementalgeber
 
 Anleitung: {rcb}/rcincr.html[RC Inkrementalgeber] {rcb}/rcincr_r.pdf[pdf]
 
@@ -225,13 +265,15 @@ https://www.youtube.com/watch?v=jsHxym2csJ4&t=2s[Video]
 * Firmware V20
 ** Gr/SJ-Cppm-mode
 
-==== Diskretisierung
+===== Diskretisierung
 
 Emulation eines Mehrstufenschalters etwa für die Ansteuerung eines _Sound-Moduls_ wie _Benedini_ oder clones.
 
-=== RC-Desk
+==== RC-Desk
 
 `Rc-Desk` ist ein _Senderpult_ mit Erweiterungsmöglichkeiten für `OpenTx`-Sender wie für Sender mit einem _üblichen_ Lehrer/Schüler-Eingang (etwas Graupner/SJ).
+
+https://www.youtube.com/watch?v=UBqiqOP0Xog[Video]
 
 Das _Senderpult_ ermögicht
 
@@ -252,9 +294,6 @@ Geeignet für alle Sender (`OpenTx`) mit
 * Leher-Schüler Eingang (und sinnvollerweise Kanal-_Mapping_)
 ** Graupner/SJ
 
-=== Wassermelder
-
-=== Elektronischer Schalter
 
 == OpenTx
 
