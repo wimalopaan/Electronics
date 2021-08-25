@@ -47,7 +47,7 @@ Darüber hinaus auch Detektion eines `PWM`-Signals (falls sinnvoll).
 [options="header"]
 |====
 | Version  | Modul mit _Bus_-Erkennung
-| >= V46   | `RC-720-D`, 'RC-Haptic-D'
+| >= V46   | `RC-720-D`, `RC-Haptic-D`
 | >= V21   | `RC-MultiAdapter-DA`, `RC-Quad-D`, `RC-ThreeSixty-D`, `RC-Bmc-D`, `RC-MultiSwitch`
 |====
 
