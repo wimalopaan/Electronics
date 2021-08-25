@@ -40,6 +40,8 @@ image::images/zfcf.jpg[width=50%]
 
 === News
 
+* Ab Version `1.09` sind die EdgeTx/OpenTx-Skripte für die Steuerung der `RC-MultiSwitch-D, ...` für den `FullScreen`-Modus geeignet.
+
 * Schrittweise Einführung der _automatischen Erkennung_ der Bus-Systeme: `IBus`, `SBus`, `SBus` (inv.), `Hott`. Die Verwendung eines
 _Inverters_ bei `SBus` entfällt.
 Darüber hinaus auch Detektion eines `PWM`-Signals (falls sinnvoll). 
