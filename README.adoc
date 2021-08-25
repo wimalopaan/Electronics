@@ -156,7 +156,7 @@ BMC: _Brushed-Motor-Control_, also ein Steller für Bürstenmotoren
 
 https://www.youtube.com/watch?v=YcGqh6H6jHw[Video-1]
 
-https://www.youtube.com/watch?v=bvdUeQNDzLk&t=4s[Video-2]
+https://www.youtube.com/watch?v=bvdUeQNDzLk[Video-2]
 
 https://www.youtube.com/watch?v=zHA3FsItgLM[Video 3]
 
@@ -237,7 +237,7 @@ Einfach High-Side-Switch, etwa zum Anschluss an den Wassermelder , um eine Pumpe
 
 ==== Digitales Sendemodul für den JR-Modulschacht von OpenTx / EdgeTx-Sendern
 
-https://www.youtube.com/watch?v=NoHuX-6Vqxw&t=4s[Video]
+https://www.youtube.com/watch?v=NoHuX-6Vqxw[Video]
 
 ==== RC-Haptic-Control
 
