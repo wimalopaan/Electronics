@@ -70,6 +70,13 @@ Es folgt eine Übersicht über die von mir entwickelten Elektronik-Module für d
 
 === Module zum Einbau in ein Modell (empfängerseitig)
 
+==== RC-MicroStep / RC-MiniStep
+
+Zwei kleine Module zum Betrieb von Micro- und Mini-Schrittmotoren an Stellen, wo oft Gleichstromgetriebemotoren eingesetzt werden.
+Dies vermeidet Geräusche und ermöglichst eine sehr starke Miniaturisierung.
+
+Anleitung: {rcb}/mmstep.html[RC Mico/MiniStep] {rcb}/mmstep_r.pdf[pdf]
+
 [[msd]]
 ==== RC-Multiswitch-D
 
