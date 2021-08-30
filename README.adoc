@@ -149,11 +149,27 @@ Video: https://www.youtube.com/watch?v=n65u5VO-_PI[Video]
 * Firmware: V21
 ** _Automatische_ Erkennung des Bus-Systems
 
+[[rc720]]
 ==== RC-720-D
 
 Wie <<rc360>> jedoch als Doppel-Steuerung (wie 2x <<rc360>>).
 
-Zusätzlich Telemetrie: Positionssensor für die tatsächliche Lage des Antriebs.
+Weitere zusätzliche Merkmale:
+
+* Telemetrie: Positionssensor für die tatsächliche Lage des Antriebs
+* BEC-Weiche: Weil ja zwei Motorsteller mit BEC benötigt werden, sorgt eine Weiche dafür, dass beide BECs verwendet werden können.
+
+===== Mixer-Skript 
+
+Das ursprüngliche Mischer-Skript für den RC-ThreeSixty-D ist erweitert für zwei Schottel.
+
+https://github.com/wimalopaan/OpenTxLua/blob/main/SCRIPTS/MIXES/schotl.lua[Mischer-Skript]
+
+===== Widget
+
+Zur Anzeige der aktuellen und gewünschten Lage des Antriebes bzw. auch des Schubs dient je Schottel das folgende Widget:
+
+https://github.com/wimalopaan/OpenTxLua/tree/main/WIDGETS/Schottel[Widget]
 
 ==== RC-Led-D
 
@@ -329,9 +345,25 @@ Anzeige als Text
 
 ==== Mischerskript
 
+Zur Steuerung eine Schottelantriebes (Polarkoordinaten) durch einen normale Kreuzknüppel (kartesische Koordinaten):
+
+https://github.com/wimalopaan/OpenTxLua/blob/main/SCRIPTS/MIXES/schotl.lua[Skript]
+
+==== Widget
+
+Anzeige der Soll- und Ist-Position des Schottelantriebes so des aktuellen Schubs.
+
+In Zusammenarbeit mit <<rc720>>:
+
+https://github.com/wimalopaan/OpenTxLua/tree/main/WIDGETS/Schottel[Widget]
+
 === Voith-Schneider-Steuerung
 
 ==== Mischerskript
+
+Dynamische Begrenzung der Servo-Auslenkung auf den Einheitskreis für die mechanisch korrekte Ansteuerung eines VSP:
+
+https://github.com/wimalopaan/OpenTxLua/blob/main/SCRIPTS/MIXES/vsp.lua[VSP-Skkript]
 
 === OpenTx Weekly
 
