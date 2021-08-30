@@ -159,6 +159,8 @@ Weitere zusätzliche Merkmale:
 * Telemetrie: Positionssensor für die tatsächliche Lage des Antriebs
 * BEC-Weiche: Weil ja zwei Motorsteller mit BEC benötigt werden, sorgt eine Weiche dafür, dass beide BECs verwendet werden können.
 
+Anleitung: {rcb}/rc720.html[RC-720-D] {rcb}/rc720_r.pdf[pdf]
+
 ===== Mixer-Skript 
 
 Das ursprüngliche Mischer-Skript für den RC-ThreeSixty-D ist erweitert für zwei Schottel.
