@@ -40,6 +40,8 @@ image::images/zfcf.jpg[width=50%]
 
 === News
 
+* Ab Version `1.13` sind die EdgeTx/OpenTx-Skripte für die Steuerung der `RC-MultiSwitch-D, ...` für eine Bedienung per Touch-Screen ausgelegt.
+
 * Ab Version `1.09` sind die EdgeTx/OpenTx-Skripte für die Steuerung der `RC-MultiSwitch-D, ...` für den `FullScreen`-Modus geeignet.
 
 * Schrittweise Einführung der _automatischen Erkennung_ der Bus-Systeme: `IBus`, `SBus`, `SBus` (inv.), `Hott`. Die Verwendung eines
@@ -151,6 +153,8 @@ Video: https://www.youtube.com/watch?v=n65u5VO-_PI[Video]
 
 [[rc720]]
 ==== RC-720-D
+
+* ab Firmware `V48`: Einstellung der mechnischen Null-Position (Geradeaus-Position) am Sender.
 
 Wie <<rc360>> jedoch als Doppel-Steuerung (wie 2x <<rc360>>).
 
