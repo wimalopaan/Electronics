@@ -475,8 +475,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="details">
 <span id="author" class="author">Wilhelm Meier</span><br>
 <span id="email" class="email"><a href="mailto:wilhelm.wm.meier@googlemail.com">wilhelm.wm.meier@googlemail.com</a></span><br>
-<span id="revnumber">version 1.0,</span>
-<span id="revdate">01.09.2021</span>
+<span id="revnumber">version 1.2,</span>
+<span id="revdate">10.09.2021</span>
 <br><span id="revremark">HW_1.1</span>
 </div>
 <div id="toc" class="toc">
@@ -843,7 +843,7 @@ PWM-Outputs benutzt werden.
 <h3 id="channels"><a class="anchor" href="#channels"></a><a class="link" href="#channels">10.1. Schema der Übertragungskanäle</a></h3>
 <div class="paragraph">
 <p>Das <code>RC-720-D</code> verwendet sechs <em>direkt aufeinander folgende</em> Übertragungskanäle. In dieser Anleitung sind das die Kanäle <code>10-15</code> als <em>Beispiel</em>. Sie können jedoch auch
-eine andere Festlegung treffen. Daher ist es nur wichtig festzulegen, welche Kanal der <em>erste</em> Kanal dieser Gruppe sein soll, die anderen Kanäle ergeben sich dann
+eine andere Festlegung treffen. Daher ist es nur wichtig festzulegen, welcher Kanal der <em>erste</em> Kanal dieser Gruppe sein soll, die anderen Kanäle ergeben sich dann
 als die direkt folgenden.</p>
 </div>
 <div class="paragraph">
@@ -889,7 +889,7 @@ Kanal \$(S_0 + 3)\$
 Kanal \$(S_0 + 4)\$
 </td>
 <td class="hdlist2">
-<p>Kalibrierungskanal 1 (oder Hilfskanal 1)</p>
+<p>Kalibrierungskanal 1 (oder Hilfskanal 1) bzw. mechanische Null-Position 1 (nur im <em>Anlernmodus</em> ab Version <code>V48</code>)</p>
 </td>
 </tr>
 <tr>
@@ -897,7 +897,7 @@ Kanal \$(S_0 + 4)\$
 Kanal \$(S_0 + 5)\$
 </td>
 <td class="hdlist2">
-<p>Kalibrierungskanal 2 (oder Hilfskanal 2)</p>
+<p>Kalibrierungskanal 2 (oder Hilfskanal 2) bzw. mechanische Null-Position 1 (nur im <em>Anlernmodus</em> ab Version <code>V48</code>)</p>
 </td>
 </tr>
 </table>
@@ -911,7 +911,7 @@ Kanal \$(S_0 + 5)\$
 <td class="content">
 <div class="title">Motorsteller</div>
 Im Schiffsmodellbau ist es üblich, dass man Vorwärts/Rückwärts-Motorsteller einsetzt. Dies wird auch im <code>RC-720-D</code> so beibehalten, obgleich bei einem Schottelantrieb die
-Drehrichtung des Propellers niemal umgekehrt wird. Der am <code>RC-720-D</code> eingesetzte Steller muss jedoch trotzdem ein V/R-Steller sein. Dieser wird allerdings nur in <em>Vorwärtsrichtung</em>
+Drehrichtung des Propellers niemals umgekehrt wird. Der am <code>RC-720-D</code> eingesetzte Steller muss jedoch trotzdem ein V/R-Steller sein. Dieser wird allerdings nur in <em>Vorwärtsrichtung</em>
 betrieben. So bleiben alle Ihre Steller universell einsetzbar.
 </td>
 </tr>
@@ -942,6 +942,23 @@ erscheinen nicht an den Ausgängen <code>O1</code> und <code>O2</code>.</p>
 </tr>
 </table>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">Mechanische Null-Position der Servos (ab <strong>V48</strong> der Firmware)</div>
+<div class="paragraph">
+<p>Beim Einbau der Schottels ist es nicht immer möglich durch Verschieben der Anlenkung (Zahnriemen), die Null-Position des Servos mit der Geradeaus-Position des Schottelantriebes
+zur Deckung zu bringen. Aus diesem Grunde kann mit den Kanälen \$(S_0 + 4)\$ und \$(S_0 + 5)\$ <em>im Anlernvorgang</em> die Geradeaus-Position über eine Verschiebung der Null-Position
+der Servos erreicht werden.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="mix"><a class="anchor" href="#mix"></a><a class="link" href="#mix">10.2. Einrichtungen am EdgeTx/OpenTx-Sender</a></h3>
@@ -959,6 +976,21 @@ Dies geschieht durch ein entsprechendes Mischer-Skript (<a href="https://github.
 <div class="title">Kopiern des Schottelsteuerungsskriptes auf die <code>SD-Karte</code> des Senders</div>
 Natürlich müssen Sie das Schottelsteuerungsskript zunächst auf die <code>SD-Karte</code> Ihres Senders kopieren (Ordner: <code>SCRIPTS/MIXES</code>). Dies wird als bekannt
 vorausgesetzt und hier nicht weiter beschrieben.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Neuere Versionen des Mischer-Skriptes</div>
+<div class="paragraph">
+<p>Bitte achten Sie auf regelmäßige Updates des Mischer-Skriptes. Ggf. können einige <em>ScreenShots</em> in dieser Anleitung davon abweichen.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -997,7 +1029,7 @@ die <em>Schubvektorkomponenten</em> <code>SchottDir1</code>, <code>SchottPow1</c
 </div>
 <div class="paragraph">
 <p>Damit werden dann nun auch die Übertragungskanäle <code>10</code> und <code>11</code> für den Schubvektor 1 und die Übertragungskanäle <code>13</code> und <code>14</code> für den
-Schubvektor 2 definiert. Zusätzlich wird der <em>Input</em> <code>Gas</code> auch noch für die beiden Kalibrierungskanäle <code>12</code> und <code>15</code> eingesetzt.</p>
+Schubvektor 2 definiert. Zusätzlich wird der <em>Input</em> <code>Gas</code> auch noch für die beiden Kalibrierungskanäle <code>14</code> und <code>15</code> eingesetzt.</p>
 </div>
 <div class="imageblock text-center">
 <div class="content">
@@ -1066,7 +1098,7 @@ ein gesonderten Steckverbinder besitzt).</p>
 <p>Bringen Sie alle benutzten Geber in <em>Neutralstellung</em>.</p>
 </li>
 <li>
-<p>Achten Sie vor allem auch darauf, dass die Richtunsübertragungskanäle ebenfalls den Neutralwert liefern.</p>
+<p>Achten Sie vor allem auch darauf, dass die Richtungsübertragungskanäle ebenfalls den Neutralwert liefern.</p>
 </li>
 <li>
 <p>Dies können Sie am bestem am <em>Kanalmonitor</em> kontrollieren.</p>
@@ -1114,7 +1146,7 @@ ein gesonderten Steckverbinder besitzt).</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Wurde die Neuralposition erfolgreich erkannt, so leuchtet zusätzlich zu LED 2 nun auch wieder die LED 1 für ca. 1 Sekunde auf.</p>
+<p>Wurde die Neutralposition erfolgreich erkannt, so leuchtet zusätzlich zu LED 2 nun auch wieder die LED 1 für ca. 1 Sekunde auf.</p>
 </li>
 </ol>
 </div>
@@ -1130,7 +1162,17 @@ ein gesonderten Steckverbinder besitzt).</p>
 </div>
 </li>
 <li>
-<p>Nachdem auch die Kalibrierungsphase für beide Servos abgeschlossen ist, geht das <code>RC-720-D</code> in den <em>Betriebsmodus</em> über. Anhand der Servos sollten Sie nun
+<p>In der Kalibrierungsphase (bei jedem Einschalten) durchlaufen die Servos eine Umdrehung bzw. einen Suchlauf.</p>
+</li>
+<li>
+<p>Anschließend (<em>nur</em> in diesem <em>Anlernvorgang</em>) kann die Null-Postion über Kanal \$(S_0 + 4)\$ und \$(S_0 + 5)\$ eingestellt werden. Die LEDs blinken dreifach.</p>
+</li>
+<li>
+<p>Soll das Einstellen der Null-Positionen beendet werden, so betätigen Sie wieder einmal \$S_0\$ in Richtung Vollausschlag (dies braucht nur kurz zu sein, denn anschließend ist das Modul
+betriebsbereit).</p>
+</li>
+<li>
+<p>Danach geht das <code>RC-720-D</code> in den <em>Betriebsmodus</em> über. Anhand der Servos sollten Sie nun
 einen ersten Test durchführen können.</p>
 </li>
 </ol>
@@ -1601,8 +1643,8 @@ Bereiches kann zu einem Totalausfall und damit zu einem Modellverlust sowie Pers
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0<br>
-Last updated 2021-09-01 07:52:42 +0200
+Version 1.2<br>
+Last updated 2021-09-10 08:18:28 +0200
 </div>
 </div>
 <script type="text/x-mathjax-config">
