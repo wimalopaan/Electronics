@@ -378,6 +378,72 @@ https://www.youtube.com/channel/UCedl1hS-dfWh-V4WBz_jGog[YouTube]-Kanal.
 
 Dort gibt es viele Videos in loser Folge mit Tips zu speziellen Themen rund um OpenTx.
 
+==== Inhaltsverzeichnis mit Themen
+
+[%header, cols="1, 1, 1"]
+|===
+| Reihe  | Folge | Titel 
+| OpenTx | 001   | Open TX Was ist das
+| OpenTx | 002	| Die Unterschiede zu einer traditionellen Fernsteuerung
+| OpenTx | 003	| Flashen eines Senders mit OpenTx
+| OpenTx | 004	| Binden und erste Einstellungen
+| OpenTx | 005	| Einrichten eines neuen Modells mit den Companion
+| OpenTx | 006	| Fortsetzung Einrichtung eines einfachen Modells  Gasweg
+| OpenTx | 007	| Schalter und ihre Verwendung
+| OpenTx | 008	| Fortsetzung des einfachen Modells  rückwärts per Schalter
+| OpenTx | 009	| Intermezzo  ein paar Begriffe
+| OpenTx | 010	| Fortsetzung des einfachen Schiffsmodells  logische Schalter
+| OpenTx | 011	| Fortsetzung des einfachen Schiffsmodells  sicheres V R per Schalter
+| OpenTX | 012	| Wozu sind Geberverarbeitung (Inputs), Ausgaben(Servos) und Mischer eigentlich da
+| OpenTx | 013	| Auf dem Weg zu Fahrzuständen  Dual-Rate
+| OpenTx | 014	| Fahrzustände (Flugphasen)
+| OpenTx | 015	| Spezial Funktionen  die kleinen Helferlein
+| OpenTx | 016	| Einführung in Telemetrie
+| OpenTx | 017	| Weiter mit der Telemetrie
+| OpenTx | 018	| Telemetrie  mehr Details
+| OpenTX | 019	| Telemetrie mit FlySky   IBus
+| OpenTX | 020	| Schaltmodule revisited
+| OpenTx | 021	| Update
+| OpenTx | 022	| BUS-Systeme
+| OpenTX | 023	| Bus-System (followup)
+| OpenTx | 024	| Bootloader
+| OpenTx | 025	| Kurven
+| OpenTx | 026a	| Graupner SJ Hott
+| OpenTx | 027	| Widgets
+| OpenTx | 028	| Grundeinstellungen revisited
+| OpenTx | 029	| ( spezial)  Ebenenumschaltung
+| OpenTx | 030	| ( spezial)  3-motoriges Modell (Kettenmischer)
+| OpenTx | 031	| Zellensensoren (FrSky, Hott)
+| OpenTx | 032	| Erweiterte Telemetrie
+| OpenTX | 033	| Spaß mit OpenTx
+| OpenTx | 034	| Spaß mit OpenTx (Fortsetzung), mit Ziel einer Ebenenumschaltung
+| OpenTx | 035	| Spaß mit OpenTx
+| OpenTx | 036	| Geber, Inputs, Mixer und Outputs nochmal am Beispiel Ebenenumschaltung
+| OpenTx | 037	| Ebenenumschaltung und Inkrementalgeber
+| OpenTx | 038	| Das Ende der Ebenenumschaltung inkl. Inkrementalgeberersatz
+| OpenTx | 039	| Beginn einer Mini-Serie für OpenTx-Neulinge
+| OpenTx | 040	| Mini-Serie  Logischer Aufbau von OpenTx
+| OpenTx | 041	| Fortsetzung der Mini-Serie. Was ist AETR  Was bedeutet Mode 1-4
+| OpenTx | 042 	| Mehrere Empfänger für ein HF-Modul
+| OpenTx | 043	| Unsymmetrische Mischer.
+| OpenTx | 044	| Unsymmetrische Mischer Die Auflösung
+| OpenTx | 045	| Schaltfunktion von Gr SJ-Empfängern und OpenTx (Hardware included)
+| OpenTx | 046	| Lehrer-Schüler-Betrieb auf besondere Weise
+| OpenTx | 047 	| Lehrer Schüler nächste Stufe ;-)
+| OpenTx | 048	| Für Vergessliche!
+| OpenTx | 049	| Krach machen
+| OpenTx | 050	| Musik mit 6p
+| OpenTx | 051	| Musik mit 6p
+| OpenTx | 052 	| Von 0 auf 100
+| OpenTx | 053	| Wo sind alle meine Schalter hin 
+| OpenTx | 054	| Trimm Dich!
+| OpenTx | 055	| The bleeding edge
+| OpenTx | 056	| Neues von EdgeTx
+| OpenTx | 057 	| Das Totmann-Problem ;-)
+|===
+
+
+
 == Anleitungen
 
 === Umbau 40MHz-JR-Sendermodul
