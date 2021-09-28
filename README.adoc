@@ -40,6 +40,10 @@ image::images/zfcf.jpg[width=50%]
 
 === News
 
+* <<etx, EdgeTx>>-Versionen werden hier zur Verfügung gestellt.
+
+* Ab Version `1.15` können die EdgeTx/OpenTx-Skripte für die Steuerung der `RC-MultiSwitch-D, ...` auch _virtuelle_ Schalter
+
 * Ab Version `1.13` sind die EdgeTx/OpenTx-Skripte für die Steuerung der `RC-MultiSwitch-D, ...` für eine Bedienung per Touch-Screen ausgelegt.
 
 * Ab Version `1.09` sind die EdgeTx/OpenTx-Skripte für die Steuerung der `RC-MultiSwitch-D, ...` für den `FullScreen`-Modus geeignet.
@@ -343,6 +347,7 @@ In meinem Video-Kanal <<otxw, OpenTx-Weekly>> sind auch zum Update Anleitungen v
 Die https://github.com/wimalopaan/Electronics/tree/main/edgetx[Firmware] gibt es https://github.com/wimalopaan/Electronics/tree/main/edgetx[hier.]
 
 Gegenüber der _vanilla_ Version ist folgendes zu beachten:
+
 * Sprache (Text): deutsch-rc-neutral
 * _kein_ Heli
 * _kein_ Ghost
