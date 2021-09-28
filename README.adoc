@@ -326,8 +326,26 @@ Geeignet für alle Sender (`OpenTx`) mit
 * Leher-Schüler Eingang (und sinnvollerweise Kanal-_Mapping_)
 ** Graupner/SJ
 
+[[etx]]
+== EdgeTx
 
+https://github.com/EdgeTX/edgetx[EdgeTx] ist ein 
+https://de.wikipedia.org/wiki/Open_Source[Open-Source]-Betriebssystem für eine Reihe von populären Fernsteuerungen (Sender). Es ist aus <<otx, OpenTX>> 
+hervorgegangen und durchlebt einen wesentlich schnelleren Entwicklungszyklus als _OpenTx_.
+
+Weil derzeit noch keine anpaßbaren Versionen in deutscher Sprache zum Download zur Verfügung stehen, stelle ich hier 
+in regelmäßigen Abständen sie neuesten Varianten (_work-in-progress_) zur Verfügung.
+
+*Wer kein Backup seiner SD-Karte macht ist selbst schuld!*
+
+In meinem Video-Kanal <<otxw, OpenTx-Weekly>> sind auch zum Update Anleitungen vorhanden.
+
+
+
+[[otx]]
 == OpenTx
+
+https://www.open-tx.org[OpenTx]
 
 === Mehrstufenschalter-Emulation
 
@@ -371,6 +389,7 @@ Dynamische Begrenzung der Servo-Auslenkung auf den Einheitskreis für die mechan
 
 https://github.com/wimalopaan/OpenTxLua/blob/main/SCRIPTS/MIXES/vsp.lua[VSP-Skkript]
 
+[[otxw]]
 === OpenTx Weekly
 
 _OpenTx weekly_ ist eine Video-Reihe auf meinem
