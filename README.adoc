@@ -340,7 +340,15 @@ in regelmäßigen Abständen sie neuesten Varianten (_work-in-progress_) zur Ver
 
 In meinem Video-Kanal <<otxw, OpenTx-Weekly>> sind auch zum Update Anleitungen vorhanden.
 
+Die https://github.com/wimalopaan/Electronics/tree/main/edgetx[Firmware] gibt es https://github.com/wimalopaan/Electronics/tree/main/edgetx[hier.]
 
+Gegenüber der _vanilla_ Version ist folgendes zu beachten:
+* Sprache (Text): deutsch-rc-neutral
+* _kein_ Heli
+* _kein_ Ghost
+* _kein_ AFHDS3
+* _kein_ Crossfire
+* _ohne_ `override channel`
 
 [[otx]]
 == OpenTx
