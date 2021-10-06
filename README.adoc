@@ -365,16 +365,15 @@ Die bitte die Dateien `<themename>.yml` und `<themename>.png` in das Verzeichnis
 
 ==== Theme für Tageslicht
 
-https://github.com/wimalopaan/Electronics/tree/main/edgetx/sd/THEMES/wmd.yml[Dayligt]
+https://github.com/wimalopaan/Electronics/tree/main/edgetx/sd/THEMES/wmd.yml[Daylight]
 
-image::images/wmd.png[Dayligt]
+image::images/wmd.png[Daylight]
 
 ==== Theme für nachts
 
-https://github.com/wimalopaan/Electronics/tree/main/edgetx/sd/THEMES/wmn.yml[Dayligt]
+https://github.com/wimalopaan/Electronics/tree/main/edgetx/sd/THEMES/wmn.yml[Night]
 
 image::images/wmn.png[Night]
-
 
 [[otx]]
 == OpenTx
