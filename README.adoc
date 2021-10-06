@@ -367,13 +367,13 @@ Die bitte die Dateien `<themename>.yml` und `<themename>.png` in das Verzeichnis
 
 https://github.com/wimalopaan/Electronics/tree/main/edgetx/sd/THEMES/wmd.yml[Dayligt]
 
-image::https://github.com/wimalopaan/Electronics/tree/main/edgetx/sd/THEMES/wmd.png[Dayligt]
+image::images/wmd.png[Dayligt]
 
 ==== Theme für nachts
 
 https://github.com/wimalopaan/Electronics/tree/main/edgetx/sd/THEMES/wmn.yml[Dayligt]
 
-image::https://github.com/wimalopaan/Electronics/tree/main/edgetx/sd/THEMES/wmn.png[Dayligt]
+image::images/wmn.png[Night]
 
 
 [[otx]]
