@@ -359,7 +359,22 @@ Gegenüber der _vanilla_ Version ist folgendes zu beachten:
 
 === Themes
 
-https://github.com/wimalopaan/Electronics/tree/main/edgetx/sd/THEMES[]
+Hier sind alle Dateien: https://github.com/wimalopaan/Electronics/tree/main/edgetx/sd/THEMES[Dateien]
+
+Die bitte die Dateien `<themename>.yml` und `<themename>.png` in das Verzeichnis `/THEMES` der SD-Karte kopieren. 
+
+==== Theme für Tageslicht
+
+https://github.com/wimalopaan/Electronics/tree/main/edgetx/sd/THEMES/wmd.yml[Dayligt]
+
+image::https://github.com/wimalopaan/Electronics/tree/main/edgetx/sd/THEMES/wmd.png[Dayligt]
+
+==== Theme für nachts
+
+https://github.com/wimalopaan/Electronics/tree/main/edgetx/sd/THEMES/wmn.yml[Dayligt]
+
+image::https://github.com/wimalopaan/Electronics/tree/main/edgetx/sd/THEMES/wmn.png[Dayligt]
+
 
 [[otx]]
 == OpenTx
