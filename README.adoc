@@ -333,6 +333,8 @@ Geeignet für alle Sender (`OpenTx`) mit
 [[etx]]
 == EdgeTx
 
+=== Firmware 
+
 https://github.com/EdgeTX/edgetx[EdgeTx] ist ein 
 https://de.wikipedia.org/wiki/Open_Source[Open-Source]-Betriebssystem für eine Reihe von populären Fernsteuerungen (Sender). Es ist aus <<otx, OpenTX>> 
 hervorgegangen und durchlebt einen wesentlich schnelleren Entwicklungszyklus als _OpenTx_.
@@ -354,6 +356,10 @@ Gegenüber der _vanilla_ Version ist folgendes zu beachten:
 * _kein_ AFHDS3
 * _kein_ Crossfire
 * _ohne_ `override channel`
+
+=== Themes
+
+https://github.com/wimalopaan/Electronics/tree/main/edgetx/sd/THEMES[]
 
 [[otx]]
 == OpenTx
