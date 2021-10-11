@@ -379,6 +379,8 @@ image::https://github.com/wimalopaan/Electronics/blob/main/edgetx/sd/THEMES/wmn.
 
 ===== Darkroom
 
+Dieses _Dunkelkammer_-Theme ist vielleicht noch besser für nachts geeignet (vielen Dank an @viperjoe):
+
 https://github.com/wimalopaan/Electronics/tree/main/edgetx/sd/THEMES/wmn2.yml[Darkroom]
 
 image::https://github.com/wimalopaan/Electronics/blob/main/edgetx/sd/THEMES/wmn2.png[Darkroom]
