@@ -431,7 +431,7 @@ https://github.com/wimalopaan/OpenTxLua/tree/main/WIDGETS/Schottel[Widget]
 
 Dynamische Begrenzung der Servo-Auslenkung auf den Einheitskreis für die mechanisch korrekte Ansteuerung eines VSP:
 
-https://github.com/wimalopaan/OpenTxLua/blob/main/SCRIPTS/MIXES/vsp.lua[VSP-Skkript]
+https://github.com/wimalopaan/OpenTxLua/blob/main/SCRIPTS/MIXES/vsp.lua[VSP-Skript]
 
 [[otxw]]
 === OpenTx Weekly
