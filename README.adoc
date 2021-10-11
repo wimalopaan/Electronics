@@ -369,11 +369,20 @@ https://github.com/wimalopaan/Electronics/tree/main/edgetx/sd/THEMES/wmd.yml[Day
 
 image::https://github.com/wimalopaan/Electronics/blob/main/edgetx/sd/THEMES/wmd.png[Daylight]
 
-==== Theme für nachts
+==== Themes für nachts
+
+===== Maritim-Nacht
 
 https://github.com/wimalopaan/Electronics/tree/main/edgetx/sd/THEMES/wmn.yml[Night]
 
 image::https://github.com/wimalopaan/Electronics/blob/main/edgetx/sd/THEMES/wmn.png[Night]
+
+===== Darkroom
+
+https://github.com/wimalopaan/Electronics/tree/main/edgetx/sd/THEMES/wmn2.yml[Darkroom]
+
+image::https://github.com/wimalopaan/Electronics/blob/main/edgetx/sd/THEMES/wmn2.png[Darkroom]
+
 
 [[otx]]
 == OpenTx
