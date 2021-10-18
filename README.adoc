@@ -433,6 +433,14 @@ Dynamische Begrenzung der Servo-Auslenkung auf den Einheitskreis für die mechan
 
 https://github.com/wimalopaan/OpenTxLua/blob/main/SCRIPTS/MIXES/vsp.lua[VSP-Skript]
 
+=== Spiele für OpenTx / EdgeTx
+
+==== Pong
+
+Die Datei `pong.lua` in den `TOOLS` Ordner kopieren und von dort dann starten:
+
+https://github.com/wimalopaan/OpenTxLua/tree/main/SCRIPTS/TOOLS[TOOLS]
+
 [[otxw]]
 === OpenTx Weekly
 
