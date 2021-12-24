@@ -333,6 +333,8 @@ Geeignet für alle Sender (`OpenTx`) mit
 [[oix6]]
 == Openix6
 
+=== Firmware
+
 Das Openix6-Projekt stellt eine von OpenTx ge-fork-te Version 
 für kleine Sender des Typs _FlySky_ *FS-i6x* zur Verfügung. 
 
