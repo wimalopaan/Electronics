@@ -330,6 +330,14 @@ Geeignet für alle Sender (`OpenTx`) mit
 * Leher-Schüler Eingang (und sinnvollerweise Kanal-_Mapping_)
 ** Graupner/SJ
 
+[[oix6]]
+== Openix6
+
+Das Openix6-Projekt stellt eine von OpenTx ge-fork-te Version 
+für kleine Sender des Typs _FlySky_ *FS-i6x* zur Verfügung. 
+
+https://github.com/wimalopaan/Electronics/blob/main/openi6x[Hier] findet man die von mir angepasste, deutsche Version.
+
 [[etx]]
 == EdgeTx
 
