@@ -348,6 +348,8 @@ GNU-ARM 4.7.4
 
 === Flashing
 
+Anleitung als https://www.youtube.com/watch?v=tvDtpW6TglE&t[Video]
+
 Liste der _device_:
 
 ----
