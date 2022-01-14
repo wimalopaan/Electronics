@@ -491,6 +491,9 @@ Dort gibt es viele Videos in loser Folge mit Tips zu speziellen Themen rund um O
 
 ==== Inhaltsverzeichnis mit Themen
 
+Auf der Seite https://schiffsmodell.blogspot.com/p/grundlagen-zu-opentx.html[Holger Meyer] findet man auch immer das aktuelle Verzeichnis
+aller Folgen (meistens aktueller als hier bei mir ;-) )
+
 [%header, cols="1, 1, 1"]
 |===
 | Reihe  | Folge | Titel 
@@ -551,6 +554,29 @@ Dort gibt es viele Videos in loser Folge mit Tips zu speziellen Themen rund um O
 | OpenTx | 055	| The bleeding edge
 | OpenTx | 056	| Neues von EdgeTx
 | OpenTx | 057 	| Das Totmann-Problem ;-)
+| OpenTx | 058 	| Sneak-Preview EdgeTx 2.5.0
+| OpenTx | 059 	| Preview EdgeTx 2.5.0
+| OpenTx | 060 	| QuickTip ScreenShots
+| OpenTx | 061 	| Preview EdgeTx 2.6.0
+| OpenTx | 062 	| Für Nachteulen
+| OpenTx | 063 	| Spieltrieb
+| OpenTx | 064 	| Mischer, das unbekannte Wesen
+| OpenTx | 065 	| Inputs sind keine Mischer
+| OpenTx | 066 	| News
+| OpenTx | 067 	| Mini-Series "Alte Funktechnik im neuen Sender" 40MHz Teil 1
+| OpenTx | 068 	| Mini-Series "Alte Funktechnik im neuen Sender" 40MHz Teil 2
+| OpenTx | 069 	| Wer sich ewig bindet ... Teil 1 
+| OpenTx | 070 	| Quicktipp: Hydrauliksimulation
+| OpenTx | 071 	| Mini-Series "Alte Funktechnik im neuen Sender" 40MHz Teil 3
+| OpenTx | 072 	| Wer sich ewig bindet ... Teil 2
+| OpenTx | 073 	| Mini-Series "Alte Funktechnik im neuen Sender" 40MHz Teil 4
+| OpenTx | 074 	| Wer sich ewig bindet ... Teil 3
+| OpenTx | 075 	| Trimm Dich!
+| OpenTx | 076 	| Spezial: OpenTx auf der FlySky FS-i6X
+| OpenTx | 077 	| Wer sich ewig bindet ... Teil 4
+| OpenTx | 078 	| Wer sich ewig bindet ... Teil 5
+| OpenTx | 079 	| Logische Schalter via Touch-Buttons
+| OpenTx | 080 	| Was ist _FullScreen_ bei EdgeTx?
 |===
 
 
