@@ -577,6 +577,7 @@ aller Folgen (meistens aktueller als hier bei mir ;-) )
 | OpenTx | 078 	| Wer sich ewig bindet ... Teil 5
 | OpenTx | 079 	| Logische Schalter via Touch-Buttons
 | OpenTx | 080 	| Was ist _FullScreen_ bei EdgeTx?
+| OpenTx | 081 	| Wer sich ewig bindet ... Teil 6 (Ende)
 |===
 
 
