@@ -578,6 +578,11 @@ aller Folgen (meistens aktueller als hier bei mir ;-) )
 | OpenTx | 079 	| Logische Schalter via Touch-Buttons
 | OpenTx | 080 	| Was ist _FullScreen_ bei EdgeTx?
 | OpenTx | 081 	| Wer sich ewig bindet ... Teil 6 (Ende)
+| OpenTx | 082 	| Virtuelle Schieberegler
+| OpenTx | 083 	| Endlich mal was für Funktionsmodellbauer: Gas-Alarm und Checklisten
+| OpenTx | 084 	| Fremde Module (Schaltmodule)
+| OpenTx | 085 	| Schieberegler, die Zweite (ausführlicher und mit Ton)
+| OpenTx | 086 	| Quicktip: Schaltmodule autoreset
 |===
 
 
