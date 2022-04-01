@@ -379,6 +379,8 @@ Die folgende Anleitung beschreibt den Umbau des Senders FrSky `X12S` auf Touch-D
 
 {ddir}/rc/touch.html[Anleitung zum Umbau]
 
+Video: https://www.youtube.com/watch?v=BhzwIHQNJnw[Demo]
+
 === Firmware 
 
 https://github.com/EdgeTX/edgetx[EdgeTx] ist ein 
