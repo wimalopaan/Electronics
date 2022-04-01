@@ -373,9 +373,13 @@ dfu-util -s 0x08000000 -a 0 -D firmware.bin
 [[etx]]
 == EdgeTx
 
-=== `X12S` und Touch-Display
+=== FrSky `X12S` und Touch-Display
+
+Die folgende Anleitung beschreibt den Umbau des Senders FrSky `X12S` auf Touch-Display:
 
 {ddir}/rc/touch.html[Anleitung zum Umbau]
+
+Video: https://www.youtube.com/watch?v=BhzwIHQNJnw[Demo]
 
 === Firmware 
 
