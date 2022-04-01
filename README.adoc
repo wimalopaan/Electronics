@@ -375,6 +375,8 @@ dfu-util -s 0x08000000 -a 0 -D firmware.bin
 
 === `X12S` und Touch-Display
 
+{ddir}/rc/rcBusSysteme.html[RC Bus Systeme]
+
 {ddir}/rc/touch.html[Anleitung zum Umbau]
 
 === Firmware 
