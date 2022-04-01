@@ -373,6 +373,10 @@ dfu-util -s 0x08000000 -a 0 -D firmware.bin
 [[etx]]
 == EdgeTx
 
+=== `X12S` und Touch-Display
+
+{ddir}/rc/touch.html[Anleitung zum Umbau]
+
 === Firmware 
 
 https://github.com/EdgeTX/edgetx[EdgeTx] ist ein 
