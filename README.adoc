@@ -373,6 +373,8 @@ dfu-util -s 0x08000000 -a 0 -D firmware.bin
 [[etx]]
 == EdgeTx
 
+=== `X12` und Touch-Display
+
 === Firmware 
 
 https://github.com/EdgeTX/edgetx[EdgeTx] ist ein 
