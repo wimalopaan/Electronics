@@ -70,6 +70,16 @@ Hier geht es direkt zur {rcb}/power_or.html[Info über das Parallelschalten von 
 
 Übersicht: {ddir}/rc/rcBusSysteme.html[RC Bus Systeme] {ddir}/rc/rcBusSysteme_r.pdf[pdf]
 
+== RC-Sender und Empfänger im sub/VHF Bereich
+
+=== RC-Sender-Modul
+
+image::images/IMG_20230706_212849_631.jpg[width=50%]
+
+=== RC-Empfänger (SDR)
+
+image::images/IMG_20230706_213200_989.jpg[width=50%]
+
 == RC-Elektronik-Module
 
 Es folgt eine Übersicht über die von mir entwickelten Elektronik-Module für den RC-Modellbau.
