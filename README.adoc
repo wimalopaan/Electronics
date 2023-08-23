@@ -70,7 +70,18 @@ Hier geht es direkt zur {rcb}/power_or.html[Info über das Parallelschalten von 
 
 Übersicht: {ddir}/rc/rcBusSysteme.html[RC Bus Systeme] {ddir}/rc/rcBusSysteme_r.pdf[pdf]
 
-== RC-Sender und Empfänger im sub/VHF Bereich
+== RC-Sender und Empfänger im sub-GHz/VHF Bereich
+
+Ziel des Projektes ist es, ein digitales, bidirectionales Sende-/Empfangssystem im Bereich 7 - 40MHz zu entwickeln. 
+Trotzdem soll eine Kompatibilität zu alten, 40Mhz/35MHz PPM-Systemen nicht aufgegeben werden.  
+
+Der gewählte Ansatz ist der einer Relais-Station:
+
+* ein moderner Sender TX_1 (2.4GHz, CRSF, MavLink, ExpressLRS, ...) koppelt sich mit einem passenden Empfänger RX_1
+* RX_1 ist ortsstationär und verbunden mit dem in diesem Projekt entwickelten 7/40MHz-Transceiver TRX_1 (Relaisstation).
+* RX_1 und TRX_1 sind verbunden über gängige RC-Bussysteme wie SBus/SPort, IBus/IBus oder Hott/Telem. 
+* TRX_1 ist gekoppelt mit TRX_2 im Modell (Funkstrecke)
+* TRX_1 überträgt Steuerdaten an TRX_2, und TRX_2 überträgt Telemetrie zu TRX_1 zurück.
 
 === RC-Sender-Modul
 
