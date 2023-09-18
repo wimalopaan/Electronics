@@ -89,6 +89,20 @@ image::images/IMG_20230706_213200_989.jpg[width=50%]
 
 === RC-Empfänger (SDR)
 
+Der Empfänger basiert auf einem recht einfachen SDR (software-defined radio) Ansatz. Es wird nach einer HF-Vorstufe direkt ins
+Basisband gemischt. DAs Signal wird anschließend von einem µC (STM32G431) A/D gewandelt und verarbeitet. Der Empfänger 
+hat 8 PWM Servo Ausgänge, wie üblich. Kann aber auch SBUS, IBUS oder Hott ausgeben (zur digitalen Weiterverarbeitung in anderen 
+Modulen).
+
+Der Empfänger kennt zwei Betriebsarten:
+
+* konventionelles CPPM-moduliertes FM-Signal (kompatibel zu alten 35/40MHz-FM Sendern)
+* digitale BFSK bzw. QAM-Modulation im 7/13/27/35/40-MHz Band passend zum oben beschriebenen Sende-Modul
+
+Der Vorteil der digitalen De-/Modulation gegenüber der traditionellen De-/Modulation ist ganz klar die Störfestigkeit:
+durch die Fehlerkorrekturmaßnahmen kommt es zu keinen "Glitches" am PWM-Ausgang mehr.
+
+
 image::images/IMG_20230706_212849_631.jpg[width=50%]
 
 == RC-Elektronik-Module
