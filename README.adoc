@@ -40,6 +40,12 @@ image::images/zfcf.jpg[width=50%]
 
 === News
 
+* Aus Zeitgründen wird derzeit nur noch an der Entwicklung der sub-GHz Sende-Empfangstechnik weitergearbeitet. 
+
+* Die Mitarbeit an EdgeTx wurde vorübergehend zu einem großen Teil eingestellt.
+
+* Die YT Serie OpenTx-Weekly wurde vorübergehend eingestellt.
+
 * <<etx, EdgeTx>>-Versionen werden hier zur Verfügung gestellt.
 
 * Ab Version `1.15` können die EdgeTx/OpenTx-Skripte für die Steuerung der `RC-MultiSwitch-D, ...` auch _virtuelle_ Schalter
