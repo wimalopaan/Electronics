@@ -40,6 +40,12 @@ image::images/zfcf.jpg[width=50%]
 
 === News
 
+* Aus Zeitgründen wird derzeit nur noch an der Entwicklung der sub-GHz Sende-Empfangstechnik weitergearbeitet. 
+
+* Die Mitarbeit an EdgeTx wurde vorübergehend zu einem großen Teil eingestellt.
+
+* Die YT Serie OpenTx-Weekly wurde vorübergehend eingestellt.
+
 * <<etx, EdgeTx>>-Versionen werden hier zur Verfügung gestellt.
 
 * Ab Version `1.15` können die EdgeTx/OpenTx-Skripte für die Steuerung der `RC-MultiSwitch-D, ...` auch _virtuelle_ Schalter
@@ -69,6 +75,41 @@ Hier geht es direkt zur {rcb}/power_or.html[Info über das Parallelschalten von 
 (_work-in-progress_)
 
 Übersicht: {ddir}/rc/rcBusSysteme.html[RC Bus Systeme] {ddir}/rc/rcBusSysteme_r.pdf[pdf]
+
+== RC-Sender und Empfänger im sub-GHz/VHF Bereich
+
+Ziel des Projektes ist es, ein digitales, bidirectionales Sende-/Empfangssystem im Bereich 7 - 40MHz zu entwickeln. 
+Trotzdem soll eine Kompatibilität zu alten, 40Mhz/35MHz PPM-Systemen nicht aufgegeben werden.  
+
+Der gewählte Ansatz ist der einer Relais-Station:
+
+* ein moderner Sender TX_1 (2.4GHz, CRSF, MavLink, ExpressLRS, ...) koppelt sich mit einem passenden Empfänger RX_1
+* RX_1 ist ortsstationär und verbunden mit dem in diesem Projekt entwickelten 7/40MHz-Transceiver TRX_1 (Relaisstation).
+* RX_1 und TRX_1 sind verbunden über gängige RC-Bussysteme wie SBus/SPort, IBus/IBus oder Hott/Telem. 
+* TRX_1 ist gekoppelt mit TRX_2 im Modell (Funkstrecke)
+* TRX_1 überträgt Steuerdaten an TRX_2, und TRX_2 überträgt Telemetrie zu TRX_1 zurück.
+
+=== RC-Sender-Modul
+
+image::images/IMG_20230706_213200_989.jpg[width=50%]
+
+=== RC-Empfänger (SDR)
+
+Der Empfänger basiert auf einem recht einfachen SDR (software-defined radio) Ansatz. Es wird nach einer HF-Vorstufe direkt ins
+Basisband gemischt. DAs Signal wird anschließend von einem µC (STM32G431) A/D gewandelt und verarbeitet. Der Empfänger 
+hat 8 PWM Servo Ausgänge, wie üblich. Kann aber auch SBUS, IBUS oder Hott ausgeben (zur digitalen Weiterverarbeitung in anderen 
+Modulen).
+
+Der Empfänger kennt zwei Betriebsarten:
+
+* konventionelles CPPM-moduliertes FM-Signal (kompatibel zu alten 35/40MHz-FM Sendern)
+* digitale BFSK bzw. QAM-Modulation im 7/13/27/35/40-MHz Band passend zum oben beschriebenen Sende-Modul
+
+Der Vorteil der digitalen De-/Modulation gegenüber der traditionellen De-/Modulation ist ganz klar die Störfestigkeit:
+durch die Fehlerkorrekturmaßnahmen kommt es zu keinen "Glitches" am PWM-Ausgang mehr.
+
+
+image::images/IMG_20230706_212849_631.jpg[width=50%]
 
 == RC-Elektronik-Module
 
