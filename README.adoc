@@ -70,6 +70,13 @@ Darüber hinaus auch Detektion eines `PWM`-Signals (falls sinnvoll).
 Die Anleitung der <<poweror, Akkuweiche>> enthält viel nützliche Information über das Thema *Parallelschalten* von Akkus.
 Hier geht es direkt zur {rcb}/power_or.html[Info über das Parallelschalten von Akkus] und der Zweck einer <<poweror,Akkuweiche>>.
 
+=== Brushless-Motoren 
+
+==== Nachrüsten von Sensoren in BLDC-Motoren
+
+
+
+
 === Bus-Systeme im RC-Modellbau
 
 (_work-in-progress_)
