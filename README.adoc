@@ -74,9 +74,55 @@ Hier geht es direkt zur {rcb}/power_or.html[Info über das Parallelschalten von 
 
 ==== Nachrüsten von Sensoren in BLDC-Motoren
 
+Ich hatte noch einen 63mm Motor "herumliegen", der nun Sensoren bekommen sollte, damit er als 
+Testobjekt für meine BLDC-FOC-Controller dienen kann:
+
+.Der 63mm-Motor (die "Goldbombe)
 image::bldc/motor1.jpg[width=50%]
 
+Der Motor hat schon eine beachtliche Größe, so dass ich hoffte, die Sensoren im TO-92 Gehäuse (TLE4905 oder 3144)
+zwischen die Stator-Pakete montieren zu können.
 
+.Der 63mm-Motor im Vergleich
+image::bldc/motor2.jpg[width=50%]
+
+.Innenansicht
+image::bldc/motor3.jpg[width=50%]
+
+.Der Stator
+image::bldc/motor4.jpg[width=50%]
+
+
+
+.Positionen für die Hall-Sensoren im 120-Grad Abstand
+image::bldc/pos1.jpg[width=50%]
+
+.Die (alten und schon benutzten) Sensoren
+image::bldc/halls.jpg[width=50%]
+
+.Anlöten der Lackdrähte
+image::bldc/hall1.jpg[width=50%]
+
+.Schrumpfschläuche
+image::bldc/hall2.jpg[width=50%]
+
+.Einschieben der Sensoren in die Zwischenräume
+image::bldc/mount1.jpg[width=50%]
+
+.Mit leichtem Druck durchschieben
+image::bldc/mount2.jpg[width=50%]
+
+.Andere Ansicht
+image::bldc/mount3.jpg[width=50%]
+
+.Bis zur anderen Seite durchschieben
+image::bldc/mount4.jpg[width=50%]
+
+.Mit etwas Epoxy fixieren 
+image::bldc/mount5.jpg[width=50%]
+
+.Test der Verkabelung
+image::bldc/cables.jpg[width=50%]
 
 === Bus-Systeme im RC-Modellbau
 
