@@ -74,6 +74,7 @@ Hier geht es direkt zur {rcb}/power_or.html[Info über das Parallelschalten von 
 
 ==== Nachrüsten von Sensoren in BLDC-Motoren
 
+image::bldc/motor1.jpg[width=50%]
 
 
 
