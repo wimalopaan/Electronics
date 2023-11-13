@@ -42,8 +42,6 @@ image::images/zfcf.jpg[width=50%]
 
 * Aus Zeitgründen wird derzeit nur noch an der Entwicklung der sub-GHz Sende-Empfangstechnik weitergearbeitet. 
 
-* Die Mitarbeit an EdgeTx wurde vorübergehend zu einem großen Teil eingestellt.
-
 * Die YT Serie OpenTx-Weekly wurde vorübergehend eingestellt.
 
 * <<etx, EdgeTx>>-Versionen werden hier zur Verfügung gestellt.
