@@ -298,7 +298,7 @@ https://github.com/wimalopaan/OpenTxLua/tree/main/WIDGETS/Schottel[Widget]
 ==== RC-Led-D
 
 Eine 16-Kanal LED-Ansteuerung mit einer Konstantstromquelle je Kanal, je Kanal einstellbarem Strom und unterschiedlichen Schaltmustern.
-Mit automatischer Erkennung des Bus-Systems.
+Mit automatischer Erkennung des Bus-Systems. 
 
 ==== RC-BMC-D
 
