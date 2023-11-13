@@ -3,7 +3,7 @@ Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 :toc:
 :toc-title: Inhalt
 :toclevels: 4
-:numbered:
+// :numbered:
 :toc-placement!:
 
 :tip-caption: :bulb:
