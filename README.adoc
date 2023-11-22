@@ -131,7 +131,7 @@ Motiviert durch den Umstieg von traditionellen RC-Links wie AFHDS2A, ACCST, Hott
 Steuerung im Funktionsmodell gemacht, ähnlich wie man es von RC-Drohnen und dem FlightController kennt.
 
 [[elrs]]
-.*Warum ELRS im Funktionsmodellbau?*
+===== Warum ELRS im Funktionsmodellbau?
 
 https://www.expresslrs.org[ELRS] ist ein fantastisches RC-Link-System. Es legt seinen Schwerpunkt auf geringe Latenz und hohe
 Reichweite. Nun, das sind zwei Eigenschaften, die man gemeinhin nicht unbedingt im Funktionsmodellbau, zu dem ich auch den 
@@ -178,9 +178,11 @@ alle Einstellungen des CruiseControl
 
 ===== Das Board
 
-image::{ddir}/cc/CC_oben.PNG[]
+.Oberseite
+image::/cc/CC_oben.PNG[]
 
-image::{ddir}/cc/CC_unten.PNG[]
+.Unterseite
+image::/cc/CC_unten.PNG[]
 
 ==== RC-MicroStep / RC-MiniStep
 
