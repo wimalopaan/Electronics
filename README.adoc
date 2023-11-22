@@ -165,7 +165,9 @@ Derzeit ist dafür das RC-CruiseControl Modul in Entwicklung. Die hat folgende M
 * SBus / IBus / Hott
 ** zusätzlich zu den 10 on-board Ausgängen werden hier alle 16 CRSF Kanäle ausgegeben 
 * Bluetooth / serielle Schnittstelle
-** über SmartPhone/Bluetooth mittels RoboRemo-App können alle 16 Kanäle sowie alle Schaltfunktionen / angeschlossene Module gesteuer werden
+** über SmartPhone/Bluetooth mittels RoboRemo-App können alle 16 Kanäle sowie alle Schaltfunktionen / angeschlossene Module gesteuert werden
+** interessant für eine _Show_-Modus, bei dem der Sender ausgeschaltet bleibt.
+** Ablauf von Animationen denkbar
 * Konfiguration über den Sender 
 ** das generische ELRS-Konfigurationswerkzeug in EdgeTx / OpenTx / Openix6 kann genutzt werden für
 alle Einstellungen des CruiseControl
