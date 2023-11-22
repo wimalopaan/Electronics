@@ -73,75 +73,9 @@ Hier geht es direkt zur {rcb}/power_or.html[Info über das Parallelschalten von 
 ==== Nachrüsten von Sensoren in BLDC-Motoren
 
 Ich hatte noch einen 63mm Motor "herumliegen", der nun Sensoren bekommen sollte, damit er als 
-Testobjekt für meine BLDC-FOC-Controller dienen kann:
+Testobjekt für meine BLDC-FOC-Controller dienen kann. Der gesamte Umbau ist hier beschrieben:
 
-.Der 63mm-Motor (die "Goldbombe)
-image::bldc/motor1.jpg[width=50%]
-
-Der Motor hat schon eine beachtliche Größe, so dass ich hoffte, die Sensoren im TO-92 Gehäuse (TLE4905 oder 3144)
-zwischen die Stator-Pakete montieren zu können.
-
-.Der 63mm-Motor im Vergleich
-image::bldc/motor2.jpg[width=50%]
-
-.Innenansicht
-image::bldc/motor3.jpg[width=50%]
-
-.Der Stator
-image::bldc/motor4.jpg[width=50%]
-
-Ich habe mich dazu entschieden, die Hall-Sensoren in einem mechanischen 120°-Winkelabstand zu montieren. Dies entspricht dann auch 
-dem notwendigen 120° elektrischen Abstand. Eine andere Möglichkeit wäre es gewesen, die Sensoren außen zu montieren. Bei einem 14-Pol-Motor wie 
-dieser hier, hätte man dann also einen mechanischen Winkelabstand von (360 / 3) / (Pole / 2) = 17,14°. Wer einen 3D-Drucker besitzt, kann sich 
-für die Sensoren einen Haltekäfig drucken.
-
-.Positionen für die Hall-Sensoren im 120-Grad Abstand
-image::bldc/pos1.jpg[width=50%]
-
-Ich hatte noch benutzte 3144-Hall-Sensoren herum liegen. Die kommen zum Einsatz.
-Der Typ TLE4905 wäre natürlich auch geeignet.
-
-.Die (alten und schon benutzten) Sensoren
-image::bldc/halls.jpg[width=50%]
-
-Die Sensoren bekommen Kupferlackdrähte (schwarz / rot / gelb) ...
-
-.Anlöten der Lackdrähte
-image::bldc/hall1.jpg[width=50%]
-
-... und zusätzlich Schrumpfschläuche um Vcc und OC.
-
-.Schrumpfschläuche
-image::bldc/hall2.jpg[width=50%]
-
-Mit etwas Glück und Fingerspitzengefühl passen die Sensoren in die Statorzwischenräume.
-
-.Einschieben der Sensoren in die Zwischenräume
-image::bldc/mount1.jpg[width=50%]
-
-Am besten schiebt man sie bis zur Vorderseite durch. Dann laufen die Anschlußdrähte nur eine kurze Strecke parallel
-zu der Statorwicklung und eine Störeinstreuung ist weniger wahrscheinlich.
-
-.Mit leichtem Druck durchschieben
-image::bldc/mount2.jpg[width=50%]
-
-.Andere Ansicht
-image::bldc/mount3.jpg[width=50%]
-
-Sind alle drei auf den anderen Seite angekommen ...
-
-.Bis zur anderen Seite durchschieben
-image::bldc/mount4.jpg[width=50%]
-
-... werden sie mit etwas Epoxy fixiert.
-
-.Mit etwas Epoxy fixieren 
-image::bldc/mount5.jpg[width=50%]
-
-Am Ende wird die ganze Verkabelung etwas gegen mechanische Einflüsse geschützt und kann auch schon mal getestet werden.
-
-.Test der Verkabelung
-image::bldc/cables.jpg[width=50%]
+{ddir}/bldc/bldc.html[Beschreibung]
 
 === Bus-Systeme im RC-Modellbau
 
