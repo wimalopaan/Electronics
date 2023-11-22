@@ -124,6 +124,57 @@ Es folgt eine Übersicht über die von mir entwickelten Elektronik-Module für d
 
 === Module zum Einbau in ein Modell (empfängerseitig)
 
+[[rccc]]
+==== RC-CruiseControl
+
+Motiviert durch den Umstieg von traditionellen RC-Links wie AFHDS2A, ACCST, Hott, ... auf ELRS habe ich mir Gedanken zu einer
+Steuerung im Funktionsmodell gemacht, ähnlich wie man es von RC-Drohnen und dem FlightController kennt.
+
+[[elrs]]
+.Warum ELRS im Funktionsmodellbau
+
+https://www.expresslrs.org[ELRS] ist ein fantastisches RC-Link-System. Es legt seinen Schwerpunkt auf geringe Latenz und hohe
+Reichweite. Nun, das sind zwei Eigenschaften, die man gemeinhin nicht unbedingt im Funktionsmodellbau, zu dem ich auch den 
+Schiffsmodellbau zähle, ansiedelt.
+
+ELRS verwendet derzeit als Schnittstelle das TBS Crossfire Protokoll mit einer hohen Datenrate von >= 420KBaud. Zusammen 
+mit dem konfigurierbaren Übertragungsmodus (8 Kanäle + Zusatz mit max. Rate, 16 Kanäle mit reduzierter Rate, etc. ...) ergibt 
+sich eine große Flexibilität. Vor allem auch, weil CRSF nicht nur 16 Kanäle übertragen kann, sondern auch out-of-band Daten
+(z.B. Konfiguration und Kommandos) an verschiedene Endgeräte (Handsteuereinheit, Sende-Modul, Empänger, Controller, ...). 
+Damit ist es im logischen Layer ähnlich zu MavLink, jedoch viel weniger komplex (ELRS wird auch MavLink unterstützen).
+
+Durch diese interessanten Eigenschaften ergeben sich im Funktionsmodellbau große Vorteile:
+
+* die Routing- und Kommando-Möglichkeiten können vielfältig genutzt werden, ohne bspw. normale Kanäle dazu zu missbrauchen 
+(Stichwort: Multi-Switch) oder andere Protokolle zu hijacken (c.a. S.Port).
+* die geringe Latenz auch für Telemetriedaten (Controller/Empfänger -> Sende-Modul/Handsteuereinheit (Sender)) ermöglicht 
+interessante neue Anwendungen wie bspw. <<rchaptic>>.
+
+Derzeit ist dafür das RC-CruiseControl Modul in Entwicklung. Die hat folgende Möglichkeiten:
+
+* Anschluss an den ELRS-Empfänger via CRSF
+** Der kleine ELRS-Empfänger [1cm x 1cm] kann auch auf den Controller aufgelötet werden.
+** Ein Anschluss an eine traditionellen RC-Empfänger via SPort/SBusist denkbar.
+* 10 Ausgänge on-board, nutzbar für
+** PWM-Ausgang (Servos, etc.)
+** Schaltausgang (on/off/blink) (für größere Ströme MosFet / BJT Stufe erforderlich)
+** Ansteuerung alter, analoger Schaltmodul (aka: Graupner/Robbe/CP/LL-Multiswitch)
+* S.Port-Bus (auch IBus, Hott)
+** Anschluss vorhandener Telemetrie-Module
+** Anschluss weiterer Aktor-Module (s.a. <<rcquad>>, <<rchaptic>>, <<msd>>, ...)
+* SBus / IBus / Hott
+** zusätzlich zu den 10 on-board Ausgängen werden hier alle 16 CRSF Kanäle ausgegeben 
+* Bluetooth / serielle Schnittstelle
+** über SmartPhone/Bluetooth mittels RoboRemo-App können alle 16 Kanäle sowie alle Schaltfunktionen / angeschlossene Module gesteuer werden
+* Konfiguration über den Sender 
+** das generische ELRS-Konfigurationswerkzeug in EdgeTx / OpenTx / Openix6 kann genutzt werden für
+alle Einstellungen des CruiseControl
+* Erweiterungssteckplatz
+** statt über S.Port-Bus können auch als Aufsteckplatine Erweiterungen angeschlossen werden.
+* Spannungsmessung (2 Eingänge)
+** zwei Spannungen [0,20V] können gemessen werden (galvanisch verbunden)
+
+
 ==== RC-MicroStep / RC-MiniStep
 
 Zwei kleine Module zum Betrieb von Micro- und Mini-Schrittmotoren an Stellen, wo oft Gleichstromgetriebemotoren eingesetzt werden.
@@ -169,6 +220,7 @@ unterschiedliche Positionen für eines der 5 Servos angefahren werden. Servos k�
 
 s.a. <<msd,RC-MultiSwitch-D>>
 
+[[rcquad]]
 ==== RC-Quad-D
 
 Ein Sonderfunktionssteuerung mit vier Funktionen. Eigent sich gut, um bis zu 4-Achsen-Kräne anzusteuern (inkl. Endabschaltung und Telemetrie).
@@ -323,6 +375,7 @@ Einfach High-Side-Switch, etwa zum Anschluss an den Wassermelder , um eine Pumpe
 
 https://www.youtube.com/watch?v=NoHuX-6Vqxw[Video]
 
+[[rchaptic]]
 ==== RC-Haptic-Control
 
 RC-Haptic-Control ist eine neuartige Möglichkeit
