@@ -178,9 +178,9 @@ alle Einstellungen des CruiseControl
 
 ===== Das Board
 
-image::{ddir}/cc/CC_oben.PNG
+image::{ddir}/cc/CC_oben.PNG[]
 
-image::{ddir}/cc/CC_unten.PNG
+image::{ddir}/cc/CC_unten.PNG[]
 
 ==== RC-MicroStep / RC-MiniStep
 
