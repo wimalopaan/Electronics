@@ -150,7 +150,7 @@ Durch diese interessanten Eigenschaften ergeben sich im Funktionsmodellbau groß
 * die geringe Latenz auch für Telemetriedaten (Controller/Empfänger -> Sende-Modul/Handsteuereinheit (Sender)) ermöglicht 
 interessante neue Anwendungen wie bspw. <<rchaptic>>.
 
-Derzeit ist dafür das RC-CruiseControl Modul in Entwicklung. Die hat folgende Möglichkeiten:
+Derzeit ist dafür das RC-CruiseControl Modul in Entwicklung. Dies hat folgende Möglichkeiten:
 
 * Anschluss an den ELRS-Empfänger via CRSF
 ** Der kleine ELRS-Empfänger [1cm x 1cm] kann auch auf den Controller aufgelötet werden.
@@ -159,10 +159,11 @@ Derzeit ist dafür das RC-CruiseControl Modul in Entwicklung. Die hat folgende M
 ** PWM-Ausgang (Servos, etc.)
 ** Schaltausgang (on/off/blink) (für größere Ströme MosFet / BJT Stufe erforderlich)
 ** Ansteuerung alter, analoger Schaltmodul (aka: Graupner/Robbe/CP/LL-Multiswitch)
+** Abfragen binärer Zustandsinformation wie bspw. Wassereinbruchsensoren
 * S.Port-Bus (auch IBus, Hott)
 ** Anschluss vorhandener Telemetrie-Module
 ** Anschluss weiterer Aktor-Module (s.a. <<rcquad>>, <<rchaptic>>, <<msd>>, ...)
-* SBus / IBus / Hott
+* SBus(2) / IBus / Hott
 ** zusätzlich zu den 10 on-board Ausgängen werden hier alle 16 CRSF Kanäle ausgegeben 
 * Bluetooth / serielle Schnittstelle
 ** über SmartPhone/Bluetooth mittels RoboRemo-App können alle 16 Kanäle sowie alle Schaltfunktionen / angeschlossene Module gesteuert werden
@@ -183,6 +184,45 @@ image::/cc/CC_oben.PNG[]
 
 .Unterseite
 image::/cc/CC_unten.PNG[]
+
+==== RC-CruiseMaster
+
+Das <<rccc>> Modul vereinigt sehr viele Funktionen in einem Board. Dies bringt den _Nachteil_ mit sich, dass 
+bei größeren Modellen sehr viele Kabel zu diesem Modul geführt werden müssen. Im Sinne eines modularen Aufbaus 
+kann es daher sinnvoller sein, die Gesamtfunktion in kleinere Module aufzuteilen, die dann im Modell nahe 
+an den jeweiligen Aktoren / Sensoren verbaut werden. Diese kleineren Module werden dann durch ein Bus-System 
+unterweinander und mit einem Master-Modul verbunden. Dies spart viel Verkabelungsaufwand.
+
+AUs diesem Grund wird ebenfalls - unter Beibehaltung der in <<rccc>> genannten Funktionalität - eine Kombination 
+aus einem _RC-Cruise-Master_ und dazugehörigen _Mezzanine-Modulen_ entwickelt, um damit Erfahrungen zu sammeln.
+
+Das `RC-CruiseMaster`-Modul soll die folgenden Funktionen beinhalten:
+
+* Schnittstelle zum Empfänger (CRSF, MAVLink)
+** ggf. Montageplatz für den Empfänger
+* CLI-Schnittstelle via BlueTooth, auch für _RoboRemo_-Protokoll basierte Steuerung
+* S.Port-Schnittstelle zur Anbindung von S.Port-Sensoren/Aktoren
+* SBus(2)/IBus-Schnittstelle zur Anbindung von Aktoren und Mezzanines (mehrere Steckplätze)
+* Aux1/2-Schnittstelle: 
+** GPS via NMEA
+** high-speed Aktoren wie z.B. <<rchaptic>>
+* Schnittstelle zu I2C-Mezzanine-Boards
+
+Die folgenden Mezzanines werden entwickelt:
+
+* `RC-SBus4-M`
+** Umsetzung des SBus(2) in: 
+*** Servo-PWM
+*** Analog-Zeitmultiplex für alte, analoge Schaltmodule
+*** Abfragen binärer Zustandsinformation wie bspw. Wassereinbruchsensoren
+* `RC-Led16-M`
+** Ansteuerung von 16 LEDs mit Konstantstromquellen
+** Blink-Sequenzen
+** Helligkeitsmodulation (Glühlampeneffekt)
+* `RC-Switch8-M`
+** Schaltausgänge bis 150mA
+** einfache PWM-Modulation (Motorsteuerung)
+
 
 ==== RC-MicroStep / RC-MiniStep
 
