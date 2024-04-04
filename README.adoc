@@ -30,6 +30,44 @@ image::images/zfcf.jpg[width=50%]
 Die alte Seite ist noch (und bleibt auch) als <<Old.adoc#, Old.adoc>> verfügbar.
 --
 
+== ExpressLRS
+
+=== ExpressLRS for short range radio control
+
+https://www.expresslrs.org[ExpressLRS] (ELRS) is a long range link for radio controlled models / machinery of all kind.
+Obviously it has some advantages over some other commercial rc-links like AFHDS2A, Hott or ACCST, ...
+
+ExpressLRS is:
+
+* open-source (software and hardware)
+* low-latency / high packet-rate
+* using open (well-documented) CRSF protocol (https://github.com/crsf-wg/crsf[working group])
+* extremely long range
+
+Together with https://edgetx.org[EdgeTx] (Open-Source radio transmitter operating system) one has a extremely powerful system 
+at hand to control and monitor all kind of models or machinery from remote. And the whole system (but the handset) now is open-source: 
+there are no limits in extending the system.
+
+But ELRS is not limited to its long-range capability, that makes it useful for all kind of flying machinery (planes, helicopters, drones, ...).
+ELRS is as well suited for short-range radio control of boats, cars, crawlers, stationary-models (e.g. cranes, ...).
+
+The most appealing features of ELRS with respect to short-range radio-control of models are:
+
+* extensibility due the flexibility of the CRSF protocol, mainly on the model side (after the receiver)
+* low-latency / high packet-rate for new kinds of features (e.g. haptic-control)
+
+In the following sections are proposals for some extensions to the CRSF protocol. These extensions are already in use with my <<CC>> and some 
+multi-switch-modules or lighting-modules
+
+=== Proposal for CRSF protocol extensions
+
+==== Binary data (e.g. switch states: on/off)
+
+==== N-ary data (e.g. 2-4bits)
+
+==== Proportional data (e.g. additional channels: >8bit)
+
+
 == Projects
 
 The following chapters describe some of my active projects. The majority of my former projects (see <<Old.adoc#, Old>> (in german)) are
@@ -164,6 +202,15 @@ image::elrs/jr/JR-ELRS_SCH.PNG[width=240, link="elrs/jr/JR-ELRS_SCH.PDF"]
 .The PCB (click to view in full-scale)
 image::elrs/jr/JR-ELRS_PCB.PNG[width=240, link="elrs/jr/JR-ELRS_PCB.PDF"]
 
+
+[[jr_elrs_target]]
+If you use _Target 3001_ as your EDA: link:elrs/jr/JR-ELRS.T3001[Target 3001 design file].
+
+
+==== Bill of materials and assembling
+
+tbd
+
 [[elrs_x12s]]
 === Adapter for ELRS receiver as internal XJT/ISRM module for FrSky X12S
 
@@ -177,6 +224,7 @@ please make range tests before going to the field or lake.
 
 You can hand-wire all the stuff but much more convenient is a small adapter board as is <<x12s_elrs_sch>> and <<x12s_elrs_pcb>>.
 
+[[x12s_elrs_target]]
 If you use _Target 3001_ as your EDA: link:elrs/x12s/X12S_ELRS_Adapter.T3001[Target 3001 design file].
 
 
@@ -197,6 +245,7 @@ image:elrs/x12s/X12S_ELRS_Adapter_SCH.PNG[width=240, link="elrs/x12s/X12S_ELRS_A
 .The PCB (click to view in full-scale)
 image:elrs/x12s/X12S_ELRS_Adapter_PCB.PNG[width=240, link="elrs/x12s/X12S_ELRS_Adapter_PCB.PNG"]
 
+[[CC]]
 === The `CruiseController` 
 
 The `CC` (CruiseController) is like a _Flight-Controller_ but mainly for ship/boat-models.
