@@ -275,8 +275,74 @@ On https://schiffsmodell.blogspot.com/p/grundlagen-zu-opentx.html[Holger Meyer] 
 [[vintage]]
 == Vintage RC
 
-tbd
+=== Graupner / Grundig / JR 
 
+==== Transmitter
+
+.Varioprop Expert Modulsystem FM 6014
+image::images/retro/Graupner6014.jpg[]
+
+.Varioprop Graupner Grundig 12S
+image::images/retro/Varioprop12S.jpg[]
+
+.Varioprop Graupner Grundig T14 Expert Modulsystem
+image::images/retro/Varioprop14_Expert.jpg[]
+
+.Varioprop Graupner Grundig 14S 27MHz
+image::images/retro/Varioprop14S_schwarz27.jpg[]
+
+.Varioprop Graupner Grundig 8S 40MHz
+image::images/retro/Varioprop8S_schwarz.jpg[]
+
+.Varioprop Graupner Grundig 8S 27MHz
+image::images/retro/Varioprop8S.jpg[]
+
+.Varioprop Graupner Grundig C8 27MHz
+image::images/retro/VariopropC8.jpg[]
+
+==== Receiver
+
+.Varioprop miniSuperhet FM 40S
+image::images/retro/RX01.jpg[]
+
+.Varioprop miniSuperhet 27MHz
+image::images/retro/RX02.jpg[]
+
+.Varioprop miniSuperhet FM 35S
+image::images/retro/RX03.jpg[]
+
+==== Other
+
+.Varioprop Fahrtregler
+image::images/retro/ESC_Varioprop.jpg[]
+
+=== Robbe / Futaba
+
+==== Transmitter
+
+.Robbe digital4
+image::images/retro/RobbeDigital4.jpg[]
+
+.Robbe Futaba F-14 Navy 40MHz
+image::images/retro/FutabaF14.jpg[]
+
+==== Receiver
+
+==== Other
+
+=== Other
+
+==== Transmitter
+
+==== Receiver
+
+==== Other
+
+.Model Craft Speed Controller
+image::images/retro/ESC_Modellcraft.jpg[]
+
+.hitec Speed Controller
+image::images/retro/ESC_hitec.jpg[]
 
 == Licence
 
