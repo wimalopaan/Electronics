@@ -30,6 +30,7 @@ image::images/zfcf.jpg[width=50%]
 Die alte Seite ist noch (und bleibt auch) als <<Old.adoc#, Old.adoc>> verfügbar.
 --
 
+[[elrs]]
 == ExpressLRS
 
 === ExpressLRS for short range radio control
@@ -39,6 +40,8 @@ Obviously it has some advantages over some other commercial rc-links like AFHDS2
 
 ExpressLRS is:
 
+[[elrs_feat]]
+.Main features of ExpressLRS
 * open-source (software and hardware)
 * low-latency / high packet-rate
 * using open (well-documented) CRSF protocol (https://github.com/crsf-wg/crsf[working group])
@@ -53,13 +56,21 @@ ELRS is as well suited for short-range radio control of boats, cars, crawlers, s
 
 The most appealing features of ELRS with respect to short-range radio-control of models are:
 
+[[elrs_func]]
+.Features for functional models
 * extensibility due the flexibility of the CRSF protocol, mainly on the model side (after the receiver)
 * low-latency / high packet-rate for new kinds of features (e.g. haptic-control)
 
 In the following sections are proposals for some extensions to the CRSF protocol. These extensions are already in use with my <<CC>> and some 
 multi-switch-modules or lighting-modules
 
+[[crsf_sw]]
 === Proposal for CRSF protocol extensions
+
+Following is a proposal for an extension to the the `CRSF` protocol. This can be used with every handset, transmitter-module and receiver 
+due to the extensability of the protocol. 
+
+This is used by a <<elrs-widget, EdgetTx-Widget>> (encoder) alongside with the <<CC>> (decoder).
 
 ==== Binary data (e.g. switch states: on/off)
 
@@ -67,6 +78,37 @@ multi-switch-modules or lighting-modules
 
 ==== Proportional data (e.g. additional channels: >8bit)
 
+[[elrs-widget]]
+=== EdgetTx-Widget for switches
+
+==== Horus
+
+tbd
+
+==== Taranis
+
+tbd
+
+=== ExpressLRS: modules and receivers
+
+With ELRS modules like <<hm_es24tx>> (approx. 100mW RF power)  and ultra-small receivers like <<hm_ep1ep2>> or <<rm_er6>>
+you get an enormous range of n-times 10km. This is good for drone-pilots but is of no use for crawler or model-boat / ship control.
+
+[[hm_es24tx]]
+.Happymodel ES24TX transmitter module
+image::elrs/es24tx.jpg[width=240]
+
+[[hm_ep1ep2]]
+.Happymodel EP1 and EP2 receiver with CRSF/SBUS output
+image::elrs/ep1ep2.jpg[width=240]
+
+[[rm_er6]]
+.RadioMaster ER6 receiver with dedicated PWM outputs
+image::elrs/rmer6.jpg[width=240]
+
+The <<elrs_func>> can also be achieved using an ELRS-receiver as a transmitter-module. This is a big advantage because it make it possible 
+to equip many handsets with an internal elrs-capability, e.g. the _FrSky X12S_, _X9E_ or _Jumper T12_ or the _FlySky FS-I6X_. 
+See <<elrs_jr>> and <<elrs_x12s>> for details.
 
 == Projects
 
@@ -107,6 +149,7 @@ Remaining problems are sensitivity and AGC.
 
 There is no documentation yet.
 
+[[x12s_touch]]
 === Touch-Screen for the FrSky X12S
 
 In my opinion the `FrSky X12S` is a very well designed and high-quality RC transmitter. Together with https://edgetx.org[EdgeTx] this is unbeatable.
@@ -154,6 +197,22 @@ tbd
 
 tbd
 
+[[escape32]]
+=== ESCape32
+
+tbd
+
+https://github.com/wimalopaan/ESCape32[ESCape32]
+
+[[vesc]]
+=== V/ESC 
+
+Unfortunately the `V/ESC` project has only an analog PPM input, but no SBUS/IBUS/SumDv3 serial input. 
+
+This modification introduces a serial, half-duplex connection using the V/ESC serial commands for the FlipSky hardware:
+
+Half-Duplex Modification https://github.com/wimalopaan/bldc/tree/master[VESC]
+
 [[elrs_jr]]
 === JR-module-bay adapter for ELRS receiver as transmitter
 
@@ -165,12 +224,48 @@ See <<elrs_esp8285>> and <<elrs_esp32>> for the correct setting in `expresslrs-c
 
 [CAUTION]
 --
-Don't expect the range to be more than 1km. Please test before going to the field (or lake)!
+Don't expect the range to be more than 1km. Please test before going to the field (or lake or sea)!
 --
+
+==== ESP8285 
+
+The small receivers based upon the `ESP8285` are very well suited to either placed inside the handset or to the used 
+mounted inside a typical _JR-bay module_.
+
+But they have two (not so major) drawbacks: 
+
+* they allow only _univerted_, _full-duplex_ serial communication
+* they need regulated 5V as power source
+
+If you want to use this kind of receiver as an _external module_ it is neccessary to
+
+* uninvert and split the _inverted_, _half-duplex_ serial signal out of the _S.Port_ connector in the module bay
+* produce a regulated 5V out of the unregulated battery voltage out ouf the module bay connector.
+
+A special case is the _FlySky-I6X_ handset: here you get an uninverted, half-duplex serial, that can simply be converted 
+to the full-duplex of the ESP8285-based rx-as-tx.
+
+* on OpenI6X uninverted mode ist compile-time option
 
 [[elrs_esp8285]]
 .ELRS firmware selection for ESP8285 based receivers
 image::elrs/rx_as_tx.png[width=480]
+
+==== ESP32
+
+Instead of the small / simple ESP8285-based receivers you can also use the (slightly larger) ESP32-based receiver (e.g. BetaFPV SuperD). 
+Fortunately the are capable of inverting the serial polarity ond also to use half-suplex on one (tx) pin. Therefore, they can directly 
+connected to the _S.Port_ connector-pin.
+
+Pleas be aware, that you now have to use a special firmware (`gemini`), see <<elrs_esp32>>.
+
+In the hardware-config (wifi) you can now:
+
+* disable gemini mode
+* use inverted serial on one (tx) pin 
+
+For more detals see this https://github.com/ExpressLRS/ExpressLRS/pull/1914[PR].
+
 
 [[elrs_esp32]]
 .ELRS firmware selection for ESP32 based receivers
@@ -245,6 +340,28 @@ image:elrs/x12s/X12S_ELRS_Adapter_SCH.PNG[width=240, link="elrs/x12s/X12S_ELRS_A
 .The PCB (click to view in full-scale)
 image:elrs/x12s/X12S_ELRS_Adapter_PCB.PNG[width=240, link="elrs/x12s/X12S_ELRS_Adapter_PCB.PNG"]
 
+[[elrx_i6x]]
+=== ELRS for the FlySky-I6X
+
+All you need ist to identify the `TX2` pad on the mainboard of the `I6X`, 
+refer to https://github.com/OpenI6X/opentx/wiki/Modifications#all-optional-hardware-connections[I6X elrs]. This is used as the `S.Port` 
+signal, which would be inverted. But fortunately there is a compile-time option to the firmare (`CRSF_UNINVERTED`) that can be set.
+So the `cmake` line should be read as follows:
+
+.cmake for uninverted `crsf` on the `tx2` pin of the I6X mainbard.
+[source]
+--
+$ cmake -DCRSF_UNINVERTED=YES -DUSB_SERIAL=OFF -DCMAKE_BUILD_TYPE=Release -DSPLASH=OFF  -DTIMERS=1 -DHELI=OFF -DTRANSLATIONS=DE -DPCB=I6X 
+-DLUA_COMPILER=NO -DLUA=NO -DGVARS=YES  -DMULTIMODULE=OFF -DOVERRIDE_CHANNEL_FUNCTION=OFF -DPCBI6X_ELRS=YES -DPCBI6X_HELLO=YES ..
+--
+
+The next dificulty is to get the regulated `5V` for the rx-as-tx. You can install a _LDO_ but it turns out to be sufficient to power the 
+rx-as-tx with the internal `3.3V` of the https://github.com/OpenI6X/opentx/wiki/Modifications#all-optional-hardware-connections[mainboard].
+
+==== Images, wiring and schematic
+
+tbd
+
 [[CC]]
 === The `CruiseController` 
 
@@ -272,6 +389,82 @@ for EdgeTx and OpenTx stuff but also for my above electronic projects. Unfortuna
 
 On https://schiffsmodell.blogspot.com/p/grundlagen-zu-opentx.html[Holger Meyer] you may find an up-to-date table of contents.
 
+[[gear]]
+== Actual gear
+
+In the following chapters you will see my actual gear and the modifications.
+
+=== RadioMaster
+
+==== TX16S
+
+EdgeTx
+
+hall-sticks
+
+internal 4-in-1
+
+Extensions:
+
+* 2x incremental encoder
+** withc µC attiny412
+** on top of the handset
+** wired in poti-mode to Ext1/Ext2
+* stick switches
+** encoded by a µC (Attiny1614) inside the handset into FrSky-D telemetry via AUX1
+* SWD-connector
+** magnetic connector on the bottom of the handset
+
+==== Desk for the TX16s
+
+=== FlySky
+
+==== FS-i6X
+
+https://github.com/OpenI6X/opentx[OpenI6X]
+
+Modifications:
+
+* External ELRS (rx-as-tx EP2) inside the handset (<<elrx_i6x>>)
+* SWD-connector 
+** magnetic connector on the bottom of the handset
+
+=== Jumper
+
+==== T12
+
+EdgeTx
+
+External ELRS (JR-module bay): <<elrs_jr>> 
+
+=== FrSky
+
+==== X9e
+
+EdgeTx
+
+External ELRS (JR-module bay)(inside the housing): <<elrs_jr>> 
+
+Modifications:
+
+* AUX1 (P12)
+** magnetic connector at the bottom of the handset 
+
+==== X12S
+
+EdgeTx
+
+Modifications:
+
+* touch-screen: <<x12s_touch>>
+* internal ELRS: <<elrs_x12s>>
+* AUX1
+** magnetic connector at the bottom of the handset
+
+=== Graupner/SJ
+
+==== MC-16
+
 [[vintage]]
 == Vintage RC
 
@@ -279,52 +472,61 @@ On https://schiffsmodell.blogspot.com/p/grundlagen-zu-opentx.html[Holger Meyer] 
 
 ==== Transmitter
 
+.MiniProp4 transmitter
+image::images/retro/miniprop1.jpg[width=480]
+
+.MiniProp4 receiver
+image::images/retro/miniprop2.jpg[width=480]
+
 .Varioprop Expert Modulsystem FM 6014
-image::images/retro/Graupner6014.jpg[]
+image::images/retro/Graupner6014.jpg[width=480]
 
 .Varioprop Graupner Grundig 12S
-image::images/retro/Varioprop12S.jpg[]
+image::images/retro/Varioprop12S.jpg[width=480]
 
 .Varioprop Graupner Grundig T14 Expert Modulsystem
-image::images/retro/Varioprop14_Expert.jpg[]
+image::images/retro/Varioprop14_Expert.jpg[width=480]
 
 .Varioprop Graupner Grundig 14S 27MHz
-image::images/retro/Varioprop14S_schwarz27.jpg[]
+image::images/retro/Varioprop14S_schwarz27.jpg[width=480]
 
 .Varioprop Graupner Grundig 8S 40MHz
-image::images/retro/Varioprop8S_schwarz.jpg[]
+image::images/retro/Varioprop8S_schwarz.jpg[width=480]
 
 .Varioprop Graupner Grundig 8S 27MHz
-image::images/retro/Varioprop8S.jpg[]
+image::images/retro/Varioprop8S.jpg[width=480]
 
 .Varioprop Graupner Grundig C8 27MHz
-image::images/retro/VariopropC8.jpg[]
+image::images/retro/VariopropC8.jpg[width=480]
 
 ==== Receiver
 
 .Varioprop miniSuperhet FM 40S
-image::images/retro/RX01.jpg[]
+image::images/retro/RX01.jpg[width=480]
 
 .Varioprop miniSuperhet 27MHz
-image::images/retro/RX02.jpg[]
+image::images/retro/RX02.jpg[width=480]
 
 .Varioprop miniSuperhet FM 35S
-image::images/retro/RX03.jpg[]
+image::images/retro/RX03.jpg[width=480]
 
 ==== Other
 
 .Varioprop Fahrtregler
-image::images/retro/ESC_Varioprop.jpg[]
+image::images/retro/ESC_Varioprop.jpg[width=480]
 
 === Robbe / Futaba
 
 ==== Transmitter
 
+.Robbe Promars
+image::images/retro/promars.jpg[width=480]
+
 .Robbe digital4
-image::images/retro/RobbeDigital4.jpg[]
+image::images/retro/RobbeDigital4.jpg[width=480]
 
 .Robbe Futaba F-14 Navy 40MHz
-image::images/retro/FutabaF14.jpg[]
+image::images/retro/FutabaF14.jpg[width=480]
 
 ==== Receiver
 
@@ -339,10 +541,10 @@ image::images/retro/FutabaF14.jpg[]
 ==== Other
 
 .Model Craft Speed Controller
-image::images/retro/ESC_Modellcraft.jpg[]
+image::images/retro/ESC_Modellcraft.jpg[width=480]
 
 .hitec Speed Controller
-image::images/retro/ESC_hitec.jpg[]
+image::images/retro/ESC_hitec.jpg[width=480]
 
 == Licence
 
