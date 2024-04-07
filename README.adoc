@@ -82,6 +82,8 @@ For all commands a new _realm_ `0xa0` is defined.
 
 ==== Binary data (e.g. switch states: on/off)
 
+Total of 64 switches.
+
 * Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
 * Command realm: `CruiseController`, `0xa0`, (user defined realm)
 * Command: `0x01`
@@ -89,9 +91,11 @@ For all commands a new _realm_ `0xa0` is defined.
 
 Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x01]` `<byte0>` ... `[byte7]` `]` `[crc8]`
 
-==== N-ary data (e.g. 2/4bits)
+==== N-ary data (e.g. 2/4/8-bits)
 
 .2 bits
+
+Total of 64 switches.
 
 * Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
 * Command realm: `CruiseController`, `0xa0`, (user defined realm)
@@ -102,24 +106,31 @@ Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x02]` 
 
 .4 bits
 
-The total number of bytes is transferred in two halfs:
+Total of 64 switches.
+
+The total number of bytes is transferred in chunks:
 
 * Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
 * Command realm: `CruiseController`, `0xa0`, (user defined realm)
-* Command: `0x03` (4 bit per channel) (channels 0 - 31)
+* Command: `0x03` (4 bit per channel) 
+* Number of chunk: `0x00`: (channels 0 - 31), `0x01`: (channels 32 - 63) 
 * Data: 128 bits as 16 x 8 bytes (32 16-ary switches)
 
-Second half:
+Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x03]` `<chunk nr>` `<byte0>` ... `[byte31]` `]` `[crc8]`
+
+.8 bits
+
+Total of channels switches.
+
+The total number of bytes is transferred in chunks:
 
 * Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
 * Command realm: `CruiseController`, `0xa0`, (user defined realm)
-* Command: `0x04` (4 bit per channel) (channels 32 - 63)
-* Data: 128 bits as 16 x 8 bytes (32 16-ary switches)
+* Command: `0x04` (8 bit per channel) 
+* Number of chunk: `0x00`: (channels 0 - 15), `0x01`: (channels 16 - 31), `0x02`: (channels 32 - 47), `0x03`: (channels 48 - 63)  
+* Data: 128 bits as 16 x 8 bytes (16 8-bit-channels)
 
-Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x03]` `<byte0>` ... `[byte31]` `]` `[crc8]`
-
-Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x04]` `<byte32>` ... `[byte63]` `]` `[crc8]`
-
+Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x04]` `<chunk nr>` `<byte0>` ... `[byte31]` `]` `[crc8]`
 
 ==== Proportional data (e.g. additional channels: >8bit)
 
