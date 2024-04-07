@@ -352,7 +352,23 @@ If you use _Target 3001_ as your EDA: link:elrs/jr/JR-ELRS.T3001[Target 3001 des
 
 ==== Bill of materials and assembling
 
-tbd
+BOM: tbd
+
+.The unpopulated pcb and the empty box (click to enlarge)
+image::elrs/jr/a.jpg[width=240, link="elrs/jr/a.jpg"]
+
+.The unpopulated pcb, the empty box, the 5-pin connector and a Happymodel EP2 receiver (click to enlarge)
+image::elrs/jr/b.jpg[width=240, link="elrs/jr/b.jpg"]
+
+.All parts assembled (click to enlarge)
+image::elrs/jr/c.jpg[width=240, link="elrs/jr/c.jpg"]
+
+.Assembled pcb inside the JR box (click to enlarge)
+image::elrs/jr/d.jpg[width=240, link="elrs/jr/d.jpg"]
+
+.JR box snapped into the module bay of a Jumper T12 (click to enlarge)
+image::elrs/jr/e.jpg[width=240, link="elrs/jr/e.jpg"]
+
 
 [[elrs_x12s]]
 === Adapter for ELRS receiver as internal XJT/ISRM module for FrSky X12S
