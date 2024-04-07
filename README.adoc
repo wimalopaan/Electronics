@@ -70,13 +70,61 @@ multi-switch-modules or lighting-modules
 Following is a proposal for an extension to the the `CRSF` protocol. This can be used with every handset, transmitter-module and receiver 
 due to the extensability of the protocol. 
 
+Refer to https://github.com/crsf-wg/crsf/wiki[crsf].
+
 This is used by a <<elrs-widget, EdgetTx-Widget>> (encoder) alongside with the <<CC>> (decoder).
+
+.CRSF-protocol extension
+[TIP]
+--
+For all commands a new _realm_ `0xa0` is defined.
+--
 
 ==== Binary data (e.g. switch states: on/off)
 
-==== N-ary data (e.g. 2-4bits)
+* Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
+* Command realm: `CruiseController`, `0xa0`, (user defined realm)
+* Command: `0x01`
+* Data: 64 bits as 8 x 8 bytes (64 binary switches)
+
+Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x01]` `<byte0>` ... `[byte7]` `]` `[crc8]`
+
+==== N-ary data (e.g. 2/4bits)
+
+.2 bits
+
+* Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
+* Command realm: `CruiseController`, `0xa0`, (user defined realm)
+* Command: `0x02` (2 bit per channel) 
+* Data: 128 bits as 16 x 8 bytes (64 quaternary switches)
+
+Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x02]` `<byte0>` ... `[byte15]` `]` `[crc8]`
+
+.4 bits
+
+The total number of bytes is transferred in two halfs:
+
+* Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
+* Command realm: `CruiseController`, `0xa0`, (user defined realm)
+* Command: `0x03` (4 bit per channel) (channels 0 - 31)
+* Data: 128 bits as 16 x 8 bytes (32 16-ary switches)
+
+Second half:
+
+* Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
+* Command realm: `CruiseController`, `0xa0`, (user defined realm)
+* Command: `0x04` (4 bit per channel) (channels 32 - 63)
+* Data: 128 bits as 16 x 8 bytes (32 16-ary switches)
+
+Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x03]` `<byte0>` ... `[byte31]` `]` `[crc8]`
+
+Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x04]` `<byte32>` ... `[byte63]` `]` `[crc8]`
+
 
 ==== Proportional data (e.g. additional channels: >8bit)
+
+tbd
+
 
 [[elrs-widget]]
 === EdgetTx-Widget for switches
