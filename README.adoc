@@ -93,7 +93,7 @@ Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x01]` 
 
 ==== N-ary data (e.g. 2/4/8-bits)
 
-.2 bits
+===== 2 bits
 
 Total of 64 switches.
 
@@ -104,7 +104,7 @@ Total of 64 switches.
 
 Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x02]` `<byte0>` ... `[byte15]` `]` `[crc8]`
 
-.4 bits
+===== 4 bits
 
 Total of 64 switches.
 
@@ -118,7 +118,7 @@ The total number of bytes is transferred in chunks:
 
 Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x03]` `<chunk nr>` `<byte0>` ... `[byte31]` `]` `[crc8]`
 
-.8 bits
+===== 8 bits
 
 Total of channels switches.
 
