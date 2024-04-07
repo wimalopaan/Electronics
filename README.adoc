@@ -479,6 +479,24 @@ Extensions:
 * SWD-connector
 ** magnetic connector on the bottom of the handset
 
+.TX16S incremental encoder (click to enlarge)
+image::images/tx16s_inc.jpg[width=240, link="images/tx16s_inc.jpg"]
+
+.TX16S SWD magnetic adapter (click to enlarge)
+image::images/tx16s_swd.jpg[width=240, link="images/tx16s_swd.jpg"]
+
+.TX16S desk with space mouse (click to enlarge)
+image::images/tx16s_desk1.jpg[width=240, link="images/tx16s_desk1.jpg"]
+
+.TX16S desk with space mouse (click to enlarge)
+image::images/tx16s_desk2.jpg[width=240, link="images/tx16s_desk2.jpg"]
+
+.TX16S stick switches: the attiny1614 inside the radio (click to enlarge)
+image::images/tx16s_switch1.jpg[width=240, link="images/tx16s_switch1.jpg"]
+
+.TX16S stick switches (click to enlarge)
+image::images/tx16s_switch2.jpg[width=240, link="images/tx16s_switch2.jpg"]
+
 ==== Desk for the TX16s
 
 === FlySky
@@ -492,6 +510,10 @@ Modifications:
 * External ELRS (rx-as-tx EP2) inside the handset (<<elrx_i6x>>)
 * SWD-connector 
 ** magnetic connector on the bottom of the handset
+
+.Closeup of the magnetic SWD connector (click to enlarge)
+image::images/i6x_mag.jpg[width=240, link="images/i6x_mag.jpg"]
+
 
 === Jumper
 
@@ -514,6 +536,9 @@ Modifications:
 * AUX1 (P12)
 ** magnetic connector at the bottom of the handset 
 
+.Closeup of the magnetic serial connector (click to enlarge)
+image::images/x9e_mag.jpg[width=240, link="images/x9e_mag.jpg"]
+
 ==== X12S
 
 EdgeTx
@@ -522,8 +547,18 @@ Modifications:
 
 * touch-screen: <<x12s_touch>>
 * internal ELRS: <<elrs_x12s>>
+* LiIon accu
 * AUX1
 ** magnetic connector at the bottom of the handset
+
+.Closeup of the magnetic serial connector (click to enlarge)
+image::images/x12s_mag.jpg[width=240, link="images/x12s_mag.jpg"]
+
+.Serial connection to the desk electronik (click to enlarge)
+image::images/x12s_desk.jpg[width=240, link="images/x12s_desk.jpg"]
+
+.LiIon-accu (click to enlarge)
+image::images/x12s_liion.jpg[width=240, link="images/x12s_liion.jpg"]
 
 === Graupner/SJ
 
