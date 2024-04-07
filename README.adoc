@@ -446,6 +446,18 @@ It consists of
 
 More to come ...
 
+=== The TX16s internal switch controller
+
+attiny1614
+
+tbd
+
+=== The RC-desk (for RadioMaster TX16S, FrSky X12S / X9E)
+
+SpaceMouse
+
+tbd
+
 == OpenTx weekly
 
 _OpenTx weekly_ is a https://www.youtube.com/channel/UCedl1hS-dfWh-V4WBz_jGog[YouTube]-channel mostly 
