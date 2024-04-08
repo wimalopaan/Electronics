@@ -260,9 +260,26 @@ Features:
 
 ==== Rotational speed measurement
 
+A bit of theeory
+
 tbd
 
 ==== Version 1: max. 8A / 36V
+
+The smaller one of the two versions comes as one _pcb_.
+
+[[bdc_S_sch]]
+===== Schematic and PCB
+
+.Schematic (Version 1) (click to enlarge)
+image::bdc/BDC_ESC_G431_02_SCH.PNG[width=240, link="bdc/BDC_ESC_G431_02_SCH.PNG"]
+
+.PCB (Version 1) (click to enlarge)
+image::bdc/BDC_ESC_G431_02_PCB.PNG[width=240, link="bdc/BDC_ESC_G431_02_PCB.PNG"]
+
+If you use _Target 3001_ as your EDA: link:bdc/BDC_ESC_G431_02.T3001[Target 3001 design file].
+
+===== Images
 
 .BDC (Version 1) (click to enlarge)
 image::bdc/bdc_S_1.jpg[width=240, link="bdc/bdc_S_1.jpg"]
@@ -277,6 +294,31 @@ image::bdc/bdc_S_3.jpg[width=240, link="bdc/bdc_S_3.jpg"]
 image::bdc/bdc_S_4.jpg[width=240, link="bdc/bdc_S_4.jpg"]
 
 ==== Version 2: max. 50A / 36V
+
+The bigger one of the two versions consists of two pcbs, one pcb for the µC module and one pcb for the power module.
+Both are connected via two pin-header or the can be soldered directly back-to-back with one layer of capton-tape in between.
+
+===== µC module
+
+.Schematic µC module (Version 1) (click to enlarge)
+image::bdc/BDC_ESC_mC_Module_01_SCH.PNG[width=240, link="bdc/BDC_ESC_mC_Module_01_SCH.PNG"]
+
+.PCB µC module (Version 1) (click to enlarge)
+image::bdc/BDC_ESC_mC_Module_01_PCB.PNG[width=240, link="bdc/BDC_ESC_mC_Module_01_PCB.PNG"]
+
+If you use _Target 3001_ as your EDA: link:bdc/BDC_ESC_mC_Module_01_PCB.T3001[Target 3001 design file].
+
+===== Power module
+
+.Schematic power module (Version 1) (click to enlarge)
+image::bdc/BDC_ESC_PWR_Module_01_SCH.PNG[width=240, link="bdc/BDC_ESC_PWR_Module_01_SCH.PNG"]
+
+.PCB power module (Version 1) (click to enlarge)
+image::bdc/BDC_ESC_PWR_Module_01_PCB.PNG[width=240, link="bdc/BDC_ESC_PWR_Module_01_PCB.PNG"]
+
+If you use _Target 3001_ as your EDA: link:bdc/BDC_ESC_PWR_Module_01_PCB.T3001[Target 3001 design file].
+
+===== Images
 
 .BDC (Version 2) (click to enlarge)
 image::bdc/bdc_L_1.jpg[width=240, link="bdc/bdc_L_1.jpg"]
