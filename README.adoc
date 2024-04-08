@@ -324,7 +324,7 @@ See <<elrs_esp8285>> and <<elrs_esp32>> for the correct setting in `expresslrs-c
 Don't expect the range to be more than 1km. Please test before going to the field (or lake or sea)!
 --
 
-==== ESP8285 
+==== ESP8285-based receivers
 
 The small receivers based upon the `ESP8285` are very well suited to either placed inside the handset or to the used 
 mounted inside a typical _JR-bay module_.
@@ -348,7 +348,7 @@ to the full-duplex of the ESP8285-based rx-as-tx.
 .ELRS firmware selection for ESP8285 based receivers
 image::elrs/rx_as_tx.png[width=480]
 
-==== ESP32
+==== ESP32-based receivers
 
 Instead of the small / simple ESP8285-based receivers you can also use the (slightly larger) ESP32-based receiver (e.g. BetaFPV SuperD). 
 Fortunately the are capable of inverting the serial polarity ond also to use half-suplex on one (tx) pin. Therefore, they can directly 
