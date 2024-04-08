@@ -252,9 +252,34 @@ tbd
 
 tbd
 
+.BDC (Version 1)
+image::bdc/bdc_S_1.jpg[width=240, link="bdc/bdc_S_1.jpg"]
+
+.BDC (Version 1)
+image::bdc/bdc_S_2.jpg[width=240, link="bdc/bdc_S_2.jpg"]
+
+.BDC (Version 1)
+image::bdc/bdc_S_3.jpg[width=240, link="bdc/bdc_S_3.jpg"]
+
+.BDC (Version 1)
+image::bdc/bdc_S_4.jpg[width=240, link="bdc/bdc_S_4.jpg"]
+
 ==== Version 2: max. 50A / 36V
 
 tbd
+
+.BDC (Version 2)
+image::bdc/bdc_L_1.jpg[width=240, link="bdc/bdc_L_1.jpg"]
+
+.BDC (Version 2)
+image::bdc/bdc_L_2.jpg[width=240, link="bdc/bdc_L_2.jpg"]
+
+.BDC (Version 2)
+image::bdc/bdc_L_3.jpg[width=240, link="bdc/bdc_L_3.jpg"]
+
+.BDC (Version 2)
+image::bdc/bdc_L_4.jpg[width=240, link="bdc/bdc_L_4.jpg"]
+
 
 [[escape32]]
 === ESCape32
@@ -262,6 +287,11 @@ tbd
 tbd
 
 https://github.com/wimalopaan/ESCape32[ESCape32]
+
+
+.ESCape32
+image::bldc/escape32/escape32_1.jpg[width=240, link="bldc/escape32/escape32_1.jpg"]
+
 
 [[vesc]]
 === V/ESC 
