@@ -246,38 +246,48 @@ For the full story, please follow this link:rc/jr40mhz.html[Howto (german)]
 
 === Brushed DC-motor controller with sensorless measurement of rotational speed
 
+Features:
+
+* SBus(2)/IBus/SumDV3 serial input
+* SBus2/S.Port/IBus/Hott telemetry
+* PPM-Input
+* serial terminal configuration interface
+* telemetry
+** supply voltage
+** motor current
+** motor temperature (sensor needed)
+** motor rotational speed (*no* sensor)
+
+==== Rotational speed measurement
+
 tbd
 
 ==== Version 1: max. 8A / 36V
 
-tbd
-
-.BDC (Version 1)
+.BDC (Version 1) (click to enlarge)
 image::bdc/bdc_S_1.jpg[width=240, link="bdc/bdc_S_1.jpg"]
 
-.BDC (Version 1)
+.BDC (Version 1) (click to enlarge)
 image::bdc/bdc_S_2.jpg[width=240, link="bdc/bdc_S_2.jpg"]
 
-.BDC (Version 1)
+.BDC (Version 1) (click to enlarge)
 image::bdc/bdc_S_3.jpg[width=240, link="bdc/bdc_S_3.jpg"]
 
-.BDC (Version 1)
+.BDC (Version 1) (click to enlarge)
 image::bdc/bdc_S_4.jpg[width=240, link="bdc/bdc_S_4.jpg"]
 
 ==== Version 2: max. 50A / 36V
 
-tbd
-
-.BDC (Version 2)
+.BDC (Version 2) (click to enlarge)
 image::bdc/bdc_L_1.jpg[width=240, link="bdc/bdc_L_1.jpg"]
 
-.BDC (Version 2)
+.BDC (Version 2) (click to enlarge)
 image::bdc/bdc_L_2.jpg[width=240, link="bdc/bdc_L_2.jpg"]
 
-.BDC (Version 2)
+.BDC (Version 2) (click to enlarge)
 image::bdc/bdc_L_3.jpg[width=240, link="bdc/bdc_L_3.jpg"]
 
-.BDC (Version 2)
+.BDC (Version 2) (click to enlarge)
 image::bdc/bdc_L_4.jpg[width=240, link="bdc/bdc_L_4.jpg"]
 
 
@@ -288,10 +298,8 @@ tbd
 
 https://github.com/wimalopaan/ESCape32[ESCape32]
 
-
 .ESCape32
 image::bldc/escape32/escape32_1.jpg[width=240, link="bldc/escape32/escape32_1.jpg"]
-
 
 [[vesc]]
 === V/ESC 
