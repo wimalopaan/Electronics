@@ -317,7 +317,7 @@ Features:
 
 ==== Rotational speed measurement
 
-A bit of theeory
+A bit of theory ...
 
 tbd
 
