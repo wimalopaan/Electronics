@@ -194,6 +194,63 @@ There is an extra repositoty https://github.com/wimalopaan/CoronaRP8D1[] for thi
 [[varioprop]]
 === Renewed mainboard for some (old) 27/35/40MHz RC transmitters
 
+As you can see in <<gr_txs>> or <<rb_txs>> I own some old, vintage RC transmitters. As of this writing some of them are more than 40 years old.
+The majority of them does kind of work, but due to aging of the components the do not meet the RC criteria of the RF regulations in the EU.
+
+But there are also some other shortcomings with these old transmitters:
+
+* to change the rf channel one has to change the quarz in the transmitter.
+** quarzes are very expensive nowadays
+** if not using receivers with quarzes, scan-receivers are ubiquous (see also <<corona>>) and they don't need a quarz
+* With the exception of the Robbe/Futaba F-14 most of them are not capable of having switches together with a switching encoder
+* They don't have features like mixers, trainer ...
+
+All this lead to the idea to design a new mainboard not only for the Robbe/Futaba F14, but also for the yellow, red and black Graupner/Grundig
+Varioprop series of transmitters. 
+
+The first attempt was to make a new mainboard for the yellow Varioprop S8. This mainboard uses a small µC `atmega324pb` to sample the potentiometers 
+of the handset and produce a `ppm`-signal, which was fed into a FrSky DHT 2.4GHz module. This worked quite well but felt a bit like abusing the
+old yellow Varioprop, which is very cool stuff nowadays (in germany). Actually the attempt is undocumented.
+
+The next attempt was to design a kind of relais-station to transform the 2.4-GHz FrSky ACCST into FM-FSK-40MHz. I thought this to be a cool idea
+because this relais-station could (in theory) used by more than one pilot / captain. The main reason was to re-use a modern 
+transmitter with all its features like mixers and other cool stuff for the 40MHz band. But then came Corona (the disease, not <<corona>>) ... 
+
+I learned a lot about rf electronics in the sub-GHZ range and this was great fun, so I decided to design something that would combine 
+all the features I played with in the previous versions.
+
+This lead to the actual design ...
+
+==== The new mainboard
+
+The mainboard comes as pcb that coul be easily adapted to the three form factors for the
+
+* Robbe/Futaba F-14 (see <<robbe_f14>>)
+* yellow Graupner/Grundig Varioprop 8S (see <<varioprop_yellow>>)
+* red/black Graupner/Grundig Varioprop (see <<varioprop_red>> and <<varioprop_black>>)
+
+The mainboard 
+
+* handles up to 8 analog inputs (usually the potentiometers of the handset)
+* has a 100mW rf module (27/35/40 MHz)
+* uses the analog gauge as an accu monitor
+* has a beeper
+* has a I2C-connector to use with up to two switches-boads with 8 3pos-switches each
+* has a bluetooth (BLE) module
+* has an ELRS module (to be used as receiver or transmitter)
+* can switch channels via BLE or ELRS
+* has a free uart for further extensions
+
+
+
+tbd
+
+==== The new switches-board
+
+tbd
+
+==== Inside the housing
+
 tbd
 
 [[sdr]]
@@ -549,7 +606,7 @@ SpaceMouse
 
 tbd
 
-== OpenTx weekly
+== OpenTx / EdgeTx weekly
 
 _OpenTx weekly_ is a https://www.youtube.com/channel/UCedl1hS-dfWh-V4WBz_jGog[YouTube]-channel mostly 
 for EdgeTx and OpenTx stuff but also for my above electronic projects. Unfortunately the spoken language is german :-( 
@@ -672,6 +729,7 @@ image::images/x12s_liion.jpg[width=240, link="images/x12s_liion.jpg"]
 
 === Graupner / Grundig / JR 
 
+[[gr_txs]]
 ==== Transmitter
 
 .MiniProp4 transmitter
@@ -692,12 +750,15 @@ image::images/retro/Varioprop14_Expert.jpg[width=480]
 .Varioprop Graupner Grundig 14S 27MHz
 image::images/retro/Varioprop14S_schwarz27.jpg[width=480]
 
+[[varioprop_black]]
 .Varioprop Graupner Grundig 8S 40MHz
 image::images/retro/Varioprop8S_schwarz.jpg[width=480]
 
+[[varioprop_yellow]]
 .Varioprop Graupner Grundig 8S 27MHz
 image::images/retro/Varioprop8S.jpg[width=480]
 
+[[varioprop_red]]
 .Varioprop Graupner Grundig C8 27MHz
 image::images/retro/VariopropC8.jpg[width=480]
 
@@ -719,6 +780,7 @@ image::images/retro/ESC_Varioprop.jpg[width=480]
 
 === Robbe / Futaba
 
+[[rb_txs]]
 ==== Transmitter
 
 .Robbe Promars
@@ -727,6 +789,7 @@ image::images/retro/promars.jpg[width=480]
 .Robbe digital4
 image::images/retro/RobbeDigital4.jpg[width=480]
 
+[[robbe_f14]]
 .Robbe Futaba F-14 Navy 40MHz
 image::images/retro/FutabaF14.jpg[width=480]
 
