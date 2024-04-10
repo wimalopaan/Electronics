@@ -241,13 +241,39 @@ The mainboard
 * can switch channels via BLE or ELRS
 * has a free uart for further extensions
 
+===== Previous versions of the new mainboard
 
+There have been some iterations for the design of the new mainboard though. In the following you see
+the last iteration: this one really works, but has some design flaws that I'm actually in process of fixing ;-) 
+
+.The new mainboard populated, but with many design problems (click to enlarge)
+image::variopropng/board3.jpg[width=240, link="variopropng/board3.jpg"]
+
+.The new mainboard inside an old VarioProp case (click to enlarge)
+image::variopropng/incase1.jpg[width=240, link="variopropng/incase1.jpg"]
 
 tbd
 
 ==== The new switches-board
 
-tbd
+The switches board is very simple: it is connected via `I2C` to the main board. And it can be cascaded.
+
+.Schematic (click to enlarge)
+image::variopropng/F14Switches01_SCH.PNG[width=240, link="variopropng/F14Switches01_SCH.PNG"]
+
+.PCB (click to enlarge)
+image::variopropng/F14Switches01_PCB.PNG[width=240, link="variopropng/F14Switches01_PCB.PNG"]
+
+.Two switches boards connected to the new mainboard (click to enlarge)
+image::variopropng/switches.jpg[width=240, link="variopropng/switches.jpg"]
+
+==== Remote control the remote control via BlueTooth
+
+.RoboRemo App Interface (click to enlarge)
+image::variopropng/robo1.png[width=240, link="variopropng/robo1.png"]
+
+.RoboRemo App Interface conncting to the new mainboard via BLE (click to enlarge)
+image::variopropng/robo2.png[width=240, link="variopropng/robo2.png"]
 
 ==== Inside the housing
 
@@ -603,6 +629,13 @@ tbd
 === The RC-desk (for RadioMaster TX16S, FrSky X12S / X9E)
 
 SpaceMouse
+
+tbd
+
+=== A new kind of stick: haptic-control
+
+.The stick model (click to view in full-scale)
+image:stickng/stick1.png[width=240, link="stickng/stick1.png"]
 
 tbd
 
