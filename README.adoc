@@ -519,10 +519,17 @@ image::elrs/jr/JR-ELRS_SCH.PNG[width=240, link="elrs/jr/JR-ELRS_SCH.PDF"]
 .The PCB (click to view in full-scale)
 image::elrs/jr/JR-ELRS_PCB.PNG[width=240, link="elrs/jr/JR-ELRS_PCB.PDF"]
 
-
 [[jr_elrs_target]]
 If you use _Target 3001_ as your EDA: link:elrs/jr/JR-ELRS.T3001[Target 3001 design file].
 
+In <<jr_elrs_la>> you see a logic-analyser trace of the `rx` and `tx` serial signal as they appear
+at the ELRS-receiver. So, they are in normal polarity. 
+Please not, the the sent bytes at the `tx` do not appear at the `rx`-pin: no local echo. This is 
+suppressed by the circuit.
+
+[[jr_elrs_la]]
+.Signals from the ELRS receiver (click to view in full-scale)
+image::elrs/jr/LA1.png[width=240, link="elrs/jr/LA1.png"]
 
 ==== Bill of materials and assembling
 
