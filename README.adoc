@@ -531,9 +531,9 @@ suppressed by the circuit.
 .Signals from the ELRS receiver (click to view in full-scale)
 image::elrs/jr/LA1.png[width=240, link="elrs/jr/LA1.png"]
 
-==== Bill of materials and assembling
+==== Assembling
 
-BOM: tbd
+The assembling is straight forward, all components are placed on one side. Please refer to the <<jr_elrs_target>>.
 
 .The unpopulated pcb and the empty box (click to enlarge)
 image::elrs/jr/a.jpg[width=240, link="elrs/jr/a.jpg"]
@@ -547,8 +547,27 @@ image::elrs/jr/c.jpg[width=240, link="elrs/jr/c.jpg"]
 .Assembled pcb inside the JR box (click to enlarge)
 image::elrs/jr/d.jpg[width=240, link="elrs/jr/d.jpg"]
 
+==== Usages
+
+===== Jumper T12
+
 .JR box snapped into the module bay of a Jumper T12 (click to enlarge)
 image::elrs/jr/e.jpg[width=240, link="elrs/jr/e.jpg"]
+
+===== FrSky X9e
+
+Unfortunately, one cannot easily replace the internal XJT-module of a _FrSky X9E_. 
+
+.JR box inside a FrSky X9e (click to enlarge)
+image::elrs/jr/f1.jpg[width=240, link="elrs/jr/f1.jpg"]
+
+It would be possible to use the antenne of the internal XJT oder the Bluetooth module as well as an antenna for the ELRS.
+
+.JR box inside a FrSky X9e (click to enlarge)
+image::elrs/jr/f2.jpg[width=240, link="elrs/jr/f2.jpg"]
+
+.ELRSV3.lua on FrSky X9E(click to enlarge)
+image::elrs/jr/f3.jpg[width=240, link="elrs/jr/f3.jpg"]
 
 
 [[elrs_x12s]]
