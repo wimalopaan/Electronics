@@ -169,6 +169,33 @@ The <<elrs_func>> can also be achieved using an ELRS-receiver as a transmitter-m
 to equip many handsets with an internal elrs-capability, e.g. the _FrSky X12S_, _X9E_ or _Jumper T12_ or the _FlySky FS-I6X_. 
 See <<elrs_jr>> and <<elrs_x12s>> for details.
 
+
+=== Multiple ELRS-receivers bound to one ELRS-module
+
+Using the same pass-phrase it is possible to bin more than one receiver to a tx-module. If all receivers were sending telemetry data to the tx-module, 
+there will be interference in the rf domain, and, if by pure accident the rf data comes through undistorted, the tx module would receive ambigous data. 
+ELRS is not capable of handling multiple telemetry streams in one passphrase realm.
+
+Therefore, one has to disable sending telemetry on all but one receiver. This can be done via the web interface of the receiver(s). In this scenario, one 
+may have multiple receivers - maybe in different models -, but only one is allowed to send telemetry, while all others must not send telemetry data. 
+Sometimes this may be acceptable, but more often this is not acceptable: if the recivers belong to different models, not all batteries, etc. can be 
+monitored. This may lead to severe damage to the batteries.
+
+Since version `3.4` of ELRS it incorporates a feature called _TeamRace_ (see the receivers menu in the `elrsV3.lua` menu).
+In _TeamRace_ each receiver has a unique ID-number calles `position`. One can select an _active_ receiver via a designated rc channel 
+(one of the 16 rc channels). The active receiver outputs servo data and sends back telemetry, an inactive receiver does not send telemetry and goes 
+into failsafe for the channel data. For more info see: https://github.com/ExpressLRS/ExpressLRS/pull/2176[TeamRace].
+
+_TeamRace_ allows to switch the receiver / model very quick by e.g. the six-position-switch on a TX16S or X12S.
+
+Going into failsafe for the inactive receivers will not be desired in most above mentioned use cases: it would be way better, if the inactive receiver
+simply stops sending telemetry but still outputs the channel data.
+
+This was implemented in this pull-request: https://github.com/ExpressLRS/ExpressLRS/pull/2685[Multi model telemetry].
+Unfortunately this pull-request waas not accepted by the ELRS team. Therefore you have to select this pull-request manually in the 
+`expresslrs-configurator`.
+
+
 == Projects
 
 The following chapters describe some of my active projects. The majority of my former projects (see <<Old.adoc#, Old>> (in german)) are
