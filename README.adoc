@@ -132,6 +132,7 @@ The total number of bytes is transferred in chunks:
 
 Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x04]` `<chunk nr>` `<byte0>` ... `[byte31]` `]` `[crc8]`
 
+[[prop32]]
 ==== Proportional data (e.g. additional channels: >8bit)
 
 tbd
@@ -195,6 +196,18 @@ This was implemented in this pull-request: https://github.com/ExpressLRS/Express
 Unfortunately this pull-request waas not accepted by the ELRS team. Therefore you have to select this pull-request manually in the 
 `expresslrs-configurator`.
 
+=== 32-channels for ELRS
+
+ELRS transfers 16 RC-channels from the handset to the receiver. In EdgeTx one can select the first of the 16 consecutive channels 
+to be transferred.
+
+EdgeTx manages 32 RC-channels, so it would be of interest to tranfer the remaining 16 channels also.
+
+On the handset a LUA-script (widget) collects the channels 17-32 and encodes them as a custom CRSF package (<<prop32>>).
+The ELRS-receiver outputs this custom packages on his serial interface (select: CRSF-protokoll). 
+Clearly, a special CRSF-decoder is needed: it has to decode the normal RC channel packages and the custom-packages. 
+
+The <<CC>> uses two `SBus`-interface, one for channel 1-16, and one for the channels 17-32.
 
 == Projects
 
