@@ -469,7 +469,10 @@ https://github.com/wimalopaan/ESCape32[ESCape32]
 image::bldc/escape32/escape32_1.jpg[width=240, link="bldc/escape32/escape32_1.jpg"]
 
 [[vesc]]
-=== V/ESC 
+=== V/ESC: the ultimate firmware for medium/big BLDC motor controller (brushless ESC) 
+
+Clearly, _V/ESC_ is the king. The firmware provides sensorless FOC, that gives us full torque from *zero* RPM and silent motor 
+operation. This comes together with an incredible configuration software.
 
 Unfortunately the `V/ESC` project has only an analog PPM input, but no SBUS/IBUS/SumDv3 serial input. 
 
