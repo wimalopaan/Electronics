@@ -710,6 +710,50 @@ image:stickng/stick1.png[width=240, link="stickng/stick1.png"]
 
 tbd
 
+[[oix6]]
+== Openix6
+
+=== Firmware
+
+The https://github.com/OpenI6X/opentx[OpenI6X] project provides OpenTx for
+small radios of the type _FlySky_ *FS-i6x*. 
+
+=== Compiling
+
+If you want to use the modification where all switches are 3-position switches,
+use the https://github.com/OpenI6X/opentx/pull/403[PR403] of the project 
+and set the compile-time option `ALL3POS`:
+
+[source]
+--
+$ cmake -DALL3POS=YES -DUSB_SERIAL=OFF -DCMAKE_BUILD_TYPE=Release -DSPLASH=OFF  -DTIMERS=1 -DHELI=OFF -DTRANSLATIONS=DE -DPCB=I6X 
+-DLUA_COMPILER=NO -DLUA=NO -DGVARS=YES  -DMULTIMODULE=OFF -DOVERRIDE_CHANNEL_FUNCTION=OFF -DPCBI6X_ELRS=YES -DPCBI6X_HELLO=YES ..
+--
+
+=== Flashing
+
+German https://www.youtube.com/watch?v=tvDtpW6TglE&t[how-to] 
+
+List of _devices_:
+
+----
+$ dfu-util  -l 
+dfu-util 0.11
+
+Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
+Copyright 2010-2021 Tormod Volden and Stefan Schmidt
+This program is Free Software and has ABSOLUTELY NO WARRANTY
+Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
+
+Found DFU: [0483:df11] ver=2200, devnum=10, cfg=1, intf=0, path="1-2", alt=1, name="@Option Bytes  /0x1FFFF800/01*016 e", serial="FFFFFFFEFFFF"
+Found DFU: [0483:df11] ver=2200, devnum=10, cfg=1, intf=0, path="1-2", alt=0, name="@Internal Flash  /0x08000000/064*0002Kg", serial="FFFFFFFEFFFF"
+----
+
+Flashing:
+----
+dfu-util -s 0x08000000 -a 0 -D firmware.bin
+----
+
 == OpenTx / EdgeTx weekly
 
 _OpenTx weekly_ is a https://www.youtube.com/channel/UCedl1hS-dfWh-V4WBz_jGog[YouTube]-channel mostly 
@@ -774,6 +818,7 @@ Modifications:
 * External ELRS (rx-as-tx EP2) inside the handset (<<elrx_i6x>>)
 * SWD-connector 
 ** magnetic connector on the bottom of the handset
+* Make all switches `SA`, `SB`, `SC` and `SD` 3-position 
 
 .Closeup of the magnetic SWD connector (click to enlarge)
 image::images/i6x_mag.jpg[width=240, link="images/i6x_mag.jpg"]
