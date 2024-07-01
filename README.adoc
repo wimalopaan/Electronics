@@ -292,7 +292,39 @@ image::variopropng/board3.jpg[width=240, link="variopropng/board3.jpg"]
 .The new mainboard inside an old VarioProp case (click to enlarge)
 image::variopropng/incase1.jpg[width=240, link="variopropng/incase1.jpg"]
 
-tbd
+In <<VarNG02>> you see the schematic. Aside from some minor flaws there is one major issue with this board: the generation 
+of the frequency-shift-signal! As you see in the schematic the `Si5361` genarates two rectangular signals, one with the `space`
+frequency _f0_ on `CLK0` and one with the `mark` frequency _f1_ on `CLK1`. Thereafter a `74LVC1G157` is used to switch between
+these two frequencies with the `cppm` signal. 
+
+Although this appears to work but there a very serious problems!  
+
+A little be of theory: the switching between these two signals can be seen as a convolution of each frequency with an according 
+rectagular signal and then added together. This produces two main problems.
+
+* The switching in the time-domain witch a rectangular signal or convolution in the frequency domain with a _si()_ function results in a very broad spectrum.
+
+* Additionally the switching is not synchronized with the base signal, so there are additional short-term pulses and therefore broad fequency components.
+
+It turns out that this renders the rf part unusable, because several conventional receivers were not abel to decode the signal if the signal strength goes down. 
+And this was not acceptable.
+
+[[VarNG02]]
+.Schematic of Version 2 (click to enlarge)  
+image::variopropng/VariopropLargeNG02_SCH.PNG[width=240, link="variopropng/VariopropLargeNG02_SCH.PNG"]
+
+Well, although I was aware of this problem from the beginning I didn't think that the negative impact was as this huge!
+
+I looked around and I found some `27MHz` VXCO with an appropriate pulling range up to 100ppm. This looks quite reasonable: the µC could generate the cppm signal 
+with some exponential roll-on / roll-off via its DAC. The VCXO clock signal is the used as the input for the SI5351. And the SI5351 simply generates the desired output
+frequency from the modulated clock signal. I made several test with different roll-on / roll-off curves and found that an exponential gives the best results with respect 
+the smallest frequency sprectrum of the resulting rf signal.
+
+all modifications are now in <<VarNG03>>.
+
+[[VarNG03]]
+.Schematic of Version 3 (click to enlarge)  
+image::variopropng/VariopropLargeNG03_SCH.PNG[width=240, link="variopropng/VariopropLargeNG03_SCH.PNG"]
 
 ==== The new switches-board
 
