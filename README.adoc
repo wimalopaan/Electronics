@@ -320,11 +320,21 @@ with some exponential roll-on / roll-off via its DAC. The VCXO clock signal is t
 frequency from the modulated clock signal. I made several test with different roll-on / roll-off curves and found that an exponential gives the best results with respect 
 the smallest frequency sprectrum of the resulting rf signal.
 
-all modifications are now in <<VarNG03>>.
+All modifications are now in <<VarNG03>>.
 
 [[VarNG03]]
 .Schematic of Version 3 (click to enlarge)  
 image::variopropng/VariopropLargeNG03_SCH.PNG[width=240, link="variopropng/VariopropLargeNG03_SCH.PNG"]
+
+As said above the main reason for this version was the problematic rf signal generation part, but there are other modifications:
+
+* new rf signal generation part to produce way better spectral results
+* additional I2C interface (in total now two interfaces)
+* on/off switching of the ELRS
+* circuit to reduce rf power
+* simplified power switching for submodules
+
+This version is actually under test.
 
 ==== The new switches-board
 
