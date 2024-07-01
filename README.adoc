@@ -321,6 +321,8 @@ with some exponential roll-on / roll-off via its DAC. The VCXO clock signal is t
 frequency from the modulated clock signal. I made several test with different roll-on / roll-off curves and found that an exponential gives the best results with respect 
 to the smallest frequency sprectrum of the resulting rf signal. Very good.
 
+The roll-on / roll-off via DAC of the µC (STM32G431) is easily realized via timer-triggered DMA to the DAC for each pulse-edge of the cppm signal.
+
 All modifications are now in <<VarNG03>>.
 
 [[VarNG03]]
