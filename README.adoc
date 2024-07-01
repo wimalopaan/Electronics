@@ -316,7 +316,7 @@ image::variopropng/VariopropLargeNG02_SCH.PNG[width=240, link="variopropng/Vario
 
 Well, although I was aware of this problem from the beginning I didn't think that the negative impact was as this huge!
 
-I looked around and I found some `27MHz` VXCO with an appropriate pulling range up to 100ppm. This looks quite reasonable: the µC could generate the cppm signal 
+I looked around and I found some `27MHz` VCXO (voltage controlled crystal oszillator) with an appropriate pulling range up to 100ppm. This looks quite reasonable: the µC could generate the cppm signal 
 with some exponential roll-on / roll-off via its DAC. The VCXO clock signal is the used as the input for the SI5351. And the SI5351 simply generates the desired output
 frequency from the modulated clock signal. I made several test with different roll-on / roll-off curves and found that an exponential gives the best results with respect 
 to the smallest frequency sprectrum of the resulting rf signal. Very good.
