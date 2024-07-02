@@ -347,6 +347,14 @@ image::variopropng/hard_switch.png[width=240, link="variopropng/hard_switch.png"
 .Spectrum when using gaussian roll-on  / roll-off (click to enlarge)  
 image::variopropng/gauss.png[width=240, link="variopropng/gauss.png"]
 
+[[f14spec]]
+.Spectrum Futaba F14 (click to enlarge)  
+image::variopropng/F14spec.png[width=240, link="variopropng/F14spec.png"]
+
+[[grspec]]
+.Spectrum Graupner 40MHz JR module (click to enlarge)  
+image::variopropng/GrModulSpec.png[width=240, link="variopropng/GrModulSpec.png"]
+
 ==== The new switches-board
 
 The switches board is very simple: it is connected via `I2C` to the main board. And it can be cascaded.
