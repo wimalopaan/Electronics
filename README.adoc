@@ -329,6 +329,15 @@ All modifications are now in <<VarNG03>>.
 .Schematic of Version 3 (click to enlarge)  
 image::variopropng/VariopropLargeNG03_SCH.PNG[width=240, link="variopropng/VariopropLargeNG03_SCH.PNG"]
 
+[[VarNG03pcbtop]]
+.PCB top (click to enlarge)  
+image::variopropng/VariopropLargeNG03_PCB_top.PNG[width=240, link="variopropng/VariopropLargeNG03_PCB_top.PNG"]
+
+[[VarNG03pcbbot]]
+.PCB bottom (click to enlarge)  
+image::variopropng/VariopropLargeNG03_PCB_bot.PNG[width=240, link="variopropng/VariopropLargeNG03_PCB_bot.PNG"]
+
+
 As said above the main reason for this version was the problematic rf signal generation part, but there are other modifications:
 
 * new rf signal generation part to produce way better spectral results
