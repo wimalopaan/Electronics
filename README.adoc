@@ -143,8 +143,8 @@ tbd
 ==== Module Commands (e.g. switch states: on/off)
 
 * Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
-* Command realm: `Mdoule`, `0xa1`, (user defined realm)
-* Command: `0x01`
+* Command realm: `Module`, `0xa1`, (user defined realm)
+* Command: `0x01` (Set)
 * Address: `0x00` ... `0xff`
 * Data: variable length, 1 up to 8 bytes 
 
