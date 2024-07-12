@@ -792,14 +792,16 @@ The first MutliSwitch-ELRS module is the MultiSwitch-E8: this module is capable 
 or pwm on/off (the on-state is pwm-modulated). It is possible to have up to 256 such MultiSwitch-E8 connected to _one_ ELRS-receiver. 
 
 To make use of the functions of the MultiSwitch-E8, a special `MultiSwitch`-Widget is needed on the radio. This widget has the _module address_ (0 ... 255) as an option. Each widget instance
-can control one of the 256 MultiSwitch-E8 modules in the model. 
+can control one of the 256 MultiSwitch-E8 modules in the model. All functions can be reached via the touch-screen. If appropriate some of the functions can also be controlled via the 
+physical switches on the radio.
 
 The configuration of each of all the MultiSwitch-E8 modules is done via the standard `elrsv3.lua` script. The modules are listed under `Other devices` in the menu of that `elrsv3.lua` script.
 
+.The `MultiSwitch` widget
 image::images/elrs_msw/elrs_msw01.png[]
 
-image::images/elrs_msw/elrs_msw01.png[]
-
+.The `MultiSwitch` widget (fullscreen)
+image::images/elrs_msw/elrs_msw02.png[]
 
 ===== Puzzeling parts
 
@@ -816,12 +818,9 @@ The software components:
 * `elrsv3.lua` script on the radio (if you are already using ELRS, you know it for sure)
 * `MultiSwitch` widget script (see below)
 
-
-
+===== Design
 
 <<crsf-sw>>
-
-
 
 [[CC]]
 === The `CruiseController` 
