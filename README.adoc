@@ -797,6 +797,9 @@ physical switches on the radio.
 
 The configuration of each of all the MultiSwitch-E8 modules is done via the standard `elrsv3.lua` script. The modules are listed under `Other devices` in the menu of that `elrsv3.lua` script.
 
+Different to the old versions using other rc-links (AFHDS2A, ACCST, ...) this new concept does not need one the the 16 proportional channels: it is completely 
+independent!
+
 .The `MultiSwitch` widget
 image::images/elrs_msw/elrs_msw01.png[]
 
@@ -820,7 +823,28 @@ The software components:
 
 ===== Design
 
-<<crsf-sw>>
+Although it would be possible to control the MultiSwitch-E8 via the standard `elrsv3.lua` script, this approch would be very inconvenient. So, I wrote a special 
+widget to control the MultiSwitch modules. Each MultiSwitch module has its own _address_ (0 ... 255), so the widget must _know_ the appropriate address. There is a widget 
+option where you can set the address of the correponding module.
+
+For each address you can also set a descriptive _name_ of the module unique for each model on the radio, as well as the names of the _function_ to switch on or off and 
+which physical switches should be used (if any). This is done via a model-specific configuration file on the sd-card of the radio.
+
+The CRSF protocol is extensible, and this fact is used to propose an extension to control such modules: <<crsf-sw>>.
+
+===== MultiSwitch-E8
+
+image::images/elrs_msw/RCMultiSwitchSmall10_SCH.PNG[]
+
+image::images/elrs_msw/RCMultiSwitchSmall10_PCB.PNG[]
+
+===== MultiSwitch Widget
+
+===== CRSF-Half-Duplex Bus
+
+image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG[}
+
+image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG[}
 
 [[CC]]
 === The `CruiseController` 
