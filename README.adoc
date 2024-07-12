@@ -140,6 +140,7 @@ Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x04]` 
 
 tbd
 
+[[crsf-sw]]
 ==== Module Commands (e.g. switch states: on/off)
 
 * Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
@@ -757,8 +758,11 @@ tbd
 [[elrs_msw]]
 === ELRS-MultiSwitch
 
-I have been working for a long time on generalized _MultiSwitch_-Modules (s.a. https://github.com/wimalopaan/Electronics/blob/main/Old.adoc#msd[] ).
-For those not knowing what a _MultiSwitch_ is lets first explain some things (for the german reader, the follwing maybe sufficient: https://www.beier-electronic.de/modellbau/produkte/nms-16/nms-16.php)
+==== In the old days
+
+I have been working for a long time on generalized _MultiSwitch_-Modules (s.a. https://github.com/wimalopaan/Electronics/blob/main/Old.adoc#msd[MultiSwitch-D] ).
+For those not knowing what a _MultiSwitch_ is lets first explain some things (for the german reader, 
+the follwing maybe sufficient: https://www.beier-electronic.de/modellbau/produkte/nms-16/nms-16.php[Beier])
 
 In ancient times handset / transmitters were only capable of transmitting proportional _channel values_ like rudder or speed. These value got encoded as `PPM`-signals. There was no possibility to 
 transport _binary_ information, e.g. like the state of a 2-position switch on the handset. Some clever people therefore invented the so called multi-switch-encoder / decoder. The encoder was placed 
@@ -776,9 +780,42 @@ But the really serious limitation was, that all these rc-links (Hott, ACCST, AFH
 
 But eventually then I dicovered `ExpressLRS`. And this was a game changer.
 
+==== New ELRS version
+
 With ELRS and clearly EdgeTx we have two open-source projects, that work perfectly together and give us a _complete_ rc solution. No need for closed-source components anymore. 
 And as an additional important fact, the communication protocoll between the handset and the ELRS transmitter-module and betwenn the ELRS-receiver and some other device (e.g. flight-controller) 
-is `CRSF`, which is well documented and nowadays the evolution is kind-of governed: https://github.com/crsf-wg/crsf[].
+is `CRSF`, which is well documented and nowadays the evolution is kind-of governed: https://github.com/crsf-wg/crsf[CRSF-WG].
+
+===== Overview
+
+The first MutliSwitch-ELRS module is the MultiSwitch-E8: this module is capable of switching 8 loads (dc-motors, LEDs, sound, ...) steady on/off, intervall on/off (blinking) 
+or pwm on/off (the on-state is pwm-modulated). It is possible to have up to 256 such MultiSwitch-E8 connected to _one_ ELRS-receiver. 
+
+To make use of the functions of the MultiSwitch-E8, a special `MultiSwitch`-Widget is needed on the radio. This widget has the _module address_ (0 ... 255) as an option. Each widget instance
+can control one of the 256 MultiSwitch-E8 modules in the model. 
+
+The configuration of each of all the MultiSwitch-E8 modules is done via the standard `elrsv3.lua` script. The modules are listed under `Other devices` in the menu of that `elrsv3.lua` script.
+
+===== Puzzeling parts
+
+The hardware components:
+
+* Radio running `EdgeTx`
+* ELRS-Transmitter module
+* ELRS-Receiver (PWM or serial-only)
+* up to 256 MultiSwitch-ELRS modules (see below)
+* CRSF-half-duplex bus (not strictly needed) (see below)
+
+The software components:
+
+* `elrsv3.lua` script on the radio (if you are already using ELRS, you know it for sure)
+* `MultiSwitch` widget script (see below)
+
+
+
+
+<<crsf-sw>>
+
 
 
 [[CC]]
