@@ -834,17 +834,17 @@ The CRSF protocol is extensible, and this fact is used to propose an extension t
 
 ===== MultiSwitch-E8
 
-image::images/elrs_msw/RCMultiSwitchSmall10_SCH.PNG[]
+image::images/elrs_msw/RCMultiSwitchSmall10_SCH.PNG[width=240, link="images/elrs_msw/RCMultiSwitchSmall10_SCH.PNG["]
 
-image::images/elrs_msw/RCMultiSwitchSmall10_PCB.PNG[]
+image::images/elrs_msw/RCMultiSwitchSmall10_PCB.PNG[width=240, link="images/elrs_msw/RCMultiSwitchSmall10_PCB.PNG"]
 
 ===== MultiSwitch Widget
 
 ===== CRSF-Half-Duplex Bus
 
-image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG[}
+image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG[width=240, link="images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG"]
 
-image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG[}
+image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG[width=240, link="images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG"]
 
 [[CC]]
 === The `CruiseController` 
