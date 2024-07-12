@@ -796,6 +796,11 @@ can control one of the 256 MultiSwitch-E8 modules in the model.
 
 The configuration of each of all the MultiSwitch-E8 modules is done via the standard `elrsv3.lua` script. The modules are listed under `Other devices` in the menu of that `elrsv3.lua` script.
 
+image::images/elrs_msw/elrs_msw01.png[]
+
+image::images/elrs_msw/elrs_msw01.png[]
+
+
 ===== Puzzeling parts
 
 The hardware components:
