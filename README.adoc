@@ -840,11 +840,22 @@ image::images/elrs_msw/RCMultiSwitchSmall10_PCB.PNG[width=240, link="images/elrs
 
 ===== MultiSwitch Widget
 
+tbd: link to code
+
+.The `MultiSwitch` widget
+image::images/elrs_msw/elrs_msw01.png[]
+
+.The `MultiSwitch` widget (fullscreen)
+image::images/elrs_msw/elrs_msw02.png[]
+
 ===== CRSF-Half-Duplex Bus
 
 image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG[width=240, link="images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG"]
 
 image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG[width=240, link="images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG"]
+
+===== Demo (Video)
+
 
 [[CC]]
 === The `CruiseController` 
