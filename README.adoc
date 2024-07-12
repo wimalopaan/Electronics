@@ -754,6 +754,29 @@ rx-as-tx with the internal `3.3V` of the https://github.com/OpenI6X/opentx/wiki/
 
 tbd
 
+[[elrs_msw]]
+=== ELRS-MultiSwitch
+
+I have been working for a long time on generalized _MultiSwitch_-Modules (s.a. https://github.com/wimalopaan/Electronics/blob/main/Old.adoc#msd).
+For those not knowing what a _MultiSwitch_ is lets first explain some things (for the german reader, the follwing maybe sufficient: https://www.beier-electronic.de/modellbau/produkte/nms-16/nms-16.php)
+
+In ancient times handset / transmitters were only capable of transmitting proportional _channel values_ like rudder or speed. These value got encoded as `PPM`-signals. There was no possibility to 
+transport _binary_ information, e.g. like the state of a 2-position switch on the handset. Some clever people therefore invented the so called multi-switch-encoder / decoder. The encoder was placed 
+inside the handset and encoded the state of a set of switches (typically 8) as distinct pulse-length on one of the _proportional_-channels of the transmitter. Since only _one_ channel should be use for 
+this purpose, the switch-states have to be encoded as a time-multiplex, making it neccessary to introduce a 9th (and maybe 10th) impulse as synchronizing event.
+
+This situation has not really changed with the advent of modern, digital 2,4GHz rc-links: these are typically designed to transport 16 (or 24 or 32) 10/11/12-bit integers as _proportional_ values. 
+There is not *direct* way to transport arbitrary binary (state of switches) information (exception: Hott/SJ together with SUMDV3 can transport 64 binary state values). 
+
+My above mentioned old MultiSwitch modules somewhat got around this limitation with the obvious technique: use the 10/11/12-bit integers to transport the binary data. But if you want to do this 
+you have recognize that there is some _scaling_ on the way from the handset to the transmitter-module and inside the receiver. This renders this approach ... well ... say uncomfortable (but working). 
+Other limitations are e.g. that the communacation uni-directional (exception as said above: Hott).
+
+But the really serious limitation was, that all these rc-links (Hott, ACCST, AFHDS2A, ...) where _closed-source_ stuff!
+
+But eventually then I dicovered `ExpressLRS`. And this was a game changer.
+
+
 [[CC]]
 === The `CruiseController` 
 
