@@ -757,7 +757,7 @@ tbd
 [[elrs_msw]]
 === ELRS-MultiSwitch
 
-I have been working for a long time on generalized _MultiSwitch_-Modules (s.a. https://github.com/wimalopaan/Electronics/blob/main/Old.adoc#msd).
+I have been working for a long time on generalized _MultiSwitch_-Modules (s.a. https://github.com/wimalopaan/Electronics/blob/main/Old.adoc#msd[] ).
 For those not knowing what a _MultiSwitch_ is lets first explain some things (for the german reader, the follwing maybe sufficient: https://www.beier-electronic.de/modellbau/produkte/nms-16/nms-16.php)
 
 In ancient times handset / transmitters were only capable of transmitting proportional _channel values_ like rudder or speed. These value got encoded as `PPM`-signals. There was no possibility to 
@@ -775,6 +775,10 @@ Other limitations are e.g. that the communacation uni-directional (exception as 
 But the really serious limitation was, that all these rc-links (Hott, ACCST, AFHDS2A, ...) where _closed-source_ stuff!
 
 But eventually then I dicovered `ExpressLRS`. And this was a game changer.
+
+With ELRS and clearly EdgeTx we have two open-source projects, that work perfectly together and give us a _complete_ rc solution. No need for closed-source components anymore. 
+And as an additional important fact, the communication protocoll between the handset and the ELRS transmitter-module and betwenn the ELRS-receiver and some other device (e.g. flight-controller) 
+is `CRSF`, which is well documented and nowadays the evolution is kind-of governed: https://github.com/crsf-wg/crsf[].
 
 
 [[CC]]
