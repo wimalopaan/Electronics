@@ -859,7 +859,7 @@ image::images/elrs_msw/elrs_msw02.png[]
 .The schematic  (click to enlarge)
 image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG[width=240, link="images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG"]
 
-. The PCB  (click to enlarge)
+.The PCB  (click to enlarge)
 image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG[width=240, link="images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG"]
 
 ===== Demo (Video)
