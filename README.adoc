@@ -840,6 +840,8 @@ image::images/elrs_msw/RCMultiSwitchSmall10_PCB.PNG[width=240, link="images/elrs
 
 Link to the PCB order (Aisler): https://aisler.net/p/GCSJNSFV[PCB order]
 
+Link to link:images/elrs_msw/RCMultiSwitchSmall10.T3001[Target 3001 design file].
+
 ===== MultiSwitch Widget
 
 tbd: link to code
@@ -852,9 +854,9 @@ image::images/elrs_msw/elrs_msw02.png[]
 
 ===== CRSF-Half-Duplex Bus
 
-image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG[width=240, link="images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG"]
+image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG[width=240, ="images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG"]
 
-image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG[width=240, link="images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG"]
+image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG[width=240, ="images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG"]
 
 ===== Demo (Video)
 
@@ -908,7 +910,7 @@ tbd
 === A new kind of stick: haptic-control
 
 .The stick model (click to view in full-scale)
-image:stickng/stick1.png[width=240, link="stickng/stick1.png"]
+image:stickng/stick1.png[width=240, ="stickng/stick1.png"]
 
 tbd
 
@@ -990,10 +992,10 @@ Extensions:
 ** magnetic connector on the bottom of the handset
 
 .TX16S incremental encoder (click to enlarge)
-image::images/tx16s_inc.jpg[width=240, link="images/tx16s_inc.jpg"]
+image::images/tx16s_inc.jpg[width=240, ="images/tx16s_inc.jpg"]
 
 .TX16S SWD magnetic adapter (click to enlarge)
-image::images/tx16s_swd.jpg[width=240, link="images/tx16s_swd.jpg"]
+image::images/tx16s_swd.jpg[width=240, ="images/tx16s_swd.jpg"]
 
 .TX16S desk with space mouse (click to enlarge)
 image::images/tx16s_desk1.jpg[width=240, link="images/tx16s_desk1.jpg"]
