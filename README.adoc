@@ -838,6 +838,8 @@ image::images/elrs_msw/RCMultiSwitchSmall10_SCH.PNG[width=240, link="images/elrs
 
 image::images/elrs_msw/RCMultiSwitchSmall10_PCB.PNG[width=240, link="images/elrs_msw/RCMultiSwitchSmall10_PCB.PNG"]
 
+Link to the PCB order (Aisler): https://aisler.net/p/GCSJNSFV[PCB order]
+
 ===== MultiSwitch Widget
 
 tbd: link to code
