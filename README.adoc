@@ -862,6 +862,10 @@ image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG[width=240, link="images/el
 .The PCB  (click to enlarge)
 image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG[width=240, link="images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG"]
 
+Link to the PCB order (Aisler): https://aisler.net/p/KPBJUCXN[PCB Order]
+
+Link to link:images/elrs_msw/RC_CRSF_HalfDuplex_Bus.T3001[Target 3001 design file].
+
 ===== Demo (Video)
 
 Prototyp: https://www.youtube.com/watch?v=PeuxACw40io[Video]
