@@ -834,8 +834,10 @@ The CRSF protocol is extensible, and this fact is used to propose an extension t
 
 ===== MultiSwitch-E8
 
+.The schematic (click to enlarge)
 image::images/elrs_msw/RCMultiSwitchSmall10_SCH.PNG[width=240, link="images/elrs_msw/RCMultiSwitchSmall10_SCH.PNG"]
 
+.The PCB  (click to enlarge)
 image::images/elrs_msw/RCMultiSwitchSmall10_PCB.PNG[width=240, link="images/elrs_msw/RCMultiSwitchSmall10_PCB.PNG"]
 
 Link to the PCB order (Aisler): https://aisler.net/p/GCSJNSFV[PCB order]
@@ -854,9 +856,11 @@ image::images/elrs_msw/elrs_msw02.png[]
 
 ===== CRSF-Half-Duplex Bus
 
-image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG[width=240, ="images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG"]
+.The schematic  (click to enlarge)
+image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG[width=240, link="images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG"]
 
-image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG[width=240, ="images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG"]
+. The PCB  (click to enlarge)
+image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG[width=240, link="images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG"]
 
 ===== Demo (Video)
 
