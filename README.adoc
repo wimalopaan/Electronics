@@ -856,6 +856,20 @@ image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG[width=240, link="images/el
 
 ===== Demo (Video)
 
+Prototyp: https://www.youtube.com/watch?v=PeuxACw40io[Video]
+
+[[elrs_ma]]
+=== ELRS-MultiAdapter-EA
+
+The `ELRS-MultiAdapter-EA` converts CRSF-serial input into 
+
+* 4 Servo-PWM outputs for arbitrary channels (out of the 16 CRSF channels) or for 4 individual out-of-band channels (4 additional 8-bit channels), or 
+* acts like a <<elrs_msw>> but with 4 push-pull outputs up to 1A@18V (max.) (occupies 1 switch-module address in this mode), or
+* produces up to 4 PWM outputs for analog switch modules (like Graupner 4159) each occupying one of the 256 addresses, or
+* produces 4 motor PWM signals (duty 0 ... 100%) (unidirectionl) up to 1A@18V (max.) for 4 individual out-of-band channels (4 additional 8-bit channels) or 4 normal channels (1 ... 16), or
+* produces 2 motor PWM signals (duty 0 ... 100%) (bidirectionl) up to 1A@18V (max.) for 2 individual out-of-band channels (4 additional 8-bit channels) or 2 normal channels (1 ... 16), or
+
+
 
 [[CC]]
 === The `CruiseController` 
