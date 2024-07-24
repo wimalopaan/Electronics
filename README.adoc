@@ -854,7 +854,12 @@ image::images/elrs_msw/elrs_msw01.png[]
 .The `MultiSwitch` widget (fullscreen)
 image::images/elrs_msw/elrs_msw02.png[]
 
+[[crsf-bus]]
 ===== CRSF-Half-Duplex Bus
+
+Allows to connect up to 4 half-duplex CRSF devices to a full-duplex receiver.
+
+Attention: this requires an external means to _activate_ the attached half-duplex devices (e.g. a button on the devices), because at most only _one_ device can be active on the bus (s.a. <<crsf-switch>>). 
 
 .The schematic  (click to enlarge)
 image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG[width=240, link="images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG"]
@@ -869,6 +874,13 @@ Link to link:images/elrs_msw/RC_CRSF_HalfDuplex_Bus.T3001[Target 3001 design fil
 ===== Demo (Video)
 
 Prototyp: https://www.youtube.com/watch?v=PeuxACw40io[Video]
+
+[[crsf-switch]]
+=== CRSF-Bus-Switch
+
+Allows to connect up to seven half-duplex CRSF devices to a full-duplex receiver.
+
+In contrast to <<crsf-bus>> this `CRSF-Bus-Switch` allows _all_ attached devices to be active at the same time (no external activation required).
 
 [[elrs_ma]]
 === ELRS-MultiAdapter-EA
