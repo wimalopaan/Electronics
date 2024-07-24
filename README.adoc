@@ -876,11 +876,11 @@ Link to link:images/elrs_msw/RC_CRSF_HalfDuplex_Bus.T3001[Target 3001 design fil
 Prototyp: https://www.youtube.com/watch?v=PeuxACw40io[Video]
 
 [[crsf-switch]]
-=== CRSF-Bus-Switch
+=== CRSF-Switch
 
 Allows to connect up to seven half-duplex CRSF devices to a full-duplex receiver.
 
-In contrast to <<crsf-bus>> this `CRSF-Bus-Switch` allows _all_ attached devices to be active at the same time (no external activation required).
+In contrast to <<crsf-bus>> this `CRSF-Switch` allows _all_ attached devices to be active at the same time (no external activation required).
 
 [[elrs_ma]]
 === ELRS-MultiAdapter-EA
