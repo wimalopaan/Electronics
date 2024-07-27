@@ -80,7 +80,7 @@ This is used by a <<elrs-widget, EdgetTx-Widget>> (encoder) alongside with the <
 For all commands new _realms_  are defined:
 
 * `0xa0`: `CruiseController`
-* `0xa1': addressable Module
+* `0xa1`: addressable Module
 --
 
 ==== Binary data (e.g. switch states: on/off)
