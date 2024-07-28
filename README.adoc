@@ -80,7 +80,7 @@ This is used by a <<elrs-widget, EdgetTx-Widget>> (encoder) alongside with the <
 For all commands new _realms_  are defined:
 
 * `0xa0`: `CruiseController`
-* `0xa1': addressable Module
+* `0xa1`: addressable Module
 --
 
 ==== Binary data (e.g. switch states: on/off)
@@ -854,7 +854,12 @@ image::images/elrs_msw/elrs_msw01.png[]
 .The `MultiSwitch` widget (fullscreen)
 image::images/elrs_msw/elrs_msw02.png[]
 
+[[crsf-bus]]
 ===== CRSF-Half-Duplex Bus
+
+Allows to connect up to 4 half-duplex CRSF devices to a full-duplex receiver.
+
+Attention: this requires an external means to _activate_ the attached half-duplex devices (e.g. a button on the devices), because at most only _one_ device can be active on the bus (s.a. <<crsf-switch>>). 
 
 .The schematic  (click to enlarge)
 image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG[width=240, link="images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG"]
@@ -862,9 +867,20 @@ image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG[width=240, link="images/el
 .The PCB  (click to enlarge)
 image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG[width=240, link="images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG"]
 
+Link to the PCB order (Aisler): https://aisler.net/p/KPBJUCXN[PCB Order]
+
+Link to link:images/elrs_msw/RC_CRSF_HalfDuplex_Bus.T3001[Target 3001 design file].
+
 ===== Demo (Video)
 
 Prototyp: https://www.youtube.com/watch?v=PeuxACw40io[Video]
+
+[[crsf-switch]]
+=== CRSF-Switch
+
+Allows to connect up to seven half-duplex CRSF devices to a full-duplex receiver.
+
+In contrast to <<crsf-bus>> this `CRSF-Switch` allows _all_ attached devices to be active at the same time (no external activation required).
 
 [[elrs_ma]]
 === ELRS-MultiAdapter-EA
