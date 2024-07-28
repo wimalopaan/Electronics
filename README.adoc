@@ -844,6 +844,8 @@ Link to the PCB order (Aisler): https://aisler.net/p/GCSJNSFV[PCB order]
 
 Link to link:images/elrs_msw/RCMultiSwitchSmall10.T3001[Target 3001 design file].
 
+Link to link:images/elrs_msw/RCMultiSwitchSmall10.zip[Gerber].
+
 ===== MultiSwitch Widget
 
 tbd: link to code
