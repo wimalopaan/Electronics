@@ -941,7 +941,7 @@ An external switch controller (_master_) sends packages to the handset.
 
 Format: `[0xaa]` `<cntrl-nr>` `<type>` `<payload-length>` `<payload>` `<check-sum>`
 
-* `<cntrl-nr>`: the controller-number (source) (one instance of the LUA-scripts acts upon one specific controller-number
+* `<cntrl-nr>`: the controller-number (source) (one instance of the LUA-scripts acts upon one specific controller-number (must be a unique number on the bus)
 * `<type>`: type of message
 ** `0x00`: binary switches in payload (each byte encodes 8 switches)
 ** `0x01`: 8-bit-values in the payload (each byte encodes an distinct value)
@@ -952,7 +952,12 @@ Format: `[0xaa]` `<cntrl-nr>` `<type>` `<payload-length>` `<payload>` `<check-su
 [[hwext_timing]]
 ===== Multi-Master Timing
 
+The master with the _controller-number_ `0` sends a package every 100ms (maybe down to 20ms) unconditionally 
 
+If there are other masters on the bus with _controller-number_ greater `0` (e.g. `N`) they listen on the bus and wait for a message to see with _controller-number_ `(N-1)`.
+If this master receives such a message, it waits 2 byte-times after the last byte of the just received message and then switches to send-mode and sends its own messages.
+
+The user has to ensure, that the inter-message gaps are long enough so that all masters can send their messages.
 
 [[hwlua]]
 === LUA-script for the Hardware-Extension-Protocol
