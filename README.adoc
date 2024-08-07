@@ -990,6 +990,7 @@ image::images/hwext/hwextlua1.png[width=240, link="images/hwext/hwextlua1.png"]
 .The information screnn of the widget (click to enlarge)  
 image::images/hwext/hwextlua2.png[width=240, link="images/hwext/hwextlua2.png"]
 
+https://www.youtube.com/watch?v=oPbaWQnMffA[Video]
 
 [[extswitch]]
 === The TX16s internal switch controller
