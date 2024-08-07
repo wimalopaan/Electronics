@@ -982,13 +982,15 @@ But
 Sure, there is a limitation of 64 logical-switches and 16 shared-memory variables: but I think there is a good chance to increase these limits a least on the 
 color-LCD radios with a substantial amount of RAM.
 
-
 [[extswitch]]
 === The TX16s internal switch controller
 
-attiny1614
+This is a simple AVR `attiny1614` that reads the stick switches of my TX16s and uses the <<hwext>> to send the data to the handset. The <<hwlua>> decodes the stick-switches into _logical-switches_ in 
+`EdgeTx`. This controller hast the _controller-number_ `0`, so one can connect more controllers using the <<hwext>> connected to the _same_ serial interface of the TX16s.
 
-tbd
+tbd: 
+* code
+* images
 
 [[rcdesk]]
 === The RC-desk (for RadioMaster TX16S, FrSky X12S / X9E)
