@@ -917,12 +917,23 @@ It consists of
 
 More to come ...
 
+[[hwext]]
+=== Hardware-Extension-Protocol
+
+The _hardware-extension-protocol_ is a simple serial protocol to send the state of external switches and potentiometers to the handset. The `RadioMaster TX16S` handset has two 
+serial interfaces one can use to extend the handset, e.g. to provide more switches or pontentiometers.
+
+[[hwlua]]
+=== LUA-script for the Hardware-Extension-Protocol
+
+[[extswitch]]
 === The TX16s internal switch controller
 
 attiny1614
 
 tbd
 
+[[rcdesk]]
 === The RC-desk (for RadioMaster TX16S, FrSky X12S / X9E)
 
 SpaceMouse
