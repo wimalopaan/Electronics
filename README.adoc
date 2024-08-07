@@ -921,7 +921,7 @@ More to come ...
 === Hardware-Extension-Protocol
 
 The _hardware-extension-protocol_ is a simple serial protocol to send the state of external switches and potentiometers to the handset. The `RadioMaster TX16S` handset has two 
-serial interfaces one can use to extend the handset, e.g. to provide more switches or pontentiometers (s.a. <<hwlua>>).
+serial interfaces one can use to extend the handset, e.g. to provide more switches or potentiometers (s.a. <<hwlua>>).
 
 The protocol is designed as a multi-master / slave protocol, which gives the chance to have more than one external controller that sends data to the handset (s.a. <<extswitch>> and <<rcdesk>>).
 
