@@ -935,9 +935,23 @@ The protocol is designed as a multi-master / slave protocol, which gives the cha
 
 ==== Application Layer
 
+An external switch controller (_master_) sends packages to the handset. 
+
 ===== Packet Format
 
+Format: `[0xaa]` `<cntrl-nr>` `<type>` `<payload-length>` `<payload>` `<check-sum>`
+
+* `<cntrl-nr>`: the controller-number (source) (one instance of the LUA-scripts acts upon one specific controller-number
+* `<type>`: type of message
+** `0x00`: binary switches in payload (each byte encodes 8 switches)
+** `0x01`: 8-bit-values in the payload (each byte encodes an distinct value)
+* `<length>`: number of bytes of the `<payload>`
+* `<payload>`: bytes encoding switches or values
+* `<check-sum>`: arithmetic sum of `<payload>` byte, only one byte, may overflow
+
+[[hwext_timing]]
 ===== Multi-Master Timing
+
 
 
 [[hwlua]]
