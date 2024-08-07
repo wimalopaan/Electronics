@@ -982,6 +982,15 @@ But
 Sure, there is a limitation of 64 logical-switches and 16 shared-memory variables: but I think there is a good chance to increase these limits a least on the 
 color-LCD radios with a substantial amount of RAM.
 
+[[hwluaimg1]]
+.Two widgets installed (click to enlarge)  
+image::images/hwext/hwextlua1.png[width=240, link="images/hwext/hwextlua1.png"]
+
+[[hwluaimg2]]
+.The information screnn of the widget (click to enlarge)  
+image::images/hwext/hwextlua2.png[width=240, link="images/hwext/hwextlua2.png"]
+
+
 [[extswitch]]
 === The TX16s internal switch controller
 
