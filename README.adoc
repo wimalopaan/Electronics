@@ -921,10 +921,31 @@ More to come ...
 === Hardware-Extension-Protocol
 
 The _hardware-extension-protocol_ is a simple serial protocol to send the state of external switches and potentiometers to the handset. The `RadioMaster TX16S` handset has two 
-serial interfaces one can use to extend the handset, e.g. to provide more switches or pontentiometers.
+serial interfaces one can use to extend the handset, e.g. to provide more switches or pontentiometers (s.a. <<hwlua>>).
 
 [[hwlua]]
 === LUA-script for the Hardware-Extension-Protocol
+
+There are several ways to read the information send via the <<hwext>> and some of the serial interfaces of a handset. The two most obvious are:
+
+* modify the `EdgeTx`-firmware to read the data via theserial interface, parse the <<hwext>> and modify the state of switches and inputs, or
+* use a `LUA`-script to read the data
+
+To modify the `EdgeTx`-firmware would be the most powerful, because the external hardware read via the <<hwext>> could _act_ like the internal control elements like sticks and switches. 
+But, this would be a huge modification of `edgeTx` for only a small number of users I think. So, there will be little chance to get these modifications _offcially_ approved and get them into
+the main version of the source code of `EdgeTx`.
+
+To use a LUA-script isn't intrusive in any way, one can use the standard LUA-API of `EdgeTx` (some useful function I got into `EdgeTx` soem time ago). 
+Clearly, this approach has limitations: you can't introduce _new_ inputs or _new_ switches.
+
+But
+
+* the `LUA`-script can set/reset some of the 64 _logical-switches_ as a reaction to the flipping of an external switch, and
+* it can set set one of the 16 _shared-memory_ variables, which then can be used inside a _mixer-script_ to produce an output-channel value
+
+Sure, there is a limitation of 64 logical-switches and 16 shared-memory variables: but I think there is a good chance to increase these limits a least on the 
+color-LCD radios with a substantial amount of RAM.
+
 
 [[extswitch]]
 === The TX16s internal switch controller
