@@ -925,6 +925,9 @@ serial interfaces one can use to extend the handset, e.g. to provide more switch
 
 The protocol is designed as a multi-master / slave protocol, which gives the chance to have more than one external controller that sends data to the handset (s.a. <<extswitch>> and <<rcdesk>>).
 
+In the case of the `RadioMaster TX16S`, which has _two_ serial interfaces, the other serial interface remains free to used for other purposes, e.g. 
+to connect a `SBUS`-receiver realizing a trainer connection or connecting other gear (s.a. <<rcdesk>>).
+
 ==== Physical layer
 
 * Baudrate: 115200 Baud
@@ -935,7 +938,8 @@ The protocol is designed as a multi-master / slave protocol, which gives the cha
 
 ==== Application Layer
 
-An external switch controller (_master_) sends packages to the handset. 
+An external switch controller (_master_) sends packages to the handset. It is possible to connect more than one external switch controller to the
+same half-duplex serial-line (the `rx` line of the handset). This requires unique IDs of the switch controllers (s.a. <<hwext_timing>>)
 
 ===== Packet Format
 
@@ -952,12 +956,14 @@ Format: `[0xaa]` `<cntrl-nr>` `<type>` `<payload-length>` `<payload>` `<check-su
 [[hwext_timing]]
 ===== Multi-Master Timing
 
-The master with the _controller-number_ `0` sends a package every 100ms (maybe down to 20ms) unconditionally 
+The master with the _controller-number_ `0` sends a package every 100ms (maybe down to 20ms) unconditionally. The user has to ensure, that excactly _one_ controller
+with number `0` exists on the serial bus.
 
-If there are other masters on the bus with _controller-number_ greater `0` (e.g. `N`) they listen on the bus and wait for a message to see with _controller-number_ `(N-1)`.
+If there are other masters on the bus with _controller-number_ greater `0` (e.g. `N`), they listen on the bus and wait for a message to see with _controller-number_ `(N-1)`.
 If this master receives such a message, it waits 2 byte-times after the last byte of the just received message and then switches to send-mode and sends its own messages.
 
-The user has to ensure, that the inter-message gaps are long enough so that all masters can send their messages.
+The user has to ensure, that the inter-message gaps are long enough so that all masters can send their messages. All controllers must have numbers in ascending order 
+without gaps starting with `0`.
 
 [[hwlua]]
 === LUA-script for the Hardware-Extension-Protocol
@@ -971,13 +977,13 @@ To modify the `EdgeTx`-firmware would be the most powerful, because the external
 But, this would be a huge modification of `edgeTx` for only a small number of users I think. So, there will be little chance to get these modifications _offcially_ approved and get them into
 the main version of the source code of `EdgeTx`.
 
-To use a LUA-script isn't intrusive in any way, one can use the standard LUA-API of `EdgeTx` (some useful function I got into `EdgeTx` soem time ago). 
+To use a LUA-script isn't intrusive in any way, one can use the standard LUA-API of `EdgeTx` (some useful functions for this I got into `EdgeTx` soem time ago). 
 Clearly, this approach has limitations: you can't introduce _new_ inputs or _new_ switches.
 
 But
 
-* the `LUA`-script can set/reset some of the 64 _logical-switches_ as a reaction to the flipping of an external switch, and
-* it can set set one of the 16 _shared-memory_ variables, which then can be used inside a _mixer-script_ to produce an output-channel value
+* the `LUA`-script can set/reset some of the 64 _logical-switches_ as a reaction to flipping of an external switch, and
+* it can set set one of the 16 _shared-memory_ variables, which then can be used inside a _mixer-script_ to produce an output-channel value.
 
 Sure, there is a limitation of 64 logical-switches and 16 shared-memory variables: but I think there is a good chance to increase these limits a least on the 
 color-LCD radios with a substantial amount of RAM.
