@@ -1008,7 +1008,20 @@ This is a simple AVR `attiny1614` that reads the stick switches of my TX16s and 
 .Attiny1614 as external switch controller (click to enlarge)  
 image::images/hwext/hw1.jpg[width=240, link="images/hwext/hw1.jpg"]
 
+[[hwattiny2]]
+.Attiny1614 as external switch controller (click to enlarge)  
+image::images/hwext/hw2.jpg[width=240, link="images/hwext/hw2.jpg"]
+
+[[hwattiny3]]
+.Attiny1614 as external switch controller (click to enlarge)  
+image::images/hwext/hw3.jpg[width=240, link="images/hwext/hw3.jpg"]
+
+[[hwattiny4]]
+.Attiny1614 as external switch controller (click to enlarge)  
+image::images/hwext/hw4.jpg[width=240, link="images/hwext/hw4.jpg"]
+
 tbd: 
+
 * code
 
 [[rcdesk]]
