@@ -1020,9 +1020,11 @@ image::images/hwext/hw3.jpg[width=240, link="images/hwext/hw3.jpg"]
 .Attiny1614 as external switch controller (click to enlarge)  
 image::images/hwext/hw4.jpg[width=240, link="images/hwext/hw4.jpg"]
 
-tbd: 
+==== Code
 
-* code
+Link to the code repo: https://github.com/wimalopaan/wmucpp/tree/master/boards/rcswitch[]
+
+(unfortunately you have to clone to whole repo to include all neccessary files. Maybe this will change in the future)
 
 [[rcdesk]]
 === The RC-desk (for RadioMaster TX16S, FrSky X12S / X9E)
