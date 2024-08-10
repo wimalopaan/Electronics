@@ -1002,11 +1002,14 @@ https://www.youtube.com/watch?v=oPbaWQnMffA[Video]
 === The TX16s internal switch controller
 
 This is a simple AVR `attiny1614` that reads the stick switches of my TX16s and uses the <<hwext>> to send the data to the handset. The <<hwlua>> decodes the stick-switches into _logical-switches_ in 
-`EdgeTx`. This controller hast the _controller-number_ `0`, so one can connect more controllers using the <<hwext>> connected to the _same_ serial interface of the TX16s.
+`EdgeTx`. This controller has the _controller-number_ `0`, so one can connect more controllers using the <<hwext>> connected to the _same_ serial interface of the TX16s.
+
+[[hwattiny1]]
+.Attiny1614 as external switch controller (click to enlarge)  
+image::images/hwext/hw1.jpg[width=240, link="images/hwext/hw1.jpg"]
 
 tbd: 
 * code
-* images
 
 [[rcdesk]]
 === The RC-desk (for RadioMaster TX16S, FrSky X12S / X9E)
