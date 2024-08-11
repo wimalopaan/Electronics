@@ -848,7 +848,7 @@ Link to link:images/elrs_msw/RCMultiSwitchSmall10.zip[Gerber].
 
 ===== MultiSwitch Widget
 
-tbd: link to code
+The code of the widget can be found here: https://github.com/wimalopaan/LUA[]
 
 .The `MultiSwitch` widget
 image::images/elrs_msw/elrs_msw01.png[]
@@ -987,6 +987,8 @@ But
 
 Sure, there is a limitation of 64 logical-switches and 16 shared-memory variables: but I think there is a good chance to increase these limits a least on the 
 color-LCD radios with a substantial amount of RAM.
+
+The code of the widget can be found here: https://github.com/wimalopaan/LUA[]
 
 [[hwluaimg1]]
 .Two widgets installed (click to enlarge)  
