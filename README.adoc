@@ -846,6 +846,16 @@ Link to link:images/elrs_msw/RCMultiSwitchSmall10.T3001[Target 3001 design file]
 
 Link to link:images/elrs_msw/RCMultiSwitchSmall10.zip[Gerber].
 
+Link to https://github.com/wimalopaan/wmucpp/tree/master/boards/rcmultiswitchG030[source code] (unfortunately you have to clone to whole repository)
+
+Instructions to compile to firmware:
+
+[source,console]
+----
+$ cd <repo-root>/boards/rcmultiswitchG030
+$ make all
+----
+
 ===== MultiSwitch Widget
 
 The code of the widget can be found here: https://github.com/wimalopaan/LUA[]
