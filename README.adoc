@@ -182,7 +182,7 @@ image::elrs/rmer6.jpg[width=240]
 
 The <<elrs_func>> can also be achieved using an ELRS-receiver as a transmitter-module. This is a big advantage because it make it possible 
 to equip many handsets with an internal elrs-capability, e.g. the _FrSky X12S_, _X9E_ or _Jumper T12_ or the _FlySky FS-I6X_. 
-See <<elrs_jr>> and <<elrs_x12s>> for details.
+See <<elrs_jr>> and <<elrs_x12s>> and <<elrs_i6x>> for details.
 
 
 === Multiple ELRS-receivers bound to one ELRS-module
@@ -753,7 +753,7 @@ rx-as-tx with the internal `3.3V` of the https://github.com/OpenI6X/opentx/wiki/
 
 If you want to power-off the external module, you can use `PC13` of the µC to control a power-switch for the module. If you are stouthearted desolder the
 volatge-regulator from the ELRS-receiver (tx-module) and try to solder a p-Channel mosfet with _source_ and _drain_ on the same foorprint. Then use _PC13_ 
-to drive the gate (by an additional n-Channel (to invert the polarity)).
+to drive the gate (by an additional n-Channel (to invert the polarity)) or use the `-DEXTPWR_INVERT=YES` compile-time switch.
 
 ==== Images, wiring and schematic
 
