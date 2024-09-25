@@ -736,7 +736,7 @@ image:elrs/x12s/X12S_ELRS_Adapter_PCB.PNG[width=240, link="elrs/x12s/X12S_ELRS_A
 [[elrx_i6x]]
 === ELRS for the FlySky-I6X
 
-All you need ist to identify the `TX2` pad on the mainboard of the `I6X`, 
+All you need is to identify the `TX2` pad on the mainboard of the `I6X`, 
 refer to https://github.com/OpenI6X/opentx/wiki/Modifications#all-optional-hardware-connections[I6X elrs]. This is used as the `S.Port` 
 signal, which would be inverted. But fortunately there is a compile-time option to the firmare (`CRSF_UNINVERTED`) that can be set.
 So the `cmake` line should be read as follows:
@@ -750,6 +750,10 @@ $ cmake -DCRSF_UNINVERTED=YES -DUSB_SERIAL=OFF -DCMAKE_BUILD_TYPE=Release -DSPLA
 
 The next dificulty is to get the regulated `5V` for the rx-as-tx. You can install a _LDO_ but it turns out to be sufficient to power the 
 rx-as-tx with the internal `3.3V` of the https://github.com/OpenI6X/opentx/wiki/Modifications#all-optional-hardware-connections[mainboard].
+
+If you want to power-off the external module, you can use `PC13` of the µC to control a power-switch for the module. If you are stouthearted desolder the
+volatge-regulator from the ELRS-receiver (tx-module) and try to solder a p-Channel mosfet with _source_ and _drain_ on the same foorprint. Then use _PC13_ 
+to drive the gate (by an additional n-Channel (to invert the polarity)).
 
 ==== Images, wiring and schematic
 
