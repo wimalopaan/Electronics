@@ -123,7 +123,7 @@ Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x03]` 
 
 ===== 8 bits
 
-Total of channels switches.
+Total of 64 channels switches.
 
 The total number of bytes is transferred in chunks:
 
