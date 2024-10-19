@@ -1061,7 +1061,7 @@ tbd
 In the old days there was this simple project: https://github.com/wimalopaan/Electronics/blob/main/Old.adoc#diy-rc-hauptschalter[main switch]. 
 Please follow the preceeding link to get the documentation (unfortunately only in german, don't have the time to translated all documents). 
 
-If you want to build this board, the https://github.com/wimalopaan/Electronics/blob/main/rc/boards/onoff_simple.T3001[Target3001] design file may be of interest.
+If you want to build this board, the link:rc/boards/onoff_simple.T3001[Target3001] design file may be of interest.
 
 [[oix6]]
 == Openix6
