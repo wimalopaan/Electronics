@@ -891,6 +891,41 @@ Link to link:images/elrs_msw/RC_CRSF_HalfDuplex_Bus.T3001[Target 3001 design fil
 
 Prototyp: https://www.youtube.com/watch?v=PeuxACw40io[Video]
 
+[[rc720e]]
+=== Double Schottel-Control
+
+This module controls two Schottel dives.
+
+Features:
+
+* Servos
+** PWM-Servos with analog Feedback
+** PWM-Servos with PWM-Feedback
+** serial Servos
+
+* ESCs
+** PWM-ESCs
+** `Subs`,`Sbus2`, `IBus` Escs
+** _special_ : KISS(ESCape32), V/ESC
+
+* BEC joining 
+** up to three BEC sources
+
+* CRSF
+** CRSF input
+** CRSF routing
+
+* GPS
+* Sbus-Out
+** channels 1-16
+** Channels 17-32
+
+==== Schematics
+
+==== PCB
+
+==== Firmware
+
 [[crsf-switch]]
 === CRSF-Switch
 
