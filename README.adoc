@@ -920,11 +920,32 @@ Features:
 ** channels 1-16
 ** Channels 17-32
 
+===== Demo (Video)
+
+https://www.youtube.com/watch?v=Hkk3GpHR4N8[Video1]
+
+https://www.youtube.com/watch?v=VOI6-u9Bq1s[Video2]
+
+https://www.youtube.com/watch?v=yr4b6svxh-k[Video3]
+
 ==== Schematics
+
+.The schematic  (click to enlarge)
+image::images/rc720e32/RC_720_32_E_01_SCH.PNG[width=240, link="images/rc720e32/RC_720_32_E_01_SCH.PNG"]
+
+Link to link:images/rc720e32/RC_720_32_E_01.T3001.T3001[Target 3001 design file].
 
 ==== PCB
 
+.The PCB top  (click to enlarge)
+image::images/rc720e32/RC_720_32_E_01_PCB_oben.PNG[width=240, link="images/rc720e32/RC_720_32_E_01_PCB_oben.PNG"]
+
+.The PCB bottom  (click to enlarge)
+image::images/rc720e32/RC_720_32_E_01_PCB_unten.PNG[width=240, link="images/rc720e32/RC_720_32_E_01_PCB_unten.PNG"]
+
 ==== Firmware
+
+Link to https://github.com/wimalopaan/wmucpp/tree/master/boards/rc720E32[source code] (unfortunately you have to clone to whole repository
 
 [[crsf-switch]]
 === CRSF-Switch
