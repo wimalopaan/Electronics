@@ -945,7 +945,11 @@ image::images/rc720e32/RC_720_32_E_01_PCB_unten.PNG[width=240, link="images/rc72
 
 ==== Firmware
 
-Link to https://github.com/wimalopaan/wmucpp/tree/master/boards/rc720E32[source code] (unfortunately you have to clone to whole repository
+Link to https://github.com/wimalopaan/wmucpp/tree/master/boards/rc720E32[source code] (unfortunately you have to clone to whole repository)
+
+==== Widget
+
+LUA https://github.com/wimalopaan/LUA?tab=readme-ov-file#widget-for-rc720e32-schottel-controller[Widget] for `EdgeTx`.
 
 [[crsf-switch]]
 === CRSF-Switch
