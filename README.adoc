@@ -899,26 +899,27 @@ This module controls two Schottel dives.
 Features:
 
 * Servos
-** PWM-Servos with analog Feedback
-** PWM-Servos with PWM-Feedback
-** serial Servos
+** PWM-Servos with analog Feedback (e.g. Feetech FB360M)
+** PWM-Servos with PWM-Feedback (e.g. Parallax)
+** serial Servos (e.g. WaveShare ST3020)
 
 * ESCs
 ** PWM-ESCs
-** `Subs`,`Sbus2`, `IBus` Escs
+** `Sbus`,`Sbus2`, `IBus` Escs
 ** _special_ : KISS(ESCape32), V/ESC
+** Telemetry as half-duplex (special, SBUS2) or separate: S.Port, IBus
 
 * BEC joining 
 ** up to three BEC sources
 
 * CRSF
 ** CRSF input
-** CRSF routing
+** CRSF routing to one/two CRSF ports
 
 * GPS
 * Sbus-Out
 ** channels 1-16
-** Channels 17-32
+** Channels 17-32 (needs special mixer script: https://github.com/wimalopaan/LUA?tab=readme-ov-file#mixer-script-crsfch-lua[crsfch.lua])
 
 ===== Demo (Video)
 
