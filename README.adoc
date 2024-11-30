@@ -921,6 +921,14 @@ Features:
 ** channels 1-16
 ** Channels 17-32 (needs special mixer script: https://github.com/wimalopaan/LUA?tab=readme-ov-file#mixer-script-crsfch-lua[crsfch.lua])
 
+* IBus / SBus / SumDV3 Input
+** input for steering and power
+** configuration via ELRS
+** PC-Link via ELRSBuddy: https://fourflies.mooo.com/elrsbuddy[] and https://github.com/Fourflies/elrsbuddy[]
+
+* CPPM/N, CPPM/P, PWM-Overlay
+** input for steering and power
+
 ===== Demo (Video)
 
 https://www.youtube.com/watch?v=Hkk3GpHR4N8[Video1]
