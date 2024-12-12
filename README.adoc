@@ -939,18 +939,18 @@ https://www.youtube.com/watch?v=yr4b6svxh-k[Video3]
 
 ==== Schematics
 
-.The schematic  (click to enlarge)
-image::images/rc720e32/RC_720_32_E_01_SCH.PNG[width=240, link="images/rc720e32/RC_720_32_E_01_SCH.PNG"]
+.The schematic  V2 (click to enlarge)
+image::images/rc720e32/RC_720_32_E_02_SCH.PNG[width=240, link="images/rc720e32/RC_720_32_E_02_SCH.PNG"]
 
-Link to link:images/rc720e32/RC_720_32_E_01.T3001.T3001[Target 3001 design file].
+Link to link:images/rc720e32/RC_720_32_E_02.T3001.T3001[Target 3001 design file].
 
 ==== PCB
 
-.The PCB top  (click to enlarge)
-image::images/rc720e32/RC_720_32_E_01_PCB_oben.PNG[width=240, link="images/rc720e32/RC_720_32_E_01_PCB_oben.PNG"]
+.The PCB top V2  (click to enlarge)
+image::images/rc720e32/RC_720_32_E_02_PCB_oben.PNG[width=240, link="images/rc720e32/RC_720_32_E_02_PCB_oben.PNG"]
 
-.The PCB bottom  (click to enlarge)
-image::images/rc720e32/RC_720_32_E_01_PCB_unten.PNG[width=240, link="images/rc720e32/RC_720_32_E_01_PCB_unten.PNG"]
+.The PCB bottom V2 (click to enlarge)
+image::images/rc720e32/RC_720_32_E_02_PCB_unten.PNG[width=240, link="images/rc720e32/RC_720_32_E_02_PCB_unten.PNG"]
 
 ==== Firmware
 
