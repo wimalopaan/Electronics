@@ -736,6 +736,32 @@ image:elrs/x12s/X12S_ELRS_Adapter_PCB.PNG[width=240, link="elrs/x12s/X12S_ELRS_A
 [[elrx_i6x]]
 === ELRS for the FlySky-I6X
 
+==== Since Version `1.13`
+
+Because of problems with the half-duplex solution and `CRSF_UNINVERTED`, this option was removed and the option `CRSF_FULLDUPLEX`
+was introduced. As the name states, with this option it is possible to use a full-duplex, uninverted (normal) serial connection to the RX-as-TX.
+
+All you have to do is to locate the `TX2` and the `PA15` pad on the mainboard of the `I6X`, refer to https://github.com/OpenI6X/opentx/wiki/Modifications#all-optional-hardware-connections[I6X elrs]
+Connect the `rx`-pin of the RX-as-TX with the `TX2` pad on the board and the `tx`-pin of the RX-as-TX with the `PA15` pad on the board.
+Then compile the firmware with the following options:
+
+.cmake for uninverted full-duplex `crsf` on the `TX2` and `PA15` pad of the I6X mainbard.
+[source]
+--
+$ cmake -DCRSF_FULLDUPLEX=YES -DEXTPWR_INVERT=YES -DUSB_SERIAL=OFF -DCMAKE_BUILD_TYPE=Release -DSPLASH=OFF  -DTIMERS=1 -DHELI=OFF -DTRANSLATIONS=DE -DPCB=I6X 
+-DLUA_COMPILER=NO -DLUA=NO -DGVARS=YES  -DMULTIMODULE=OFF -DOVERRIDE_CHANNEL_FUNCTION=OFF -DPCBI6X_ELRS=YES -DPCBI6X_HELLO=YES ..
+--
+
+The option `EXTPWR_INVERT` inverts the logic on the `PC13` pad, that is used as a power-on signal to an external module. Normally the is _logic-high_ 
+to signal power-on. If you want to used a simple P-channel MosFet at power-switch for the RX-as-TX, this mus be logic-low as power-on 
+to the gate of the P-Channel MosFet. Be sure to use a MosFet with a low (<=2V) `Ugs` gate-source-threshold voltage 
+(I use the https://www.digikey.de/de/products/detail/microchip-technology/LP0701N3-G/4902364?s=N4IgjCBcpgTAnBaIDGUBmBDANgZwKYA0IA9lANogAsYAzAOwAMVIAusQA4AuUIAylwBOASwB2AcxABfKcVgUQ2DoyYRWUoA[LP0701N3] in
+a TO-92 package)
+
+==== Before Version `1.13`
+
+(be aware, that for some reason with this modification one get 5-8% packet loss on the connection handset <-> rx-as-tx)
+
 All you need is to identify the `TX2` pad on the mainboard of the `I6X`, 
 refer to https://github.com/OpenI6X/opentx/wiki/Modifications#all-optional-hardware-connections[I6X elrs]. This is used as the `S.Port` 
 signal, which would be inverted. But fortunately there is a compile-time option to the firmare (`CRSF_UNINVERTED`) that can be set.
