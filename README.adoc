@@ -886,6 +886,10 @@ $ cd <repo-root>/boards/rcmultiswitchG030
 $ make all
 ----
 
+===== Housing
+
+here you can find the files to print a nice housing for the PCS: https://github.com/firlefantz/Elrs-Multiswitch-guide[Housing and additional information].
+
 ===== MultiSwitch Widget
 
 The code of the widget can be found here: https://github.com/wimalopaan/LUA[]
