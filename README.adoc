@@ -223,6 +223,24 @@ Clearly, a special CRSF-decoder is needed: it has to decode the normal RC channe
 
 The <<CC>> uses two `SBus`-interface, one for channel 1-16, and one for the channels 17-32.
 
+=== ELRS modifications and pull-requests
+
+[[elrs-route]]
+==== Allow other than `0xc8` as extended addresses 
+
+The stock ELRS only routes `0xc8` (Flight-Controller) as extended address from and to the handset. This is kind of wrong based on the 
+protocol definition of CRSF. 
+https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress[This] or 
+https://github.com/ExpressLRS/ExpressLRS/pull/2975[this]
+allows to use the complete range of `0xc0` to `0xcf` to be routed.
+
+==== ELRS4 new arming method for version 3
+
+ELRS version 4 introduces a new arming method: now you can use a switch-based arming instead of a channel-based arming. 
+
+Before the release of ELRS V4 and with ELRS V3 you can use this new arming method with https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-arm4[this] 
+based on the version 3 maintenance branch.
+
 == Projects
 
 The following chapters describe some of my active projects. The majority of my former projects (see <<Old.adoc#, Old>> (in german)) are
@@ -849,7 +867,15 @@ The hardware components:
 The software components:
 
 * `elrsv3.lua` script on the radio (if you are already using ELRS, you know it for sure)
-* `MultiSwitch` widget script (see below)
+* `MultiSwitch` widget script (see below
+
+Additional:
+
+If you want to use multiple `MultiSwitch-E` with the _telemetry-menu_ permanently on (without pressing the button), there are some prerequisites:
+
+* use the <<elrs-route>> version for ELRS
+* make sure, each `MultiSwitch-E` uses a different CRSF-Bus address (from `0xc0` up to `0xcf`)
+* make sure, each `MultiSwitch-E` uses a different _ping-answer-slot_ (which is ensured, if you use the defaults in the config menu)
 
 ===== Design
 
