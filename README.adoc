@@ -940,7 +940,7 @@ To use this, enable the `AutoConf` option of the widget.
 
 
 [[crsf-bus]]
-===== CRSF-Half-Duplex Bus
+=== CRSF-Half-Duplex Bus
 
 Allows to connect up to 4 half-duplex CRSF devices to a full-duplex receiver.
 
