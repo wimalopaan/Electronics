@@ -877,6 +877,12 @@ If you want to use multiple `MultiSwitch-E` with the _telemetry-menu_ permanentl
 * make sure, each `MultiSwitch-E` uses a different CRSF-Bus address (from `0xc0` up to `0xcf`)
 * make sure, each `MultiSwitch-E` uses a different _ping-answer-slot_ (which is ensured, if you use the defaults in the config menu)
 
+Auto-Configuration:
+
+If you want to use the _Auto-Configuration_ of the `MultiSwitch-E` be sure to use https://github.com/EdgeTX/edgetx/pull/5773[this] PR for EgdeTx.
+This is optional if you only use _one_ MultiSwitch-Widget at a time. But if you plan to use more thant one MultiSwitch-Widget in one model configuration
+then you'll need this. Otherwise the _auto-configuration_ may not work.
+
 ===== Design
 
 Although it would be possible to control the MultiSwitch-E8 via the standard `elrsv3.lua` script, this approch would be very inconvenient. So, I wrote a special 
@@ -925,6 +931,13 @@ image::images/elrs_msw/elrs_msw01.png[]
 
 .The `MultiSwitch` widget (fullscreen)
 image::images/elrs_msw/elrs_msw02.png[]
+
+Normally the widget uses a _config-file_ (name of the file: `<name_of_model>.lua`) to determine the type of buttons, the text of the buttons, which logical switch to use, ...
+This work well, but if you switch the handet, the new handset must ahve the same model name set up and also you must copy (and keep equal) the config file. This might be tedious.
+This overcomde this limitation, the `MultiSwitch-E` module itself can contain the configuration and the widget can request that configuration.
+
+To use this, enable the `AutoConf` option of the widget.
+
 
 [[crsf-bus]]
 ===== CRSF-Half-Duplex Bus
