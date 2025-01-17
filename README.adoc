@@ -1013,6 +1013,8 @@ image::images/rc720e32/RC_720_32_E_02_SCH.PNG[width=240, link="images/rc720e32/R
 
 Link to link:images/rc720e32/RC_720_32_E_02.T3001.T3001[Target 3001 design file].
 
+Link to https://aisler.net/p/GBXFAZAU[Aisler RC720E32 V2].
+
 ==== PCB
 
 .The PCB top V2  (click to enlarge)
