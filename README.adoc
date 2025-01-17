@@ -985,7 +985,9 @@ Features:
 ** CRSF input
 ** CRSF routing to one/two CRSF ports
 
-* GPS
+* GPS + inertial sensor
+** (planned)
+
 * Sbus-Out
 ** channels 1-16
 ** Channels 17-32 (needs special mixer script: https://github.com/wimalopaan/LUA?tab=readme-ov-file#mixer-script-crsfch-lua[crsfch.lua])
@@ -997,6 +999,10 @@ Features:
 
 * CPPM/N, CPPM/P, PWM-Overlay
 ** input for steering and power
+
+* MultiSwitch
+** multi-switch capable as <<elrs_msw>>
+** output of analog time-multiplex switch signal (like old Graupner 2-16K NAUTIC-Expert Schaltbaustein)
 
 ===== Demo (Video)
 
