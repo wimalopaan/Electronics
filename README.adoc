@@ -61,20 +61,20 @@ The most appealing features of ELRS with respect to short-range radio-control of
 * extensibility due the flexibility of the CRSF protocol, mainly on the model side (after the receiver)
 * low-latency / high packet-rate for new kinds of features (e.g. haptic-control)
 
-In the following sections are proposals for some extensions to the CRSF protocol. These extensions are already in use with my <<CC>> and some 
+In the following sections are proposals for some s to the CRSF protocol. These s are already in use with my <<CC>> and some 
 multi-switch-modules or lighting-modules
 
 [[crsf_sw]]
-=== Proposal for CRSF protocol extensions
+=== Proposal for CRSF protocol s
 
-Following is a proposal for an extension to the the `CRSF` protocol. This can be used with every handset, transmitter-module and receiver 
+Following is a proposal for an  to the the `CRSF` protocol. This can be used with every handset, transmitter-module and receiver 
 due to the extensability of the protocol. 
 
 Refer to https://github.com/crsf-wg/crsf/wiki[crsf].
 
 This is used by a <<elrs-widget, EdgetTx-Widget>> (encoder) alongside with the <<CC>> (decoder).
 
-.CRSF-protocol extension
+.CRSF-protocol 
 [TIP]
 --
 For all commands new _realms_  are defined:
@@ -258,7 +258,7 @@ The reason for giving a substantial amount of time to develop a new firmware for
 _hoarding_ vintage electronic RC stuff. Unfortunately some of this gear wasn't working anymore. In the process of 
 reworking these things I needed a good receiver and I decided to get a scan-receiver without external crystals. But it turns out
 that the mostly helpful signal filtering of the `Corona` receiver makes the situation worse if one tries to use these multi-channels
-extensions in the transmitters. These encoders produce a time-multiplex over one RC channel, and the correspondant decoder
+s in the transmitters. These encoders produce a time-multiplex over one RC channel, and the correspondant decoder
 isn't capable decoding the time multiplex if the receiver modifies / filters the impulse durations. So, the project started ;-) 
 
 There is an extra repositoty https://github.com/wimalopaan/CoronaRP8D1[] for this project.
@@ -311,7 +311,7 @@ The mainboard
 * has a bluetooth (BLE) module
 * has an ELRS module (to be used as receiver or transmitter)
 * can switch channels via BLE or ELRS
-* has a free uart for further extensions
+* has a free uart for further s
 
 ===== Previous versions of the new mainboard
 
@@ -892,7 +892,7 @@ option where you can set the address of the correponding module.
 For each address you can also set a descriptive _name_ of the module unique for each model on the radio, as well as the names of the _function_ to switch on or off and 
 which physical switches should be used (if any). This is done via a model-specific configuration file on the sd-card of the radio.
 
-The CRSF protocol is extensible, and this fact is used to propose an extension to control such modules: <<crsf-sw>>.
+The CRSF protocol is extensible, and this fact is used to propose an  to control such modules: <<crsf-sw>>.
 
 ===== MultiSwitch-E8
 
@@ -1109,6 +1109,7 @@ Format: `[0xaa]` `<cntrl-nr>` `<type>` `<payload-length>` `<payload>` `<check-su
 * `<type>`: type of message
 ** `0x00`: binary switches in payload (each byte encodes 8 switches)
 ** `0x01`: 8-bit-values in the payload (each byte encodes an distinct value)
+** `0x02`: 16-bit-values in the payload (every two bytes encodes an distinct value), LSB-first
 * `<length>`: number of bytes of the `<payload>`
 * `<payload>`: bytes encoding switches or values
 * `<check-sum>`: arithmetic sum of `<payload>` byte, only one byte, may overflow
