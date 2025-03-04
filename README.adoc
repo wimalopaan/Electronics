@@ -1110,6 +1110,7 @@ Format: `[0xaa]` `<cntrl-nr>` `<type>` `<payload-length>` `<payload>` `<check-su
 ** `0x00`: binary switches in payload (each byte encodes 8 switches)
 ** `0x01`: 8-bit-values in the payload (each byte encodes an distinct value)
 ** `0x02`: 16-bit-values in the payload (every two bytes encodes an distinct value), LSB-first
+** `0x03`: 64 binary switches (8 bytes) | 16 values (2 bytes each, 32 bytes total) (40 bytes payload total)
 * `<length>`: number of bytes of the `<payload>`
 * `<payload>`: bytes encoding switches or values
 * `<check-sum>`: arithmetic sum of `<payload>` byte, only one byte, may overflow
