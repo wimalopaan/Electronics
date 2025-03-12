@@ -61,16 +61,17 @@ after some minutes initializing this workspace you'll see a `vscode`-like user i
 gitpod /workspace/edgetx/build (wmvcontrols) $ 
 ----
 
-In this prompt you simply the the following command line:
+In this prompt you simply the the following command line `cmake -DVCONTROLS=YES -DUSE_UNSUPPORTED_TOOLCHAIN=YES -DTRANSLATIONS=DE -DPCB=X10 -DPCBREV=TX16S -DLUA=YES -DLUA_MIXER=YES -DGVARS=YES .. ` :
 
 [source,console]
 ----
 gitpod /workspace/edgetx/build (wmvcontrols) $ cmake -DVCONTROLS=YES -DUSE_UNSUPPORTED_TOOLCHAIN=YES -DTRANSLATIONS=DE -DPCB=X10 -DPCBREV=TX16S -DLUA=YES -DLUA_MIXER=YES -DGVARS=YES ..
 ----
 
-This line highly depends on how you would like to compile the firmware and it should be described in the text of the PR. *If not, please ask ;-) * 
+This line highly depends on how you would like to compile the firmware and it should be described in the text of the PR. 
+*If not, please ask* ;-)  
 
-Running this command should be reasonable fast and now you are ready to start the real compilation process. Just type:
+Running this command should be reasonable fast and now you are ready to start the real compilation process. Just type `make firmware` :
 
 [source,console]
 ----
