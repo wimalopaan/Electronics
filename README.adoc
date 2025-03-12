@@ -61,7 +61,8 @@ after some minutes initializing this workspace you'll see a `vscode`-like user i
 gitpod /workspace/edgetx/build (wmvcontrols) $ 
 ----
 
-In this prompt you simply the the following command line `cmake -DVCONTROLS=YES -DUSE_UNSUPPORTED_TOOLCHAIN=YES -DTRANSLATIONS=DE -DPCB=X10 -DPCBREV=TX16S -DLUA=YES -DLUA_MIXER=YES -DGVARS=YES .. ` :
+In this prompt you simply the the following command line 
+`cmake -DVCONTROLS=YES -DUSE_UNSUPPORTED_TOOLCHAIN=YES -DTRANSLATIONS=DE -DPCB=X10 -DPCBREV=TX16S -DLUA=YES -DLUA_MIXER=YES -DGVARS=YES .. ` :
 
 [source,console]
 ----
