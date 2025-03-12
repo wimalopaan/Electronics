@@ -30,6 +30,59 @@ image::images/zfcf.jpg[width=50%]
 Die alte Seite ist noch (und bleibt auch) als <<Old.adoc#, Old.adoc>> verfügbar.
 --
 
+[[edgetx]]
+== EdgeTx
+
+https://github.com/EdgeTX/edgetx[EdgeTx] is my favorite radio firmware - together with <<elrs>> as the RC-link. Both are open-source software and therefore 
+offers full freedom realizing my (your) ideas and preventing a vendor-lock-in.
+
+[[edgetx_custom]]
+=== Custom EdgeTx builds
+
+Being familiar with a _Linux_ system is very handy when dealing with custom builds of _EdgeTx_. Occaisionally I develop some extensions to the main-line _EdgeTx_ 
+code. These extension are published as so called _pull-requests_ (PR) to the _EdgeTx_ github repository. Interested users can pull these PR and compile the 
+code themselves and then flash them onto the radio. The flashing procedure is the same as it is for the official firmware releases (or RC versions or nightlies). 
+But compiling the firmware from the source code may place some burden for the unexperienced users: preparing a developement system with all the neccessary tools 
+and using the right versions of them may be not the easiest task, especially working on a non-Linux system.
+
+But there is a _very_ convenient way to do: using https://gitpod.io[GitPod].
+
+Maybe you want to use my `virtual controls` extension for _EdgeTx_. This extension is published as https://github.com/EdgeTX/edgetx/pull/5885[pull request 5885].
+
+You can concatenate the URI `https://gitpod.io` with a `#` character and then the URI of the PR itself, e.g. `https://github.com/EdgeTX/edgetx/pull/5885`. 
+
+Type or paste the combined URI into your browsers address field: https://gitpod.io/#https://github.com/EdgeTX/edgetx/pull/5885[]. 
+
+Opening this URI gets you to the gitpod workspace. There you simply click on `Contunue` (leaving all settings to their defaults) and 
+after some minutes initializing this workspace you'll see a `vscode`-like user interface. In the lower third you'll a command-prompt. 
+
+[source,console]
+----
+gitpod /workspace/edgetx/build (wmvcontrols) $ 
+----
+
+In this prompt you simply the the following command line:
+
+[source,console]
+----
+gitpod /workspace/edgetx/build (wmvcontrols) $ cmake -DVCONTROLS=YES -DUSE_UNSUPPORTED_TOOLCHAIN=YES -DTRANSLATIONS=DE -DPCB=X10 -DPCBREV=TX16S -DLUA=YES -DLUA_MIXER=YES -DGVARS=YES ..
+----
+
+This line highly depends on how you would like to compile the firmware and it should be described in the text of the PR. *If not, please ask ;-) * 
+
+Running this command should be reasonable fast and now you are ready to start the real compilation process. Just type:
+
+[source,console]
+----
+gitpod /workspace/edgetx/build (wmvcontrols) $ make firmware
+----
+
+After some minutes you'll find the file `firmware.bin` in the folder `build/arm_none_eabi` on the left side of the workspace. Now right click onto this file and download the firmware. Save it 
+on your local machine, connect the radio and flash / copy it.
+
+Ready ;-)
+
+
 [[elrs]]
 == ExpressLRS
 
