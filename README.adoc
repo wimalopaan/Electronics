@@ -1180,6 +1180,15 @@ without gaps starting with `0`.
 [[hwlua]]
 === LUA-script for the Hardware-Extension-Protocol
 
+==== New version of the LUA-script for the Hardware-Extension-Protocol
+
+To use the new (`lvgl`) version you also have to use thsi PR https://github.com/EdgeTX/edgetx/pull/5885[].
+Please also see <<edgetx_custom>> how to build and install it.
+
+The new version can be found here: https://github.com/wimalopaan/LUA[]
+
+==== Old version
+
 There are several ways to read the information send via the <<hwext>> and some of the serial interfaces of a handset. The two most obvious are:
 
 * modify the `EdgeTx`-firmware to read the data via theserial interface, parse the <<hwext>> and modify the state of switches and inputs, or
