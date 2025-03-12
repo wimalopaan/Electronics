@@ -46,6 +46,7 @@ But compiling the firmware from the source code may place some burden for the un
 and using the right versions of them may be not the easiest task, especially working on a non-Linux system.
 
 But there is a _very_ convenient way to do: using https://gitpod.io[GitPod].
+(There is also a howto in the EdgeTx wiki: https://github.com/EdgeTX/edgetx/wiki/Building-radio-firmware-in-a-webbrowser-with-Gitpod[] ).
 
 Maybe you want to use my `virtual controls` extension for _EdgeTx_. This extension is published as https://github.com/EdgeTX/edgetx/pull/5885[pull request 5885].
 
@@ -61,18 +62,24 @@ after some minutes initializing this workspace you'll see a `vscode`-like user i
 gitpod /workspace/edgetx/build (wmvcontrols) $ 
 ----
 
-In this prompt you simply the the following command line 
-`cmake -DVCONTROLS=YES -DUSE_UNSUPPORTED_TOOLCHAIN=YES -DTRANSLATIONS=DE -DPCB=X10 -DPCBREV=TX16S -DLUA=YES -DLUA_MIXER=YES -DGVARS=YES .. ` :
+In this prompt you simply the the following command line (you may want to change the translation to another language)
+
+----
+cmake -DVCONTROLS=YES -DTRANSLATIONS=DE -DPCB=X10 -DPCBREV=TX16S -DLUA=YES -DLUA_MIXER=YES -DGVARS=YES ..
+----
 
 [source,console]
 ----
-gitpod /workspace/edgetx/build (wmvcontrols) $ cmake -DVCONTROLS=YES -DUSE_UNSUPPORTED_TOOLCHAIN=YES -DTRANSLATIONS=DE -DPCB=X10 -DPCBREV=TX16S -DLUA=YES -DLUA_MIXER=YES -DGVARS=YES ..
+gitpod /workspace/edgetx/build (wmvcontrols) $ cmake -DVCONTROLS=YES -DTRANSLATIONS=DE -DPCB=X10 -DPCBREV=TX16S -DLUA=YES -DLUA_MIXER=YES -DGVARS=YES ..
 ----
 
 This line highly depends on how you would like to compile the firmware and it should be described in the text of the PR. 
+
 *If not, please ask* ;-)  
 
-Running this command should be reasonable fast and now you are ready to start the real compilation process. Just type `make firmware` :
+Running this command should be reasonable fast and now you are ready to start the real compilation process. 
+
+Just type `make firmware` :
 
 [source,console]
 ----
