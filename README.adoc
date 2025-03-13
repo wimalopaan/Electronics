@@ -373,6 +373,8 @@ isn't capable decoding the time multiplex if the receiver modifies / filters the
 
 There is an extra repositoty https://github.com/wimalopaan/CoronaRP8D1[] for this project.
 
+For ease of compilation I've added a gitpod: gitpod.io/#https://github.com/wimalopaan/CoronaRP8D1[]
+
 [[varioprop]]
 === Renewed mainboard for some (old) 27/35/40MHz RC transmitters
 
