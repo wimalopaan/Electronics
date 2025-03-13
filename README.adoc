@@ -36,6 +36,42 @@ Die alte Seite ist noch (und bleibt auch) als <<Old.adoc#, Old.adoc>> verfügbar
 https://github.com/EdgeTX/edgetx[EdgeTx] is my favorite radio firmware - together with <<elrs>> as the RC-link. Both are open-source software and therefore 
 offers full freedom realizing my (your) ideas and preventing a vendor-lock-in.
 
+[[vcontrols]]
+=== Virtual Controls for EdgeTx
+
+In the good old days there were radios like the FrSky X9E that provide a large amount of potentiometers and switches. 
+This type of radio was/is very popular for controlling crawler/ships- or other functional-models. 
+The number of these physical items is still limited and due to their physical nature, the labels for all these elements are also handwritten on paper.
+With the advent of the `lvgl` LUA support it is possible to create virtual controls that perfectly fit into the UI look-and-feel of EdgeTx 
+and also are not very compute-intensive. This opens the way to use widgets to provide arbitrary virtual controls and switches with customisable labes 
+and colors. It also opens the way to use widgets to read from serials like AUX1/AUX2 and get controls data from some external devices 
+(e.g. a µC with some physical potiometers, switches, incrementals, ... connected) (s.a. <<hwext>>)
+
+I wrote a https://github.com/EdgeTX/edgetx/pull/5885[PR5885] for EdgetX that adds _virtual inputs_ (Vin1 ... Vin16) 
+and _virtual switches_ (VS1 ... VS64) and neccessary LUA support functions 
+
+*  `setVirtualInput()`
+*  `getVirtualInput()`
+*  `activateVirtualInput()`
+*  `setVirtualSwitch()`
+*  `getVirtualSwitch()`
+*  `activateVirtualSwitch()`
+
+A LUA widget `lvglControls` (see: https://github.com/wimalopaan/LUA/tree/main/WIDGETS/lvglControls ) is provided 
+for demonstration a simple use case: extending the number of physical inputs and physical switches of the radio via a widget 
+that provides some _virtual_ touch controls for these virtual inputs and virtual switches.
+
+For compiling this PR you may also be interested in <<edgetx_custom>>.
+
+Another purpose is to extend the amount of physical knobs, etc. of the radio by connecting some external device via serial (AUX1, AUX2) 
+to the radio, and installing a custom widget, that reads from the serial and uses the above functions to set the virtual inputs and virtual switches.
+A <<hwext,proposal>> for such a serial protocol can be found later on this page.
+
+Alternative:
+There is a cumbersome alternative way to achieve a similar but very limited result: 
+a widget could use the function `shmSet()` to transport up to 16 values, to a _mixer_ script which could pick them up via `shmGet()` 
+and simple return them (only up to 6). These output values of the mixer script could then be used as mixer-inputs. There is no such a way for switches. 
+
 [[edgetx_custom]]
 === Custom EdgeTx builds
 
