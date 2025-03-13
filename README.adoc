@@ -300,6 +300,66 @@ the AVRs.
 
 Well, there is one exception: the <<corona>>.
 
+[[gitpod_wm]]
+=== Compiling the source code for the following projects
+
+The source code for all projects described in the following sections (if any) is located in this github repositoty: https://github.com/wimalopaan/wmucpp[]. 
+I you want to self-compile the source into a piece of firmware that you can flash onto the µC, you have to clone the repository. 
+To be able to compile the source code you have to have a developement environment with all the compilers and libraries as well as all 
+other needed tools. As I usually only use _Linux_ systems to do my day to day work, the developemnt also takes place on _Linux_ systems. 
+To be clear: I don't care of other plattforms like Windows or MacOs. And therefore the build process is tested only on _Linux_ systems that are 
+setup like my personal developement systems. This would require that interested users should use an https://archlinux.org[Arch Linux] system
+with alle the 3rd-party stuff in the right place. Clearly, this is a real burden for the average user und will limit the amount of
+people being able to use all the stuff.
+
+The much more convinet solution to all this is https://gitpod.io[] (see also <<edgetx_custom>>).
+
+So, just use the following URI to get a fully setup developement environment: https://gitpod.io/#https://github.com/wimalopaan/wmucpp[].
+
+After some (ten) minutes of initializing you'll get a `vscode` like workspace. In the lower thrid of this workspace you'll see 
+a command line interface.
+
+.Example terminal and changing directory to the RC-Multiswitch-E
+[source, console]
+----
+[gitpod@wimalopaan-wmucpp-qwazx8g1drv wmucpp]$ 
+[gitpod@wimalopaan-wmucpp-qwazx8g1drv wmucpp]$ cd boards/
+[gitpod@wimalopaan-wmucpp-qwazx8g1drv boards]$ cd rcmultiswitchG030/
+[gitpod@wimalopaan-wmucpp-qwazx8g1drv rcmultiswitchG030]$ ls
+Makefile   devices.h    link_g030.ld  msw02.cc  msw04.cc  msw06.cc  msw08.cc  msw10.cc  msw12.cc  msw99.cc        system_g0.cc
+adapter.h  devices_2.h  msw01.cc      msw03.cc  msw05.cc  msw07.cc  msw09.cc  msw11.cc  msw20.cc  startup_g030.s  todo.txt
+[gitpod@wimalopaan-wmucpp-qwazx8g1drv rcmultiswitchG030]$ 
+----
+
+The source code for a specific project is located in `boards/<name>`, where `<name>` is the appropriate _name_ for that project. You find
+this info / name in the follwing chapters for each project.
+
+After navigating to the specific directory you just need to type: `make all`
+
+.Compiling the source code for the RC-Multiswitch-E
+[source, console]
+----
+[gitpod@wimalopaan-wmucpp-qwazx8g1drv rcmultiswitchG030]$ make all
+----
+
+After a couple of seconds the _prompt_ returns and you can list the newly created contents via the command: `ls` or `ls -l`.
+
+.Listing the contents of the directory for the RC-Multiswitch-E
+[source, console]
+----
+[gitpod@wimalopaan-wmucpp-qwazx8g1drv rcmultiswitchG030]$ ls
+Makefile   devices_2.h   msw01.d   msw03.cc  msw04.d   msw06.cc  msw07.d   msw09.cc  msw10.d   msw12.cc   msw20.cc   msw99.cc        startup_g030.s  system_g0.o
+adapter.h  link_g030.ld  msw02.cc  msw03.d   msw05.cc  msw06.d   msw08.cc  msw09.d   msw11.cc  msw12.d    msw20.d    msw99.d         system_g0.cc    todo.txt
+devices.h  msw01.cc      msw02.d   msw04.cc  msw05.d   msw07.cc  msw08.d   msw10.cc  msw11.d   msw20.bin  msw20.elf  startup_g030.o  system_g0.d
+[gitpod@wimalopaan-wmucpp-qwazx8g1drv rcmultiswitchG030]$ 
+----
+
+In this specific case you find the new created file `msw20.bin` which is exactly the firmware file you want to flash onto the µC. 
+You can download the file using the menu-bar on the left: navigating to the very same directory and right-clicking on this file gives you 
+the chance to download that file.
+
+Enjoy ;-) 
+
 [[corona]]
 === Corona RP8D1 replacement firmware
 
