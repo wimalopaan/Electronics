@@ -68,6 +68,12 @@ In this prompt you simply the the following command line (you may want to change
 cmake -DVCONTROLS=YES -DTRANSLATIONS=DE -DPCB=X10 -DPCBREV=TX16S -DLUA=YES -DLUA_MIXER=YES -DGVARS=YES ..
 ----
 
+For a more vanilla configuration use the following `cmake` line:
+
+----
+cmake -DCMAKE_BUILD_TYPE=Release -DHELI=OFF -DTRANSLATIONS=DE -DPCB=I6X  ..
+----
+
 [source,console]
 ----
 gitpod /workspace/edgetx/build (wmvcontrols) $ cmake -DVCONTROLS=YES -DTRANSLATIONS=DE -DPCB=X10 -DPCBREV=TX16S -DLUA=YES -DLUA_MIXER=YES -DGVARS=YES ..
