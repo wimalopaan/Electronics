@@ -1342,15 +1342,30 @@ small radios of the type _FlySky_ *FS-i6x*.
 
 === Compiling
 
-If you want to use the modification where all switches are 3-position switches,
-use the https://github.com/OpenI6X/opentx/pull/403[PR403] of the project 
-and set the compile-time option `ALL3POS`:
+The following setup configures the firmware to include the following notable options:
+
+[horizontal]
+CRSF_FULLDUPLEX:: enables full-duplex communication with an ELRS module
+CRSF_EXTENDED_TYPES:: enables decoding `float` and `string` CRSF types
+EXTPWR_INVERT:: invert the level of the external power pin to use a p-channel Mosfet
+TRANSLATIONS:: select german translation
+PCBI6X_ELRS:: enable the internal ELRS _script_
 
 [source]
 --
-$ cmake -DALL3POS=YES -DUSB_SERIAL=OFF -DCMAKE_BUILD_TYPE=Release -DSPLASH=OFF  -DTIMERS=1 -DHELI=OFF -DTRANSLATIONS=DE -DPCB=I6X 
--DLUA_COMPILER=NO -DLUA=NO -DGVARS=YES  -DMULTIMODULE=OFF -DOVERRIDE_CHANNEL_FUNCTION=OFF -DPCBI6X_ELRS=YES -DPCBI6X_HELLO=YES ..
+$ cmake -DCROSSFIRE=YES -DCRSF_FULLDUPLEX=YES -DCRSF_EXTENDED_TYPES=YES -DUSB_MSD=OFF -DEXTPWR_INVERT=YES -DSBUS_TRAINER=OFF -DUSB_SERIAL=OFF -DCMAKE_BUILD_TYPE=Release -DSPLASH=OFF  -DTIMERS=1 -DHELI=OFF -DTRANSLATIONS=DE -DPCB=I6X -DLUA_COMPILER=NO -DLUA=NO -DGVARS=YES  -DMULTIMODULE=OFF -DOVERRIDE_CHANNEL_FUNCTION=OFF -DPCBI6X_ELRS=YES -DPCBI6X_HELLO=YES ..
 --
+
+If you like to use `gitpod.io` to compile the firmware (s.a. <<edgetx_custom>> and <<gitpod_wm>>) 
+use the following URI in your browser (prepend the URL https://github.com/wimalopaan/opentx[] with `https://gitpod.io/#`) 
+https://gitpod.io/#https://github.com/wimalopaan/opentx[].
+
+After a few minutes you see a `vscode` like UI with a terminal in the lower third of the workspace.
+Copy the above `cmake` line to the terminal and hit `enter`.
+
+Then type in the command: `make firmware`
+
+After finishing you can download the file `firmware.bin` and do the normal flashing to your radio.
 
 === Flashing
 
