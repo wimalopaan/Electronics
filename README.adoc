@@ -1356,9 +1356,29 @@ Link to the code repo: https://github.com/wimalopaan/wmucpp/tree/master/boards/r
 [[rcdesk]]
 === The RC-desk (for RadioMaster TX16S, FrSky X12S / X9E)
 
-SpaceMouse
+This project is a hardware extension for all radios with an exposed serial interface (s.a. <<hwext>>).
 
-tbd
+It controls and sends the following data to the radio:
+
+* two 4D-Sticks (each has 3 pots and one momentary button): 6 analogs, 2 buttons
+* upto 64 buttons / switches (via I2C)
+* 2 space-mouse
+* 2 incremental with button each
+* connection to upto two serials to the radio (e.g. AUX1 / 2 of the RadioMaster TX16S)
+* bluetooth (virtual controls on smart phone)
+* SBus/IBus/SumDV3 input
+* ELRS receiver (configuarion and / or slave radio)
+* two LEDs
+
+.The RC-desk32 PCB
+image::desk/RC_DESK32_01_PCB.png[width=240, link="desk/RC_DESK32_01_PCB.png"]
+
+.The RC-desk32 Schematic
+image::desk/RC_DESK32_01_SCH.png[width=240, link="desk/RC_DESK32_01_SCH.png"]
+
+If you use _Target 3001_ as your EDA: link:desk/RC_DESK32_01.T3001[Target 3001 design file].
+
+Link to the code repo: https://github.com/wimalopaan/wmucpp/tree/master/boards/rcDesk32[]
 
 === A new kind of stick: haptic-control
 
