@@ -1371,12 +1371,12 @@ It controls and sends the following data to the radio:
 * two LEDs
 
 .The RC-desk32 PCB
-image::desk/RC_DESK32_01_PCB.png[width=240, link="desk/RC_DESK32_01_PCB.png"]
+image::desk/RC_Desk32_01_PCB.png[width=240, link="desk/RC_Desk32_01_PCB.png"]
 
 .The RC-desk32 Schematic
-image::desk/RC_DESK32_01_SCH.png[width=240, link="desk/RC_DESK32_01_SCH.png"]
+image::desk/RC_Desk32_01_SCH.png[width=240, link="desk/RC_Desk32_01_SCH.png"]
 
-If you use _Target 3001_ as your EDA: link:desk/RC_DESK32_01.T3001[Target 3001 design file].
+If you use _Target 3001_ as your EDA: link:desk/RC_Desk32_01.T3001[Target 3001 design file].
 
 Link to the code repo: https://github.com/wimalopaan/wmucpp/tree/master/boards/rcDesk32[]
 
