@@ -1353,6 +1353,10 @@ Link to the code repo: https://github.com/wimalopaan/wmucpp/tree/master/boards/r
 
 (unfortunately you have to clone to whole repo to include all neccessary files. Maybe this will change in the future)
 
+==== Stick-End Switches
+
+The following stick end switches are used for my RadioMaster TX16s: https://rctechnik.de/products/stick-switch-Radiomaster[stick end switches]
+
 [[rcdesk]]
 === The RC-desk (for RadioMaster TX16S, FrSky X12S / X9E)
 
