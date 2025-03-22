@@ -1048,6 +1048,7 @@ which physical switches should be used (if any). This is done via a model-specif
 
 The CRSF protocol is extensible, and this fact is used to propose an  to control such modules: <<crsf-sw>>.
 
+[[mswe8]]
 ===== MultiSwitch-E8
 
 .The schematic (click to enlarge)
@@ -1075,6 +1076,45 @@ $ make all
 ===== Housing
 
 here you can find the files to print a nice housing for the PCS: https://github.com/firlefantz/Elrs-Multiswitch-guide[Housing and additional information].
+
+===== Super simple MultiSwitch (ELRS/CRSF, FlySky/SBus, FrSky/SBus)
+
+There was demand for a much simpler hardware compared to the <<mswe8>>: it should comprise only THT parts, so one could solder it onto a simple
+stripe THT-PCB. And it should use simpler µC, since the STM32/ARM looks too complicated to some hobbyists.
+
+So I decided to strip done the code and to port it to the AVR-DA/DB and the AVRtiny1 series. The only µC available as DIP package is the 
+AVR32DA28 (or other AVRxxDA28). Out of the AVRtiny1 series the ATtiny1614 looks promising, albeit it is available only in SOIC-14. But for this 
+package there exist ready to use adapter boards with THT pin header.
+
+Clearly there are some limitations:
+* one simple tunr on/off of the outputs
+* no ELRS telemetry, so menu via the `ELRSv3.lua` or TBS Agent
+* no PWM output
+* no blinking patterns
+* all other stuff via the `ELRSv3.lua` is not possible
+
+The code can be found here: https://github.com/wimalopaan/wmucpp/boards/rcmultiswitch[]. There you should find `mswitch01.cc`
+
+You can compile the firmware using this _gitpod_: https://gitpod.io/#https://github.com/wimalopaan/wmucpp[]. 
+
+Please do the following:
+* Navigate to the directory: `boards/rcmultiswitch`
+* Edit the top lines in the file `mswitch01.cc`
+** select input (CRSF or SBUS)
+** select the multiswitch address 0...7
+** select if SBus is _normal_ or _inverted_
+** select the rc-link (ELRS/AFHDS2A/ACCST)
+* Edit the `Makefile.da`: just de/comment the lines to choose the right µC
+* use the command: `make -f Makefile.da all`
+* download `mswitch01.hex`
+* connect the µC to the UPDI programmer (USBserial with a diode)
+* flash, e.g.: `pymcuprog write --erase -d avr128da32 -t uart -u /dev/ttyUSB0 -f mswitch01.hex`
+
+.Two multiswitches on the breadboad and the widget 
+image::images/elrs_msw/ss01.png[width=240, link="images/elrs_msw/ss01.png"]
+
+.Two multiswitches on the breadboad
+image::images/elrs_msw/ss02.png[width=240, link="images/elrs_msw/ss02.png"]
 
 ===== MultiSwitch Widget
 
