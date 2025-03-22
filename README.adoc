@@ -1087,6 +1087,7 @@ AVR32DA28 (or other AVRxxDA28). Out of the AVRtiny1 series the ATtiny1614 looks 
 package there exist ready to use adapter boards with THT pin header.
 
 Clearly there are some limitations:
+
 * one simple tunr on/off of the outputs
 * no ELRS telemetry, so menu via the `ELRSv3.lua` or TBS Agent
 * no PWM output
