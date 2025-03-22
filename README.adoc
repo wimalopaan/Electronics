@@ -1088,8 +1088,8 @@ package there exist ready to use adapter boards with THT pin header.
 
 Clearly there are some limitations:
 
-* one simple tunr on/off of the outputs
-* no ELRS telemetry, so menu via the `ELRSv3.lua` or TBS Agent
+* simple turn on/off of the outputs
+* no ELRS telemetry, no menu via the `ELRSv3.lua` or TBS Agent
 * no PWM output
 * no blinking patterns
 * all other stuff via the `ELRSv3.lua` is not possible
