@@ -3,6 +3,8 @@ Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 :toc:
 :toclevels: 5
 :numbered:
+:sectnums:
+:sectnumlevels: 5
 :toc-placement!:
 :tip-caption: :bulb:
 :note-caption: :information_source:
