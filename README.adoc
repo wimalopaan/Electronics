@@ -1,7 +1,7 @@
 = RC Electronics
 Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 :toc:
-:toclevels: 4
+:toclevels: 5
 :numbered:
 :toc-placement!:
 :tip-caption: :bulb:
@@ -1118,7 +1118,31 @@ image::images/elrs_msw/ss01.png[width=240, link="images/elrs_msw/ss01.png"]
 .Two multiswitches on the breadboad
 image::images/elrs_msw/ss02.png[width=240, link="images/elrs_msw/ss02.png"]
 
+Something to say about the configuration of the <<msw_widget>>: the widget was designed to work 
+with `CRSF` (and ELRS). If you use ELRS gear and connect this super simple multiswitch to the
+receiver via `CRSF` you are fine.
+
+Bit you can connect the super simple multiswitch also via `SBUS`, which makes sense, because the 
+super simple multiswitch does not have telemetry, e.g. no menu via `elrsv3.lua` or TBS Agent. So, the 
+communication is simpy uni-directional.
+
+You can connect the super simple multiswitch via `SBUS` (see source code:  `mswitch01.cc`) and you can use
+different RC-links aside from ELRS like AFHDS2A/FlySky or ACCST/FrSky. But you have to be aware that the `SBUS` channel 
+values undergo some really obscure scaling. So, the bits in a `SBUS` channel aren't exactly received by a device connected 
+to the receivers `SBUS`.
+
+Additionally `SBUS` does not allow to transport _out-of-band_ data. As a consequence the data has to encoded and send out 
+via one of the `SBUS` 16 channels (in the case of `mswitch01.cc` this has to be channel 16). Therefore you must encode the
+data in channel 16 one the radio. This is done via a _mixer_ script in EdgeTx: `mswsb.lua`, 
+see https://github.com/wimalopaan/LUA/tree/main/SCRIPTS/MIXES[].
+
+For the _widget_ and the _mixer_ script to communicate, setup the `ShmEncoding` in the widgets settings. And use the same
+SHM variable in the mixer script.
+
+[[msw_widget]]
 ===== MultiSwitch Widget
+
+(outdated information) 
 
 The code of the widget can be found here: https://github.com/wimalopaan/LUA[]
 
