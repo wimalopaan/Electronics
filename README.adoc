@@ -340,7 +340,7 @@ $ cd src
 ----
 
 Make sure that the file `user_defines.txt` has the right contents, especially look 
-for `#-DMY_BINDING_PHRASE="default ExpressLRS binding phrase"` and `#-DRegulatory_Domain_EU_CE_2400`.
+for `\#-DMY_BINDING_PHRASE="default ExpressLRS binding phrase"` and `\#-DRegulatory_Domain_EU_CE_2400`.
 Here, remove the first `#` char of these lines and replace the _binding phrase_.
 
 Now, you can start the compilation:
