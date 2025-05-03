@@ -337,8 +337,37 @@ In the terminal area simply type:
 [source,console]
 ----
 $ cd src
+----
+
+Make sure that the file `user_defines.txt` has the right contents, especially look 
+for `#-DMY_BINDING_PHRASE="default ExpressLRS binding phrase"` and `#-DRegulatory_Domain_EU_CE_2400`.
+Here, remove the first `#` char of these lines and replace the _binding phrase_.
+
+Now, you can start the compilation:
+
+[source,console]
+----
 $ platformio -c qtcreator run --environment Unified_ESP32_2400_RX_via_WIFI
 ----
+
+After some minutes you'll be prompted with a menu to choose the desired device configuration:
+
+[source,console]
+----
+18) RadioMaster ER6 2.4GHz Diversity+6xPWM RX
+19) RadioMaster ER6-G 2.4GHz Diversity+6xPWM RX
+20) RadioMaster ER6-GV 2.4GHz Diversity+6xPWM+Vario RX
+21) RadioMaster ER8 2.4GHz Diversity+8xPWM RX
+22) RadioMaster ER8-G 2.4GHz Diversity+8xPWM RX
+23) RadioMaster ER8-GV 2.4GHz Diversity+8xPWM+Vario RX
+24) RadioMaster RP4-TD True Diversity 2.4GHz RX
+Choose a configuration to load into the firmware file (press enter to leave bare)
+----
+
+Type in the number, e.g. `18` for a RadioMaster ER6.
+
+After some seconds you can download the file `firmware.bin` out of the correcponding directory, e.g. `src/.pio/build/Unified_ESP32_2400_RX_via_WIFI/` .
+
 
 ==== ELRS4 new arming method for version 3
 
