@@ -328,12 +328,32 @@ https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress[This] or
 https://github.com/ExpressLRS/ExpressLRS/pull/2975[this]
 allows to use the complete range of `0xc0` to `0xcf` to be routed.
 
+To compile this on your own just use `gitpod` and prepend the above `URL` with `https://gitpod.io/#`. 
+
+For the above simply use: https://gitpod.io/#https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress[].
+
+In the terminal area simply type:
+
+[source,console]
+----
+$ cd src
+$ platformio -c qtcreator run --environment Unified_ESP32_2400_RX_via_WIFI
+----
+
 ==== ELRS4 new arming method for version 3
 
 ELRS version 4 introduces a new arming method: now you can use a switch-based arming instead of a channel-based arming. 
 
 Before the release of ELRS V4 and with ELRS V3 you can use this new arming method with https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-arm4[this] 
 based on the version 3 maintenance branch.
+
+[[elrs_custom]]
+=== Building custom ELRS firmware
+
+As described in <<gitpod_wm>> one can use https://gitpod.io[] to compile (custom) ELRS firmware. All you need is a appropriate configuration in your 
+`github` repository.
+
+
 
 == Projects
 
