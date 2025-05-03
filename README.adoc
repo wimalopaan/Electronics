@@ -368,7 +368,7 @@ Type in the number, e.g. `18` for a RadioMaster ER6.
 
 After some seconds you can download the file `firmware.bin` out of the correcponding directory, e.g. `src/.pio/build/Unified_ESP32_2400_RX_via_WIFI/` .
 
-
+[[elrs_arm4]]
 ==== ELRS4 new arming method for version 3
 
 ELRS version 4 introduces a new arming method: now you can use a switch-based arming instead of a channel-based arming. 
@@ -389,6 +389,21 @@ and 64 binary switches.
 This modification implements `SumDV3` _and_ implements the MutliSwitch-Protocol as described in <<crsf-sw>> and used in <<elrs_msw>> and  <<msw_widget>>.
 
 To build this version use this URL: https://gitpod.io/#https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmsumdv3[]
+
+Then follow the steps as decribed under <<elrs-route>>.
+
+[[elrs_combined]]
+==== Combined ELRS modifications
+
+If you want to use an ELRS firmware with all the following modifications
+
+* <<elrs-route>>, 
+* <<elrs_arm4>>, 
+* <<elrs_sumdv3>>
+
+you can use this branch: https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress-arm4-sumdv3[].
+
+To build this version use this URL: https://gitpod.io/#https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress-arm4-sumdv3[]
 
 Then follow the steps as decribed under <<elrs-route>>.
 
