@@ -1232,6 +1232,32 @@ This overcomde this limitation, the `MultiSwitch-E` module itself can contain th
 
 To use this, enable the `AutoConf` option of the widget.
 
+[[crsf_enc]]
+===== CRSF encoding
+
+The encoding of the switch states is done via the CRSF protocol (see <<crsf_sw>>).
+
+[[sport_enc]]
+===== S.Port encoding
+
+The encoding of the switch states is done via S.Port commands. For the multiswitch part a _write-command_ (`0x31`) is used:
+
+* S.Port command: `0x31`
+* physical ID: configurable
+* applicationID: `0x5100` (DIY1) (switch address `0`) to `0x51ff` (switch address `255`)
+* value: 16bit (out of 32bit): each switch as 2-bit (binary, ternary, quaternary switches are possible)
+
+These S.Port commands are send to the multiswitch module, which has to decode this command.
+
+[[sbus_enc]]
+===== SBus simple (unreliable) encoding
+
+The encoding of the switch states is done via channel values.
+
+A word of caution: the transport of the channel values undergoes several scaling steps including `EdgeTx`, RF-module and receiver. Different vendors use different
+scaling techniques. As a consequence, out of the 11 bits of the SBus channel vakues only 6 bits are usable. On the transmitter state the state of an output (1Bit), the
+number of the output (3bit) and the address of the multiswitch module (2bit) is encoded into one 6bit code and upshifted to reach the full SBus scale. On the receiver side 
+in the multiswitch module the channel value is richt-shifted by 4 and the 6bit are decoded. 
 
 [[crsf-bus]]
 === CRSF-Half-Duplex Bus
@@ -1285,6 +1311,16 @@ Features:
 * Sbus-Out
 ** channels 1-16
 ** Channels 17-32 (needs special mixer script: https://github.com/wimalopaan/LUA?tab=readme-ov-file#mixer-script-crsfch-lua[crsfch.lua])
+
+* SumDV3 Output
+** 16/32 channels and 64 binary switches
+** ideal to use in combination with e.g. the USM-RC-3 (Fa. Beier: https://www.beier-electronic.de/modellbau/produkte/usm-rc-3/usm-rc-3.php[] )
+
+* SBus / S.Port Input / Telemetry
+** 16 channels input
+** S.Port telemetry (ESC values, Servo values)
+** S.Port telemetry for Schottel visualization
+** S.Port (write command) for multiswitch function (e.g. output via SumDV3 to USM-RC-3)
 
 * IBus / SBus / SumDV3 Input
 ** input for steering and power
