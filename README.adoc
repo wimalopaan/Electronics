@@ -1168,7 +1168,16 @@ Clearly there are some limitations:
 * no blinking patterns
 * all other stuff via the `ELRSv3.lua` is not possible
 
-The code can be found here: https://github.com/wimalopaan/wmucpp/boards/rcmultiswitch[]. There you should find `mswitch01.cc`
+The code can be found here: https://github.com/wimalopaan/wmucpp/boards/rcmultiswitch[]. There you should find `mswitch01.cc`.
+
+[NOTE]
+--
+Please not that the file `mswitch01.cc` is a generic source-code. So, please obey the pin assignment in the source-code.
+
+The users of my _old_ multiswitch hardware (PCB): please use the file `sbus01.cc` instead of `mswitchß1.cc` for all following steps.
+But also be sure to edit the _address_ and the _encoding_ in the first few lines of the file `sbus01.cc` according to your needs!
+--
+
 
 You can compile the firmware using this _gitpod_: https://gitpod.io/#https://github.com/wimalopaan/wmucpp[]. 
 
