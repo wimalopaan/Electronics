@@ -11,7 +11,7 @@ Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 :important-caption: :heavy_exclamation_mark:
 :caution-caption: :fire:
 :warning-caption: :warning:
-
+  
 :ddir: https://wimalopaan.github.io/Electronics
 :rcb: {ddir}/rc/boards
 
@@ -1290,9 +1290,21 @@ Link to link:images/elrs_msw/RC_CRSF_HalfDuplex_Bus.T3001[Target 3001 design fil
 Prototyp: https://www.youtube.com/watch?v=PeuxACw40io[Video]
 
 [[rc720e]]
-=== Double Schottel-Control
+=== Double Schottel-Control (aka Cruise-Controller)
 
-This module controls two Schottel dives.
+This module was originally designed to control two _Schottel_ drives (for information about those drives
+see https://de.wikipedia.org/wiki/Schottel-Ruderpropeller[real world Schottel drive]).
+
+._Schottel_ drive for ship models (Fa. Bauer, see https://www.bauer-modelle.com/Schiffsantriebe-Spezial-und-Wellenantriebe/Schottel-Z-Antriebe[Schottel/Z-Drive])
+image::images/bauer_schottel.jpg[width=240, link="images/bauer_schottel.jpg"]
+
+This module evolved over time and now it can be used as a general _cruise-controller_: this
+suggested that it acts like a flight-controller in drones, helicopters or airplanes. Albeit this is true
+to some extent, its purpose is somewhat different. So, don't expect to see features like autonomos 
+navigation through way points.
+
+The cruise controller more aims at being a protocol-concentrator and information-hub. It combines sensor fusion features 
+and protocol-transformation.
 
 Features:
 
@@ -1314,8 +1326,9 @@ Features:
 ** CRSF input
 ** CRSF routing to one/two CRSF ports
 
-* GPS + inertial sensor
-** (planned)
+* GPS, compass, inertial sensor
+** Compass / Magnetometer via I2C (QMC5883L)
+** Accelerometer via I2C (MPU6050)
 
 * Sbus-Out
 ** channels 1-16
