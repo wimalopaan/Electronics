@@ -1390,7 +1390,10 @@ image::images/rc720e32/RC_720_32_E_02_PCB_unten.PNG[width=240, link="images/rc72
 
 ==== Firmware
 
-Link to https://github.com/wimalopaan/wmucpp/tree/master/boards/rc720E32[source code] (unfortunately you have to clone to whole repository)
+Link to https://github.com/wimalopaan/wmucpp/tree/master/boards/rc720E32[source code] (unfortunately you have to clone to whole repository).
+
+If you have trouble building the firmware from the source, e.g. you don't use a _Linux_ system or do not have all the 
+tools installed, please follow this tutorial to build all with _gitpod_ <<gitpod_wm>>. 
 
 ==== Widget
 
