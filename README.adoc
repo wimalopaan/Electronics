@@ -1427,7 +1427,8 @@ It consists of
 * 16-channel switching mezzanine board
 * 16-channel LED mezzanine board
 
-More to come ...
+The cruise-controller and the dual Schottel controller project now have merged.
+Please see <<rc720e>> for more information.
 
 [[hwext]]
 === Hardware-Extension-Protocol
