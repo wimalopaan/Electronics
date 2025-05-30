@@ -1321,10 +1321,17 @@ Features:
 
 * BEC joining 
 ** up to three BEC sources
+** if two ESCs are connected with BEC (battery elimination circuit), both BECs are joined (_no disconnect_ of one of the BECs neccessary).
 
 * CRSF
 ** CRSF input
 ** CRSF routing to one/two CRSF ports
+
+* Bluetooh
+** simple bluetooth module (like HC-05) can be connected to AUX port
+** maybe used to control model features without an active radio
+** maybe useful to present function/ship models at fairs
+** use https://roboremo.app[RoboRemo] to build simple UI.
 
 * GPS, compass, inertial sensor
 ** Compass / Magnetometer via I2C (QMC5883L)
