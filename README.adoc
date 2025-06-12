@@ -388,6 +388,17 @@ and 64 binary switches.
 
 This modification implements `SumDV3` _and_ implements the MutliSwitch-Protocol as described in <<crsf-sw>> and used in <<elrs_msw>> and  <<msw_widget>>.
 
+It works as follows:
+* the ELRS receiver running this modification maintains the state of 64 _binary_ switches,
+* as usual, it maintains the state of 16 RC-channels,
+* setting one of the serial interfaces (_serial_ or _serial2_) to `SumDV3`, it outputs the 16 RC-channles _and_ the state of the 64 binary switches,
+* to set/reset a switch the EdgeTx radio has to run the <<msw_widget>>,
+* this widget must be configured to use the addresses `240`, ..., `247` (attention: these are the logical _switch_ addresses, _not_ the device `CRSF`-address, so that the first 8 switches are reachable on the address `240`, the next octett of switches on the address `241` ... until the last octett on the address `247` 
+
+This modification is ideal to use in combination with e.g. the USM-RC-3 (Fa. Beier: https://www.beier-electronic.de/modellbau/produkte/usm-rc-3/usm-rc-3.php[]). 
+The minimal setup is to use a tiny receiver like a Radiomaster RP1/RP2 or RP3, and connect this (only the TX-line of the serial-interface of the receiver is needed) to the USM-RC3 (Port X2/8). 
+The USM-RC3 can output 4 (of the 16) RC-channels and use all of the 64 switches. 
+
 To build this version use this URL: https://gitpod.io/#https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmsumdv3[]
 
 Then follow the steps as decribed under <<elrs-route>>.
