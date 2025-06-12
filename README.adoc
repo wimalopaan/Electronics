@@ -389,6 +389,7 @@ and 64 binary switches.
 This modification implements `SumDV3` _and_ implements the MutliSwitch-Protocol as described in <<crsf-sw>> and used in <<elrs_msw>> and  <<msw_widget>>.
 
 It works as follows:
+
 * the ELRS receiver running this modification maintains the state of 64 _binary_ switches,
 * as usual, it maintains the state of 16 RC-channels,
 * setting one of the serial interfaces (_serial_ or _serial2_) to `SumDV3`, it outputs the 16 RC-channles _and_ the state of the 64 binary switches,
