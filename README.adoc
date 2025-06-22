@@ -1239,6 +1239,9 @@ SHM variable in the mixer script.
 
 The new widget can be found here: https://github.com/wimalopaan/LUA?tab=readme-ov-file#lvglmsw[]
 
+.The `MultiSwitch` widget
+image::images/elrs_msw/widget/main01.png[width=240, link="images/elrs_msw/widget/main01.png"]
+
 (the following is *outdated information*) 
 
 The code of the widget can be found here: https://github.com/wimalopaan/LUA[]
@@ -1262,6 +1265,24 @@ To use the `MultiSwitch` with black&white LCD radios you have to install a _tele
 This _script_ can be found here: https://github.com/wimalopaan/LUA?tab=readme-ov-file#multiswitch-bw-telemetry-script[]
 
 This script runs fine alongside with `elrcV3.lua` on radios with 192kB of RAM. But don't expect it to run on radios with only 128kB or less of RAM. 
+
+.The `MultiSwitch` telemetry script control screen
+image::images/elrs_msw/telem/mulsw_1.png[width=240, link="images/elrs_msw/telem/mulsw_1.png"]
+
+.The `MultiSwitch` telemetry script settings 1 screen
+image::images/elrs_msw/telem/mulsw_2.png[width=240, link="images/elrs_msw/telem/mulsw_2.png"]
+
+.The `MultiSwitch` telemetry script settings details screen
+image::images/elrs_msw/telem/mulsw_d1.png[width=240, link="images/elrs_msw/telem/mulsw_d1.png"]
+
+.The `MultiSwitch` telemetry script settings 2 screen
+image::images/elrs_msw/telem/mulsw_3.png[width=240, link="images/elrs_msw/telem/mulsw_3.png"]
+
+.The `MultiSwitch` telemetry script global screen
+image::images/elrs_msw/telem/mulsw_4.png[width=240, link="images/elrs_msw/telem/mulsw_4.png"]
+
+.The `MultiSwitch` telemetry script info screen
+image::images/elrs_msw/telem/mulsw_5.png[width=240, link="images/elrs_msw/telem/mulsw_5.png"]
 
 [[crsf_enc]]
 ===== CRSF encoding
