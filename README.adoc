@@ -264,15 +264,15 @@ you get an enormous range of n-times 10km. This is good for drone-pilots but is 
 
 [[hm_es24tx]]
 .Happymodel ES24TX transmitter module
-image::elrs/es24tx.jpg[width=240]
+::elrs/es24tx.jpg[width=240]
 
 [[hm_ep1ep2]]
 .Happymodel EP1 and EP2 receiver with CRSF/SBUS output
-image::elrs/ep1ep2.jpg[width=240]
+::elrs/ep1ep2.jpg[width=240]
 
 [[rm_er6]]
 .RadioMaster ER6 receiver with dedicated PWM outputs
-image::elrs/rmer6.jpg[width=240]
+::elrs/rmer6.jpg[width=240]
 
 The <<elrs_func>> can also be achieved using an ELRS-receiver as a transmitter-module. This is a big advantage because it make it possible 
 to equip many handsets with an internal elrs-capability, e.g. the _FrSky X12S_, _X9E_ or _Jumper T12_ or the _FlySky FS-I6X_. 
@@ -387,6 +387,18 @@ The stock ELRS can output 16 channels via `SumD`, but not via `SumDV3`. `SumDV3`
 and 64 binary switches. 
 
 This modification implements `SumDV3` _and_ implements the MutliSwitch-Protocol as described in <<crsf-sw>> and used in <<elrs_msw>> and  <<msw_widget>>.
+
+It works as follows:
+
+* the ELRS receiver running this modification maintains the state of 64 _binary_ switches,
+* as usual, it maintains the state of 16 RC-channels,
+* setting one of the serial interfaces (_serial_ or _serial2_) to `SumDV3`, it outputs the 16 RC-channles _and_ the state of the 64 binary switches,
+* to set/reset a switch the EdgeTx radio has to run the <<msw_widget>>,
+* this widget must be configured to use the addresses `240`, ..., `247` (attention: these are the logical _switch_ addresses, _not_ the device `CRSF`-address, so that the first 8 switches are reachable on the address `240`, the next octett of switches on the address `241` ... until the last octett on the address `247` 
+
+This modification is ideal to use in combination with e.g. the USM-RC-3 (Fa. Beier: https://www.beier-electronic.de/modellbau/produkte/usm-rc-3/usm-rc-3.php[]). 
+The minimal setup is to use a tiny receiver like a Radiomaster RP1/RP2 or RP3, and connect this (only the TX-line of the serial-interface of the receiver is needed) to the USM-RC3 (Port X2/8). 
+The USM-RC3 can output 4 (of the 16) RC-channels and use all of the 64 switches. 
 
 To build this version use this URL: https://gitpod.io/#https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmsumdv3[]
 
@@ -1077,10 +1089,10 @@ Different to the old versions using other rc-links (AFHDS2A, ACCST, ...) this ne
 independent!
 
 .The `MultiSwitch` widget
-image::images/elrs_msw/elrs_msw01.png[]
+image::images/elrs_msw/widget/main01.png[width=240, link="images/elrs_msw/widget/main01.png"]
 
-.The `MultiSwitch` widget (fullscreen)
-image::images/elrs_msw/elrs_msw02.png[]
+.The `MultiSwitch` telemetry script
+image::images/elrs_msw/telem/mulsw_1.png[width=240, link="images/elrs_msw/telem/mulsw_1.png"]
 
 ===== Puzzeling parts
 
@@ -1225,7 +1237,9 @@ SHM variable in the mixer script.
 [[msw_widget]]
 ===== MultiSwitch Widget
 
-(outdated information) 
+The new widget can be found here: https://github.com/wimalopaan/LUA?tab=readme-ov-file#lvglmsw[]
+
+(the following is *outdated information*) 
 
 The code of the widget can be found here: https://github.com/wimalopaan/LUA[]
 
@@ -1240,6 +1254,14 @@ This work well, but if you switch the handet, the new handset must ahve the same
 This overcomde this limitation, the `MultiSwitch-E` module itself can contain the configuration and the widget can request that configuration.
 
 To use this, enable the `AutoConf` option of the widget.
+
+[[msw_bw]]
+===== MultiSwitch Telemetry Script
+
+To use the `MultiSwitch` with black&white LCD radios you have to install a _telemetry_ script. 
+This _script_ can be found here: https://github.com/wimalopaan/LUA?tab=readme-ov-file#multiswitch-bw-telemetry-script[]
+
+This script runs fine alongside with `elrcV3.lua` on radios with 192kB of RAM. But don't expect it to run on radios with only 128kB or less of RAM. 
 
 [[crsf_enc]]
 ===== CRSF encoding
