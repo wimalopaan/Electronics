@@ -1239,8 +1239,17 @@ SHM variable in the mixer script.
 
 The new widget can be found here: https://github.com/wimalopaan/LUA?tab=readme-ov-file#lvglmsw[]
 
-.The `MultiSwitch` widget
+.The `MultiSwitch` widget main screen
 image::images/elrs_msw/widget/main01.png[width=240, link="images/elrs_msw/widget/main01.png"]
+
+.The `MultiSwitch` widget settings 1 screen
+image::images/elrs_msw/widget/settings10.png[width=240, link="images/elrs_msw/widget/settings10.png"]
+
+.The `MultiSwitch` widget global settings screen
+image::images/elrs_msw/widget/global01.png[width=240, link="images/elrs_msw/widget/global01.png"]
+
+.The `MultiSwitch` widget telemetry screen
+image::images/elrs_msw/widget/telem01.png[width=240, link="images/elrs_msw/widget/telem01.png"]
 
 (the following is *outdated information*) 
 
