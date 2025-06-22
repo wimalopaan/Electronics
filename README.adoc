@@ -1237,7 +1237,9 @@ SHM variable in the mixer script.
 [[msw_widget]]
 ===== MultiSwitch Widget
 
-(outdated information) 
+The new widget can be found here: https://github.com/wimalopaan/LUA?tab=readme-ov-file#lvglmsw[]
+
+(the following is *outdated information*) 
 
 The code of the widget can be found here: https://github.com/wimalopaan/LUA[]
 
@@ -1252,6 +1254,14 @@ This work well, but if you switch the handet, the new handset must ahve the same
 This overcomde this limitation, the `MultiSwitch-E` module itself can contain the configuration and the widget can request that configuration.
 
 To use this, enable the `AutoConf` option of the widget.
+
+[[msw_bw]]
+===== MultiSwitch Telemetry Script
+
+To use the `MultiSwitch` with black&white LCD radios you have to install a _telemetry_ script. 
+This _script_ can be found here: https://github.com/wimalopaan/LUA?tab=readme-ov-file#multiswitch-bw-telemetry-script[]
+
+This script runs fine alongside with `elrcV3.lua` on radios with 192kB of RAM. But don't expect it to run on radios with only 128kB or less of RAM. 
 
 [[crsf_enc]]
 ===== CRSF encoding
