@@ -264,15 +264,15 @@ you get an enormous range of n-times 10km. This is good for drone-pilots but is 
 
 [[hm_es24tx]]
 .Happymodel ES24TX transmitter module
-image::elrs/es24tx.jpg[width=240]
+::elrs/es24tx.jpg[width=240]
 
 [[hm_ep1ep2]]
 .Happymodel EP1 and EP2 receiver with CRSF/SBUS output
-image::elrs/ep1ep2.jpg[width=240]
+::elrs/ep1ep2.jpg[width=240]
 
 [[rm_er6]]
 .RadioMaster ER6 receiver with dedicated PWM outputs
-image::elrs/rmer6.jpg[width=240]
+::elrs/rmer6.jpg[width=240]
 
 The <<elrs_func>> can also be achieved using an ELRS-receiver as a transmitter-module. This is a big advantage because it make it possible 
 to equip many handsets with an internal elrs-capability, e.g. the _FrSky X12S_, _X9E_ or _Jumper T12_ or the _FlySky FS-I6X_. 
@@ -1089,10 +1089,10 @@ Different to the old versions using other rc-links (AFHDS2A, ACCST, ...) this ne
 independent!
 
 .The `MultiSwitch` widget
-image::images/elrs_msw/elrs_msw01.png[]
+image::images/elrs_msw/widget/main01.png[width=240, link="images/elrs_msw/widget/main01.png"]
 
-.The `MultiSwitch` widget (fullscreen)
-image::images/elrs_msw/elrs_msw02.png[]
+.The `MultiSwitch` telemetry script
+image::images/elrs_msw/telem/mulsw_1.png[width=240, link="images/elrs_msw/telem/mulsw_1.png"]
 
 ===== Puzzeling parts
 
