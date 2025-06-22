@@ -1249,7 +1249,7 @@ image::images/elrs_msw/widget/settings10.png[width=240, link="images/elrs_msw/wi
 image::images/elrs_msw/widget/global01.png[width=240, link="images/elrs_msw/widget/global01.png"]
 
 .The `MultiSwitch` widget telemetry screen
-image::images/elrs_msw/widget/telem01.png[width=240, link="images/elrs_msw/widget/telem01.png"]
+image::images/elrs_msw/widget/tele01.png[width=240, link="images/elrs_msw/widget/tele01.png"]
 
 (the following is *outdated information*) 
 
