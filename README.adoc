@@ -74,6 +74,21 @@ There is a cumbersome alternative way to achieve a similar but very limited resu
 a widget could use the function `shmSet()` to transport up to 16 values, to a _mixer_ script which could pick them up via `shmGet()` 
 and simple return them (only up to 6). These output values of the mixer script could then be used as mixer-inputs. There is no such a way for switches. 
 
+[[edgetx_shm_bw]]
+=== SHM-Variables for B&W radios
+
+Due to the limited amount of RAM of black-and-white radios (128kB to 192kB) some features are only compiled-in for color-lcd radios.
+One of these features is the support of SHM variables (useful to transport of data from one LUA context (e.g. telemety scripts) to another (e.g. mixer scripts)).
+
+This feature is rarely used, and even more rarely requested on b&w radios. 
+
+But the multiswitch telemetry script (<<msw_bw>>) needs this feature if used together with `SBus`. Despite the fact that this scenario is kind of weird (you can't
+transport true bit-information via `SBus` channels because they undergo various strange scalings) some users still request this.
+
+Therefore the https://github.com/wimalopaan/edgetx/tree/wmshmbw[] branch adds excactly this feature (one has to use the `-DSHMBW=YES` command line switch 
+to enable this also for b&w radios, for color-lcd radios this feature is always on). Please refer to <<edgetx_custom>> on how to compile this non-standard extension.
+
+
 [[edgetx_custom]]
 === Custom EdgeTx builds
 
