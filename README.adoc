@@ -698,7 +698,7 @@ RadioMaster TX16S working inside the X12s.
 The software modifications are in mainline https://edgetx.org[EdgeTx] (no need to patch or modify) and the hardware modification is described in an extra 
 document: {ddir}/rc/touch.html[X12S touch]
 
-For better mounting the FFC-cable adapter, there is a printable adapter: https://www.printables.com/model/1342784-frsky-horus-x12s-touch-screen-mod-fpc-6p-05mm-adap[]
+For better mounting the FPC/FFC-cable adapter, there is a printable adapter: https://www.printables.com/model/1342784-frsky-horus-x12s-touch-screen-mod-fpc-6p-05mm-adap[]
 
 Video: https://www.youtube.com/watch?v=BhzwIHQNJnw[Demo]
 
