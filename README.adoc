@@ -877,7 +877,51 @@ to the full-duplex of the ESP8285-based rx-as-tx.
 .ELRS firmware selection for ESP8285 based receivers
 image::elrs/rx_as_tx.png[width=480]
 
-==== ESP32-based receivers
+==== ESP32 and ESP32C3-based receivers
+
+Instead of the small / simple ESP8285-based receivers you can also use the ESP32 or ESP32C3-based (since ELRS 3.6) receiver (e.g. TuneRC Nano RX/PA). 
+Fortunately the are capable of inverting the serial polarity ond also to use half-suplex on one (tx) pin. Therefore, they can directly 
+connected to the _S.Port_ connector-pin.
+
+[CAUTION]
+--
+Please check that to supply voltage you use from the JR-bay of your handset is no more than 5V.
+
+Please check that the max. voltage of the serial signal on the _S.Port_ connector is no more than 3.3V (or that it uses an open-drain circuit, since the receiver uses a pull-up resistor on that line).
+--
+
+===== Using `expresslrs-configurator` to flash an ESP32/C3 receiver as a transmitter
+
+As of version `v1.7.7` of the `exprexxlrs-configurator` it is fairly easy to flash an Rx as Tx. 
+
+Please select the correct categorie and type of actual device (e.g. TuneRC 2.4GHz and TuneRC 2.4G nano PA RX, please refer to <<elrs_esp32>>) and select 
+under compatibility options to use the receiver as transmitter (TX). Normally you would use the receiver in the external module bay of the handset, so select
+`external`, but if you want to use to receiver as internal module select `internal` (this comes into place e.g. if you change the internal module of a e.g. 
+FrSky X12S, see <<elrs_x12s>>).
+
+Please be sure to check the `force` option. This is because when in comes to the flashing procedure the receiver itself identifies as _receiver_ and normally refuses to accept
+the tx firmware.
+
+Please be sure to select an ELRS version above or equal 3.4 for ESP32-based receivers and an ELRS version above or equal 3.6 for ESP32C3-based receivers. 
+
+[[elrs_esp32]]
+.ELRS firmware selection for ESP32 / ESP32C3 based receivers
+image::elrs/rx_as_tx_new.png[width=480]
+
+After flashing the receiver starts blinking _yellow_ if it does not receive a CRSF signal. If it gets a signal, it changes to _blue heartbeat_, and when it connects, it changes 
+to _steady blue_.
+
+[TIP]
+--
+As a side benefit, the ESP32 / ESP32C3 based receivers are also capable of _PPM_ input. They _autodetect_ if they get a serial or ppm signal.
+So, this is super handy to renew an old handset.
+--
+
+===== Using `platformio` `cli` to flash an ESP32/C3 receiver as a transmitter
+
+
+
+===== Outdated information
 
 Instead of the small / simple ESP8285-based receivers you can also use the (slightly larger) ESP32-based receiver (e.g. BetaFPV SuperD). 
 Fortunately the are capable of inverting the serial polarity ond also to use half-suplex on one (tx) pin. Therefore, they can directly 
@@ -892,8 +936,7 @@ In the hardware-config (wifi) you can now:
 
 For more detals see this https://github.com/ExpressLRS/ExpressLRS/pull/1914[PR].
 
-
-[[elrs_esp32]]
+// [[elrs_esp32]]
 .ELRS firmware selection for ESP32 based receivers
 image::elrs/rx_as_tx2.png[width=480]
 
