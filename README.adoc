@@ -74,6 +74,21 @@ There is a cumbersome alternative way to achieve a similar but very limited resu
 a widget could use the function `shmSet()` to transport up to 16 values, to a _mixer_ script which could pick them up via `shmGet()` 
 and simple return them (only up to 6). These output values of the mixer script could then be used as mixer-inputs. There is no such a way for switches. 
 
+[[edgetx_shm_bw]]
+=== SHM-Variables for B&W radios
+
+Due to the limited amount of RAM of black-and-white radios (128kB to 192kB) some features are only compiled-in for color-lcd radios.
+One of these features is the support of SHM variables (useful to transport of data from one LUA context (e.g. telemety scripts) to another (e.g. mixer scripts)).
+
+This feature is rarely used, and even more rarely requested on b&w radios. 
+
+But the multiswitch telemetry script (<<msw_bw>>) needs this feature if used together with `SBus`. Despite the fact that this scenario is kind of weird (you can't
+transport true bit-information via `SBus` channels because they undergo various strange scalings) some users still request this.
+
+Therefore the https://github.com/wimalopaan/edgetx/tree/wmshmbw[] branch adds excactly this feature (one has to use the `-DSHMBW=YES` command line switch 
+to enable this also for b&w radios, for color-lcd radios this feature is always on). Please refer to <<edgetx_custom>> on how to compile this non-standard extension.
+
+
 [[edgetx_custom]]
 === Custom EdgeTx builds
 
@@ -264,15 +279,15 @@ you get an enormous range of n-times 10km. This is good for drone-pilots but is 
 
 [[hm_es24tx]]
 .Happymodel ES24TX transmitter module
-::elrs/es24tx.jpg[width=240]
+image::elrs/es24tx.jpg[width=240]
 
 [[hm_ep1ep2]]
 .Happymodel EP1 and EP2 receiver with CRSF/SBUS output
-::elrs/ep1ep2.jpg[width=240]
+image::elrs/ep1ep2.jpg[width=240]
 
 [[rm_er6]]
 .RadioMaster ER6 receiver with dedicated PWM outputs
-::elrs/rmer6.jpg[width=240]
+image::elrs/rmer6.jpg[width=240]
 
 The <<elrs_func>> can also be achieved using an ELRS-receiver as a transmitter-module. This is a big advantage because it make it possible 
 to equip many handsets with an internal elrs-capability, e.g. the _FrSky X12S_, _X9E_ or _Jumper T12_ or the _FlySky FS-I6X_. 
@@ -682,6 +697,8 @@ RadioMaster TX16S working inside the X12s.
 
 The software modifications are in mainline https://edgetx.org[EdgeTx] (no need to patch or modify) and the hardware modification is described in an extra 
 document: {ddir}/rc/touch.html[X12S touch]
+
+For better mounting the FPC/FFC-cable adapter, there is a printable adapter: https://www.printables.com/model/1342784-frsky-horus-x12s-touch-screen-mod-fpc-6p-05mm-adap[]
 
 Video: https://www.youtube.com/watch?v=BhzwIHQNJnw[Demo]
 
@@ -1239,6 +1256,18 @@ SHM variable in the mixer script.
 
 The new widget can be found here: https://github.com/wimalopaan/LUA?tab=readme-ov-file#lvglmsw[]
 
+.The `MultiSwitch` widget main screen
+image::images/elrs_msw/widget/main01.png[width=240, link="images/elrs_msw/widget/main01.png"]
+
+.The `MultiSwitch` widget settings 1 screen
+image::images/elrs_msw/widget/settings10.png[width=240, link="images/elrs_msw/widget/settings10.png"]
+
+.The `MultiSwitch` widget global settings screen
+image::images/elrs_msw/widget/global01.png[width=240, link="images/elrs_msw/widget/global01.png"]
+
+.The `MultiSwitch` widget telemetry screen
+image::images/elrs_msw/widget/tele01.png[width=240, link="images/elrs_msw/widget/tele01.png"]
+
 (the following is *outdated information*) 
 
 The code of the widget can be found here: https://github.com/wimalopaan/LUA[]
@@ -1262,6 +1291,24 @@ To use the `MultiSwitch` with black&white LCD radios you have to install a _tele
 This _script_ can be found here: https://github.com/wimalopaan/LUA?tab=readme-ov-file#multiswitch-bw-telemetry-script[]
 
 This script runs fine alongside with `elrcV3.lua` on radios with 192kB of RAM. But don't expect it to run on radios with only 128kB or less of RAM. 
+
+.The `MultiSwitch` telemetry script control screen
+image::images/elrs_msw/telem/mulsw_1.png[width=240, link="images/elrs_msw/telem/mulsw_1.png"]
+
+.The `MultiSwitch` telemetry script settings 1 screen
+image::images/elrs_msw/telem/mulsw_2.png[width=240, link="images/elrs_msw/telem/mulsw_2.png"]
+
+.The `MultiSwitch` telemetry script settings details screen
+image::images/elrs_msw/telem/mulsw_d1.png[width=240, link="images/elrs_msw/telem/mulsw_d1.png"]
+
+.The `MultiSwitch` telemetry script settings 2 screen
+image::images/elrs_msw/telem/mulsw_3.png[width=240, link="images/elrs_msw/telem/mulsw_3.png"]
+
+.The `MultiSwitch` telemetry script global screen
+image::images/elrs_msw/telem/mulsw_4.png[width=240, link="images/elrs_msw/telem/mulsw_4.png"]
+
+.The `MultiSwitch` telemetry script info screen
+image::images/elrs_msw/telem/mulsw_5.png[width=240, link="images/elrs_msw/telem/mulsw_5.png"]
 
 [[crsf_enc]]
 ===== CRSF encoding
