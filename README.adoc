@@ -332,6 +332,7 @@ Clearly, a special CRSF-decoder is needed: it has to decode the normal RC channe
 
 The <<CC>> uses two `SBus`-interface, one for channel 1-16, and one for the channels 17-32.
 
+[[elrs-mods]]
 === ELRS modifications and pull-requests
 
 [[elrs-route]]
@@ -919,7 +920,17 @@ So, this is super handy to renew an old handset.
 
 ===== Using `platformio` `cli` to flash an ESP32/C3 receiver as a transmitter
 
+If you want to do the same without the `expresslrs-configurator` and use raw `paltformio` for the same purpose (maybe because you want to use the <<elrs-mods>> 
+or other foreign github-repo or special PRs) then you have to do the follwoing steps:
 
+* power-up the receiver into wifi-mode and connect
+* save the hardware-definition: browse to http::/10.0.0.1/hardware.json and save it to a local file
+* compile and flash the firmware (see also <<elrs-mods>>): `platformio run --environment Unified_ESP32C32_2400_TX_via_WIFI --target=uploadforce`. 
+* restore the hardware-definition: browse to http::/10.0.0.1/hardware.html and upload the previously saved hardware-definition
+* change the hardware-definition: the `serial-rx` and `serial-tx` pin numbers must be the same (half-duplex), use the appropriate connection that you want to use in your adapter
+* save the changed hardware-definition and reboot the rx
+
+You are done!
 
 ===== Outdated information
 
