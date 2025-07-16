@@ -279,15 +279,15 @@ you get an enormous range of n-times 10km. This is good for drone-pilots but is 
 
 [[hm_es24tx]]
 .Happymodel ES24TX transmitter module
-::elrs/es24tx.jpg[width=240]
+image::elrs/es24tx.jpg[width=240]
 
 [[hm_ep1ep2]]
 .Happymodel EP1 and EP2 receiver with CRSF/SBUS output
-::elrs/ep1ep2.jpg[width=240]
+image::elrs/ep1ep2.jpg[width=240]
 
 [[rm_er6]]
 .RadioMaster ER6 receiver with dedicated PWM outputs
-::elrs/rmer6.jpg[width=240]
+image::elrs/rmer6.jpg[width=240]
 
 The <<elrs_func>> can also be achieved using an ELRS-receiver as a transmitter-module. This is a big advantage because it make it possible 
 to equip many handsets with an internal elrs-capability, e.g. the _FrSky X12S_, _X9E_ or _Jumper T12_ or the _FlySky FS-I6X_. 
