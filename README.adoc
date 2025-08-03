@@ -124,7 +124,7 @@ cmake -DVCONTROLS=YES -DTRANSLATIONS=DE -DPCB=X10 -DPCBREV=TX16S -DLUA=YES -DLUA
 For a more vanilla configuration use the following `cmake` line:
 
 ----
-cmake -DCMAKE_BUILD_TYPE=Release -DHELI=OFF -DTRANSLATIONS=DE -DPCB=I6X  ..
+cmake -DTRANSLATIONS=DE -DPCB=X10 -DPCBREV=TX16S -DLUA=YES -DLUA_MIXER=YES -DGVARS=YES ..
 ----
 
 [source,console]
