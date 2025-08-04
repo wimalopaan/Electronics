@@ -17,7 +17,7 @@ Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 
 [NOTE]
 --
-This page and the accompanying repositories are mostly for my rc (radio controlled models) electronics including EdgeTx/OpenTx addons, LUA-scripting, videos, and more.
+This page and the accompanying repositories are mostly for my rc (radio controlled models) electronics including EdgeTx/OpenTx and ExpressLRS addons, LUA-scripting, videos, and more.
 --
 
 toc::[]
