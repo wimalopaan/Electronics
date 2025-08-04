@@ -1549,6 +1549,15 @@ In contrast to <<crsf-bus>> this `CRSF-Switch` allows _all_ attached devices to 
 [[elrs-relay]]
 === ELRS relay configuration
 
+[blockdiag]
+....
+blockdiag {
+   A -> B -> C -> D;
+   A -> E -> F -> G;
+}
+....
+
+
 An ELRS TX module starts sending ovr the air if if gets valid CRSF `RC_CHANNEL` packets (with appropriate frequency). So, it might be
 tempting to connect a receivers tx line (that outputs the CRSF `RC_CHANNEL` packets) to a tx-module. This works because the tx module detects the 
 polarity of the signal (a handset outputs this data inverted, a receiver outputs the data normal) and baudrate.
