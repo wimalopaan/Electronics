@@ -1560,7 +1560,7 @@ The drawback of this simple configuration is, that there is no telemetry to the 
 the telemetry data is clearly not transported by the relay comprising the `rx1` and `tx-module2`.
 
 One can try to solve this problem and connect the rx-line of `rx1` to the `tx-module2` and the tx-line of `rx1` via a 4,7K resistor also to the
-half-duplex input of the `tx-module2. 
+half-duplex input of the `tx-module2`. 
 While this is electrically correct, this has a logical problem, because the CRSF addresses in this chain are no longer unique: there are to devices with
 a receiver-address (`rx1` and `rx2`) and two devices with transmitter-addresses (`tx-module1` and `tx-module2`). 
 
