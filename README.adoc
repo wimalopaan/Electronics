@@ -1546,6 +1546,29 @@ Allows to connect up to seven half-duplex CRSF devices to a full-duplex receiver
 
 In contrast to <<crsf-bus>> this `CRSF-Switch` allows _all_ attached devices to be active at the same time (no external activation required).
 
+[[elrs-relay]]
+=== ELRS relay configuration
+
+An ELRS TX module starts sending ovr the air if if gets valid CRSF `RC_CHANNEL` packets (with appropriate frequency). So, it might be
+tempting to connect a receivers tx line (that outputs the CRSF `RC_CHANNEL` packets) to a tx-module. This works because the tx module detects the 
+polarity of the signal (a handset outputs this data inverted, a receiver outputs the data normal) and baudrate.
+
+The drawback of this simple configuration is, that there is no telemetry to the tx-module. So, if you have the chain of 
+
+`handset` --> `tx-module1` --> `rx1` --> `tx-module2` --> `rx2` --> `devices` 
+
+the telemetry data is clearly not transported by the relay comprising the `rx1` and `tx-module2`.
+
+One can try to solve this problem and connect the rx-line of `rx1` to the `tx-module2` and the tx-line of `rx1` via a 4,7K resistor also to the
+half-duplex input of the `tx-module2. 
+While this is electrically correct, this has a logical problem, because the CRSF addresses in this chain are no longer unique: there are to devices with
+a receiver-address (`rx1` and `rx2`) and two devices with transmitter-addresses (`tx-module1` and `tx-module2`). 
+
+To solve this problem, the relay ( `rx1` and `tx-module2`) needs some logic to rewrite these addreses: a µC in between the two can rewrite the addresses of 
+`tx-module2` and `rx2` to use otherwise unused addresses. 
+
+The rcDesk32 can do this rewriting.
+
 [[elrs_ma]]
 === ELRS-MultiAdapter-EA
 
