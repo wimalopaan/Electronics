@@ -1260,7 +1260,7 @@ $ make all
 
 here you can find the files to print a nice housing for the PCS: https://github.com/firlefantz/Elrs-Multiswitch-guide[Housing and additional information].
 
-===== Super simple MultiSwitch (ELRS/CRSF, FlySky/SBus, FrSky/SBus)
+===== Super simple MultiSwitch (ELRS/CRSF, FlySky/SBus, FlySky/IBus, FrSky/SBus, FrSky/S.Port)
 
 There was demand for a much simpler hardware compared to the <<mswe8>>: it should comprise only THT parts, so one could solder it onto a simple
 stripe THT-PCB. And it should use simpler µC, since the STM32/ARM looks too complicated to some hobbyists.
@@ -1294,10 +1294,10 @@ Please do the following:
 
 * Navigate to the directory: `boards/rcmultiswitch`
 * Edit the top lines in the file `mswitch01.cc`
-** select input (CRSF or SBUS)
+** select input (CRSF or SBUS or IBUS or S.Port)
 ** select the multiswitch address 0...7
 ** select if SBus is _normal_ or _inverted_
-** select the rc-link (ELRS/AFHDS2A/ACCST)
+** select the rc-link (ELRS/AFHDS2A/ACCST for SBUS)
 * Edit the `Makefile.da`: just de/comment the lines to choose the right µC
 * use the command: `make -f Makefile.da all`
 * download `mswitch01.hex`
@@ -1314,7 +1314,7 @@ Something to say about the configuration of the <<msw_widget>>: the widget was d
 with `CRSF` (and ELRS). If you use ELRS gear and connect this super simple multiswitch to the
 receiver via `CRSF` you are fine.
 
-Bit you can connect the super simple multiswitch also via `SBUS`, which makes sense, because the 
+But you can connect the super simple multiswitch also via `SBUS`, which makes sense, because the 
 super simple multiswitch does not have telemetry, e.g. no menu via `elrsv3.lua` or TBS Agent. So, the 
 communication is simpy uni-directional.
 
@@ -1330,6 +1330,12 @@ see https://github.com/wimalopaan/LUA/tree/main/SCRIPTS/MIXES[].
 
 For the _widget_ and the _mixer_ script to communicate, setup the `ShmEncoding` in the widgets settings. And use the same
 SHM variable in the mixer script.
+
+If yout `SBUS` setup does not work, amybe because of the above mentioned obscure scalings, your next try may be S.Port. In the
+widget you can select the S.Port transport and the appropriate physical ID and application ID.
+
+If you are a FlySky user, a better approach is to use `ibus`.  FlySky does not support S.Port but the channel values do not undergo
+such strange scalings as with ACCST/SBus. Beaware that the mixer script is `mswib.lua`, obviously.
 
 [[msw_widget]]
 ===== MultiSwitch Widget
