@@ -186,7 +186,7 @@ In the following sections are proposals for some s to the CRSF protocol. These s
 multi-switch-modules or lighting-modules
 
 [[crsf_sw]]
-=== Proposal for CRSF protocol s
+=== Proposal for the CRSF protocol
 
 Following is a proposal for an  to the the `CRSF` protocol. This can be used with every handset, transmitter-module and receiver 
 due to the extensability of the protocol. 
@@ -259,6 +259,10 @@ Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x04]` 
 [[prop32]]
 ==== Proportional data (e.g. additional channels: >=8bit)
 
+The following is realized as https://github.com/wimalopaan/LUA/blob/main/SCRIPTS/MIXES/crsfch.lua[].
+
+.Variant `0x03`
+
 Total of 16 channels switches.
 
 The total number of bytes is transferred in chunks:
@@ -269,6 +273,20 @@ The total number of bytes is transferred in chunks:
 * Data: 64 bits as 16 x 8 bytes (16 8-bit-channels)
 
 Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x03]` `<byte0>` ... `[byte15]` `]` `[crc8]`
+
+.Variant `0x04`
+
+The total number of bytes is transferred in chunks:
+
+* Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
+* Command realm: `CruiseController`, `0xa0`, (user defined realm)
+* Command: `0x4` (8 bit per channel)
+* Additional flags byte: 
+** bit0: flip ch1-16 and ch17-32 on SBUs capable receivers / controllers
+** bit1: filp ch1-16 and ch17-32 on SumDV3 capable receivers / controllers
+* Data: 64 bits as 16 x 8 bytes (16 8-bit-channels)
+
+Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x04]` `<flags>` `<byte0>` ... `[byte15]` `]` `[crc8]`
 
 [[crsf-sw]]
 ==== Module Commands (e.g. switch states: on/off)
@@ -335,7 +353,7 @@ to be transferred.
 
 EdgeTx manages 32 RC-channels, so it would be of interest to tranfer the remaining 16 channels also.
 
-On the handset a LUA-script (widget) collects the channels 17-32 and encodes them as a custom CRSF package (<<prop32>>).
+On the handset a LUA-script (mixer script) collects the channels 17-32 and encodes them as a custom CRSF package (<<prop32>>).
 The ELRS-receiver outputs this custom packages on his serial interface (select: CRSF-protokoll). 
 Clearly, a special CRSF-decoder is needed: it has to decode the normal RC channel packages and the custom-packages. 
 
