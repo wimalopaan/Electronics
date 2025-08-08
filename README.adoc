@@ -440,6 +440,19 @@ To build this version use this URL: https://gitpod.io/#https://github.com/wimalo
 
 Then follow the steps as decribed under <<elrs-route>>.
 
+[[elrs_sbus_flip]]
+==== ELRS, 32-channels and SBus-Output (with channel flipping)
+
+ELRS can use a serial interface (Serial or Serial2) to output SBus data. SBus can (only) transport 16 channels. ELRS therefore outputs
+channels 1-16 on this SBus data stream. As this is fully usefull on receiver _without_ PWM outputs, this has the drawback of kind-of doubling
+the output of some of the channels 1-16 on the PWM outputs as well.
+
+Additionally, with the <<prop32>> mixer script on the _EdgeTx_ handset, it would be good, if the PWM receiver (maybe with 8, 10,  or 14 pwm ouputs) 
+could make use of the additional channels 17-32 instead of doubling all these channels in the SBus output. Therefore this modification enables to select
+the upper set of channels (17-32) to be outputted on the SBus.
+
+See also: <<elrs_sumdv3>>.
+
 [[elrs_sumdv3]]
 ==== ELRS, SumDV3 and MultiSwitch 
 
@@ -456,9 +469,15 @@ It works as follows:
 * to set/reset a switch the EdgeTx radio has to run the <<msw_widget>>,
 * this widget must be configured to use the addresses `240`, ..., `247` (attention: these are the logical _switch_ addresses, _not_ the device `CRSF`-address, so that the first 8 switches are reachable on the address `240`, the next octett of switches on the address `241` ... until the last octett on the address `247` 
 
+Additionally in combination with <<prop32>> the `SumDV3` can use _all_ of the 32 rc channels. For this to happen one has to use the `crshch.lua` mixer script (see above). This mixer script has 
+also the option to flip the channel groups 1-16 and 17-32 in the `SumDV3` output (use case: see below).
+
 This modification is ideal to use in combination with e.g. the USM-RC-3 (Fa. Beier: https://www.beier-electronic.de/modellbau/produkte/usm-rc-3/usm-rc-3.php[]). 
 The minimal setup is to use a tiny receiver like a Radiomaster RP1/RP2 or RP3, and connect this (only the TX-line of the serial-interface of the receiver is needed) to the USM-RC3 (Port X2/8). 
-The USM-RC3 can output 4 (of the 16) RC-channels and use all of the 64 switches. 
+The USM-RC3 can output 4 (of the 32) RC-channels and use all of the 64 switches. 
+
+Sadly, the USM-RC-3 can only make use of 16 channels (1-16) of the `SumDV3` input. This limitation can be circumvented if you flip the channel groups 1-16 and 17-32 using the above mentioned
+mixer-script `crsfch.lua` and setting `bit1` of the flags (use value `2` in the mixr-script options).
 
 To build this version use this URL: https://gitpod.io/#https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmsumdv3[]
 
