@@ -453,6 +453,11 @@ the upper set of channels (17-32) to be outputted on the SBus.
 
 See also: <<elrs_sumdv3>>.
 
+To build this version use this URL: https://gitpod.io/#https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmchanext[]
+
+Then follow the steps as decribed under <<elrs-route>>.
+
+
 [[elrs_sumdv3]]
 ==== ELRS, SumDV3 and MultiSwitch 
 
