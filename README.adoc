@@ -503,6 +503,12 @@ To build this version use this URL: https://gitpod.io/#https://github.com/wimalo
 
 Then follow the steps as decribed under <<elrs-route>>.
 
+If you also want to add
+
+* <<elrs_sbus_flip>>
+
+then you would like to use: https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress-arm4-sumdv3-chanext[]
+
 == Projects
 
 The following chapters describe some of my active projects. The majority of my former projects (see <<Old.adoc#, Old>> (in german)) are
