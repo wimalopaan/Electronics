@@ -451,6 +451,9 @@ Additionally, with the <<prop32>> mixer script on the _EdgeTx_ handset, it would
 could make use of the additional channels 17-32 instead of doubling all these channels in the SBus output. Therefore this modification enables to select
 the upper set of channels (17-32) to be outputted on the SBus.
 
+To enable the flipping and sending the channels 17-32 one must install the mixer-script `crsfch.lua` (see https://github.com/wimalopaan/LUA/tree/main/SCRIPTS/MIXES[]) 
+and then set the value of the `Flags` input of the mixer-script to `1` (say, set the `bit0` of the value).
+
 See also: <<elrs_sumdv3>>.
 
 To build this version use this URL: https://gitpod.io/#https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmchanext[]
