@@ -475,7 +475,7 @@ It works as follows:
 * as usual, it maintains the state of 16 RC-channels,
 * setting one of the serial interfaces (_serial_ or _serial2_) to `SumDV3`, it outputs the 16 RC-channles _and_ the state of the 64 binary switches,
 * to set/reset a switch the EdgeTx radio has to run the <<msw_widget>>,
-* this widget must be configured to use the addresses `240`, ..., `247` (attention: these are the logical _switch_ addresses, _not_ the device `CRSF`-address, so that the first 8 switches are reachable on the address `240`, the next octett of switches on the address `241` ... until the last octett on the address `247` 
+* this widget must be configured to use the addresses `240`, ..., `247` (attention: these are the logical _switch_ addresses, _not_ the device `CRSF`-address, so that the first 8 switches are reachable on the address `240`, the next octett of switches on the address `241` ... until the last octett on the address `247`)
 
 Additionally in combination with <<prop32>> the `SumDV3` can use _all_ of the 32 rc channels. For this to happen one has to use the `crshch.lua` mixer script (see above). This mixer script has 
 also the option to flip the channel groups 1-16 and 17-32 in the `SumDV3` output (use case: see below).
@@ -488,6 +488,27 @@ Sadly, the USM-RC-3 can only make use of 16 channels (1-16) of the `SumDV3` inpu
 mixer-script `crsfch.lua` and setting `bit1` of the flags (use value `2` in the mixr-script options).
 
 To build this version use this URL: https://gitpod.io/#https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmsumdv3[]
+
+Then follow the steps as decribed under <<elrs-route>>.
+
+[[elrs_pwm_msw]]
+==== Use an ELRS PWM-receiver as MultiSwitch
+
+Every stock `pwm` receiver can output binary on/off signals or [0%;100%] duty-cycle pwm signals. The former is useful to switch light loads (up to 10mA) on and off, where the latter is useful to pwm modulate the output
+according to the correcpondig channel input. Both outputs can be used to control a logic-level MosFET to switch higher loads.
+
+It is a bit unsatisfactory to use a normal rc channel (one of the 16 channels ELRS transports) to control the binary on/off output of a pwm-receiver. 
+This modification implements the MutliSwitch-Protocol as described in <<crsf-sw>> and used in <<elrs_msw>> and  <<msw_widget>>, so that it can be used for the switching of the outputs.
+
+It works as follows:
+
+* the ELRS receiver running this modification maintains the state of as many binary switches the receiver outputs has.
+* to set/reset a switch the EdgeTx radio has to run the <<msw_widget>>,
+* this widget must be configured to use the address `240` (and `241` if it has more than 8 outputs) (attention: these are the logical _switch_ addresses, so that the first 8 switches are reachable on the address `240`, the next octett of switches on the address `241`) 
+* on the receiver the outputs must be set to `on/off` mode
+* as soon as the receiver gets data from the widget, the `on/off` mode outputs are controlled via the widget and not by the rc channel values anymore.
+
+To build this version use this URL: https://gitpod.io/#https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmswitch[]
 
 Then follow the steps as decribed under <<elrs-route>>.
 
