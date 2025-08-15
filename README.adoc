@@ -201,60 +201,58 @@ This is used by a <<elrs-widget, EdgetTx-Widget>> (encoder) alongside with the <
 For all commands new _realms_  are defined:
 
 * `0xa0`: `CruiseController`
-* `0xa1`: addressable Module
+* `0xa1`: `MultiSwitch`
+* `0xa2`: `Schottel-Controller`
 --
 
-==== Binary data (e.g. switch states: on/off)
+==== Commands for MultiSwitch (realm `0xa1`)
 
-Total of 64 switches.
+Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa1]` `<command>` `<payload>` `]` `[crc8]`
 
-* Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
-* Command realm: `CruiseController`, `0xa0`, (user defined realm)
-* Command: `0x11`
-* Data: 64 bits as 8 x 8 bytes (64 binary switches)
+Defined commands in this realm are:
 
-Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x01]` `<byte0>` ... `[byte7]` `]` `[crc8]`
+* `0x01`: set 8 binary-switches
+* `0x02`: set a proportional value (8-bit resolution)
+* `0x03`: RequestTelemetry (deprecated)
+* `0x04`: RequestTelemetryItem (deprecated)
+* `0x05`: RequestConfigItem (deprecated)
+* `0x06`: RequestDeviceInfo (deprecated)
+* `0x07`: set 8 4-state switches (2-bits for each switch -> 2 bytes payload)
+* `0x08`: tbd
+* `0x09`: set multiple 4-state switches with different switch addresses
+* `0x10`: intermodule comunication (deprecated)
 
-==== N-ary data (e.g. 2/4/8-bits)
+===== Command `0x01` (Set)
 
-===== 2 bits
+Payload: `<address>` `<state>` 
 
-Total of 64 switches.
+`<address>`: 1 byte : switch-address (0 ... 255)
+`<state>`: 1 byte : state of 8 binary switches
 
-* Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
-* Command realm: `CruiseController`, `0xa0`, (user defined realm)
-* Command: `0x12` (2 bit per channel) 
-* Data: 128 bits as 16 x 8 bytes (64 quaternary switches)
+===== Command `0x07` (Set4)
 
-Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x02]` `<byte0>` ... `[byte15]` `]` `[crc8]`
+Payload: `<address>` `<stateH>` `<stateL>` 
 
-===== 4 bits
+`<address>`: 1 byte : switch-address (0 ... 255)
+`<stateH>`: 1 byte : state of 4 2-ary switches
+`<stateL>`: 1 byte : state of 4 2-ary switches
 
-Total of 64 switches.
+===== Command `0x09` (Set4M)
 
-The total number of bytes is transferred in chunks:
+Payload: `<count>` [ `<address>` `<stateH>` `<stateL>` ](repeated `count` times) 
 
-* Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
-* Command realm: `CruiseController`, `0xa0`, (user defined realm)
-* Command: `0x13` (4 bit per channel) 
-* Number of chunk: `0x00`: (channels 0 - 31), `0x01`: (channels 32 - 63) 
-* Data: 128 bits as 16 x 8 bytes (32 16-ary switches)
+`<count>`: 1 byte: number of following 3-byte sequences
+`<address>`: 1 byte : switch-address (0 ... 255)
+`<stateH>`: 1 byte : state of 4 2-ary switches
+`<stateL>`: 1 byte : state of 4 2-ary switches
 
-Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x03]` `<chunk nr>` `<byte0>` ... `[byte31]` `]` `[crc8]`
+===== Command `0x02` (Prop)
 
-===== 8 bits
+Payload: `<address>` `<channel>` `<duyt>` 
 
-Total of 64 channels switches.
-
-The total number of bytes is transferred in chunks:
-
-* Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
-* Command realm: `CruiseController`, `0xa0`, (user defined realm)
-* Command: `0x14` (8 bit per channel) 
-* Number of chunk: `0x00`: (channels 0 - 15), `0x01`: (channels 16 - 31), `0x02`: (channels 32 - 47), `0x03`: (channels 48 - 63)  
-* Data: 128 bits as 16 x 8 bytes (16 8-bit-channels)
-
-Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x04]` `<chunk nr>` `<byte0>` ... `[byte31]` `]` `[crc8]`
+`<address>`: 1 byte : switch-address (0 ... 255)
+`<channel>`: 1 byte : number of the output channel
+`<duty>`: 1 byte : duty for the output channel
 
 [[prop32]]
 ==== Proportional data (e.g. additional channels: >=8bit)
