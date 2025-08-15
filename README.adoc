@@ -188,7 +188,7 @@ multi-switch-modules or lighting-modules
 [[crsf_sw]]
 === Proposal for the CRSF protocol
 
-Following is a proposal for an  to the the `CRSF` protocol. This can be used with every handset, transmitter-module and receiver 
+Following is a proposal for an extension to the the `CRSF` protocol. This can be used with every handset, transmitter-module and receiver 
 due to the extensability of the protocol. 
 
 Refer to https://github.com/crsf-wg/crsf/wiki[crsf].
@@ -205,7 +205,11 @@ For all commands new _realms_  are defined:
 * `0xa2`: `Schottel-Controller`
 --
 
+[[crsf-sw]]
 ==== Commands for MultiSwitch (realm `0xa1`)
+
+* Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
+* Command realm: `MultiSwitch`, `0xa1`, (user defined realm)
 
 Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa1]` `<command>` `<payload>` `]` `[crc8]`
 
@@ -285,17 +289,6 @@ The total number of bytes is transferred in chunks:
 * Data: 64 bits as 16 x 8 bytes (16 8-bit-channels)
 
 Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x04]` `<flags>` `<byte0>` ... `[byte15]` `]` `[crc8]`
-
-[[crsf-sw]]
-==== Module Commands (e.g. switch states: on/off)
-
-* Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
-* Command realm: `Module`, `0xa1`, (user defined realm)
-* Command: `0x01` (Set)
-* Address: `0x00` ... `0xff`
-* Data: variable length, 1 up to 8 bytes 
-
-Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa1]` `[0x01]` `<address>` `<byte0>` ... `[byte7]` `]` `[crc8]`
 
 === ExpressLRS: modules and receivers
 
