@@ -1400,6 +1400,28 @@ widget you can select the S.Port transport and the appropriate physical ID and a
 If you are a FlySky user, a better approach is to use `ibus`.  FlySky does not support S.Port but the channel values do not undergo
 such strange scalings as with ACCST/SBus. Beaware that the mixer script is `mswib.lua`, obviously.
 
+[[msw_nucleo]]
+===== STM32G031F8 Nucleo-Board as a MultiSwitch
+
+Despite the fact that there are man people assembling there one <<mswe8>>, there are also people who do not want to order these boards and assemble all
+parts by themselves, nor do they want to use the assembly-service of some of the main pcb manufactorers. Therefore, there was some demand for more DIY friendly
+version of this MultiSwitch.
+
+The solution is to use bre-built µC boards, that contain all that smd stuff and on the other hand have some 2.54mm pin-header, where all the connections
+to the receiver, power-supply, outputs and programming connections go. In the case of the used STM Nucleo boards, these boards also come with a simple to use 
+on-board programmer: programming is as simple as to copy the firmware file to the emulated USB drive of the on-board programmer (but you can use the st-link programming 
+software as well).
+
+The STM nucleo-board: https://www.st.com/en/evaluation-tools/nucleo-g031k8.html[] 
+In thsi documentation you can find all teh details of the board.
+
+The pinout used for the MultiSwitch for the nucleo-board can be found here: https://github.com/wimalopaan/wmucpp/blob/a9a4ad7189aacfe1117c3167641f161669980336/boards/rcmultiswitchG030/devices_2.h#L310-L319[]
+
+So, all you have to do is to build the firmware via gitpod (see: <<gitpod_wm>>).
+
+Please be sure to enable the correct version of the firmware: https://github.com/wimalopaan/wmucpp/blob/a9a4ad7189aacfe1117c3167641f161669980336/boards/rcmultiswitchG030/msw20.cc#L19-L22[]
+Here you enable `HW_NUCLEO` (comment all the others).
+
 [[msw_widget]]
 ===== MultiSwitch Widget
 
