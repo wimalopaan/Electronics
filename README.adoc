@@ -1422,6 +1422,26 @@ So, all you have to do is to build the firmware via gitpod (see: <<gitpod_wm>>).
 Please be sure to enable the correct version of the firmware: https://github.com/wimalopaan/wmucpp/blob/a9a4ad7189aacfe1117c3167641f161669980336/boards/rcmultiswitchG030/msw20.cc#L19-L22[]
 Here you enable `HW_NUCLEO` (comment all the others).
 
+.Pins of the Nucleo STM32G031 Board
+|===
+| Description | Pin | Pin-Header-Name
+
+| Output 0 | PA7 | A7
+| Output 1 | PA6 | A6
+| Output 2 | PA11 | A5
+| Output 3 | PA8 | D9
+| Output 4 | PA5 | A3
+| Output 5 | PA4 | A2
+| Output 6 | PA1 | A1
+| Output 7 | PB3 | D13
+| to receiver crsf tx | PA9 | D5 
+| to receiver crsf rx | PA10 | D4 
+| button | PB6 | D1
+| serial debug output | PA2 | (via USB) 
+| LED (onboard) | PC6 | 
+| Testpoint (if enabled) | PB4 | D12
+|===
+
 [[msw_widget]]
 ===== MultiSwitch Widget
 
