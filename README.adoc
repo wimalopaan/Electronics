@@ -1442,6 +1442,39 @@ Here you enable `HW_NUCLEO` (comment all the others).
 | Testpoint (if enabled) | PB4 | D12
 |===
 
+[[msw_weact]]
+===== WeAct STM32G031F8 as a MultiSwitch
+
+The https://de.aliexpress.com/item/1005005748198584.html[] is even smaller than the <<msw_nucleo, nucleo>> version. So, this board is a really good choice in terms of price and size.
+
+The differences to the <<msw_nucleo, nucleo>> are, that there is no programmer included (you habe to use a seperate `st-link` programmer, and that the pin assignments are different
+
+So, all you have to do is to build the firmware via gitpod (see: <<gitpod_wm>>).
+
+Please be sure to enable the correct version of the firmware: https://github.com/wimalopaan/wmucpp/blob/a9a4ad7189aacfe1117c3167641f161669980336/boards/rcmultiswitchG030/msw20.cc#L19-L22[]
+Here you enable `HW_WEACT` (comment all the others).
+
+.Pins of the WeAct STM32G031 Board
+|===
+| Description | Pin | Pin-Header-Name
+
+| Output 0 | PA0 | P2-7
+| Output 1 | PA1 | P2-8
+| Output 2 | PA2 | P2-9
+| Output 3 | PA3 | P2-10
+| Output 4 | PB6 | P3-1
+| Output 5 | PA6 | P3-6
+| Output 6 | PA7 | P3-5
+| Output 7 | PA8 | P3-4
+| to receiver crsf tx | PA9 | P3-3 
+| to receiver crsf rx | PA10 | P3-2
+| button on-board | PA14 | 
+| serial debug output | PA14 | (collision with button) 
+| LED (onboard) | PA4 | 
+| Testpoint (if enabled) | PB7 | P2-1
+|===
+
+
 [[msw_widget]]
 ===== MultiSwitch Widget
 
