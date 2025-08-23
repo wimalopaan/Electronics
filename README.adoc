@@ -1455,7 +1455,7 @@ make clean g031
 
 The https://de.aliexpress.com/item/1005005748198584.html[] is even smaller than the <<msw_nucleo, nucleo>> version. So, this board is a really good choice in terms of price and size.
 
-The differences to the <<msw_nucleo, nucleo>> are, that there is no programmer included (you habe to use a seperate `st-link` programmer, and that the pin assignments are different
+The differences to the <<msw_nucleo, nucleo>> are, that there is no programmer included (you have to use a seperate `st-link` programmer, and that the pin assignments are different
 
 So, all you have to do is to build the firmware via gitpod (see: <<gitpod_wm>>).
 
