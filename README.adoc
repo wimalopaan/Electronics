@@ -2011,6 +2011,12 @@ In the following chapters you will see my actual gear and the modifications.
 
 === RadioMaster
 
+==== MT12
+
+internal ExpressLRS
+
+EdgeTx
+
 ==== TX16S
 
 EdgeTx
