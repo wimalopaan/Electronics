@@ -1419,7 +1419,8 @@ The pinout used for the MultiSwitch for the nucleo-board can be found here: http
 
 So, all you have to do is to build the firmware via gitpod (see: <<gitpod_wm>>).
 
-Please be sure to enable the correct version of the firmware: https://github.com/wimalopaan/wmucpp/blob/a9a4ad7189aacfe1117c3167641f161669980336/boards/rcmultiswitchG030/msw20.cc#L19-L22[]
+Please be sure to enable the correct version of the firmware: https://github.com/wimalopaan/wmucpp/blob/69835d2d781f9924fd9ded9a67e0e75d033ec7dc/boards/rcmultiswitchG030/msw20.cc#L19-L24[here]
+
 Here you enable `HW_NUCLEO` (comment all the others).
 
 .Pins of the Nucleo STM32G031 Board
@@ -1442,6 +1443,13 @@ Here you enable `HW_NUCLEO` (comment all the others).
 | Testpoint (if enabled) | PB4 | D12
 |===
 
+At last you use `make` to compile the `G031` version of the source:
+
+[source]
+--
+make clean g031
+--
+
 [[msw_weact]]
 ===== WeAct STM32G031F8 as a MultiSwitch
 
@@ -1456,23 +1464,30 @@ Here you enable `HW_WEACT` (comment all the others).
 
 .Pins of the WeAct STM32G031 Board
 |===
-| Description | Pin | Pin-Header-Name
+| Description | Pin | Pin-Header-Name | Name on the board
 
-| Output 0 | PA0 | P2-7
-| Output 1 | PA1 | P2-8
-| Output 2 | PA2 | P2-9
-| Output 3 | PA3 | P2-10
-| Output 4 | PB6 | P3-1
-| Output 5 | PA6 | P3-6
-| Output 6 | PA7 | P3-5
-| Output 7 | PA8 | P3-4
-| to receiver crsf tx | PA9 | P3-3 
-| to receiver crsf rx | PA10 | P3-2
+| Output 0 | PA0 | P2-7 | A0
+| Output 1 | PA1 | P2-8 | A1
+| Output 2 | PA2 | P2-9 | A2
+| Output 3 | PA3 | P2-10 | A3
+| Output 4 | PB6 | P3-1 | B6
+| Output 5 | PA6 | P3-6 | A6
+| Output 6 | PA7 | P3-5 | A7
+| Output 7 | PA8 | P3-4 | A8
+| to receiver crsf tx | PA9 | P3-3  | A9 
+| to receiver crsf rx | PA10 | P3-2  | A10
 | button on-board | PA14 | 
 | serial debug output | PA14 | (collision with button) 
 | LED (onboard) | PA4 | 
 | Testpoint (if enabled) | PB7 | P2-1
 |===
+
+At last you use `make` to compile the `G031` version of the source:
+
+[source]
+--
+make clean g031
+--
 
 
 [[msw_widget]]
