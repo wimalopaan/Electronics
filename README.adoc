@@ -1576,6 +1576,35 @@ scaling techniques. As a consequence, out of the 11 bits of the SBus channel vak
 number of the output (3bit) and the address of the multiswitch module (2bit) is encoded into one 6bit code and upshifted to reach the full SBus scale. On the receiver side 
 in the multiswitch module the channel value is richt-shifted by 4 and the 6bit are decoded. 
 
+[[led4x4]]
+=== LED 4x4 Module
+
+This module can control up to 16 leds. These leds can be individually controlled, but also can be grouped into up to 4 groups.
+
+Features:
+
+* 16 LED outputs with
+** individual controllable constant current source
+** individual controllable pwm generator
+** optionally group membership
+* 4 groups with 
+** individual ramp-up time
+** individual ramp-down time
+** individual hold-on time
+** individual hold-off time
+** continous and single patterns
+
+The module is controlled via the _MultiSwitch Widget_ (like the <<mswe8>>), all settings are controllable via the `elrsV3.lua` or the _TBS Agent Lite`.
+
+==== Schematic
+
+==== PCB
+
+==== Firmware
+
+Link to the firmware: https://github.com/wimalopaan/wmucpp/tree/master/boards/rcLed4x4[]
+
+
 [[crsf-bus]]
 === CRSF-Half-Duplex Bus
 
