@@ -1594,7 +1594,7 @@ Features:
 ** individual hold-off time
 ** continous and single patterns
 
-The module is controlled via the _MultiSwitch Widget_ (like the <<mswe8>>), all settings are controllable via the `elrsV3.lua` or the _TBS Agent Lite`.
+The module is controlled via the _MultiSwitch Widget_ (like the <<mswe8>>), all settings are controllable via the `elrsV3.lua` or the _TBS Agent Lite_.
 
 ==== Schematic
 
@@ -1602,6 +1602,13 @@ The module is controlled via the _MultiSwitch Widget_ (like the <<mswe8>>), all 
 image::images/led4x4/RC_Led4x4_32_SCH.PNG[width=240, link="images/led4x4/RC_Led4x4_32_SCH.PNG"]
 
 ==== PCB
+
+.PCB Top (click to enlarge)
+image::images/led4x4/RC_Led4x4_32_PCB_O.PNG[width=240, link="images/led4x4/RC_Led4x4_32_PCB_O.PNG"]
+
+.PCB Bottom (click to enlarge)
+image::images/led4x4/RC_Led4x4_32_PCB_U.PNG[width=240, link="images/led4x4/RC_Led4x4_32_PCB_U.PNG"]
+
 
 ==== Firmware
 
