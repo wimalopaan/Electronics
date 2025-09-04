@@ -1579,7 +1579,8 @@ in the multiswitch module the channel value is richt-shifted by 4 and the 6bit a
 [[led4x4]]
 === LED 4x4 Module
 
-This module can control up to 16 leds. These leds can be individually controlled, but also can be grouped into up to 4 groups.
+This module can control up to 16 leds. All these leds can be individually controlled, but also can be grouped into up to 4 groups. 
+It is especially well suited for _RC crawlers_. 
 
 Features:
 
@@ -1593,6 +1594,8 @@ Features:
 ** individual hold-on time
 ** individual hold-off time
 ** continous and single patterns
+* 8 virtual switches
+** each virtual switch comprises up to 4 outputs
 
 The module is controlled via the _MultiSwitch Widget_ (like the <<mswe8>>), all settings are controllable via the `elrsV3.lua` or the _TBS Agent Lite_.
 
@@ -1608,7 +1611,6 @@ image::images/led4x4/RC_Led4x4_32_PCB_O.PNG[width=240, link="images/led4x4/RC_Le
 
 .PCB Bottom (click to enlarge)
 image::images/led4x4/RC_Led4x4_32_PCB_U.PNG[width=240, link="images/led4x4/RC_Led4x4_32_PCB_U.PNG"]
-
 
 ==== Firmware
 
