@@ -231,42 +231,42 @@ Defined commands in this realm are:
 
 Payload: `<address>` `<state>` 
 
-`<address>`: 1 byte : switch-address (0 ... 255)
-`<state>`: 1 byte : state of 8 binary switches
+* `<address>`: 1 byte : switch-address (0 ... 255)
+* `<state>`: 1 byte : state of 8 binary switches
 
 ===== Command `0x07` (Set4)
 
 Payload: `<address>` `<stateH>` `<stateL>` 
 
-`<address>`: 1 byte : switch-address (0 ... 255)
-`<stateH>`: 1 byte : state of 4 2-ary switches
-`<stateL>`: 1 byte : state of 4 2-ary switches
+* `<address>`: 1 byte : switch-address (0 ... 255)
+* `<stateH>`: 1 byte : state of 4 2-ary switches
+* `<stateL>`: 1 byte : state of 4 2-ary switches
 
 ===== Command `0x09` (Set4M)
 
 Payload: `<count>` [ `<address>` `<stateH>` `<stateL>` ](repeated `count` times) 
 
-`<count>`: 1 byte: number of following 3-byte sequences
-`<address>`: 1 byte : switch-address (0 ... 255)
-`<stateH>`: 1 byte : state of 4 2-ary switches
-`<stateL>`: 1 byte : state of 4 2-ary switches
+* `<count>`: 1 byte: number of following 3-byte sequences
+* `<address>`: 1 byte : switch-address (0 ... 255)
+* `<stateH>`: 1 byte : state of 4 2-ary switches
+* `<stateL>`: 1 byte : state of 4 2-ary switches
 
 ===== Command `0x02` (Prop)
 
 Payload: `<address>` `<channel>` `<duyt>` 
 
-`<address>`: 1 byte : switch-address (0 ... 255)
-`<channel>`: 1 byte : number of the output channel
-`<duty>`: 1 byte : duty for the output channel
+* `<address>`: 1 byte : switch-address (0 ... 255)
+* `<channel>`: 1 byte : number of the output channel
+* `<duty>`: 1 byte : duty for the output channel
 
 ===== Command `0x0a` (setRGB)
 
 Payload: `<address>` `<count<` [ `<adr_color_r>` `<color_gb>` ](repeated `count` times) 
 
-`<address>`: 1 byte : switch-address (0 ... 255)
-`<count>`  : 1 byte: number of following 2-byte sequences (1...8)
-`<adr_color_r>` : 1 byte : upper nibble: number of output (0...7) | lower nibble: red value (0...f)
-`<color_gb>` : 1 byte : upper nibble: green value (0...f) | lower nibble: blue value (0...f)
+* `<address>`: 1 byte : switch-address (0 ... 255)
+* `<count>`  : 1 byte: number of following 2-byte sequences (1...8)
+* `<adr_color_r>` : 1 byte : upper nibble: number of output (0...7) ; lower nibble: red value (0...f)
+* `<color_gb>` : 1 byte : upper nibble: green value (0...f) ;  lower nibble: blue value (0...f)
 
 
 [[prop32]]
