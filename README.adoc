@@ -510,6 +510,14 @@ It works as follows:
 * on the receiver the outputs must be set to `on/off` mode
 * as soon as the receiver gets data from the widget, the `on/off` mode outputs are controlled via the widget and not by the rc channel values anymore.
 
+Additional for receivers with WS2812B external socket:
+
+On switch address(es) `248` (up to `255`) one can set WS2812 RGB leds. For this to happen one has to increase the number of configured rgb leds in the `hardware.html` configuration. 
+This normally duplicated the internal led color to the externally connected leds.
+
+If you use the _MultiSwitch-Widget_ <<msw_widget>> you can reach these leds using address `248` and following. You can also set the color of these leds via the multiswitch widget.
+
+
 To build this version use this URL: https://gitpod.io/#https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmswitch[]
 
 Then follow the steps as decribed under <<elrs-route>>.
