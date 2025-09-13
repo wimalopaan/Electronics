@@ -224,6 +224,7 @@ Defined commands in this realm are:
 * `0x07`: set 8 4-state switches (2-bits for each switch -> 2 bytes payload)
 * `0x08`: tbd
 * `0x09`: set multiple 4-state switches with different switch addresses
+* `0x0a`: set color of RGB leds of the switch
 * `0x10`: intermodule comunication (deprecated)
 
 ===== Command `0x01` (Set)
@@ -257,6 +258,16 @@ Payload: `<address>` `<channel>` `<duyt>`
 `<address>`: 1 byte : switch-address (0 ... 255)
 `<channel>`: 1 byte : number of the output channel
 `<duty>`: 1 byte : duty for the output channel
+
+===== Command `0x0a` (setRGB)
+
+Payload: `<address>` `<count<` [ `<adr_color_r>` `<color_gb>` ](repeated `count` times) 
+
+`<address>`: 1 byte : switch-address (0 ... 255)
+`<count>`  : 1 byte: number of following 2-byte sequences (1...8)
+`<adr_color_r>` : 1 byte : upper nibble: number of output (0...7) | lower nibble: red value (0...f)
+`<color_gb>` : 1 byte : upper nibble: green value (0...f) | lower nibble: blue value (0...f)
+
 
 [[prop32]]
 ==== Proportional data (e.g. additional channels: >=8bit)
