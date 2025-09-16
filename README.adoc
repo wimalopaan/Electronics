@@ -224,39 +224,50 @@ Defined commands in this realm are:
 * `0x07`: set 8 4-state switches (2-bits for each switch -> 2 bytes payload)
 * `0x08`: tbd
 * `0x09`: set multiple 4-state switches with different switch addresses
+* `0x0a`: set color of RGB leds of the switch
 * `0x10`: intermodule comunication (deprecated)
 
 ===== Command `0x01` (Set)
 
 Payload: `<address>` `<state>` 
 
-`<address>`: 1 byte : switch-address (0 ... 255)
-`<state>`: 1 byte : state of 8 binary switches
+* `<address>`: 1 byte : switch-address (0 ... 255)
+* `<state>`: 1 byte : state of 8 binary switches
 
 ===== Command `0x07` (Set4)
 
 Payload: `<address>` `<stateH>` `<stateL>` 
 
-`<address>`: 1 byte : switch-address (0 ... 255)
-`<stateH>`: 1 byte : state of 4 2-ary switches
-`<stateL>`: 1 byte : state of 4 2-ary switches
+* `<address>`: 1 byte : switch-address (0 ... 255)
+* `<stateH>`: 1 byte : state of 4 2-ary switches
+* `<stateL>`: 1 byte : state of 4 2-ary switches
 
 ===== Command `0x09` (Set4M)
 
 Payload: `<count>` [ `<address>` `<stateH>` `<stateL>` ](repeated `count` times) 
 
-`<count>`: 1 byte: number of following 3-byte sequences
-`<address>`: 1 byte : switch-address (0 ... 255)
-`<stateH>`: 1 byte : state of 4 2-ary switches
-`<stateL>`: 1 byte : state of 4 2-ary switches
+* `<count>`: 1 byte: number of following 3-byte sequences
+* `<address>`: 1 byte : switch-address (0 ... 255)
+* `<stateH>`: 1 byte : state of 4 2-ary switches
+* `<stateL>`: 1 byte : state of 4 2-ary switches
 
 ===== Command `0x02` (Prop)
 
 Payload: `<address>` `<channel>` `<duyt>` 
 
-`<address>`: 1 byte : switch-address (0 ... 255)
-`<channel>`: 1 byte : number of the output channel
-`<duty>`: 1 byte : duty for the output channel
+* `<address>`: 1 byte : switch-address (0 ... 255)
+* `<channel>`: 1 byte : number of the output channel
+* `<duty>`: 1 byte : duty for the output channel
+
+===== Command `0x0a` (setRGB)
+
+Payload: `<address>` `<count<` [ `<adr_color_r>` `<color_gb>` ](repeated `count` times) 
+
+* `<address>`: 1 byte : switch-address (0 ... 255)
+* `<count>`  : 1 byte: number of following 2-byte sequences (1...8)
+* `<adr_color_r>` : 1 byte : upper nibble: number of output (0...7) ; lower nibble: red value (0...f)
+* `<color_gb>` : 1 byte : upper nibble: green value (0...f) ;  lower nibble: blue value (0...f)
+
 
 [[prop32]]
 ==== Proportional data (e.g. additional channels: >=8bit)
@@ -498,6 +509,14 @@ It works as follows:
 * this widget must be configured to use the address `240` (and `241` if it has more than 8 outputs) (attention: these are the logical _switch_ addresses, so that the first 8 switches are reachable on the address `240`, the next octett of switches on the address `241`) 
 * on the receiver the outputs must be set to `on/off` mode
 * as soon as the receiver gets data from the widget, the `on/off` mode outputs are controlled via the widget and not by the rc channel values anymore.
+
+Additional for receivers with WS2812B external socket:
+
+On switch address(es) `248` (up to `255`) one can set WS2812 RGB leds. For this to happen one has to increase the number of configured rgb leds in the `hardware.html` configuration. 
+This normally duplicated the internal led color to the externally connected leds.
+
+If you use the _MultiSwitch-Widget_ <<msw_widget>> you can reach these leds using address `248` and following. You can also set the color of these leds via the multiswitch widget.
+
 
 To build this version use this URL: https://gitpod.io/#https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmswitch[]
 
@@ -1579,7 +1598,8 @@ in the multiswitch module the channel value is richt-shifted by 4 and the 6bit a
 [[led4x4]]
 === LED 4x4 Module
 
-This module can control up to 16 leds. These leds can be individually controlled, but also can be grouped into up to 4 groups.
+This module can control up to 16 leds. All these leds can be individually controlled, but also can be grouped into up to 4 groups. 
+It is especially well suited for _RC crawlers_. 
 
 Features:
 
@@ -1593,8 +1613,10 @@ Features:
 ** individual hold-on time
 ** individual hold-off time
 ** continous and single patterns
+* 8 virtual switches
+** each virtual switch comprises up to 4 outputs
 
-The module is controlled via the _MultiSwitch Widget_ (like the <<mswe8>>), all settings are controllable via the `elrsV3.lua` or the _TBS Agent Lite`.
+The module is controlled via the _MultiSwitch Widget_ (like the <<mswe8>>), all settings are controllable via the `elrsV3.lua` or the _TBS Agent Lite_.
 
 ==== Schematic
 
@@ -1603,10 +1625,21 @@ image::images/led4x4/RC_Led4x4_32_SCH.PNG[width=240, link="images/led4x4/RC_Led4
 
 ==== PCB
 
+.PCB Top (click to enlarge)
+image::images/led4x4/RC_Led4x4_32_PCB_O.PNG[width=240, link="images/led4x4/RC_Led4x4_32_PCB_O.PNG"]
+
+.PCB Bottom (click to enlarge)
+image::images/led4x4/RC_Led4x4_32_PCB_U.PNG[width=240, link="images/led4x4/RC_Led4x4_32_PCB_U.PNG"]
+
 ==== Firmware
 
 Link to the firmware: https://github.com/wimalopaan/wmucpp/tree/master/boards/rcLed4x4[]
 
+==== Production data
+
+Link to link:images/led4x4/RC_Led4x4_32.T3001[Target 3001 design file].
+
+Link to link:images/led4x4/RC_Led4x4_32.zip[Gerber].
 
 [[crsf-bus]]
 === CRSF-Half-Duplex Bus
