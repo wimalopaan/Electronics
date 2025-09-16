@@ -1635,6 +1635,11 @@ image::images/led4x4/RC_Led4x4_32_PCB_U.PNG[width=240, link="images/led4x4/RC_Le
 
 Link to the firmware: https://github.com/wimalopaan/wmucpp/tree/master/boards/rcLed4x4[]
 
+==== Production data
+
+Link to link:images/led4x4/RC_Led4x4_32.T3001[Target 3001 design file].
+
+Link to link:images/led4x4/RC_Led4x4_32.zip[Gerber].
 
 [[crsf-bus]]
 === CRSF-Half-Duplex Bus
