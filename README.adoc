@@ -1519,6 +1519,8 @@ image::images/elrs_msw/seaspotter/CRSF_Multiswitch_v1.1.webp[width=240, link="im
 .The `MultiSwitch` PCB with THT components schematics
 image::images/elrs_msw/seaspotter/Schematic_CRSF-Multiswitch-THT-v1.1.png[width=240, link="images/elrs_msw/seaspotter/Schematic_CRSF-Multiswitch-THT-v1.1.png"]
 
+If you want to produce this PCB, you can use the following link to the gerber files.
+
 Link to link:images/elrs_msw/seaspotter/Gerber_CRSF-Multiswitch-THT-v1.1.zip[Gerber].
 
 
