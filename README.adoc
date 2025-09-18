@@ -530,18 +530,14 @@ If you want to use an ELRS firmware with all the following modifications
 * <<elrs-route>>, 
 * <<elrs_arm4>>, 
 * <<elrs_sumdv3>>
+* <<elrs_sbus_flip>>
+* <<elrs_pwm_msw>>
 
-you can use this branch: https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress-arm4-sumdv3[].
+you can use this branch: https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress-arm4-sumdv3-chanext-switch[].
 
-To build this version use this URL: https://gitpod.io/#https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress-arm4-sumdv3[]
+To build this version use this URL: https://gitpod.io/#https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress-arm4-sumdv3-chanext-switch[]
 
 Then follow the steps as decribed under <<elrs-route>>.
-
-If you also want to add
-
-* <<elrs_sbus_flip>>
-
-then you would like to use: https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress-arm4-sumdv3-chanext[]
 
 == Projects
 
