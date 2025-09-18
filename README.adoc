@@ -1529,6 +1529,17 @@ Link to link:images/elrs_msw/seaspotter/Gerber_CRSF-Multiswitch-THT-v1.1.zip[Ger
 
 The new widget can be found here: https://github.com/wimalopaan/LUA?tab=readme-ov-file#lvglmsw[]
 
+[TIP]
+--
+Be sure to copy all files _into_ a directory name `lvglMultiSw` (obey small and capital letters). 
+--
+
+[WARNING]
+--
+Before installing a new version of the widget, _allways_ make a copy _all_ config files for the widget. The config file
+are named `<modelname>_<startaddress>.lua` 
+--
+
 .The `MultiSwitch` widget main screen
 image::images/elrs_msw/widget/main01.png[width=240, link="images/elrs_msw/widget/main01.png"]
 
@@ -1541,6 +1552,7 @@ image::images/elrs_msw/widget/global01.png[width=240, link="images/elrs_msw/widg
 .The `MultiSwitch` widget telemetry screen
 image::images/elrs_msw/widget/tele01.png[width=240, link="images/elrs_msw/widget/tele01.png"]
 
+////
 (the following is *outdated information*) 
 
 The code of the widget can be found here: https://github.com/wimalopaan/LUA[]
@@ -1556,6 +1568,7 @@ This work well, but if you switch the handet, the new handset must ahve the same
 This overcomde this limitation, the `MultiSwitch-E` module itself can contain the configuration and the widget can request that configuration.
 
 To use this, enable the `AutoConf` option of the widget.
+////
 
 [[msw_bw]]
 ===== MultiSwitch Telemetry Script
