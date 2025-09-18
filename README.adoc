@@ -1431,8 +1431,7 @@ to the receiver, power-supply, outputs and programming connections go. In the ca
 on-board programmer: programming is as simple as to copy the firmware file to the emulated USB drive of the on-board programmer (but you can use the st-link programming 
 software as well).
 
-The STM nucleo-board: https://www.st.com/en/evaluation-tools/nucleo-g031k8.html[] 
-In thsi documentation you can find all teh details of the board.
+The STM nucleo-board: https://www.st.com/en/evaluation-tools/nucleo-g031k8.html[]. In this documentation you can find all the details of the board.
 
 The pinout used for the MultiSwitch for the nucleo-board can be found here: https://github.com/wimalopaan/wmucpp/blob/a9a4ad7189aacfe1117c3167641f161669980336/boards/rcmultiswitchG030/devices_2.h#L310-L319[]
 
@@ -1467,6 +1466,12 @@ At last you use `make` to compile the `G031` version of the source:
 [source]
 --
 make clean g031
+--
+
+[TIP]
+--
+If you want to use more than one Nucleo-MultiSwitch in parallel, be sure to set `CRSF_TX_OPENDRAIN` in the source code. Then you can connect the `tx` and `rx` line of all 
+modules in parallel.
 --
 
 [[msw_weact]]
@@ -1506,6 +1511,12 @@ At last you use `make` to compile the `G031` version of the source:
 [source]
 --
 make clean g031
+--
+
+[TIP]
+--
+If you want to use more than one Nucleo-MultiSwitch in parallel, be sure to set `CRSF_TX_OPENDRAIN` in the source code. Then you can connect the `tx` and `rx` line of all 
+modules in parallel.
 --
 
 [[msw_tht]]
