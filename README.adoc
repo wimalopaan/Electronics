@@ -1693,6 +1693,8 @@ Link to the PCB order (Aisler): https://aisler.net/p/KPBJUCXN[PCB Order]
 
 Link to link:images/elrs_msw/RC_CRSF_HalfDuplex_Bus.T3001[Target 3001 design file].
 
+Link to link:images/elrs_msw/RC_CRSF_HalfDuplex_Bus.zip[Gerber design files].
+
 ===== Demo (Video)
 
 Prototyp: https://www.youtube.com/watch?v=PeuxACw40io[Video]
@@ -1785,6 +1787,8 @@ https://www.youtube.com/watch?v=yr4b6svxh-k[Video3]
 image::images/rc720e32/RC_720_32_E_02_SCH.PNG[width=240, link="images/rc720e32/RC_720_32_E_02_SCH.PNG"]
 
 Link to link:images/rc720e32/RC_720_32_E_02.T3001[Target 3001 design file].
+
+Link to link:images/rc720e32/RC_720_32_E_02.zip[Gerber design files].
 
 Link to https://aisler.net/p/GBXFAZAU[Aisler RC720E32 V2].
 
