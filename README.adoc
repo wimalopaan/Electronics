@@ -530,18 +530,14 @@ If you want to use an ELRS firmware with all the following modifications
 * <<elrs-route>>, 
 * <<elrs_arm4>>, 
 * <<elrs_sumdv3>>
+* <<elrs_sbus_flip>>
+* <<elrs_pwm_msw>>
 
-you can use this branch: https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress-arm4-sumdv3[].
+you can use this branch: https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress-arm4-sumdv3-chanext-switch[].
 
-To build this version use this URL: https://gitpod.io/#https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress-arm4-sumdv3[]
+To build this version use this URL: https://gitpod.io/#https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress-arm4-sumdv3-chanext-switch[]
 
 Then follow the steps as decribed under <<elrs-route>>.
-
-If you also want to add
-
-* <<elrs_sbus_flip>>
-
-then you would like to use: https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress-arm4-sumdv3-chanext[]
 
 == Projects
 
@@ -1431,8 +1427,7 @@ to the receiver, power-supply, outputs and programming connections go. In the ca
 on-board programmer: programming is as simple as to copy the firmware file to the emulated USB drive of the on-board programmer (but you can use the st-link programming 
 software as well).
 
-The STM nucleo-board: https://www.st.com/en/evaluation-tools/nucleo-g031k8.html[] 
-In thsi documentation you can find all teh details of the board.
+The STM nucleo-board: https://www.st.com/en/evaluation-tools/nucleo-g031k8.html[]. In this documentation you can find all the details of the board.
 
 The pinout used for the MultiSwitch for the nucleo-board can be found here: https://github.com/wimalopaan/wmucpp/blob/a9a4ad7189aacfe1117c3167641f161669980336/boards/rcmultiswitchG030/devices_2.h#L310-L319[]
 
@@ -1467,6 +1462,12 @@ At last you use `make` to compile the `G031` version of the source:
 [source]
 --
 make clean g031
+--
+
+[TIP]
+--
+If you want to use more than one Nucleo-MultiSwitch in parallel, be sure to set `CRSF_TX_OPENDRAIN` in the source code. Then you can connect the `tx` and `rx` line of all 
+modules in parallel.
 --
 
 [[msw_weact]]
@@ -1508,6 +1509,12 @@ At last you use `make` to compile the `G031` version of the source:
 make clean g031
 --
 
+[TIP]
+--
+If you want to use more than one Nucleo-MultiSwitch in parallel, be sure to set `CRSF_TX_OPENDRAIN` in the source code. Then you can connect the `tx` and `rx` line of all 
+modules in parallel.
+--
+
 [[msw_tht]]
 ===== WeAct STM32G031F8 as a MultiSwitch with PCB as THT
 
@@ -1519,6 +1526,8 @@ image::images/elrs_msw/seaspotter/CRSF_Multiswitch_v1.1.webp[width=240, link="im
 .The `MultiSwitch` PCB with THT components schematics
 image::images/elrs_msw/seaspotter/Schematic_CRSF-Multiswitch-THT-v1.1.png[width=240, link="images/elrs_msw/seaspotter/Schematic_CRSF-Multiswitch-THT-v1.1.png"]
 
+If you want to produce this PCB, you can use the following link to the gerber files.
+
 Link to link:images/elrs_msw/seaspotter/Gerber_CRSF-Multiswitch-THT-v1.1.zip[Gerber].
 
 
@@ -1526,6 +1535,17 @@ Link to link:images/elrs_msw/seaspotter/Gerber_CRSF-Multiswitch-THT-v1.1.zip[Ger
 ===== MultiSwitch Widget
 
 The new widget can be found here: https://github.com/wimalopaan/LUA?tab=readme-ov-file#lvglmsw[]
+
+[TIP]
+--
+Be sure to copy all files _into_ a directory name `lvglMultiSw` (obey small and capital letters). 
+--
+
+[WARNING]
+--
+Before installing a new version of the widget, _allways_ make a copy _all_ config files for the widget. The config file
+are named `<modelname>_<startaddress>.lua` 
+--
 
 .The `MultiSwitch` widget main screen
 image::images/elrs_msw/widget/main01.png[width=240, link="images/elrs_msw/widget/main01.png"]
@@ -1539,6 +1559,7 @@ image::images/elrs_msw/widget/global01.png[width=240, link="images/elrs_msw/widg
 .The `MultiSwitch` widget telemetry screen
 image::images/elrs_msw/widget/tele01.png[width=240, link="images/elrs_msw/widget/tele01.png"]
 
+////
 (the following is *outdated information*) 
 
 The code of the widget can be found here: https://github.com/wimalopaan/LUA[]
@@ -1554,6 +1575,7 @@ This work well, but if you switch the handet, the new handset must ahve the same
 This overcomde this limitation, the `MultiSwitch-E` module itself can contain the configuration and the widget can request that configuration.
 
 To use this, enable the `AutoConf` option of the widget.
+////
 
 [[msw_bw]]
 ===== MultiSwitch Telemetry Script
@@ -1671,6 +1693,8 @@ Link to the PCB order (Aisler): https://aisler.net/p/KPBJUCXN[PCB Order]
 
 Link to link:images/elrs_msw/RC_CRSF_HalfDuplex_Bus.T3001[Target 3001 design file].
 
+Link to link:images/elrs_msw/RC_CRSF_HalfDuplex_Bus.zip[Gerber design files].
+
 ===== Demo (Video)
 
 Prototyp: https://www.youtube.com/watch?v=PeuxACw40io[Video]
@@ -1763,6 +1787,8 @@ https://www.youtube.com/watch?v=yr4b6svxh-k[Video3]
 image::images/rc720e32/RC_720_32_E_02_SCH.PNG[width=240, link="images/rc720e32/RC_720_32_E_02_SCH.PNG"]
 
 Link to link:images/rc720e32/RC_720_32_E_02.T3001[Target 3001 design file].
+
+Link to link:images/rc720e32/RC_720_32_E_02.zip[Gerber design files].
 
 Link to https://aisler.net/p/GBXFAZAU[Aisler RC720E32 V2].
 
