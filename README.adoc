@@ -1681,14 +1681,12 @@ Link to link:images/led4x4/RC_Led4x4_32.zip[Gerber].
 
 Allows to connect up to 4 half-duplex CRSF devices to a full-duplex receiver.
 
-[INFO]
---
-This requires an external means to _activate_ the attached half-duplex devices (e.g. a button on the devices), because at most only _one_ device can be active on the bus (s.a. <<crsf-switch>>). 
---
+This requires an external means (or arbitration scheme: see <<crsf_hd_scheme>>) to _activate_ the attached half-duplex devices (e.g. a button on the devices), because at most only _one_ device can be active on the bus (s.a. <<crsf-switch>>). 
 
+[[crsf_hd_scheme]]
 [TIP]
 --
-If alle the devices obey a simple arbitration scheme, there could be more than _one active device_ on this half-dupley bus: 
+If all the devices obey a simple arbitration scheme, there could be more than _one active device_ on this half-dupley bus: 
 
 The arbritration scheme works as follows:
 
