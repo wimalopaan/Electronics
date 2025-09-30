@@ -1817,6 +1817,24 @@ LUA https://github.com/wimalopaan/LUA?tab=readme-ov-file#widget-for-rc720e32-sch
 Allows to connect up to seven half-duplex CRSF devices to a full-duplex receiver.
 
 In contrast to <<crsf-bus>> this `CRSF-Switch` allows _all_ attached devices to be active at the same time (no external activation required).
+To be fully usefull, it requires to use ExpressLRS Version 4.x.x or Version 3.x.x with the <<elrs-route>> extension.
+
+The CRSF-switch acts in some respects like a LAN router/switch inkl. NAT: the attached devices not not to have different _crsf-addresses_, because the CRSF-switch
+translates the addresses of the attached devices to a (predefined) set of addresses. So, the receiver _sees_ a point-2-point connection with a single device 
+with multiple addresses or (similar) a device with its own address (the CRSF-switch address), that routes messages to other devices with different addresses.
+
+Broadcast messages or messages without address information like non-extended messages are forwarded to / from all devices. Be this means, RC-channel data gets to all
+connected devices as well as telemetry data.
+
+The switch _learns_ the addresses of the attached devices by sending CRSF-Ping messages to all connected devices on startup. It decides if it is neccessary to translate the
+address of each attached device. 
+
+[INFO]
+--
+The PCB of the CRSF-Switch has been updated: now it can connect upto 4 full-duplex ans up to 2 half-duplex devices.
+
+The project is shared on OSHWLAB: https://oshwlab.com/wilhelm.wm.meier/crsfcswitch01[]
+--
 
 [[elrs-relay]]
 === ELRS relay configuration
