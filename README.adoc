@@ -1681,7 +1681,25 @@ Link to link:images/led4x4/RC_Led4x4_32.zip[Gerber].
 
 Allows to connect up to 4 half-duplex CRSF devices to a full-duplex receiver.
 
-Attention: this requires an external means to _activate_ the attached half-duplex devices (e.g. a button on the devices), because at most only _one_ device can be active on the bus (s.a. <<crsf-switch>>). 
+[INFO]
+--
+This requires an external means to _activate_ the attached half-duplex devices (e.g. a button on the devices), because at most only _one_ device can be active on the bus (s.a. <<crsf-switch>>). 
+--
+
+[TIP]
+--
+If alle the devices obey a simple arbitration scheme, there could be more than _one active device_ on this half-dupley bus: 
+
+The arbritration scheme works as follows:
+
+* because this is half-duplex, the (immediate) time after receiving a _RC-channels_ packet is free to send packets for the attached devices
+* each device _has to_ use a special time slot (depending on his own crsf-address) to place his packet on the bus
+* a received _link-stat_ (`0x14`) crsf packet starts the counting of time-slots for sending packets
+* the time-slot number for a device is calculated as: (<crsf-address> - 192) * 2
+* requirement: the unique adresses of all attached devices are in the range: `0xc0` ... `0xcf` 
+
+The above scheme must hold for all packets to send: especially the `crsf device info` packet after receiving a `crsf ping` or the unconditionally send telemetry packets must be restricted to the devices time slot. 
+--
 
 .The schematic  (click to enlarge)
 image::images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG[width=240, link="images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG"]
