@@ -364,8 +364,17 @@ The <<CC>> uses two `SBus`-interface, one for channel 1-16, and one for the chan
 [[elrs-mods]]
 === ELRS modifications and pull-requests
 
+[TIP]
+--
+The following modifications are unneccessary / useless for V4 of ExpressLRS
+
+* <<elrs-route>>
+* <<elts_arm4>>
+* <<elrs_perm_arm>>
+--
+
 [[elrs-route]]
-==== Allow other than `0xc8` as extended addresses 
+==== Allow other than `0xc8` as extended addresses (Version 3.x.x only)
 
 The stock ELRS only routes `0xc8` (Flight-Controller) as extended address from and to the handset. This is kind of wrong based on the 
 protocol definition of CRSF. 
@@ -414,7 +423,7 @@ Type in the number, e.g. `18` for a RadioMaster ER6.
 After some seconds you can download the file `firmware.bin` out of the correcponding directory, e.g. `src/.pio/build/Unified_ESP32_2400_RX_via_WIFI/` .
 
 [[elrs_arm4]]
-==== ELRS4 new arming method for version 3
+==== ELRS4 new arming method for version 3  (Version 3.x.x only)
 
 ELRS version 4 introduces a new arming method: now you can use a switch-based arming instead of a channel-based arming. 
 
@@ -426,7 +435,7 @@ To build this version use this URL: https://gitpod.io/#https://github.com/wimalo
 Then follow the steps as decribed under <<elrs-route>>.
 
 [[elrs_perm_arm]]
-==== ELRS4 permanent arming 
+==== ELRS4 permanent arming (Version 3.x.x only)
 
 [CAUTION]
 --
@@ -538,6 +547,22 @@ you can use this branch: https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wma
 To build this version use this URL: https://gitpod.io/#https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress-arm4-sumdv3-chanext-switch[]
 
 Then follow the steps as decribed under <<elrs-route>>.
+
+[[elrs_v4]]
+==== ExpressLRS V4
+
+===== Multiple CRSF devices connected to a receiver
+
+ExpressLRS V4 contains a _full_ implementation of the CRSF protocol. This means, that it can handle all valid CRSF (extended) addresses and route them accordingly. I recognises which devices are connected 
+to which CRSF endpoints. The serial interfaces of a receiver act as an endpoint as well as the RF-transmitter (over-the-air endpoint) inside the receiver. it is crucial that all connected devices 
+have _different_ CRSF addresses.
+
+Please note, that the standard physical layer of CRSF is _not_ a bus! The standard CRSF is a _point-to-point_ protocol. Therefore, you can connect at most _one_ external device to a serial interface of the receiver.
+
+If you want to connect more than on CRSF device, you have to use different serial interfaces of the receiver. Usually, all PWM-receiver can define an additional serial interface using two (CRSF is bidirectional and use rx and tx lines) 
+of the pwm-outputs. There exist also non-pwm receiver like the _Radiomaster XR2_ that comprise two serial interfaces.  
+
+To use more than _one_ external CRSF devices on the _same_ serial interface of a receive, you have to use a CRSF switch/router (see <<crsf-switch>>).  
 
 == Projects
 
@@ -1307,7 +1332,7 @@ option where you can set the address of the correponding module.
 For each address you can also set a descriptive _name_ of the module unique for each model on the radio, as well as the names of the _function_ to switch on or off and 
 which physical switches should be used (if any). This is done via a model-specific configuration file on the sd-card of the radio.
 
-The CRSF protocol is extensible, and this fact is used to propose an  to control such modules: <<crsf-sw>>.
+The CRSF protocol is extensible, and this fact is used to propose an to control such modules: <<crsf-sw>>.
 
 [[mswe8]]
 ===== MultiSwitch-E8
