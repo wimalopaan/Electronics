@@ -382,9 +382,36 @@ https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress[This] or
 https://github.com/ExpressLRS/ExpressLRS/pull/2975[this]
 allows to use the complete range of `0xc0` to `0xcf` to be routed.
 
+===== Use `github` codespaces to compile ExpressLRS
+
+Before you can compile the source code to get the `firmware.bin` file, that you flash onto the receiver, you 
+have to create a `codespace`.
+
+Use this https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress[] URL to navigate to the right `github` repository. Then follow <<cs_wm>> 
+to setup a _Codespace_.
+
+.Codespace for ExpressLRS: newly created codespace
+image::images/gc/wm_gc10.png[width=240, link="images/gc/wm_gc10.png"]
+
+Now continue with <<elrs_compile>> and also refer to the following image after compilation:
+
+.Codespace for ExpressLRS: result of compilation `firmware.bin`
+image::images/gc/wm_gc11.png[width=240, link="images/gc/wm_gc11.png"]
+
+===== Use `gitpod` to compile ExpressLRS (not recommended)
+
+[WARNING]
+--
+The following information about using `gitpod` is kind of outdated, because `gitpod` changed its name to `ONA` and
+now is hidden behind a paywal.
+--
+
 To compile this on your own just use `gitpod` and prepend the above `URL` with `https://gitpod.io/#`. 
 
 For the above simply use: https://gitpod.io/#https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress[].
+
+[[elrs_compile]]
+===== Compilation 
 
 In the terminal area simply type:
 
@@ -585,6 +612,7 @@ setup like my personal developement systems. This would require that interested 
 with alle the 3rd-party stuff in the right place. Clearly, this is a real burden for the average user und will limit the amount of
 people being able to use all the stuff.
 
+[[cs_wm]]
 ==== Using `github` CodeSpaces 
 
 To use the `github` _codespaces_ service first of all you need a valid `github` account. So, go ahead and create one ;-) 
