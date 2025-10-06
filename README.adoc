@@ -585,6 +585,74 @@ setup like my personal developement systems. This would require that interested 
 with alle the 3rd-party stuff in the right place. Clearly, this is a real burden for the average user und will limit the amount of
 people being able to use all the stuff.
 
+==== Using `github` CodeSpaces 
+
+To use the `github` _codespaces_ service first of all you need a valid `github` account. So, go ahead and create one ;-) 
+
+The next step is that you create and open a new _codespace_. This is fairly simple: got to the code repository https://github.com/wimalopaan/wmucpp[] 
+and then click on `Code (green button) --> Tab: Codespaces -->  Button: Create (green)`.
+
+.Steps to create a `github` codespace: step 1
+image::images/gc/wm_gc1.png[width=240, link="images/gc/wm_gc1.png"]
+
+.Steps to create a `github` codespace: step 2
+image::images/gc/wm_gc2.png[width=240, link="images/gc/wm_gc2.png"]
+
+.Steps to create a `github` codespace: step 3
+image::images/gc/wm_gc3.png[width=240, link="images/gc/wm_gc3.png"]
+
+After waiting some time (up to some minutes) you'll see the following interface:
+
+.`github` codespace: main view (vscode)
+image::images/gc/wm_gc4.png[width=240, link="images/gc/wm_gc4.png"]
+
+Now you want to change the directory of the `terminal` (shell)  to the directory of the project you want to compile the code for. The following
+example shows the steps for compiling the _RC-MultiSwitch-E-32_, which is located in the directory `/workspaces/wmucpp/boards/rcmultiswitchG030`.
+So you have to type in the command `cd boards/rcmultiswitchG030` (because the shell already starts in the directory `/workspaces/wmucpp`.
+
+.Navigating to the right place in the terminal
+image::images/gc/wm_gc5.png[width=240, link="images/gc/wm_gc5.png"]
+
+In most cases you need to change some settings in some of the code files (see description of the projects below). So, open the appropriate file 
+in the editor by navigating to the same directory in the left side-bar and then clicking on the file to modify: here `msw30.cc`.
+
+.Open a project file in the editor
+image::images/gc/wm_gc7.png[width=240, link="images/gc/wm_gc7.png"]
+
+After _saving_  the changes to one or more files you can start the compiling: in most cases this is the command `make all`, but in some rare cases
+you have to specify the right _makefile_ for the `make` tool. So, in this case, because we want to generate code for the STM32G031 we have to 
+use the makefile `Makefile.G031` (see also project description for details).
+
+.Starting the compilation
+[source, console]
+----
+[cs@codespaces-qwazx8g1drv rcmultiswitchG030]$ make -f Makefile.G031 all
+----
+
+After a few seconds you (hopefully) get a fresh generated binary file containing the desired firmware. In this case we get the files `msw30.bin`  and `msw30.elf`.
+You can use the command `ls` to list the contents of the whole directory where find the new files:
+
+.Result of the compilation
+image::images/gc/wm_gc6.png[width=240, link="images/gc/wm_gc6.png"]
+
+You also find the firmware binary file in the left side bar of the UI.
+
+.Result of the compilation in the left side bar
+image::images/gc/wm_gc7.png[width=240, link="images/gc/wm_gc7.png"]
+
+The last step now is to download the files: please right-click onto the file and select download.
+
+Afterwards you you favorite STM32 programmer to flash the firmware to you µC.
+
+
+==== Using `gitpod` (not recommended)
+
+[WARNING]
+--
+The following information about using `gitpod` is kind of outdated, because `gitpod` changed its name to `ONA` and
+now is hidden behind a paywal.
+--
+
 The much more convinet solution to all this is https://gitpod.io[] (see also <<edgetx_custom>>).
 
 So, just use the following URI to get a fully setup developement environment: https://gitpod.io/#https://github.com/wimalopaan/wmucpp[].
