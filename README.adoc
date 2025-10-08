@@ -105,6 +105,8 @@ The information to `gitpod` is somewhat outdated: `gitpod` is now hidden behind 
 But there is help: `github` supports _CodeSpaces_. Please refer to <<cs_wm>>. Then continue with <<compiling_edgetx>>.
 --
 
+==== Setting up `gitpod` (not recommended)
+
 But there is a _very_ convenient way to do: using https://gitpod.io[GitPod].
 (There is also a howto in the EdgeTx wiki: https://github.com/EdgeTX/edgetx/wiki/Building-radio-firmware-in-a-webbrowser-with-Gitpod[] ).
 
@@ -118,7 +120,7 @@ Opening this URI gets you to the gitpod workspace. There you simply click on `Co
 after some minutes initializing this workspace you'll see a `vscode`-like user interface. In the lower third you'll a command-prompt. 
 
 [[compiling_edgetx]]
-.Compiling EdgeTx
+==== Compiling EdgeTx
 
 [source,console]
 ----
