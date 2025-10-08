@@ -607,10 +607,19 @@ To use more than _one_ external CRSF devices on the _same_ serial interface of a
 
 The following chapters describe some of my active projects. The majority of my former projects (see <<Old.adoc#, Old>> (in german)) are
 in a frozen state now. This is due to the fact that I completely shifted the µCs from the AVR-family (DA, DB, tiny1/2) to the more powerful 
-STM32-family, mainly the STM32G4xx. These have enough computing resources for the <<sdr>> project, which would have been impossible sticking to 
-the AVRs. 
+STM32-family, mainly the STM32G4xx and STM32G0xx. These have enough computing resources for the <<sdr>> project, which would have been impossible sticking to 
+the AVRs. And the G0xx also have enough internal peripheral to comfy realize all that crazy rc stuff.
 
 Well, there is one exception: the <<corona>>.
+
+[[trademark]]
+=== Logo
+
+Despite the fact that I publish all my projects as open-hardware (mostly CC licensed) and open-source (most GPLV3 licensed)
+I use the floowing _logo_ on the physical projects.
+
+.Logo (License https://creativecommons.org/licenses/by-nc-nd/4.0[])
+image::images/logo/Logo.png[width=240, link="images/logo/Logo.png"]
 
 [[gitpod_wm]]
 === Compiling the source code for the following projects
