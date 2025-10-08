@@ -347,7 +347,7 @@ Sometimes this may be acceptable, but more often this is not acceptable: if the 
 monitored. This may lead to severe damage to the batteries.
 
 Since version `3.4` of ELRS it incorporates a feature called _TeamRace_ (see the receivers menu in the `elrsV3.lua` menu).
-In _TeamRace_ each receiver has a unique ID-number calles `position`. One can select an _active_ receiver via a designated rc channel 
+In _TeamRace_ each receiver has a unique ID-number called `position`. One can select an _active_ receiver via a designated rc channel 
 (one of the 16 rc channels). The active receiver outputs servo data and sends back telemetry, an inactive receiver does not send telemetry and goes 
 into failsafe for the channel data. For more info see: https://github.com/ExpressLRS/ExpressLRS/pull/2176[TeamRace].
 
@@ -630,7 +630,7 @@ To be able to compile the source code you have to have a developement environmen
 other needed tools. As I usually only use _Linux_ systems to do my day to day work, the developemnt also takes place on _Linux_ systems. 
 To be clear: I don't care of other plattforms like Windows or MacOs. And therefore the build process is tested only on _Linux_ systems that are 
 setup like my personal developement systems. This would require that interested users should use an https://archlinux.org[Arch Linux] system
-with alle the 3rd-party stuff in the right place. Clearly, this is a real burden for the average user und will limit the amount of
+with all the 3rd-party stuff in the right place. Clearly, this is a real burden for the average user und will limit the amount of
 people being able to use all the stuff.
 
 [[cs_wm]]
