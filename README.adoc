@@ -98,6 +98,15 @@ code themselves and then flash them onto the radio. The flashing procedure is th
 But compiling the firmware from the source code may place some burden for the unexperienced users: preparing a developement system with all the neccessary tools 
 and using the right versions of them may be not the easiest task, especially working on a non-Linux system.
 
+[WARNING]
+--
+The information to `gitpod` is somewhat outdated: `gitpod` is now hidden behind a paywall. 
+
+But there is help: `github` supports _CodeSpaces_. Please refer to <<cs_wm>>. Then continue with <<compiling_edgetx>>.
+--
+
+==== Setting up `gitpod` (not recommended)
+
 But there is a _very_ convenient way to do: using https://gitpod.io[GitPod].
 (There is also a howto in the EdgeTx wiki: https://github.com/EdgeTX/edgetx/wiki/Building-radio-firmware-in-a-webbrowser-with-Gitpod[] ).
 
@@ -107,8 +116,11 @@ You can concatenate the URI `https://gitpod.io` with a `#` character and then th
 
 Type or paste the combined URI into your browsers address field: https://gitpod.io/#https://github.com/EdgeTX/edgetx/pull/5885[]. 
 
-Opening this URI gets you to the gitpod workspace. There you simply click on `Contunue` (leaving all settings to their defaults) and 
+Opening this URI gets you to the gitpod workspace. There you simply click on `Continue` (leaving all settings to their defaults) and 
 after some minutes initializing this workspace you'll see a `vscode`-like user interface. In the lower third you'll a command-prompt. 
+
+[[compiling_edgetx]]
+==== Compiling EdgeTx
 
 [source,console]
 ----
@@ -595,10 +607,19 @@ To use more than _one_ external CRSF devices on the _same_ serial interface of a
 
 The following chapters describe some of my active projects. The majority of my former projects (see <<Old.adoc#, Old>> (in german)) are
 in a frozen state now. This is due to the fact that I completely shifted the µCs from the AVR-family (DA, DB, tiny1/2) to the more powerful 
-STM32-family, mainly the STM32G4xx. These have enough computing resources for the <<sdr>> project, which would have been impossible sticking to 
-the AVRs. 
+STM32-family, mainly the STM32G4xx and STM32G0xx. These have enough computing resources for the <<sdr>> project, which would have been impossible sticking to 
+the AVRs. And the G0xx also have enough internal peripheral to comfy realize all that crazy rc stuff.
 
 Well, there is one exception: the <<corona>>.
+
+[[trademark]]
+=== Logo
+
+Despite the fact that I publish all my projects as open-hardware (mostly CC licensed) and open-source (most GPLV3 licensed)
+I use the floowing _logo_ on the physical projects.
+
+.Logo (License https://creativecommons.org/licenses/by-nc-nd/4.0[])
+image::images/logo/Logo.png[width=240, link="images/logo/Logo.png"]
 
 [[gitpod_wm]]
 === Compiling the source code for the following projects
