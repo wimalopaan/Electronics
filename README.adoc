@@ -98,7 +98,7 @@ code themselves and then flash them onto the radio. The flashing procedure is th
 But compiling the firmware from the source code may place some burden for the unexperienced users: preparing a developement system with all the neccessary tools 
 and using the right versions of them may be not the easiest task, especially working on a non-Linux system.
 
-[[WARNING]]
+[WARNING]
 --
 The information to `gitpod` is somewhat outdated: `gitpod` is now hidden behind a paywall. 
 
