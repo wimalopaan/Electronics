@@ -1506,7 +1506,7 @@ Clearly there are some limitations:
 
 The code can be found here: https://github.com/wimalopaan/wmucpp/boards/rcmultiswitch[]. There you should find `mswitch01.cc`.
 
-You find an actual hardware-design on https://oshwlab.com/wilhelm.wm.meier/works[].
+You find an actual hardware-design here: <<ssmsw>>.
 
 [NOTE]
 --
@@ -1515,7 +1515,6 @@ Please not that the file `mswitch01.cc` is a generic source-code. So, please obe
 The users of my _old_ multiswitch hardware (PCB): please use the file `sbus01.cc` instead of `mswitchß1.cc` for all following steps.
 But also be sure to edit the _address_ and the _encoding_ in the first few lines of the file `sbus01.cc` according to your needs!
 --
-
 
 You can compile the firmware using this _gitpod_: https://gitpod.io/#https://github.com/wimalopaan/wmucpp[]. 
 
@@ -1565,6 +1564,24 @@ widget you can select the S.Port transport and the appropriate physical ID and a
 
 If you are a FlySky user, a better approach is to use `ibus`.  FlySky does not support S.Port but the channel values do not undergo
 such strange scalings as with ACCST/SBus. Beaware that the mixer script is `mswib.lua`, obviously.
+
+[[ssmsw]]
+===== 16-Outputs PCB
+
+I designed a _SuperSimpleMultiSwitch_-Hardware using the AVR128DA28 in DIP-packes. This is a very easy reproducible hardware design that 
+you can find on https://oshwlab.com/wilhelm.wm.meier/supersimplemultiswitch[]. 
+If the PCB doen't attract you, you can use the schematics to design your own. 
+
+.The SuperSimpleMultiSwitch with 16 outputs
+image::images/elrs_msw/ssmsw/ssmsw.png[width=240, link="images/elrs_msw/ssmsw/ssmsw.png"]
+
+.The SuperSimpleMultiSwitch with 16 outputs PCB
+image::images/elrs_msw/ssmsw/ssmsw2D.png[width=240, link="images/elrs_msw/ssmsw/ssmsw2D.png"]
+
+It has 16 output channels, so it inherently ues _two_ multiswitch address. The base address of the module can be selected via two jumpers on the board.
+
+The firmware con be found here: https://github.com/wimalopaan/wmucpp/boards/rcsupersimplemultiswitch[]. If you don't want to compile the firmware locally 
+on your notebook or PC, you can use `github` _CodeSpaces_ to do so. Please refer to  <<cs_wm>>.
 
 [[msw_nucleo]]
 ===== STM32G031F8 Nucleo-Board as a MultiSwitch
