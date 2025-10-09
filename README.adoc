@@ -1504,7 +1504,7 @@ Clearly there are some limitations:
 * no blinking patterns
 * all other stuff via the `ELRSv3.lua` is not possible
 
-The code can be found here: https://github.com/wimalopaan/wmucpp/boards/rcmultiswitch[]. There you should find `mswitch01.cc`.
+The code can be found here: https://github.com/wimalopaan/wmucpp/tree/master/boards/rcmultiswitch[]. There you should find `mswitch01.cc`.
 
 You find an actual hardware-design here: <<ssmsw>>.
 
@@ -1580,7 +1580,7 @@ image::images/elrs_msw/ssmsw/ssmsw2D.png[width=240, link="images/elrs_msw/ssmsw/
 
 It has 16 output channels, so it inherently ues _two_ multiswitch address. The base address of the module can be selected via two jumpers on the board.
 
-The firmware con be found here: https://github.com/wimalopaan/wmucpp/boards/rcsupersimplemultiswitch[]. If you don't want to compile the firmware locally 
+The firmware con be found here: https://github.com/wimalopaan/wmucpp/tree/master/boards/rcsupersimplemultiswitch[]. If you don't want to compile the firmware locally 
 on your notebook or PC, you can use `github` _CodeSpaces_ to do so. Please refer to  <<cs_wm>>.
 
 [[msw_nucleo]]
