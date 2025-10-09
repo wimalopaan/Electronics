@@ -1454,6 +1454,13 @@ The CRSF protocol is extensible, and this fact is used to propose an to control 
 [[mswe8]]
 ===== MultiSwitch-E8
 
+You find the actual version on https://oshwlab.com/wilhelm.wm.meier/works[].
+
+[CAUTION]
+--
+The following design is outdated. Please use the new design.
+--
+
 .The schematic (click to enlarge)
 image::images/elrs_msw/RCMultiSwitchSmall10_SCH.PNG[width=240, link="images/elrs_msw/RCMultiSwitchSmall10_SCH.PNG"]
 
@@ -1498,6 +1505,8 @@ Clearly there are some limitations:
 * all other stuff via the `ELRSv3.lua` is not possible
 
 The code can be found here: https://github.com/wimalopaan/wmucpp/boards/rcmultiswitch[]. There you should find `mswitch01.cc`.
+
+You find an actual hardware-design on https://oshwlab.com/wilhelm.wm.meier/works[].
 
 [NOTE]
 --
@@ -1796,6 +1805,13 @@ Features:
 The module is controlled via the _MultiSwitch Widget_ (like the <<mswe8>>), all settings are controllable via the `elrsV3.lua` or the _TBS Agent Lite_.
 
 ==== Schematic
+
+You find the actual version on https://oshwlab.com/wilhelm.wm.meier/works[].
+
+[CAUTION]
+--
+Please note that the following hardware-design is outdated. Use the above mentioned version.
+--
 
 .Schematic (click to enlarge)
 image::images/led4x4/RC_Led4x4_32_SCH.PNG[width=240, link="images/led4x4/RC_Led4x4_32_SCH.PNG"]
