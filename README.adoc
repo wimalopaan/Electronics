@@ -347,7 +347,7 @@ Sometimes this may be acceptable, but more often this is not acceptable: if the 
 monitored. This may lead to severe damage to the batteries.
 
 Since version `3.4` of ELRS it incorporates a feature called _TeamRace_ (see the receivers menu in the `elrsV3.lua` menu).
-In _TeamRace_ each receiver has a unique ID-number calles `position`. One can select an _active_ receiver via a designated rc channel 
+In _TeamRace_ each receiver has a unique ID-number called `position`. One can select an _active_ receiver via a designated rc channel 
 (one of the 16 rc channels). The active receiver outputs servo data and sends back telemetry, an inactive receiver does not send telemetry and goes 
 into failsafe for the channel data. For more info see: https://github.com/ExpressLRS/ExpressLRS/pull/2176[TeamRace].
 
@@ -618,7 +618,7 @@ Well, there is one exception: the <<corona>>.
 Despite the fact that I publish all my projects as open-hardware (mostly CC licensed) and open-source (most GPLV3 licensed)
 I use the floowing _logo_ on the physical projects.
 
-.Logo (License https://creativecommons.org/licenses/by-nc-nd/4.0[])
+.Logo (License of the logo: https://creativecommons.org/licenses/by-nc-nd/4.0[CC BY-NC-ND 4.0]) (click to enlarge)
 image::images/logo/Logo.png[width=240, link="images/logo/Logo.png"]
 
 [[gitpod_wm]]
@@ -630,7 +630,7 @@ To be able to compile the source code you have to have a developement environmen
 other needed tools. As I usually only use _Linux_ systems to do my day to day work, the developemnt also takes place on _Linux_ systems. 
 To be clear: I don't care of other plattforms like Windows or MacOs. And therefore the build process is tested only on _Linux_ systems that are 
 setup like my personal developement systems. This would require that interested users should use an https://archlinux.org[Arch Linux] system
-with alle the 3rd-party stuff in the right place. Clearly, this is a real burden for the average user und will limit the amount of
+with all the 3rd-party stuff in the right place. Clearly, this is a real burden for the average user und will limit the amount of
 people being able to use all the stuff.
 
 [[cs_wm]]
@@ -1454,6 +1454,13 @@ The CRSF protocol is extensible, and this fact is used to propose an to control 
 [[mswe8]]
 ===== MultiSwitch-E8
 
+You find the actual version on https://oshwlab.com/wilhelm.wm.meier/works[].
+
+[CAUTION]
+--
+The following design is outdated. Please use the new design.
+--
+
 .The schematic (click to enlarge)
 image::images/elrs_msw/RCMultiSwitchSmall10_SCH.PNG[width=240, link="images/elrs_msw/RCMultiSwitchSmall10_SCH.PNG"]
 
@@ -1499,6 +1506,8 @@ Clearly there are some limitations:
 
 The code can be found here: https://github.com/wimalopaan/wmucpp/boards/rcmultiswitch[]. There you should find `mswitch01.cc`.
 
+You find an actual hardware-design here: <<ssmsw>>.
+
 [NOTE]
 --
 Please not that the file `mswitch01.cc` is a generic source-code. So, please obey the pin assignment in the source-code.
@@ -1506,7 +1515,6 @@ Please not that the file `mswitch01.cc` is a generic source-code. So, please obe
 The users of my _old_ multiswitch hardware (PCB): please use the file `sbus01.cc` instead of `mswitchß1.cc` for all following steps.
 But also be sure to edit the _address_ and the _encoding_ in the first few lines of the file `sbus01.cc` according to your needs!
 --
-
 
 You can compile the firmware using this _gitpod_: https://gitpod.io/#https://github.com/wimalopaan/wmucpp[]. 
 
@@ -1556,6 +1564,24 @@ widget you can select the S.Port transport and the appropriate physical ID and a
 
 If you are a FlySky user, a better approach is to use `ibus`.  FlySky does not support S.Port but the channel values do not undergo
 such strange scalings as with ACCST/SBus. Beaware that the mixer script is `mswib.lua`, obviously.
+
+[[ssmsw]]
+===== 16-Outputs PCB
+
+I designed a _SuperSimpleMultiSwitch_-Hardware using the AVR128DA28 in DIP-packes. This is a very easy reproducible hardware design that 
+you can find on https://oshwlab.com/wilhelm.wm.meier/supersimplemultiswitch[]. 
+If the PCB doen't attract you, you can use the schematics to design your own. 
+
+.The SuperSimpleMultiSwitch with 16 outputs
+image::images/elrs_msw/ssmsw/ssmsw.png[width=240, link="images/elrs_msw/ssmsw/ssmsw.png"]
+
+.The SuperSimpleMultiSwitch with 16 outputs PCB
+image::images/elrs_msw/ssmsw/ssmsw2D.png[width=240, link="images/elrs_msw/ssmsw/ssmsw2D.png"]
+
+It has 16 output channels, so it inherently ues _two_ multiswitch address. The base address of the module can be selected via two jumpers on the board.
+
+The firmware con be found here: https://github.com/wimalopaan/wmucpp/boards/rcsupersimplemultiswitch[]. If you don't want to compile the firmware locally 
+on your notebook or PC, you can use `github` _CodeSpaces_ to do so. Please refer to  <<cs_wm>>.
 
 [[msw_nucleo]]
 ===== STM32G031F8 Nucleo-Board as a MultiSwitch
@@ -1796,6 +1822,13 @@ Features:
 The module is controlled via the _MultiSwitch Widget_ (like the <<mswe8>>), all settings are controllable via the `elrsV3.lua` or the _TBS Agent Lite_.
 
 ==== Schematic
+
+You find the actual version on https://oshwlab.com/wilhelm.wm.meier/works[].
+
+[CAUTION]
+--
+Please note that the following hardware-design is outdated. Use the above mentioned version.
+--
 
 .Schematic (click to enlarge)
 image::images/led4x4/RC_Led4x4_32_SCH.PNG[width=240, link="images/led4x4/RC_Led4x4_32_SCH.PNG"]
