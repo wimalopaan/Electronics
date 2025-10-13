@@ -313,6 +313,20 @@ The total number of bytes is transferred in chunks:
 
 Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x04]` `<flags>` `<byte0>` ... `[byte15]` `]` `[crc8]`
 
+==== Telemetry passthrough messages
+
+Status messages originating from e.g. MultiSwitch (SuperSimpleMultiSwitch) with one byte of status bits. The meaning oth the bits depends
+on the application. The MultiSwitch-Widget can display there status bits, see <<msw_widget>>.
+
+* Paket type: `CRSF_FRAMETYPE_PASSTHRU`, `0x7f`
+* sub type: MultiSwitch, `0xa1`
+* AppId: Status, `6100` 
+* `<switch address>`
+* `<status bits>` 
+
+Overall packet: `[0xc8]` `[len]` `[0x7f]` `[` `[0xea]` `[crsf-address]` `[0xa1]` `[high_byte(6100)]` `[low_byte(6100)]` `[address]` `[statusbits]` `]` `[crc8]`
+
+
 === ExpressLRS: modules and receivers
 
 With ELRS modules like <<hm_es24tx>> (approx. 100mW RF power)  and ultra-small receivers like <<hm_ep1ep2>> or <<rm_er6>>
@@ -1698,7 +1712,6 @@ If you want to produce this PCB, you can use the following link to the gerber fi
 
 Link to link:images/elrs_msw/seaspotter/Gerber_CRSF-Multiswitch-THT-v1.1.zip[Gerber].
 
-
 [[msw_widget]]
 ===== MultiSwitch Widget
 
@@ -1726,6 +1739,19 @@ image::images/elrs_msw/widget/global01.png[width=240, link="images/elrs_msw/widg
 
 .The `MultiSwitch` widget telemetry screen
 image::images/elrs_msw/widget/tele01.png[width=240, link="images/elrs_msw/widget/tele01.png"]
+
+The widget can:
+
+* control MultiSwitch-E (via CRSF, also SBus, IBus, SPort)
+* use buttons, momentary-buttons, check-box, slider to control outputs
+* set name and color of buttons
+* use physical switches to control Multiswitch-W
+* can set logical-switches and virtual-switches
+* mapping to different switch addresses and outputs
+* use confifurable number of buttons
+* send color information to rgb leds (ELRS-receiver, Cruise-Controller)
+* display status bits
+* ...
 
 ////
 (the following is *outdated information*) 
