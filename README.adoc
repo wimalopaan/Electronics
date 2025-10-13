@@ -630,7 +630,7 @@ Well, there is one exception: the <<corona>>.
 === Logo
 
 Despite the fact that I publish all my projects as open-hardware (mostly CC licensed) and open-source (most GPLV3 licensed)
-I use the floowing _logo_ on the physical projects.
+I use the following _logo_ on the physical projects.
 
 .Logo (License of the logo: https://creativecommons.org/licenses/by-nc-nd/4.0[CC BY-NC-ND 4.0]) (click to enlarge)
 image::images/logo/Logo.png[width=240, link="images/logo/Logo.png"]
