@@ -1597,6 +1597,16 @@ It has 16 output channels, so it inherently ues _two_ multiswitch address. The b
 The firmware con be found here: https://github.com/wimalopaan/wmucpp/tree/master/boards/rcsupersimplemultiswitch[]. If you don't want to compile the firmware locally 
 on your notebook or PC, you can use `github` _CodeSpaces_ to do so. Please refer to  <<cs_wm>>.
 
+.Limitations
+[TIP]
+--
+The firmware does not use the RESPONSE_SLOT algorithm (and no open-drain tx-line),
+therefore only one module should send telemetry data ro the RX.
+If modules are parallelized only one should be connected with its tx-line to the receivers-rx line.
+Alternative two modules using telemetry can be connected to different serial connections of
+the receiver, or the CRSF-switch/router has to be used.
+--
+
 [[msw_nucleo]]
 ===== STM32G031F8 Nucleo-Board as a MultiSwitch
 
