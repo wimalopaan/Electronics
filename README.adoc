@@ -1692,6 +1692,8 @@ Here you enable `HW_WEACT` (comment all the others).
 | serial debug output | PA14 | (collision with button) 
 | LED (onboard) | PA4 | 
 | Testpoint (if enabled) | PB7 | P2-1
+| Status input 0 | PA5 | P3-7 | A5
+| Status input 1 | PB7 | P2-1 | B7
 |===
 
 At last you use `make` to compile the `G031` version of the source:
