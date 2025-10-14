@@ -1894,6 +1894,12 @@ Link to link:images/led4x4/RC_Led4x4_32.zip[Gerber].
 
 Allows to connect up to 4 half-duplex CRSF devices to a full-duplex receiver.
 
+[TIP]
+--
+If you use a TBS receiver e.g. TBS Nano RX 6Ch, then the `rx`-line of the receiver lacks a pullup-resistor. You need to solder an extra pullup of 4k7 or upto 20k between twe `+5V` and the `rx` -line. Using
+a `0805` SMD resistor you can solder this directly to the 4-pin `JST-GH` connector of the bus pcb.
+--
+
 This requires an external means (or arbitration scheme: see <<crsf_hd_scheme>>) to _activate_ the attached half-duplex devices (e.g. a button on the devices), because at most only _one_ device can be active on the bus (s.a. <<crsf-switch>>). 
 
 [[crsf_hd_scheme]]
