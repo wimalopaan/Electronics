@@ -15,14 +15,14 @@ Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 :ddir: https://wimalopaan.github.io/Electronics
 :rcb: {ddir}/rc/boards
 
+image::images/logo/Logo.png[width=50%]
+
 [NOTE]
 --
 This page and the accompanying repositories are mostly for my rc (radio controlled models) electronics including EdgeTx/OpenTx and ExpressLRS addons, LUA-scripting, videos, and more.
 --
 
 toc::[]
-
-image::images/zfcf.jpg[width=50%]
 
 == Foreword
 
