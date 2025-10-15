@@ -15,14 +15,14 @@ Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 :ddir: https://wimalopaan.github.io/Electronics
 :rcb: {ddir}/rc/boards
 
+image::images/logo/Logo.png[width=50%]
+
 [NOTE]
 --
 This page and the accompanying repositories are mostly for my rc (radio controlled models) electronics including EdgeTx/OpenTx and ExpressLRS addons, LUA-scripting, videos, and more.
 --
 
 toc::[]
-
-image::images/zfcf.jpg[width=50%]
 
 == Foreword
 
@@ -312,6 +312,20 @@ The total number of bytes is transferred in chunks:
 * Data: 64 bits as 16 x 8 bytes (16 8-bit-channels)
 
 Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x04]` `<flags>` `<byte0>` ... `[byte15]` `]` `[crc8]`
+
+==== Telemetry passthrough messages
+
+Status messages originating from e.g. MultiSwitch (SuperSimpleMultiSwitch) with one byte of status bits. The meaning oth the bits depends
+on the application. The MultiSwitch-Widget can display there status bits, see <<msw_widget>>.
+
+* Paket type: `CRSF_FRAMETYPE_PASSTHRU`, `0x7f`
+* sub type: MultiSwitch, `0xa1`
+* AppId: Status, `6100` 
+* `<switch address>`
+* `<status bits>` 
+
+Overall packet: `[0xc8]` `[len]` `[0x7f]` `[` `[0xea]` `[crsf-address]` `[0xa1]` `[high_byte(6100)]` `[low_byte(6100)]` `[address]` `[statusbits]` `]` `[crc8]`
+
 
 === ExpressLRS: modules and receivers
 
@@ -616,7 +630,7 @@ Well, there is one exception: the <<corona>>.
 === Logo
 
 Despite the fact that I publish all my projects as open-hardware (mostly CC licensed) and open-source (most GPLV3 licensed)
-I use the floowing _logo_ on the physical projects.
+I use the following _logo_ on the physical projects.
 
 .Logo (License of the logo: https://creativecommons.org/licenses/by-nc-nd/4.0[CC BY-NC-ND 4.0]) (click to enlarge)
 image::images/logo/Logo.png[width=240, link="images/logo/Logo.png"]
@@ -1504,7 +1518,7 @@ Clearly there are some limitations:
 * no blinking patterns
 * all other stuff via the `ELRSv3.lua` is not possible
 
-The code can be found here: https://github.com/wimalopaan/wmucpp/boards/rcmultiswitch[]. There you should find `mswitch01.cc`.
+The code can be found here: https://github.com/wimalopaan/wmucpp/tree/master/boards/rcmultiswitch[]. There you should find `mswitch01.cc`.
 
 You find an actual hardware-design here: <<ssmsw>>.
 
@@ -1580,8 +1594,18 @@ image::images/elrs_msw/ssmsw/ssmsw2D.png[width=240, link="images/elrs_msw/ssmsw/
 
 It has 16 output channels, so it inherently ues _two_ multiswitch address. The base address of the module can be selected via two jumpers on the board.
 
-The firmware con be found here: https://github.com/wimalopaan/wmucpp/boards/rcsupersimplemultiswitch[]. If you don't want to compile the firmware locally 
+The firmware con be found here: https://github.com/wimalopaan/wmucpp/tree/master/boards/rcsupersimplemultiswitch[]. If you don't want to compile the firmware locally 
 on your notebook or PC, you can use `github` _CodeSpaces_ to do so. Please refer to  <<cs_wm>>.
+
+.Limitations
+[TIP]
+--
+The firmware does not use the RESPONSE_SLOT algorithm (and no open-drain tx-line),
+therefore only one module should send telemetry data ro the RX.
+If modules are parallelized only one should be connected with its tx-line to the receivers-rx line.
+Alternative two modules using telemetry can be connected to different serial connections of
+the receiver, or the CRSF-switch/router has to be used.
+--
 
 [[msw_nucleo]]
 ===== STM32G031F8 Nucleo-Board as a MultiSwitch
@@ -1668,6 +1692,8 @@ Here you enable `HW_WEACT` (comment all the others).
 | serial debug output | PA14 | (collision with button) 
 | LED (onboard) | PA4 | 
 | Testpoint (if enabled) | PB7 | P2-1
+| Status input 0 | PA5 | P3-7 | A5
+| Status input 1 | PB7 | P2-1 | B7
 |===
 
 At last you use `make` to compile the `G031` version of the source:
@@ -1698,7 +1724,6 @@ If you want to produce this PCB, you can use the following link to the gerber fi
 
 Link to link:images/elrs_msw/seaspotter/Gerber_CRSF-Multiswitch-THT-v1.1.zip[Gerber].
 
-
 [[msw_widget]]
 ===== MultiSwitch Widget
 
@@ -1726,6 +1751,19 @@ image::images/elrs_msw/widget/global01.png[width=240, link="images/elrs_msw/widg
 
 .The `MultiSwitch` widget telemetry screen
 image::images/elrs_msw/widget/tele01.png[width=240, link="images/elrs_msw/widget/tele01.png"]
+
+The widget can:
+
+* control MultiSwitch-E (via CRSF, also SBus, IBus, SPort)
+* use buttons, momentary-buttons, check-box, slider to control outputs
+* set name and color of buttons
+* use physical switches to control Multiswitch-W
+* can set logical-switches and virtual-switches
+* mapping to different switch addresses and outputs
+* use confifurable number of buttons
+* send color information to rgb leds (ELRS-receiver, Cruise-Controller)
+* display status bits
+* ...
 
 ////
 (the following is *outdated information*) 
@@ -1855,6 +1893,12 @@ Link to link:images/led4x4/RC_Led4x4_32.zip[Gerber].
 === CRSF-Half-Duplex Bus
 
 Allows to connect up to 4 half-duplex CRSF devices to a full-duplex receiver.
+
+[TIP]
+--
+If you use a TBS receiver e.g. TBS Nano RX 6Ch, then the `rx`-line of the receiver lacks a pullup-resistor. You need to solder an extra pullup of 4k7 or upto 20k between twe `+5V` and the `rx` -line. Using
+a `0805` SMD resistor you can solder this directly to the 4-pin `JST-GH` connector of the bus pcb.
+--
 
 This requires an external means (or arbitration scheme: see <<crsf_hd_scheme>>) to _activate_ the attached half-duplex devices (e.g. a button on the devices), because at most only _one_ device can be active on the bus (s.a. <<crsf-switch>>). 
 
