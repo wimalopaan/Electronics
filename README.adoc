@@ -26,11 +26,6 @@ This page and the accompanying repositories are mostly for my rc (radio controll
 
 toc::[]
 
-
-:toclevels: 5
-
-toc::[]
-
 == Foreword
 
 [NOTE]
@@ -38,6 +33,11 @@ toc::[]
 --
 Die alte Seite ist noch (und bleibt auch) als <<Old.adoc#, Old.adoc>> verfügbar.
 --
+
+[[dtoc]]
+== Detailed table of contents
+
+See <<detailed_toc>>.
 
 [[edgetx]]
 == EdgeTx
@@ -2574,6 +2574,12 @@ image::images/retro/ESC_Modellcraft.jpg[width=480]
 
 .hitec Speed Controller
 image::images/retro/ESC_hitec.jpg[width=480]
+
+[[detailed_toc]]
+== Detailed table of contents (for reference)
+
+:toclevels: 5
+toc::[]
 
 == Licence
 
