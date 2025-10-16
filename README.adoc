@@ -642,6 +642,11 @@ I use the following _logo_ on the physical projects.
 .Logo (License of the logo: https://creativecommons.org/licenses/by-nc-nd/4.0[CC BY-NC-ND 4.0]) (click to enlarge)
 image::images/logo/Logo.png[width=240, link="images/logo/Logo.png"]
 
+[[oshwlab]]
+=== Hardware designs available on OSHWLab
+
+An increasing number of PCB designs are available on https://oshwlab.com/wilhelm.wm.meier/works[OSHWLab]. 
+
 [[gitpod_wm]]
 === Compiling the source code for the following projects
 
