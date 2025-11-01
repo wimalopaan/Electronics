@@ -2068,15 +2068,15 @@ Allows to connect up to seven half-duplex CRSF devices to a full-duplex receiver
 In contrast to <<crsf-bus>> this `CRSF-Switch` allows _all_ attached devices to be active at the same time (no external activation required).
 To be fully usefull, it requires to use ExpressLRS Version 4.x.x or Version 3.x.x with the <<elrs-route>> extension.
 
-The CRSF-switch acts in some respects like a LAN router/switch inkl. NAT: the attached devices not not to have different _crsf-addresses_, because the CRSF-switch
-translates the addresses of the attached devices to a (predefined) set of addresses. So, the receiver _sees_ a point-2-point connection with a single device 
+The CRSF-switch acts in some respects like a LAN router/switch inkl. NAT: the attached devices need not to have different _crsf-addresses_, because the CRSF-switch
+translates the addresses of the attached devices to a (predefined) set of addresses (used on the receiver side). So, the receiver _sees_ a point-2-point connection with a single device 
 with multiple addresses or (similar) a device with its own address (the CRSF-switch address), that routes messages to other devices with different addresses.
 
-Broadcast messages or messages without address information like non-extended messages are forwarded to / from all devices. Be this means, RC-channel data gets to all
-connected devices as well as telemetry data.
+Broadcast messages or messages without address information like non-extended messages are forwarded to / from all devices. Be this means, RC-channel (or link-stats messages) data gets to all
+connected devices as well as telemetry data (the forwarding can be configured via the CRSF-menu of the CRSF-router). 
 
-The switch _learns_ the addresses of the attached devices by sending CRSF-Ping messages to all connected devices on startup. It decides if it is neccessary to translate the
-address of each attached device. 
+The switch _learns_ the addresses of the attached devices by sending _CRSF-ping_ messages to all connected devices on startup. It decides if it is neccessary to translate the
+address of an each attached device. 
 
 [INFO]
 --
