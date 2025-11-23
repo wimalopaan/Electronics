@@ -245,6 +245,8 @@ Defined commands in this realm are:
 * `0x09`: set multiple 4-state switches with different switch addresses
 * `0x0a`: set color of RGB leds of the switch
 * `0x10`: intermodule comunication (deprecated)
+* `0x11`: intermodule pattern start
+* `0x12`: intermodule pattern stop all
 
 ===== Command `0x01` (Set)
 
@@ -286,6 +288,36 @@ Payload: `<address>` `<count<` [ `<adr_color_r>` `<color_gb>` ](repeated `count`
 * `<count>`  : 1 byte: number of following 2-byte sequences (1...8)
 * `<adr_color_r>` : 1 byte : upper nibble: number of output (0...7) ; lower nibble: red value (0...f)
 * `<color_gb>` : 1 byte : upper nibble: green value (0...f) ;  lower nibble: blue value (0...f)
+
+===== Command `0x11` (intermodule pattern start)
+
+This message type is intended to be send from one module to another, both are located _in_ the same model. 
+So, it is required to have a CRSF-Router (or similar like ELRS-v4 receiver) these modules are connected to.
+
+Typically, this is a _broadcast_ message (destination address: `0x00`), because the sending module does not
+know the crsf-address of the destination module.
+
+The purpose is to start a specific pattern-generator on the destination module.
+
+Payload: `<address>` `<pattern>` 
+
+* `<address>`: 1 byte : switch-address (0...255)
+* `<pattern>`: 1 byte : pattern (4 ... 7)
+
+
+===== Command `0x12` (intermodule pattern stop all)
+
+This message type is intended to be send from one module to another, both are located _in_ the same model. 
+So, it is required to have a CRSF-Router (or similar like ELRS-v4 receiver) these modules are connected to.
+
+Typically, this is a _broadcast_ message (destination address: `0x00`), because the sending module does not
+know the crsf-address of the destination module.
+
+The purpose is to stop the actual running pattern on all modules, that are member of the specific group.
+
+Payload: `<group>` 
+
+* `<group>`: 1 byte : group (0...255)
 
 
 [[prop32]]
