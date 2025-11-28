@@ -2358,7 +2358,7 @@ The firmware con be found here: https://github.com/wimalopaan/wmucpp/tree/master
 | to handset aux tx | PA9 | P3-3  | A9 (A11)
 | to handset aux rx | PA10 | P3-2  | A10 (A12)
 | button on-board | PA14 |  | not exposed
-| serial debug output | PA2 | A2 (collision with analog input 2) 
+| serial debug output | PA2 | P2-8 | A2 (collision with analog input 2) 
 | LED (onboard) | PA4 | A4 | A4
 | Switch input 0 | PB6 | P3-1 | B6
 | Switch input 1 | PB7 | P2-1 | B7
