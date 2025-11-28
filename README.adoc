@@ -2301,7 +2301,7 @@ Link to the code repo: https://github.com/wimalopaan/wmucpp/tree/master/boards/r
 The following stick end switches are used for my RadioMaster TX16s: https://rctechnik.de/products/stick-switch-Radiomaster[stick end switches]
 
 [[rcdesk]]
-=== The RC-desk (for RadioMaster TX16S, FrSky X12S / X9E)
+=== The RC-Desk (for RadioMaster TX16S, FrSky X12S, X9E, ...)
 
 This project is a hardware extension for all radios with an exposed serial interface (s.a. <<hwext>>).
 
@@ -2317,6 +2317,11 @@ It controls and sends the following data to the radio:
 * ELRS receiver (configuarion and / or slave radio)
 * two LEDs
 
+Normally, one would use the RC-Desk at least with one serial connection to the handset. To to the
+longer update intervall of the <<hwext>>, it might be useful to use a second (or the one and only) serial
+connection that transports the proportional values via SBUS, and this can be used as SBUS-input / trainer-serial
+in EdgeTx.
+
 .The RC-desk32 PCB
 image::desk/RC_Desk32_01_PCB.png[width=240, link="desk/RC_Desk32_01_PCB.png"]
 
@@ -2326,6 +2331,41 @@ image::desk/RC_Desk32_01_SCH.png[width=240, link="desk/RC_Desk32_01_SCH.png"]
 If you use _Target 3001_ as your EDA: link:desk/RC_Desk32_01.T3001[Target 3001 design file].
 
 Link to the code repo: https://github.com/wimalopaan/wmucpp/tree/master/boards/rcDesk32[]
+
+[[rcdesk32mini]]
+=== The RC-Desk mini (for RadioMaster TX16S, TX15, FrSky X12S, X9E, ...)
+
+This project is a hardware extension for all radios with an exposed serial interface. It is preferred
+to use it via SBUS-input / trainer-serial to the handset. This requires to define _logical switches_ 
+in EdgeTx to make use of the digital inputs to the `RC-Desk mini`.
+
+The https://de.aliexpress.com/item/1005005748198584.html[WeAct STM32G031F8] is used as the hardware plattform.
+
+The firmware con be found here: https://github.com/wimalopaan/wmucpp/tree/master/boards/rcDesk32mini[]
+
+.Pins of the WeAct STM32G031 Board
+|===
+| Description | Pin | Pin-Header-Name | Name on the board
+
+| Analog Input 0 | PA0 | P2-7 | A0
+| Analog Input 1 | PA1 | P2-8 | A1
+| Analog Input 2 | PA2 | P2-9 | A2
+| Analog Input 3 | PA3 | P2-10 | A3
+| Analog Input 4 | PA5 | P3-7 | A5
+| Analog Input 5 | PA6 | P3-6 | A6
+| Analog Input 6 | PA7 | P3-5 | A7
+| Analog Input 7 | PA8 | P3-4 | A8
+| to handset aux tx | PA9 | P3-3  | A9 (A11)
+| to handset aux rx | PA10 | P3-2  | A10 (A12)
+| button on-board | PA14 | 
+| serial debug output | PA2 | A2 (collision with analog input 2) 
+| LED (onboard) | PA4 | 
+| Switch input 0 | PB6 | P3-1 | B6
+| Switch input 1 | PB7 | P2-1 | B7
+| Switch input 2 | PC14 | P2-2 | C14
+| Switch input 3 | PC15 | P2-3 | C15
+|===
+
 
 === A new kind of stick: haptic-control
 
