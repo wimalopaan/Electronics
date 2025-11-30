@@ -2336,8 +2336,23 @@ Link to the code repo: https://github.com/wimalopaan/wmucpp/tree/master/boards/r
 === The RC-Desk mini (for RadioMaster TX16S, TX15, FrSky X12S, X9E, ...)
 
 This project is a hardware extension for all radios with an exposed serial interface. It is preferred
-to use it via SBUS-input / trainer-serial to the handset. This requires to define _logical switches_ 
+to use it via `SBUS`-input / trainer-serial to the handset. One can connect up to 8 analog and
+4 digital inputs. The analog inputs can be potiometers or e.g. 3-pos switches (preferrably with two
+resistors connected from `Vcc` to middle, and from middle to `Gnd`). The digital inputs can be 2-pos
+switches.
+
+The 8 analog inputs are converted to `SBUS` values in SBus channel 1 - 8 and the 4 digital inputs are converted to 
+`SBUS` channels 9 - 12. This requires to define _logical switches_ 
 in EdgeTx to make use of the digital inputs to the `RC-Desk mini`.
+
+Additionally to `SBUS` one can use `CRSF` protocoll or the <<hwext>> as a transport to the handset.
+
+Using `CRSF` makes it possible to use an ELRS-Tx-Module or a Rx-as-TX as a transmitter (no handset running EdgeTx needed).
+This maybe a simple means to renew old vintage transmitters.
+
+`CRSF` makes it also possible to transport the digital switch information via the <<crsf-sw>> protocol. So, 
+an <<elrs_msw>> can be used as a multiswitch connected to the receiver or use an ELRS pwm receiver as a
+multiswitch (<<elrs_pwm_msw>>).
 
 The https://de.aliexpress.com/item/1005005748198584.html[WeAct STM32G031F8] is used as the hardware plattform.
 
