@@ -2381,6 +2381,74 @@ The firmware con be found here: https://github.com/wimalopaan/wmucpp/tree/master
 | Switch input 3 | PC15 | P2-3 | C15
 |===
 
+[[rcrelay32]]
+=== RC-Relay32: a CRSF-Relay
+
+(the following documentation is work-in-progess)
+
+With the `CRSF-Relay` you can connect one CRSF-based RC-Link (like https://www.expresslrs.org[ExpressLRS] or TBS Crossfire or ...) comprising 
+handset/transmitter-module and receiver to another CRSF-based RC-Link comprising a transmitter-module and receiver. The first receiver and the 
+second transmitter-module are connected via the CRSF-Relay, that does all the weird stuff.
+
+(image)
+
+This setup can be used to
+
+* connect two ELRS RC-Links together (e.g. 2400MHz and 868/900MHz)
+* connect arbitrary CRSF-based RC-links (like TBS, ...)
+* use a ELRS RX-as-TX as transmitter-module (full-duplex) or external module (half-duplex)
+
+This can be usefull to:
+
+* connect a handset/transmitter to a powerful transmitter-module mounted on a pole using a good antenna (maybe directional) and placed on a terrain on high-altitude containing no obstacles to achieve large distances
+* solving the multi-model problem (see below)
+* changing RF-band in the link to get better penetration e.g. for RC-subwater vessels
+* ...
+
+The benefit of this solution is, that all CRSF components in the whole setting are reachable via the `elrsV3.lua` configuration script (or TBS Agent). So, not only
+the rc-channels are transported this way, but also the telemetry data from all receivers and modules are send back without collisions.
+
+There maybe need for a LUA-widget running on the handset to convert the tunneled RC-LinkStat packages from the secondary RC-Link (or even more RC-Links).
+
+The firmware can be fund here: https://github.com/wimalopaan/wmucpp/tree/master/boards/rcRelay32[]
+
+The https://de.aliexpress.com/item/1005005748198584.html[WeAct STM32G031F8] is used as the hardware plattform.
+
+
+.Pins of the WeAct STM32G031 Board
+|===
+| Description | Pin | Pin-Header-Name | Name on the board
+
+| unused | PA0 | P2-7 | A0
+| unused | PA1 | P2-8 | A1
+| to txmodule tx | PA2 | P2-9 | A2
+| to txmodule rx | PA3 | P2-10 | A3
+| unused | PA5 | P3-7 | A5
+| unused | PA6 | P3-6 | A6
+| unused | PA7 | P3-5 | A7
+| unused | PA8 | P3-4 | A8
+| to receiver tx | PA9 | P3-3  | A9 (A11)
+| to receiver rx | PA10 | P3-2  | A10 (A12)
+| button on-board | PA14 |  | not exposed
+| LED (onboard) | PA4 | A4 | A4
+| unused | PB6 | P3-1 | B6
+| unused | PB7 | P2-1 | B7
+| unused | PC14 | P2-2 | C14
+| unused | PC15 | P2-3 | C15
+|===
+
+==== The Multi-Model problem
+
+Actually it is kind of a challenge to control more than one RC-model at the same and using also telemetry. You may wonder who is doing such crazy stuff, but 
+people want e.g. to control two ship-models (like the DGZRS-Cruisers and their daughter boats) or a RC-Crawler or RC-Truck together with its trailer. Often the RC-systems 
+is kept running when the truck drives around with the trailer parked somehow.
+
+So, it would be cool to have an RC-Link with a handset/transmitter-module to which more than one receiver using telemetry is connected to. But this is impossible, even with more than 
+one transmitter-module in the handset, because the is no solution for multiple telemetry streams inside e.g. EdgeTx.
+
+So, the CRSF-relay could be a solution: the handset/transmitter connects to the master-rc-model. Inside this you have a receiver as usual but also the CRSF-Relay connected to another
+transmittre-module e.g. a very small and cheap ELRS rx-as-tx. This rx-as-tx connects to the slave-rc-model, where another receiver is placed in.
+
 
 === A new kind of stick: haptic-control
 
