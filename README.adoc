@@ -2093,7 +2093,7 @@ tools installed, please follow this tutorial to build all with _gitpod_ <<gitpod
 LUA https://github.com/wimalopaan/LUA?tab=readme-ov-file#widget-for-rc720e32-schottel-controller[Widget] for `EdgeTx`.
 
 [[crsf-switch]]
-=== CRSF-Switch
+=== CRSF-Switch / Router
 
 Allows to connect up to seven half-duplex CRSF devices to a full-duplex receiver.
 
@@ -2110,9 +2110,11 @@ connected devices as well as telemetry data (the forwarding can be configured vi
 The switch _learns_ the addresses of the attached devices by sending _CRSF-ping_ messages to all connected devices on startup. It decides if it is neccessary to translate the
 address of an each attached device. 
 
+The switch can act as a CRSF-relay as well (s.a. <<rcrelay32>>). Every connector can be used for a connecttion to an ELRS TX-module (half-duplex) or RX-as-TX (full-duplex).
+
 [INFO]
 --
-The PCB of the CRSF-Switch has been updated: now it can connect upto 4 full-duplex ans up to 2 half-duplex devices.
+The PCB of the CRSF-Switch has been updated: now it can connect upto 4 full-duplex and up to 2 half-duplex devices.
 
 The project is shared on OSHWLAB: https://oshwlab.com/wilhelm.wm.meier/crsfcswitch01[]
 --
