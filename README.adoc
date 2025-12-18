@@ -2451,6 +2451,26 @@ one transmitter-module in the handset, because the is no solution for multiple t
 So, the CRSF-relay could be a solution: the handset/transmitter connects to the master-rc-model. Inside this you have a receiver as usual but also the CRSF-Relay connected to another
 transmittre-module e.g. a very small and cheap ELRS rx-as-tx. This rx-as-tx connects to the slave-rc-model, where another receiver is placed in.
 
+[[devg0b1]]
+=== WM STM32G0B1 development board
+
+The https://de.aliexpress.com/item/1005005748198584.html[WeAct STM32G031F8] is used for some of he here described projects. Although it is a 
+nice dev-board for all kind of (small) projects, it has its limitations:
+
+* limited RAM (8k), limited flash (64k)
+* supply voltage limited to 5V (absolute max. 6V)
+* using button disables SWD (one has to use connect-under-reset)
+* only one LED
+* unflexible pin assignment due to small µC-package
+
+The alternate STM32G0B1 (or G051 and G071) dev-board alleviates these burdens.
+
+* extended PCB, but still compatible with WeAct STM32G031
+* 144k RAM, 128/512k flash
+* supply up to 20V
+* two LEDs
+* JST-GH connector (CRSF)
+* voltage devider for ADC to measure supply voltage
 
 === A new kind of stick: haptic-control
 
