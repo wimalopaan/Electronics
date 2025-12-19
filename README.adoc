@@ -2472,6 +2472,8 @@ The alternate STM32G0B1 (or G051 and G071) dev-board alleviates these burdens.
 * JST-GH connector (CRSF)
 * voltage devider for ADC to measure supply voltage
 
+You can find the board here: https://github.com/wimalopaan/Electronics/tree/main/hardware/wmg0b1[]
+
 === A new kind of stick: haptic-control
 
 .The stick model (click to view in full-scale)
