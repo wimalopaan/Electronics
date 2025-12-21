@@ -247,6 +247,7 @@ Defined commands in this realm are:
 * `0x10`: intermodule comunication (deprecated)
 * `0x11`: intermodule pattern start
 * `0x12`: intermodule pattern stop all
+* `0x13`: intermodule slave set
 
 ===== Command `0x01` (Set)
 
@@ -318,6 +319,23 @@ The purpose is to stop the actual running pattern on all modules, that are membe
 Payload: `<group>` 
 
 * `<group>`: 1 byte : group (0...255)
+
+===== Command `0x13` (intermodule slave set)
+
+This message type is intended to be send from one module to another, both are located _in_ the same model 
+_or_ in two different module (like mother- and daughter boat or trauck and trailer).
+So, it is required to have a CRSF-Router (or similar like ELRS-v4 receiver) these modules are connected to.
+
+Typically, this is a _broadcast_ message (destination address: `0x00`), because the sending module does not
+know the crsf-address of the destination module.
+
+The purpose is to stet the outputs of the slave according to the master. The message should be send
+from the master to the slave every time the state of the masters outputs change.
+
+Payload: `<src>` `<state>`  
+
+* `<src>`: 1 byte : source switch address (0...255)
+* `<state>`: 1 byte : state of 8 outputs
 
 
 [[prop32]]
