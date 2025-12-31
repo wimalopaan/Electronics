@@ -449,6 +449,37 @@ The <<CC>> uses two `SBus`-interface, one for channel 1-16, and one for the chan
 
 [TIP]
 --
+The modifications for ELRS V4 you'll find <<elrs-mods-v4>>.
+--
+
+[[elrs-mods-v4]]
+==== ExpressLRS V4
+
+The following modifications to ELRS 
+
+* <<elrs:sumdv3>> 
+* <<elrs_pwm_msw>>
+* RGB Led via MultiSwitch-Widget
+
+are also available for ELRS V4 now.
+
+Please find the source code here: https://github.com/wimalopaan/ExpressLRS/tree/wmextensions[]
+
+Be sure to use the 
+
+.The `super_defines.txt` 
+[source,console]
+----
+-DWMEXTENSION
+----
+
+in `super_defines.txt`.
+
+The instructions to build ELRS V4 all hold as described in <<elrs_cs>> and <<elrs_compile>>.
+
+
+[TIP]
+--
 The following modifications are unneccessary / useless for V4 of ExpressLRS
 
 * <<elrs-route>>
@@ -465,6 +496,7 @@ https://github.com/wimalopaan/ExpressLRS/tree/3.x.x-wmaddress[This] or
 https://github.com/ExpressLRS/ExpressLRS/pull/2975[this]
 allows to use the complete range of `0xc0` to `0xcf` to be routed.
 
+[[elrs_cs]]
 ===== Use `github` codespaces to compile ExpressLRS
 
 Before you can compile the source code to get the `firmware.bin` file, that you flash onto the receiver, you 
