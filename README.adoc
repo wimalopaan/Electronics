@@ -457,7 +457,7 @@ The modifications for ELRS V4 you'll find <<elrs-mods-v4>>.
 
 The following modifications to ELRS 
 
-* <<elrs:sumdv3>> 
+* <<elrs_sumdv3>> 
 * <<elrs_pwm_msw>>
 * RGB Led via MultiSwitch-Widget
 
