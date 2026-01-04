@@ -470,7 +470,7 @@ The following modifications to ELRS
 * <<elrs_sumdv3>> 
 * <<elrs_pwm_msw>>
 * RGB Led via MultiSwitch-Widget
-* 32 channels extension <<elrs_ch32>>
+* 32 channels extension <<elrs-ch32>>
 
 are also available for ELRS V4 now.
 
