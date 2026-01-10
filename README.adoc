@@ -21,9 +21,8 @@ image::images/logo/Logo.png[width=50%]
 --
 This page and the accompanying repositories are mostly for my rc (radio controlled models) electronics including EdgeTx/OpenTx and ExpressLRS addons, LUA-scripting, videos, and more.
 --
-https://github.com/wimalopaan/Electronics/tree/main/edgetx/firmware
-:toclevels: 2
 
+:toclevels: 2
 toc::[]
 
 == Foreword
