@@ -21,7 +21,7 @@ image::images/logo/Logo.png[width=50%]
 --
 This page and the accompanying repositories are mostly for my rc (radio controlled models) electronics including EdgeTx/OpenTx and ExpressLRS addons, LUA-scripting, videos, and more.
 --
-
+https://github.com/wimalopaan/Electronics/tree/main/edgetx/firmware
 :toclevels: 2
 
 toc::[]
@@ -80,6 +80,21 @@ Alternative:
 There is a cumbersome alternative way to achieve a similar but very limited result: 
 a widget could use the function `shmSet()` to transport up to 16 values, to a _mixer_ script which could pick them up via `shmGet()` 
 and simple return them (only up to 6). These output values of the mixer script could then be used as mixer-inputs. There is no such a way for switches. 
+
+[[edgetx_32channels]]
+=== 32-Channels extension for the CRSF-Protocol
+
+EdgeTx manages internally 32 channels. But most RF-links only transport 16 out of these 32 channels to the connected receiver. 
+
+A modified ExpressLRS can transport 32 channels: <<elrs-ch32>>
+
+To use this, EdgeTx must also transport 32 channels to the TX-module. This extension enables to transport 32 channels from EdgeTx to the ELRS TX-modules.
+
+Precompiled EdgeTx (translation = `german`, includes also <<vcontrols>>) con be found here: https://github.com/wimalopaan/Electronics/tree/main/edgetx/firmware[]
+
+This extension is available as this branch: https://github.com/wimalopaan/edgetx/tree/wmcrsfchanext[]
+
+It is also available as https://github.com/wimalopaan/edgetx/tree/wmextensions[] with all EdgeTx extensions.
 
 [[edgetx_shm_bw]]
 === SHM-Variables for B&W radios
