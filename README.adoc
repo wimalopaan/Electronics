@@ -474,6 +474,14 @@ The following modifications to ELRS
 
 are also available for ELRS V4 now.
 
+[TIP]
+--
+All modifications can be selected via the `exresslrs-configurator`: simply select the pull-request `#3484` https://github.com/ExpressLRS/ExpressLRS/pull/3484[]
+in expert-mode via the `git pull request`-tab.
+
+Because the `expresslrs-configurator` does not allow setting individual option anymore, the pull-request contains useful default settings.
+--
+
 Please find the source code here: https://github.com/wimalopaan/ExpressLRS/tree/wmextensions[]
 
 Be sure to put the following line 
