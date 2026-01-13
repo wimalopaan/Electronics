@@ -1,7 +1,7 @@
 = 5D-Sticks für die FrSky X12S
 Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 :revnumber: 1.0
-//:revdate: 01.01.1970
+:revdate: 13.01.2026
 //:revremark: undefined
 :lang: de
 :toc:
