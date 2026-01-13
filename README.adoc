@@ -1139,6 +1139,13 @@ For better mounting the FPC/FFC-cable adapter, there is a printable adapter: htt
 
 Video: https://www.youtube.com/watch?v=BhzwIHQNJnw[Demo]
 
+[[sfrog]]
+=== SFrog 5D Sticks for the FrSky X12S
+
+The following document decribes a modification for the X12S: {ddir}/rc/touch.html[X12S SFrog 5D Stick modification].
+
+(the document is unfortunately in german, but due the large amount of images).
+
 === Modification of an old Graupner / JR 40MHz transmitter RF modul for use in e.g. a Radiomaster TX16s / FrSky X12S/X9e or similar
 
 Modern handsets with a JR-like module bay provide a `cppm`-signal and battery-voltage on the pins of the connector. 
