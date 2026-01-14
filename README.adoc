@@ -1133,7 +1133,8 @@ The only drawback is, that it has no touch-screen. I managed to modify https://e
 RadioMaster TX16S working inside the X12s.
 
 The software modifications are in mainline https://edgetx.org[EdgeTx] (no need to patch or modify) and the hardware modification is described in an extra 
-document: {ddir}/rc/touch.html[X12S touch]
+document: 
+https://htmlpreview.github.io/?https://github.com/wimalopaan/Electronics/blob/main/rc/touch.html[X12S touch]
 
 For better mounting the FPC/FFC-cable adapter, there is a printable adapter: https://www.printables.com/model/1342784-frsky-horus-x12s-touch-screen-mod-fpc-6p-05mm-adap[]
 
@@ -1142,7 +1143,8 @@ Video: https://www.youtube.com/watch?v=BhzwIHQNJnw[Demo]
 [[sfrog]]
 === SFrog 5D Sticks for the FrSky X12S
 
-The following document decribes a modification for the X12S: {ddir}/rc/sfrog.html[X12S SFrog 5D Stick modification] 
+The following document decribes a modification for the X12S: 
+https://htmlpreview.github.io/?https://github.com/wimalopaan/Electronics/blob/main/rc/sfrog.html[X12S SFrog 5D Stick modification] 
 
 (the document is unfortunately in german, but due the large amount of images).
 
@@ -1168,7 +1170,8 @@ image::rc/jr_old/mods.jpg[width=240, link="rc/jr_old/mods.jpg"]
 .After the modification
 image::rc/jr_old/jpt12_3.jpg[width=240, link="rc/jr_old/jpt12_3.jpg"]
 
-For the full story, please follow this link:rc/jr40mhz.html[Howto (german)]
+For the full story, please follow this 
+https://htmlpreview.github.io/?https://github.com/wimalopaan/Electronics/blob/main/rc/jr40mhz.html[Howto (german)]
 
 === Brushed DC-motor controller with sensorless measurement of rotational speed
 
