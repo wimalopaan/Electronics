@@ -2565,14 +2565,14 @@ The https://de.aliexpress.com/item/1005005748198584.html[WeAct STM32G031F8] is u
 
 | unused | PA0 | P2-7 | A0
 | unused | PA1 | P2-8 | A1
-| to txmodule tx | PA2 | P2-9 | A2
-| to txmodule rx | PA3 | P2-10 | A3
+| to receiver tx | PA2 | P2-9 | A2
+| to receiver rx | PA3 | P2-10 | A3
 | unused | PA5 | P3-7 | A5
 | unused | PA6 | P3-6 | A6
 | unused | PA7 | P3-5 | A7
 | unused | PA8 | P3-4 | A8
-| to receiver tx | PA9 | P3-3  | A9 (A11)
-| to receiver rx | PA10 | P3-2  | A10 (A12)
+| to txmodule tx (half-duplex) | PA9 | P3-3  | A9 (A11)
+| to txmodule rx | PA10 | P3-2  | A10 (A12)
 | button on-board | PA14 |  | not exposed
 | LED (onboard) | PA4 | A4 | A4
 | unused | PB6 | P3-1 | B6
