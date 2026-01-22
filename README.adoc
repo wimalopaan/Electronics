@@ -2703,6 +2703,20 @@ In the following chapters you will see my actual gear and the modifications.
 
 === RadioMaster
 
+==== TX16S MK3
+
+My review of the MK3 version: https://www.youtube.com/watch?v=gwQktlNaL68[]
+
+internal ExpressLRS
+
+EdgeTx
+
+==== TX15
+
+internal ExpressLRS
+
+EdgeTx
+
 ==== MT12
 
 internal ExpressLRS
