@@ -113,6 +113,11 @@ to enable this also for b&w radios, for color-lcd radios this feature is always 
 [[edgetx_custom]]
 === Custom EdgeTx builds
 
+[TIP]
+--
+Precompiled EdgeTx (translation = `german`, includes also <<vcontrols>> and <<edgetx_32channels>>) con be found here: https://github.com/wimalopaan/Electronics/tree/main/edgetx/firmware[]
+--
+
 Being familiar with a _Linux_ system is very handy when dealing with custom builds of _EdgeTx_. Occaisionally I develop some extensions to the main-line _EdgeTx_ 
 code. These extension are published as so called _pull-requests_ (PR) to the _EdgeTx_ github repository. Interested users can pull these PR and compile the 
 code themselves and then flash them onto the radio. The flashing procedure is the same as it is for the official firmware releases (or RC versions or nightlies). 
