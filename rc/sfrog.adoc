@@ -176,6 +176,12 @@ Nun alle Kabel gemäß der <<uc_pinout, Tabelle>> anschließen.
 
 Die Versogung kann am IMU entnommen werden (a.a. <<power>>).
 
+[WARNING]
+--
+Auf dem `WeAct STM32 G031` sind zwei Lötbrücken: `SB1` und `SB2`. Diese beiden Brücken _müssen_ geschlossen werden, damit
+die Pins `PC14` und `PC15` des µC mit den Anschlusspins des Boards verbunden werden.
+--
+
 .WeAct STM32G0B1
 image::images/weact.jpg[]
 
