@@ -445,7 +445,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="author" class="author">Wilhelm Meier</span><br>
 <span id="email" class="email"><a href="mailto:wilhelm.wm.meier@googlemail.com">wilhelm.wm.meier@googlemail.com</a></span><br>
 <span id="revnumber">version 1.0,</span>
-<span id="revdate">13.01.2026</span>
+<span id="revdate">18.04.2026</span>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle">Inhalt</div>
@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_pin_belegung_farbzuordnung_der_sfrog_5d_sticks">2.3. Pin-Belegung / Farbzuordnung der SFrog 5D Sticks</a></li>
 <li><a href="#_optionale_modifikation_des_sfrog_5d_sticks_für_eine_einzelne_ansteuerung_der_leds_im_stick">2.4. (Optionale) Modifikation des SFrog 5D Sticks für eine einzelne Ansteuerung der LEDs im Stick</a></li>
 <li><a href="#_montage_der_sfrog_5d_sticks">2.5. Montage der SFrog 5D Sticks</a></li>
-<li><a href="#_verkabelung_an_das_weact_stm32_g031">2.6. Verkabelung an das WeAct STM32 G031</a></li>
+<li><a href="#_verkabelung_an_das_weact_stm32_g031_modul">2.6. Verkabelung an das WeAct STM32 G031 Modul</a></li>
 <li><a href="#_fixierung_des_µc_boards_im_sender">2.7. Fixierung des µC-Boards im Sender</a></li>
 <li><a href="#_abschluss">2.8. Abschluss</a></li>
 </ul>
@@ -734,7 +734,7 @@ zum Schutz vor Spähnen abzukleben.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_verkabelung_an_das_weact_stm32_g031"><a class="anchor" href="#_verkabelung_an_das_weact_stm32_g031"></a><a class="link" href="#_verkabelung_an_das_weact_stm32_g031">2.6. Verkabelung an das WeAct STM32 G031</a></h3>
+<h3 id="_verkabelung_an_das_weact_stm32_g031_modul"><a class="anchor" href="#_verkabelung_an_das_weact_stm32_g031_modul"></a><a class="link" href="#_verkabelung_an_das_weact_stm32_g031_modul">2.6. Verkabelung an das WeAct STM32 G031 Modul</a></h3>
 <div class="paragraph">
 <p>Nun alle Kabel gemäß der <a href="#uc_pinout">Tabelle</a> anschließen.</p>
 </div>
@@ -752,6 +752,9 @@ zum Schutz vor Spähnen abzukleben.</p>
 <p>Auf dem <code>WeAct STM32 G031</code> sind zwei Lötbrücken: <code>SB1</code> und <code>SB2</code>. Diese beiden Brücken <em>müssen</em> geschlossen werden, damit
 die Pins <code>PC14</code> und <code>PC15</code> des µC mit den Anschlusspins des Boards verbunden werden.</p>
 </div>
+<div class="paragraph">
+<p><strong>Achtung</strong>: in den Bildern dieser Anleitung sind diese Brücken <em>noch</em> nicht geschlossen worden.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -760,13 +763,13 @@ die Pins <code>PC14</code> und <code>PC15</code> des µC mit den Anschlusspins d
 <div class="content">
 <img src="images/weact.jpg" alt="weact">
 </div>
-<div class="title">Abbildung 16. WeAct STM32G0B1</div>
+<div class="title">Abbildung 16. WeAct STM32G0B1 (Achtung: es fehlen auf diesem Bild noch die Lötbrücken, s.o.)</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/weact_2.jpg" alt="weact 2">
 </div>
-<div class="title">Abbildung 17. WeAct STM32G0B1 mit 3-poligem Versorgungsstecker (2-Pole belegt: Gnd, 5V) und 4-poligem SWD-Prorammierstecker</div>
+<div class="title">Abbildung 17. WeAct STM32G0B1 mit 3-poligem Versorgungsstecker (2-Pole belegt: Gnd, 5V) und 4-poligem SWD-Prorammierstecker (Achtung: es fehlen auf diesem Bild noch die Lötbrücken, s.o.)</div>
 </div>
 <table id="uc_pinout" class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. Tabelle zum Anschluss an das µC-Modul</caption>
@@ -790,7 +793,7 @@ die Pins <code>PC14</code> und <code>PC15</code> des µC mit den Anschlusspins d
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Stick 1 / ADC2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">geld</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">gelb</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A1</p></td>
 </tr>
 <tr>
@@ -810,7 +813,7 @@ die Pins <code>PC14</code> und <code>PC15</code> des µC mit den Anschlusspins d
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Stick 1 / Led</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tbd</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tbd (im Bild dieser Anleitung: hellblau)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A3</p></td>
 </tr>
 <tr>
@@ -850,7 +853,7 @@ die Pins <code>PC14</code> und <code>PC15</code> des µC mit den Anschlusspins d
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Stick 2 / Led</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tbd</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tbd (im Bild dieser Anleitung: hellblau)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A8</p></td>
 </tr>
 <tr>
@@ -865,7 +868,7 @@ die Pins <code>PC14</code> und <code>PC15</code> des µC mit den Anschlusspins d
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SBus</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tbd</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tbd (im Bild dieser Anleitung: blau)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A11</p></td>
 </tr>
 </tbody>
@@ -895,13 +898,13 @@ die Pins <code>PC14</code> und <code>PC15</code> des µC mit den Anschlusspins d
 <div class="content">
 <img src="images/weact_mount.jpg" alt="weact mount">
 </div>
-<div class="title">Abbildung 21. Montage des µC-Moduls an der Rückseite des LCD-Displays</div>
+<div class="title">Abbildung 21. Montage des µC-Moduls an der Rückseite des LCD-Displays (Achtung: es fehlen auf diesem Bild noch die Lötbrücken, s.o.)</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/mount.jpg" alt="mount">
 </div>
-<div class="title">Abbildung 22. Gesamtantsicht von Innen</div>
+<div class="title">Abbildung 22. Gesamtantsicht von Innen (Achtung: es fehlen auf diesem Bild noch die Lötbrücken, s.o.)</div>
 </div>
 </div>
 <div class="sect2">
@@ -1031,7 +1034,7 @@ die Pins <code>PC14</code> und <code>PC15</code> des µC mit den Anschlusspins d
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2026-02-03 06:06:17 +0100
+Last updated 2026-04-17 19:35:11 +0200
 </div>
 </div>
 <script type="text/x-mathjax-config">

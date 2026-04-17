@@ -1,7 +1,7 @@
 = 5D-Sticks für die FrSky X12S
 Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 :revnumber: 1.0
-:revdate: 13.01.2026
+:revdate: 18.04.2026
 //:revremark: undefined
 :lang: de
 :toc:
@@ -170,7 +170,7 @@ Nun die Kabel der Sticks durch die aufgebohrten Aggregat-Brücken in das Innere 
 
 Anschließen die Knüppelbolzen in die Aggregatbrücke schrauben.
 
-=== Verkabelung an das WeAct STM32 G031
+=== Verkabelung an das WeAct STM32 G031 Modul
 
 Nun alle Kabel gemäß der <<uc_pinout, Tabelle>> anschließen.
 
@@ -180,12 +180,14 @@ Die Versogung kann am IMU entnommen werden (a.a. <<power>>).
 --
 Auf dem `WeAct STM32 G031` sind zwei Lötbrücken: `SB1` und `SB2`. Diese beiden Brücken _müssen_ geschlossen werden, damit
 die Pins `PC14` und `PC15` des µC mit den Anschlusspins des Boards verbunden werden.
+
+*Achtung*: in den Bildern dieser Anleitung sind diese Brücken _noch_ nicht geschlossen worden.
 --
 
-.WeAct STM32G0B1
+.WeAct STM32G0B1 (Achtung: es fehlen auf diesem Bild noch die Lötbrücken, s.o.)
 image::images/weact.jpg[]
 
-.WeAct STM32G0B1 mit 3-poligem Versorgungsstecker (2-Pole belegt: Gnd, 5V) und 4-poligem SWD-Prorammierstecker
+.WeAct STM32G0B1 mit 3-poligem Versorgungsstecker (2-Pole belegt: Gnd, 5V) und 4-poligem SWD-Prorammierstecker (Achtung: es fehlen auf diesem Bild noch die Lötbrücken, s.o.)
 image::images/weact_2.jpg[]
 
 [[uc_pinout]]
@@ -194,11 +196,11 @@ image::images/weact_2.jpg[]
 | Bedeutung | Farbe | Anschluss µC-Board
 
 | Stick 1 / ADC1 | baun | A0
-| Stick 1 / ADC2 | geld | A1
+| Stick 1 / ADC2 | gelb | A1
 | Stick 1 / ADC3 | lila | A2
 | Stick 1 / SW1 | weiß | C14
 | Stick 1 / SW2 | blau | B7
-| Stick 1 / Led | tbd | A3
+| Stick 1 / Led | tbd (im Bild dieser Anleitung: hellblau) | A3
 | Stick 1 / Gnd | schwarz | Gnd
 | Stick 1 / Vcc | rot | 3,3V
 
@@ -207,11 +209,11 @@ image::images/weact_2.jpg[]
 | Stick 2 / ADC3 | lila | A7
 | Stick 2 / SW1 | weiß | B6
 | Stick 2 / SW2 | blau | C15
-| Stick 2 / Led | tbd | A8
+| Stick 2 / Led | tbd (im Bild dieser Anleitung: hellblau) | A8
 | Stick 2 / Gnd | schwarz | Gnd
 | Stick 2 / Vcc | rot | 3,3V
 
-| SBus | tbd | A11
+| SBus | tbd (im Bild dieser Anleitung: blau) | A11
 |===
 
 
@@ -227,10 +229,10 @@ image::images/finish.jpg[]
 
 === Fixierung des µC-Boards im Sender
 
-.Montage des µC-Moduls an der Rückseite des LCD-Displays
+.Montage des µC-Moduls an der Rückseite des LCD-Displays (Achtung: es fehlen auf diesem Bild noch die Lötbrücken, s.o.)
 image::images/weact_mount.jpg[]
 
-.Gesamtantsicht von Innen
+.Gesamtantsicht von Innen (Achtung: es fehlen auf diesem Bild noch die Lötbrücken, s.o.)
 image::images/mount.jpg[]
 
 === Abschluss
