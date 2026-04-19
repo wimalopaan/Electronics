@@ -254,7 +254,9 @@ Folgende Einstellungen sind in EdgeTx vorzunehmen:
 
 Die analogen Eingänge erscheinen als `TR1` bis `TR6`.
 
-Die digitalen Eingänge erscheinen ls `TR8` bis `TR11`.
+Die digitalen Eingänge erscheinen als `TR9` bis `TR12`.
+
+Die Trainer `TR7`, `TR8` und `TR13` bis `TR16` sind unbenutzt.
 
 
 [[firmware]]
