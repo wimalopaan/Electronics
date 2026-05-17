@@ -2149,7 +2149,7 @@ Features:
 * Servos
 ** PWM-Servos with analog Feedback (e.g. Feetech FB360M)
 ** PWM-Servos with PWM-Feedback (e.g. Parallax)
-** serial Servos (e.g. WaveShare ST3020)
+** serial Servos (e.g. WaveShare ST3020) (see also: <<crsfserialservo>>)
 
 * ESCs
 ** PWM-ESCs
@@ -2683,6 +2683,8 @@ With this servo the follwing features are possible:
 * stall detection
 * overload protection
 * position feedback
+
+(see also <<CC>> and <<rc720e>>)
 
 [[serialservo01]]
 .The WaveShare ST3020 serial servo (click to enlarge)  
