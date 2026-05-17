@@ -2586,6 +2586,34 @@ The https://de.aliexpress.com/item/1005005748198584.html[WeAct STM32G031F8] is u
 | unused | PC15 | P2-3 | C15
 |===
 
+[[relay_img01]]
+.The Relay (click to enlarge)  
+image::images/relay/relay01.jpg[width=240, link="images/relay/relay01.jpg"]
+
+[[relay_img02]]
+.The Relay (click to enlarge)  
+image::images/relay/relay02.jpg[width=240, link="images/relay/relay02.jpg"]
+
+[[relay_img03]]
+.The Relay (click to enlarge)  
+image::images/relay/relay03.jpg[width=240, link="images/relay/relay03.jpg"]
+
+[[relay_menu04]]
+.The Menu (click to enlarge)  
+image::images/relay/menu04.jpg[width=240, link="images/relay/menu04.jpg"]
+
+[[relay_menu01]]
+.The Menu (click to enlarge)  
+image::images/relay/menu01.jpg[width=240, link="images/relay/menu01.jpg"]
+
+[[relay_menu02]]
+.The Menu (click to enlarge)  
+image::images/relay/menu02.jpg[width=240, link="images/relay/menu02.jpg"]
+
+[[relay_menu03]]
+.The Menu (click to enlarge)  
+image::images/relay/menu03.jpg[width=240, link="images/relay/menu03.jpg"]
+
 ==== The Multi-Model problem
 
 Actually it is kind of a challenge to control more than one RC-model at the same and using also telemetry. You may wonder who is doing such crazy stuff, but 
@@ -2624,6 +2652,50 @@ The alternate STM32G0B1 (or G051 and G071) dev-board alleviates these burdens.
 * voltage devider for ADC to measure supply voltage
 
 You can find the board here: https://github.com/wimalopaan/Electronics/tree/main/hardware/wmg0b1[]
+
+[[crsfserialservo]]
+=== The CRSF to Serial-Servo Converter
+
+This project is an adapter to use _serial servos_ together with an CRSF receiver.
+
+_Serial servos_ aren't controlled via a PWM servo signal. Instead they use a serial data connection. Typically
+each servo has a distinct address, so all servos can be connected to same same serial line. In this case
+one has to use a 3-wire connector: Gnd, Vcc, data.
+
+There are (have been) servos that use SBus as serial protocol. To configure the channel (address) they listen to
+one has to use some configuration tool, the servo is connected too. This is very cumbersome.
+
+In the robotics area other kind of servo is widely used as e.g. the WaveShare ST3020. The do have another form factor 
+than the typical standard rc servos, but they can be equpped with a RC like servo arm. To mount them like a standard RC servo, 
+one can use a 3D printed hat (see <<serialservo02>>).
+
+This project impelements the WaveShare serial protocol, and gives the user a CRSF menu on the handset to configure
+the servos. No disconnect to a configuration tool is required. The adjustments can be made even if the servo is 
+already mounted inside the model.
+
+The here used ST3020 servo is a 360° servo with feedback. 
+
+With this servo the follwing features are possible:
+
+* adjustable rotation angle between 1° and 12 * 360° (for full channel range)
+* adjustable speed
+* adjustable torque
+* stall detection
+* overload protection
+* position feedback
+
+[[serialservo01]]
+.The WaveShare ST3020 serial servo (click to enlarge)  
+image::images/waveshare/st3020.jpg[width=240, link="images/waveshare/st3020.jpg"]
+
+[[serialservo02]]
+.The WaveShare ST3020 serial servo connected together (click to enlarge)  
+image::images/waveshare/st3020_4.jpg[width=240, link="images/waveshare/st3020_4.jpg"]
+
+[[serialservo03]]
+.The _CRSF to serial servo_ Adapter connected to 4 WaveShare ST3020 serial servos and an ELRS receiver (ER6) (click to enlarge)  
+image::images/waveshare/st3020_adap.jpg[width=240, link="images/waveshare/st3020_adap.jpg"]
+
 
 === A new kind of stick: haptic-control
 
