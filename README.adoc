@@ -2603,7 +2603,7 @@ transmittre-module e.g. a very small and cheap ELRS rx-as-tx. This rx-as-tx conn
 
 [[devg0b1img]]
 .The WM STM32G0B1 (click to enlarge)  
-image::images/wm/stm32g0b1.jpg[width=240, link="images/wm/stm32g0b1.jpg"]
+image::images/wm/wmstm32g0b1.jpg[width=240, link="images/wm/wmstm32g0b1.jpg"]
 
 The https://de.aliexpress.com/item/1005005748198584.html[WeAct STM32G031F8] is used for some of he here described projects. Although it is a 
 nice dev-board for all kind of (small) projects, it has its limitations:
