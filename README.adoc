@@ -22,6 +22,11 @@ image::images/logo/Logo.png[width=50%]
 This page and the accompanying repositories are mostly for my rc (radio controlled models) electronics including EdgeTx/OpenTx and ExpressLRS addons, LUA-scripting, videos, and more.
 --
 
+[WARNING]
+--
+No AI generated code inside, all errors are human!
+--
+
 :toclevels: 2
 toc::[]
 
