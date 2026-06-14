@@ -22,6 +22,11 @@ image::images/logo/Logo.png[width=50%]
 This page and the accompanying repositories are mostly for my rc (radio controlled models) electronics including EdgeTx/OpenTx and ExpressLRS addons, LUA-scripting, videos, and more.
 --
 
+[WARNING]
+--
+No AI generated code inside, all errors are human!
+--
+
 :toclevels: 2
 toc::[]
 
@@ -2149,7 +2154,7 @@ Features:
 * Servos
 ** PWM-Servos with analog Feedback (e.g. Feetech FB360M)
 ** PWM-Servos with PWM-Feedback (e.g. Parallax)
-** serial Servos (e.g. WaveShare ST3020)
+** serial Servos (e.g. WaveShare ST3020) (see also: <<crsfserialservo>>)
 
 * ESCs
 ** PWM-ESCs
@@ -2683,6 +2688,8 @@ With this servo the follwing features are possible:
 * stall detection
 * overload protection
 * position feedback
+
+(see also <<CC>> and <<rc720e>>)
 
 [[serialservo01]]
 .The WaveShare ST3020 serial servo (click to enlarge)  
