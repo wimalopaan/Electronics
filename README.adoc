@@ -2705,7 +2705,44 @@ image::images/waveshare/st3020_4.jpg[width=240, link="images/waveshare/st3020_4.
 .The _CRSF to serial servo_ Adapter connected to 4 WaveShare ST3020 serial servos and an ELRS receiver (ER6) (click to enlarge)  
 image::images/waveshare/st3020_adap.jpg[width=240, link="images/waveshare/st3020_adap.jpg"]
 
+[[mortimer]]
+=== Selft-balancing inverted pendulum robot with INav (Project: Mortimer)
 
+Watching some videos about self-balancing robots I came up with the idea of building such a thing by myself 
+but using my own way of getting the things done ;-)
+
+Since I am using https://github.com/iNavFlight/inav[INav] on the Radiomaster https://radiomasterrc.com/products/nexus-xr-control-system[Nexus-XR]
+in some other projects I found it natural to use it for this project too. INav has a bunch of free PID controllers built-in and the Nexus-XR contains
+an ELRS-receiver and a IMU ready to use. So, it seems quite simple ...
+
+Most inverted pendulum balancing-robots use some sort of brushed gear motors with encoders or stepper-motors I was first tempted to use
+my own gimbal-motor driver. But since this was in an early state, this wasn't really a quick option.
+
+I found these https://www.waveshare.com/wiki/DDSM210?srsltid=AfmBOoq7uD7-XkhQ9nspMRGSAIVBgr8Upqys0ygCCtGbGOxuoT5TQB3U[Waveshare DDSM210] motors. 
+They seem ideally suited for the projectexcept for the fact, that they use an own serial protocol.
+
+So I had to implement this in INav: https://github.com/wimalopaan/inav/tree/wm_ddsm210[INav with serial protocol for DDSM210]
+
+After that it turns out that the control-loop in INav runs with 10Hz. This is far too slow.
+I had to modify that too (a maximum of 4KHz). Setting the coefficients and additional parameters like filtering coefficients hard-coded
+into the source is a bad idea. So, I decided to use some of the GVars in INav to set these parameters for the first two free PID controllers 
+in INav.
+
+* GVar[0]: gain 1/10 for PID controller 0
+* GVar[1]: errorLPF cutoff 1/10 Hz for PID controller 0
+* GVar[2]: dtermLPF cutoff 1/10 Hz for PID controller 0
+
+* GVar[3]: gain 1/10 for PID controller 1
+* GVar[4]: errorLPF cutoff 1/10 Hz for PID controller 1
+* GVar[5]: dtermLPF cutoff 1/10 Hz for PID controller 1
+
+All modifications are found in: https://github.com/wimalopaan/inav/tree/wm_pendulum[INav with modifications] for the pendulum-robot
+
+https://www.youtube.com/watch?v=JkGJ32tAq5U[Explaining video] (german only)
+
+https://youtu.be/_f_BZltnOyI[The robot in action]
+
+[[haptic]]
 === A new kind of stick: haptic-control
 
 .The stick model (click to view in full-scale)
