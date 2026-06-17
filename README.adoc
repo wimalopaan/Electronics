@@ -2705,6 +2705,9 @@ image::images/waveshare/st3020_4.jpg[width=240, link="images/waveshare/st3020_4.
 .The _CRSF to serial servo_ Adapter connected to 4 WaveShare ST3020 serial servos and an ELRS receiver (ER6) (click to enlarge)  
 image::images/waveshare/st3020_adap.jpg[width=240, link="images/waveshare/st3020_adap.jpg"]
 
+Application of the serial-servo as sailboat winch: https://youtu.be/_jWBiEMZoZ8[Saudade].
+
+
 [[mortimer]]
 === Selft-balancing inverted pendulum robot with INav (Project: Mortimer)
 
