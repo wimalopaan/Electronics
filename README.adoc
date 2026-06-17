@@ -1276,13 +1276,15 @@ image::bdc/bdc_L_4.jpg[width=240, link="bdc/bdc_L_4.jpg"]
 === ESCape32: firmware for a familiy of small/medium BLDC motor controller (brushless ESC)
 
 `ESCape32` is a firmware for a family of brushless motor controller sharing a common design (originated in the _BLHeli_-project). 
-One of the most outstanding feature of `ESCape32` is the possibility to use serial input (SBus(2), CRSF, ...) and telemetry. A markable 
-feature ist the `Sbus2` protocoll, than combines control and telemetry data via one half-duplex line.
+One of the most outstanding feature of `ESCape32` is the possibility to use serial input (SBus(2), CRSF, SumDV3(HoTT), ...) and telemetry (CRSF, SBus2, S.Port, HoTT-Telemetry, ...). 
+A markable feature ist the `Sbus2` protocoll, than combines control and telemetry data via one half-duplex line.
 
-https://github.com/wimalopaan/ESCape32[ESCape32]
+The project: https://github.com/wimalopaan/ESCape32[ESCape32]
 
 .ESCape32
 image::bldc/escape32/escape32_1.jpg[width=240, link="bldc/escape32/escape32_1.jpg"]
+
+The project also defines special hardware targets (please contact if you have interest).
 
 [[vesc]]
 === V/ESC: the ultimate firmware for medium/big BLDC motor controller (brushless ESC) 
