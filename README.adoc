@@ -2693,6 +2693,8 @@ With this servo the follwing features are possible:
 
 (see also <<CC>> and <<rc720e>>)
 
+Application of the serial-servo as sailboat winch: https://youtu.be/_jWBiEMZoZ8[Saudade].
+
 [[serialservo01]]
 .The WaveShare ST3020 serial servo (click to enlarge)  
 image::images/waveshare/st3020.jpg[width=240, link="images/waveshare/st3020.jpg"]
@@ -2704,9 +2706,6 @@ image::images/waveshare/st3020_4.jpg[width=240, link="images/waveshare/st3020_4.
 [[serialservo03]]
 .The _CRSF to serial servo_ Adapter connected to 4 WaveShare ST3020 serial servos and an ELRS receiver (ER6) (click to enlarge)  
 image::images/waveshare/st3020_adap.jpg[width=240, link="images/waveshare/st3020_adap.jpg"]
-
-Application of the serial-servo as sailboat winch: https://youtu.be/_jWBiEMZoZ8[Saudade].
-
 
 [[mortimer]]
 === Selft-balancing inverted pendulum robot with INav (Project: Mortimer)
