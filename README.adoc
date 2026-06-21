@@ -1795,6 +1795,18 @@ It has 16 output channels, so it inherently ues _two_ multiswitch address. The b
 The firmware con be found here: https://github.com/wimalopaan/wmucpp/tree/master/boards/rcsupersimplemultiswitch[]. If you don't want to compile the firmware locally 
 on your notebook or PC, you can use `github` _CodeSpaces_ to do so. Please refer to  <<cs_wm>>.
 
+Please do the following:
+
+* Navigate to the directory: `boards/rcsupersimplemultiswitch`
+* Edit the top lines in the file `settings.h`
+** select input (CRSF or SBUS or IBUS or S.Port or SUMDV3)
+** select if SBus is _normal_ or _inverted_
+** select the rc-link (ELRS/AFHDS2A/ACCST for SBUS)
+* use the command: `make -f Makefile all`
+* download `ssmsw02.hex`
+* connect the µC to the UPDI programmer (USBserial with a diode)
+* flash, e.g.: `pymcuprog write --erase -d avr128da32 -t uart -u /dev/ttyUSB0 -f ssmsw02.hex`
+
 .Limitations
 [TIP]
 --
