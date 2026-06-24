@@ -1699,7 +1699,7 @@ $ make all
 
 here you can find the files to print a nice housing for the PCS: https://github.com/firlefantz/Elrs-Multiswitch-guide[Housing and additional information].
 
-===== Super simple MultiSwitch (ELRS/CRSF, FlySky/SBus, FlySky/IBus, FrSky/SBus, FrSky/S.Port)
+===== Super simple MultiSwitch (ELRS/CRSF, FlySky/SBus, FlySky/IBus, FrSky/SBus, FrSky/S.Port, Graupner/SumDV3)
 
 There was demand for a much simpler hardware compared to the <<mswe8>>: it should comprise only THT parts, so one could solder it onto a simple
 stripe THT-PCB. And it should use simpler µC, since the STM32/ARM looks too complicated to some hobbyists.
@@ -1734,7 +1734,7 @@ Please do the following:
 
 * Navigate to the directory: `boards/rcmultiswitch`
 * Edit the top lines in the file `mswitch01.cc`
-** select input (CRSF or SBUS or IBUS or S.Port)
+** select input (CRSF or SBUS or IBUS or S.Port or SumDV3)
 ** select the multiswitch address 0...7
 ** select if SBus is _normal_ or _inverted_
 ** select the rc-link (ELRS/AFHDS2A/ACCST for SBUS)
@@ -1756,7 +1756,7 @@ receiver via `CRSF` you are fine.
 
 But you can connect the super simple multiswitch also via `SBUS`, which makes sense, because the 
 super simple multiswitch does not have telemetry, e.g. no menu via `elrsv3.lua` or TBS Agent. So, the 
-communication is simpy uni-directional.
+communication is simply uni-directional.
 
 You can connect the super simple multiswitch via `SBUS` (see source code:  `mswitch01.cc`) and you can use
 different RC-links aside from ELRS like AFHDS2A/FlySky or ACCST/FrSky. But you have to be aware that the `SBUS` channel 
@@ -1771,11 +1771,14 @@ see https://github.com/wimalopaan/LUA/tree/main/SCRIPTS/MIXES[].
 For the _widget_ and the _mixer_ script to communicate, setup the `ShmEncoding` in the widgets settings. And use the same
 SHM variable in the mixer script.
 
-If yout `SBUS` setup does not work, amybe because of the above mentioned obscure scalings, your next try may be S.Port. In the
+If yout `SBUS` setup does not work, maybe because of the above mentioned obscure scalings, your next try may be S.Port. In the
 widget you can select the S.Port transport and the appropriate physical ID and application ID.
 
 If you are a FlySky user, a better approach is to use `ibus`.  FlySky does not support S.Port but the channel values do not undergo
 such strange scalings as with ACCST/SBus. Beaware that the mixer script is `mswib.lua`, obviously.
+
+There are also good news for the users of _Graupner_ (HoTT) stuff: the actor protocol `SumDV3` can transport up to 32 RC-channels 
+and also 64 binary switches. Clearly you need a handset that is capable to define _digital switches_.
 
 [[ssmsw]]
 ===== 16-Outputs PCB
