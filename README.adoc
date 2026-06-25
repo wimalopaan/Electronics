@@ -222,8 +222,11 @@ The most appealing features of ELRS with respect to short-range radio-control of
 
 [[elrs_func]]
 .Features for functional models
+* controllability of all connected `CRSF` devices: the tx-module, the receiver, and _all_ connected devices (ESCs, MultiSwitch, Lighting-Module, ...) 
 * extensibility due the flexibility of the CRSF protocol, mainly on the model side (after the receiver)
 * low-latency / high packet-rate for new kinds of features (e.g. haptic-control)
+* dynamic power down to `10mW`
+* very small and cheap receivers
 
 In the following sections are proposals for some extensions to the CRSF protocol. These extensions are already in use with my <<CC>> and some 
 multi-switch-modules (<<elrs_msw>>) or lighting-modules.
@@ -241,11 +244,12 @@ This is used by a <<elrs-widget, EdgetTx-Widget>> (encoder) alongside with the <
 .CRSF-protocol 
 [TIP]
 --
-For all commands new _realms_  are defined:
+For all commands (command frame `0x32`) new _realms_  are defined:
 
 * `0xa0`: `CruiseController`
 * `0xa1`: `MultiSwitch`
 * `0xa2`: `Schottel-Controller`
+* ...
 --
 
 [[crsf-sw]]
