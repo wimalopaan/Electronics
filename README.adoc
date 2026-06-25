@@ -502,14 +502,6 @@ The following modifications to ELRS
 
 are also available for ELRS V4 now.
 
-[TIP]
---
-All modifications can be selected via the `exresslrs-configurator`: simply select the pull-request `#3484` https://github.com/ExpressLRS/ExpressLRS/pull/3484[]
-in expert-mode via the `git pull request`-tab.
-
-Because the `expresslrs-configurator` does not allow setting individual option anymore, the pull-request contains useful default settings.
---
-
 Please find the source code here: https://github.com/wimalopaan/ExpressLRS/tree/wmextensions[]
 
 Be sure to put the following line 
@@ -525,10 +517,10 @@ The instructions to build ELRS V4 all hold as described in <<elrs_cs>> and <<elr
 
 [TIP]
 --
-The following modifications are unneccessary / useless for V4 of ExpressLRS
+The following modifications are unneccessary / useless for V4 of ExpressLRS because they are already included into V4:
 
 * <<elrs-route>>
-* <<elts_arm4>>
+* <<elrs_arm4>>
 * <<elrs_perm_arm>>
 --
 
