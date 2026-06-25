@@ -225,8 +225,8 @@ The most appealing features of ELRS with respect to short-range radio-control of
 * extensibility due the flexibility of the CRSF protocol, mainly on the model side (after the receiver)
 * low-latency / high packet-rate for new kinds of features (e.g. haptic-control)
 
-In the following sections are proposals for some s to the CRSF protocol. These s are already in use with my <<CC>> and some 
-multi-switch-modules or lighting-modules
+In the following sections are proposals for some extensions to the CRSF protocol. These extensions are already in use with my <<CC>> and some 
+multi-switch-modules (<<elrs_msw>>) or lighting-modules.
 
 [[crsf_sw]]
 === Proposal for the CRSF protocol
