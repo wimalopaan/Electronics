@@ -1334,7 +1334,7 @@ If you want to use this kind of receiver as an _external module_ it is neccessar
 A special case is the _FlySky-I6X_ handset: here you get an uninverted, half-duplex serial, that can simply be converted 
 to the full-duplex of the ESP8285-based rx-as-tx.
 
-* on OpenI6X uninverted mode ist compile-time option
+* on OpenI6X uninverted mode is compile-time option until version 2.1, afterwards is a runtime setting
 
 [[elrs_esp8285]]
 .ELRS firmware selection for ESP8285 based receivers
@@ -1524,7 +1524,7 @@ image:elrs/x12s/X12S_ELRS_Adapter_SCH.PNG[width=240, link="elrs/x12s/X12S_ELRS_A
 .The PCB (click to view in full-scale)
 image:elrs/x12s/X12S_ELRS_Adapter_PCB.PNG[width=240, link="elrs/x12s/X12S_ELRS_Adapter_PCB.PNG"]
 
-[[elrx_i6x]]
+[[elrs_i6x]]
 === ELRS for the FlySky-I6X
 
 ==== Since Version `1.13`
