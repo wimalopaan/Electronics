@@ -222,11 +222,14 @@ The most appealing features of ELRS with respect to short-range radio-control of
 
 [[elrs_func]]
 .Features for functional models
+* controllability of all connected `CRSF` devices: the tx-module, the receiver, and _all_ connected devices (ESCs, MultiSwitch, Lighting-Module, ...) 
 * extensibility due the flexibility of the CRSF protocol, mainly on the model side (after the receiver)
 * low-latency / high packet-rate for new kinds of features (e.g. haptic-control)
+* dynamic power down to `10mW`
+* very small and cheap receivers
 
-In the following sections are proposals for some s to the CRSF protocol. These s are already in use with my <<CC>> and some 
-multi-switch-modules or lighting-modules
+In the following sections are proposals for some extensions to the CRSF protocol. These extensions are already in use with my <<CC>> and some 
+multi-switch-modules (<<elrs_msw>>) or lighting-modules.
 
 [[crsf_sw]]
 === Proposal for the CRSF protocol
@@ -241,11 +244,12 @@ This is used by a <<elrs-widget, EdgetTx-Widget>> (encoder) alongside with the <
 .CRSF-protocol 
 [TIP]
 --
-For all commands new _realms_  are defined:
+For all commands (command frame `0x32`) new _realms_  are defined:
 
 * `0xa0`: `CruiseController`
 * `0xa1`: `MultiSwitch`
 * `0xa2`: `Schottel-Controller`
+* ...
 --
 
 [[crsf-sw]]
@@ -498,14 +502,6 @@ The following modifications to ELRS
 
 are also available for ELRS V4 now.
 
-[TIP]
---
-All modifications can be selected via the `exresslrs-configurator`: simply select the pull-request `#3484` https://github.com/ExpressLRS/ExpressLRS/pull/3484[]
-in expert-mode via the `git pull request`-tab.
-
-Because the `expresslrs-configurator` does not allow setting individual option anymore, the pull-request contains useful default settings.
---
-
 Please find the source code here: https://github.com/wimalopaan/ExpressLRS/tree/wmextensions[]
 
 Be sure to put the following line 
@@ -521,10 +517,10 @@ The instructions to build ELRS V4 all hold as described in <<elrs_cs>> and <<elr
 
 [TIP]
 --
-The following modifications are unneccessary / useless for V4 of ExpressLRS
+The following modifications are unneccessary / useless for V4 of ExpressLRS because they are already included into V4:
 
 * <<elrs-route>>
-* <<elts_arm4>>
+* <<elrs_arm4>>
 * <<elrs_perm_arm>>
 --
 
@@ -1275,16 +1271,19 @@ image::bdc/bdc_L_4.jpg[width=240, link="bdc/bdc_L_4.jpg"]
 [[escape32]]
 === ESCape32: firmware for a familiy of small/medium BLDC motor controller (brushless ESC)
 
-`ESCape32` is a firmware for a family of brushless motor controller sharing a common design (originated in the _BLHeli_-project). 
-One of the most outstanding feature of `ESCape32` is the possibility to use serial input (SBus(2), CRSF, SumDV3(HoTT), ...) and telemetry (CRSF, SBus2, S.Port, HoTT-Telemetry, ...). 
-A markable feature ist the `Sbus2` protocoll, than combines control and telemetry data via one half-duplex line.
+`ESCape32` is a firmware for a family of brushless motor controller sharing a common hardware design (originated in the _BLHeli_-project). 
+One of the most outstanding feature of `ESCape32` is the possibility to use a great variety of serial input (SBus(2), CRSF, SumDV3(HoTT), ...) 
+and telemetry (CRSF, SBus2, S.Port, HoTT-Telemetry, ...). 
+A markable feature is the `Sbus2` protocoll, that combines control and telemetry data via one half-duplex line.
 
 The project: https://github.com/wimalopaan/ESCape32[ESCape32]
 
 .ESCape32
 image::bldc/escape32/escape32_1.jpg[width=240, link="bldc/escape32/escape32_1.jpg"]
 
-The project also defines special hardware targets (please contact if you have interest).
+The project also defines special hardware targets (please contact me if you have interest).
+
+I've a mini-series of videos in my YouTube-channel: please check them out!
 
 [[vesc]]
 === V/ESC: the ultimate firmware for medium/big BLDC motor controller (brushless ESC) 
@@ -1330,7 +1329,7 @@ If you want to use this kind of receiver as an _external module_ it is neccessar
 A special case is the _FlySky-I6X_ handset: here you get an uninverted, half-duplex serial, that can simply be converted 
 to the full-duplex of the ESP8285-based rx-as-tx.
 
-* on OpenI6X uninverted mode ist compile-time option
+* on OpenI6X uninverted mode is compile-time option until version 2.1, afterwards is a runtime setting
 
 [[elrs_esp8285]]
 .ELRS firmware selection for ESP8285 based receivers
@@ -1520,7 +1519,7 @@ image:elrs/x12s/X12S_ELRS_Adapter_SCH.PNG[width=240, link="elrs/x12s/X12S_ELRS_A
 .The PCB (click to view in full-scale)
 image:elrs/x12s/X12S_ELRS_Adapter_PCB.PNG[width=240, link="elrs/x12s/X12S_ELRS_Adapter_PCB.PNG"]
 
-[[elrx_i6x]]
+[[elrs_i6x]]
 === ELRS for the FlySky-I6X
 
 ==== Since Version `1.13`
@@ -1699,7 +1698,7 @@ $ make all
 
 here you can find the files to print a nice housing for the PCS: https://github.com/firlefantz/Elrs-Multiswitch-guide[Housing and additional information].
 
-===== Super simple MultiSwitch (ELRS/CRSF, FlySky/SBus, FlySky/IBus, FrSky/SBus, FrSky/S.Port)
+===== Super simple MultiSwitch (ELRS/CRSF, FlySky/SBus, FlySky/IBus, FrSky/SBus, FrSky/S.Port, Graupner/SumDV3)
 
 There was demand for a much simpler hardware compared to the <<mswe8>>: it should comprise only THT parts, so one could solder it onto a simple
 stripe THT-PCB. And it should use simpler µC, since the STM32/ARM looks too complicated to some hobbyists.
@@ -1734,7 +1733,7 @@ Please do the following:
 
 * Navigate to the directory: `boards/rcmultiswitch`
 * Edit the top lines in the file `mswitch01.cc`
-** select input (CRSF or SBUS or IBUS or S.Port)
+** select input (CRSF or SBUS or IBUS or S.Port or SumDV3)
 ** select the multiswitch address 0...7
 ** select if SBus is _normal_ or _inverted_
 ** select the rc-link (ELRS/AFHDS2A/ACCST for SBUS)
@@ -1756,7 +1755,7 @@ receiver via `CRSF` you are fine.
 
 But you can connect the super simple multiswitch also via `SBUS`, which makes sense, because the 
 super simple multiswitch does not have telemetry, e.g. no menu via `elrsv3.lua` or TBS Agent. So, the 
-communication is simpy uni-directional.
+communication is simply uni-directional.
 
 You can connect the super simple multiswitch via `SBUS` (see source code:  `mswitch01.cc`) and you can use
 different RC-links aside from ELRS like AFHDS2A/FlySky or ACCST/FrSky. But you have to be aware that the `SBUS` channel 
@@ -1771,11 +1770,14 @@ see https://github.com/wimalopaan/LUA/tree/main/SCRIPTS/MIXES[].
 For the _widget_ and the _mixer_ script to communicate, setup the `ShmEncoding` in the widgets settings. And use the same
 SHM variable in the mixer script.
 
-If yout `SBUS` setup does not work, amybe because of the above mentioned obscure scalings, your next try may be S.Port. In the
+If yout `SBUS` setup does not work, maybe because of the above mentioned obscure scalings, your next try may be S.Port. In the
 widget you can select the S.Port transport and the appropriate physical ID and application ID.
 
 If you are a FlySky user, a better approach is to use `ibus`.  FlySky does not support S.Port but the channel values do not undergo
 such strange scalings as with ACCST/SBus. Beaware that the mixer script is `mswib.lua`, obviously.
+
+There are also good news for the users of _Graupner_ (HoTT) stuff: the actor protocol `SumDV3` can transport up to 32 RC-channels 
+and also 64 binary switches. Clearly you need a handset that is capable to define _digital switches_.
 
 [[ssmsw]]
 ===== 16-Outputs PCB
@@ -1794,6 +1796,18 @@ It has 16 output channels, so it inherently ues _two_ multiswitch address. The b
 
 The firmware con be found here: https://github.com/wimalopaan/wmucpp/tree/master/boards/rcsupersimplemultiswitch[]. If you don't want to compile the firmware locally 
 on your notebook or PC, you can use `github` _CodeSpaces_ to do so. Please refer to  <<cs_wm>>.
+
+Please do the following:
+
+* Navigate to the directory: `boards/rcsupersimplemultiswitch`
+* Edit the top lines in the file `settings.h`
+** select input (CRSF or SBUS or IBUS or S.Port or SUMDV3)
+** select if SBus is _normal_ or _inverted_
+** select the rc-link (ELRS/AFHDS2A/ACCST for SBUS)
+* use the command: `make -f Makefile all`
+* download `ssmsw02.hex`
+* connect the µC to the UPDI programmer (USBserial with a diode)
+* flash, e.g.: `pymcuprog write --erase -d avr128da32 -t uart -u /dev/ttyUSB0 -f ssmsw02.hex`
 
 .Limitations
 [TIP]
