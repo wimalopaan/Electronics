@@ -1278,6 +1278,11 @@ A markable feature is the `Sbus2` protocoll, that combines control and telemetry
 
 The project: https://github.com/wimalopaan/ESCape32[ESCape32]
 
+==== Sine startup
+
+Link to link:bldc/escape32/esc.m[Octave code] for calculation.
+
+
 .ESCape32
 image::bldc/escape32/escape32_1.jpg[width=240, link="bldc/escape32/escape32_1.jpg"]
 
