@@ -114,6 +114,36 @@ transport true bit-information via `SBus` channels because they undergo various 
 Therefore the https://github.com/wimalopaan/edgetx/tree/wmshmbw[] branch adds excactly this feature (one has to use the `-DSHMBW=YES` command line switch 
 to enable this also for b&w radios, for color-lcd radios this feature is always on). Please refer to <<edgetx_custom>> on how to compile this non-standard extension.
 
+[[crsf_batt_id]]
+=== Enhanced Parser for instance-id augmented CRSF BATT-sensor frames
+
+The CRSF protocol definition lacks a sensor type for sensing more than _one_ current measurement from a device like an ESC to
+the handset. All crafts that have more than one motor / ESC would benefit if there would be a possiblility to 
+send multiple current measurements from different devices (e.g. ESCs) to the handset.
+
+Because there is no such sensor frame type in the CRSF protocol definition, it is kind of natural to extend that in a way it was done for 
+e.g. RPM, temperature and voltages measurements.
+
+A proposal to extend the CRSF protocol definition has been set: https://github.com/tbs-fpv/tbs-crsf-spec/issues/38[]
+
+But there exists also another possiblilty: that `BATT` sensor can transport one current value together with a voltage measurement and 
+a calculated consumed energie and percentage of accu capacity. Originally there is no possibility to send `BATT` sensor frames from different 
+sources without confusion.
+
+But the CRSF definition protocol itself allows to extend every frame definition by additional values / fields, if the overall validity of the frame 
+is preserved. All conforming CRSF parsers (like in ExpressLRS to transport these frames) should process these frames flawlessly.
+
+So, there is another proposal to the `BATT` sensor to contain an additional instance-id as the last `uint8_t`- field in this frame.
+
+https://github.com/tbs-fpv/tbs-crsf-spec/issues/41[]
+
+To parse these augmented `BATT` frames clearly _EdgeTx_ as the handset operating system has to be modified too:
+
+https://github.com/EdgeTX/edgetx/pull/7571[]
+
+This PR is already included in to the `wmextensions` branch of _EdgeTx_:
+
+https://github.com/wimalopaan/edgetx/tree/wmextensions[]
 
 [[edgetx_custom]]
 === Custom EdgeTx builds
