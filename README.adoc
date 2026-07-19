@@ -809,7 +809,9 @@ and go into that menu. You'll find all parameters in the menu.
 [WARNING]
 --
 Please be aware that you need an ESC that has the _input pin_ defined as `PA2` or `PA6` to get a _serial_ input via 
-SBus/CRSF/SumDV3/IBUS. Targets with `PB4` (like the popular `SEQURE`) will not work.
+SBus/CRSF/SumDV3/IBUS. Targets with `PB4` (like the popular `SEQURE`) will not work. 
+
+Please refer to https://github.com/neoxic/ESCape32/wiki/Targets[]
 --
 
 [WARNING]
