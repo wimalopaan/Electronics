@@ -835,6 +835,27 @@ I recently started to use also the `INAV` project. This journey begun realizing 
 
 One of the first projects I did as _Mortimer_: <<mortimer>>
 
+[[ieee]]
+== IEEE: the RC software compound (stack)
+
+Using `EdgeTx`, `ExpressLRS` and `ESCape32` is _the_ combination of RC related open-source software projects that I use 
+now in all my crafts. 
+
+[INFO]
+--
+The three big `E`s: `EdgeTx`, `ExpressLRS` and `ESCape32` 
+--
+
+If I need something like _return-to-home_ I would choose clearly `INAV`. 
+So, putting all together, you get `EEEI`.
+
+[IMPORTANT]
+--
+If you push `EdgeTx`, `ExpressLRS`, `ESCape32` and `INAV` onto a stack, pop them off and take their first character, 
+you'll get `IEEE`, the *RC software stack* (please do not confuse with https://www.ieee.org[], that's another crucial thing ;-) ).
+--
+
+
 == Projects
 
 The following chapters describe some of my active projects. The majority of my former projects (see <<Old.adoc#, Old>> (in german)) are
