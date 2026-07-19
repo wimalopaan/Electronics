@@ -795,7 +795,7 @@ of the pwm-outputs. There exist also non-pwm receiver like the _Radiomaster XR2_
 To use more than _one_ external CRSF devices on the _same_ serial interface of a receive, you have to use a CRSF switch/router (see <<crsf-switch>>).  
 
 [[escape32]]
-= ESCape32: firmware for a familiy of small/medium BLDC (and brushed) motor controller (brushless/brushed ESC)
+== ESCape32: firmware for a familiy of small/medium BLDC (and brushed) motor controller (brushless/brushed ESC)
 
 `ESCape32` is a firmware for a family of brushless motor controller sharing a common hardware design (originated in the _BLHeli_-project). 
 One of the most outstanding feature of `ESCape32` is the possibility to use a great variety of serial input (SBus(2), CRSF, SumDV3(HoTT), ...) 
