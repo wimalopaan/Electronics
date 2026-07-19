@@ -827,6 +827,13 @@ The project also defines special hardware targets (please contact me if you have
 
 I've a mini-series of videos in my YouTube-channel: please check them out!
 
+[[inav]]
+== INAV: Nagivation-enabled flight control software
+
+I recently started to use also the `INAV` project. This journey begun realizing that
+`INAV` also runs on the really beautiful `NexusX(R)` hardware from _Radiomaster_.
+
+One of the first projects I did as _Mortimer_: <<mortimer>>
 
 == Projects
 
