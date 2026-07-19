@@ -841,7 +841,7 @@ One of the first projects I did as _Mortimer_: <<mortimer>>
 Using `EdgeTx`, `ExpressLRS` and `ESCape32` is _the_ combination of RC related open-source software projects that I use 
 now in all my crafts. 
 
-[INFO]
+[NOTE]
 --
 The three big `E`s: `EdgeTx`, `ExpressLRS` and `ESCape32` 
 --
