@@ -806,6 +806,17 @@ As of version 17 the firmware supports full CRSF protocol. This means that you c
 firmware via the handset. Just fire up the ExpressLRS LUA (or TBS Agent), look for the ESC showing up under `Other devices` 
 and go into that menu. You'll find all parameters in the menu.
 
+[WARNING]
+--
+Please be aware that you need an ESC that has the _input pin_ defined as `PA2` or `PA6` to get a _serial_ input via 
+SBus/CRSF/SumDV3/IBUS. Targets with `PB4` (like the popular `SEQURE`) will not work.
+--
+
+[WARNING]
+--
+Please also note that you need an exposed telemetry pin for _full-duplex_ CRSF to get full use of the CRSF-config-protocol.
+--
+
 This really simpifies configuration of your setup, especially when all components are built into the model. You 
 don't have to pull-out a wire just to connect that to the WiFi-Link (or PC). Instead, all stays installed
 and you can modify wihout event opening your craft.
