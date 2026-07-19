@@ -812,18 +812,18 @@ and you can modify wihout event opening your craft.
 
 The project: https://github.com/wimalopaan/ESCape32[ESCape32]
 
-== Sine startup
+=== Sine startup
 
 Link to link:bldc/escape32/esc.m[Octave code] for calculation.
 
-== Hardware
+=== Hardware
 
 .ESCape32
 image::bldc/escape32/escape32_1.jpg[width=240, link="bldc/escape32/escape32_1.jpg"]
 
 The project also defines special hardware targets (please contact me if you have interest).
 
-== Info
+=== Info
 
 I've a mini-series of videos in my YouTube-channel: please check them out!
 
