@@ -145,6 +145,8 @@ This PR is already included in to the `wmextensions` branch of _EdgeTx_:
 
 https://github.com/wimalopaan/edgetx/tree/wmextensions[]
 
+If you want to test this, there is a PR to <<escape32>> to generate these augmented `BATT` frames: https://github.com/wimalopaan/ESCape32/tree/wm_crsf_batt_id[]
+
 [[edgetx_custom]]
 === Custom EdgeTx builds
 
@@ -911,6 +913,16 @@ The project: https://github.com/wimalopaan/ESCape32[ESCape32]
 === Sine startup
 
 Link to link:bldc/escape32/esc.m[Octave code] for calculation.
+
+=== Modifications
+
+==== Augmented `BATT` telemetry frames (CRSF)
+
+In this PR https://github.com/neoxic/ESCape32/pull/40[] you find a modification of `ESCape32` to produce
+_augmented_ `BATT` frames. These frame now carry an additional `id` field. This is used to discriminate different 
+`BATT` telemetry frames in the handset. 
+
+For `EdgeTx` you need this PR: <<crsf_batt_id>>.
 
 === Hardware
 
