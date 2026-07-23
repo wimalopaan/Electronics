@@ -582,6 +582,10 @@ Be sure to put the following lines
 # low-pass filter of channel values
 -DWMFILTER32
 -DWMFILTER32W=500
+# activate ESCape32 extension
+# -DWMESCAPE32
+# activate 3rd serial (Serial2) (only for ESP32)
+# -DWMSERIAL2
 ----
 
 in `super_defines.txt`.
