@@ -621,7 +621,7 @@ in your `super_defines.txt`.
 Switch your ELRS receiver to wifi-mode with the ESC connected (to Serial1) and you should notice a new menu-item `Escape32` in the menu bar:
 
 .New menu-item for Escape32
-image::images/elrs/escape32.png[width=240, link="images/elrs/escape32.png"]
+image::elrs/escape32.png[width=240, link="elrs/escape32.png"]
 
 You see the actual state of the ESC.
 
