@@ -529,6 +529,7 @@ The following modifications to ELRS
 * <<elrs_pwm_msw>>
 * RGB Led via MultiSwitch-Widget
 * 32 channels extension <<elrs-ch32>>
+* ability to flash / setup ESCape32 ESCs <<elrs-escape32>> (s.a. <<escape32>>)
 
 are also available for ELRS V4 now.
 
@@ -589,6 +590,49 @@ Be sure to put the following lines
 ----
 
 in `super_defines.txt`.
+
+[[elrs-escape32]]
+==== Support for flashing / setup of `ESCape32` ESCs
+
+`ESCape32` ESCs (s.a. <<escape32>>) are capable of reading input via CRSF and also produce telemetry via CRSF. They can be connected full-duplex to an
+ExpressLRS receiver. Because they also deliver BEC to the receiver they are best connected to an ExpressLRS-PWM receiver (e.g. like Radiomaster ER6 or ER8). In this
+case one has to configure Serial1 (the second serial interface in ExpressLRS) onto two of the PWM connectors, e.g. Output 8 for CRSF-TX and Output 7 for CRSF-RX. 
+Then the Output 8 of the receiver must be connected to the signal input of the ESC and Output 7 of the reciver has to be connected to the telemetry pin of the ESC. 
+
+But before this turns into live one has to configure the ESC to accept CRSF as input protocol and CRSF as telemetry protocol ((<<escape32>>). This normally happens
+using the `ESCape32-WiFi-Link`. Clearly, you have to disconnect the ESC from the receiver to use the `WiFi-Link`.
+
+You can avoid this manually changing cables (image a situation in a craft where you can hardly reach the ESC by hand) by using the ELRS
+modifications: https://github.com/wimalopaan/ExpressLRS/tree/wmextensions
+
+Be sure to include `-DWMEXTENSION` and `-DWMESCAPE32` 
+
+[source,console]
+----
+# activate Extensions (MultiSwitch, SumDV3, LedRGB)
+-DWMEXTENSION
+
+# activate ESCape32 extension
+# -DWMESCAPE32
+----
+
+in your `super_defines.txt`.
+
+Switch your ELRS receiver to wifi-mode with the ESC connected (to Serial1) and you should notice a new menu-item `Escape32` in the menu bar:
+
+.New menu-item for Escape32
+image::images/elrs/escape32.png[width=240, link="images/elrs/escape32.png"]
+
+You see the actual state of the ESC.
+
+Select either a ESCape32 bootloader-image (be sure to pick the right one) or a firmware-image.
+When you click `OK` in the file selection popup the flashing process starts. 
+
+You should see a progress bar and a finish popup.
+
+Afterward you can refresh the actual web-page and you should the new information (new state of the ESC).
+
+Thats all.
 
 ==== ELRS V3 Modifications
 
@@ -839,6 +883,11 @@ A markable feature is the `Sbus2` protocoll, that combines control and telemetry
 As of version 17 the firmware supports full CRSF protocol. This means that you can configure all parameters of the 
 firmware via the handset. Just fire up the ExpressLRS LUA (or TBS Agent), look for the ESC showing up under `Other devices` 
 and go into that menu. You'll find all parameters in the menu.
+
+[IMPORTANT]
+--
+To make use of the CRSF full-duplex be sure to configure the ESC to `input_mode == 5` (CRSF) and `telem_mode == 4` (CRSF)!
+--
 
 [WARNING]
 --
