@@ -613,7 +613,7 @@ Be sure to include `-DWMEXTENSION` and `-DWMESCAPE32`
 -DWMEXTENSION
 
 # activate ESCape32 extension
-# -DWMESCAPE32
+-DWMESCAPE32
 ----
 
 in your `super_defines.txt`.
