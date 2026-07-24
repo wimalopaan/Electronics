@@ -636,6 +636,39 @@ Afterward you can refresh the actual web-page and you should the new information
 
 Thats all.
 
+[[elrs-3rd-serial]]
+==== Third serial interface for ELRS V4
+
+Sometimes you need even more serials! 
+
+On ESP32 receivers ELRS can setup up to two serial connections. On PWM receivers there is one serial (the first one: `Serial`) connected
+almost (at least: if unmodified hardware definition) to the JST-GH connector and the second serial (`Serial1`) may be mapped onto
+two of the PWM connectors. 
+
+This being said you can connect a FC or e.g. a _MultiSwitch_ via the JST-GH connector (this is absolutely fine because there is no 
+massive current flowing hrough these wires for this purpose) _and_ at the same time connect e.g. an ESC (like << escape32>>) via 
+`CRSF` in full-duplex. 
+
+But what to do if you have more than one ESC? 
+
+This situation is not uncommon in boats/ships and the like.
+
+Well, you van use the _CruiseController_ (see below). But you also can make use of the third serial each `ESP32` contains.
+
+Please find the source code here: https://github.com/wimalopaan/ExpressLRS/tree/wmextensions[]
+
+Be sure to include `-DWMEXTENSION` and `-DWMSERIAL2` 
+
+[source,console]
+----
+# activate Extensions (MultiSwitch, SumDV3, LedRGB)
+-DWMEXTENSION
+
+# activate 3rd serial (Serial2) (only for ESP32)
+-DWMSERIAL2
+----
+
+
 ==== ELRS V3 Modifications
 
 [[elrs-route]]
