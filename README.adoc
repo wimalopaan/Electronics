@@ -50,7 +50,7 @@ https://github.com/EdgeTX/edgetx[EdgeTx] is my favorite radio firmware - togethe
 offers full freedom realizing my (your) ideas and preventing a vendor-lock-in.
 
 .Processing of inputs in EdgeTx
-image::edgetx/images/inputs.pdf[width=240, link="edgetx/images/inputs.pdf"]
+image::edgetx/images/inputs.png[width=240, link="edgetx/images/inputs.png"]
 
 [[vcontrols]]
 === Virtual Controls for EdgeTx
