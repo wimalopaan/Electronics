@@ -145,6 +145,8 @@ This PR is already included in to the `wmextensions` branch of _EdgeTx_:
 
 https://github.com/wimalopaan/edgetx/tree/wmextensions[]
 
+If you want to test this, there is a PR to <<escape32>> to generate these augmented `BATT` frames: https://github.com/wimalopaan/ESCape32/tree/wm_crsf_batt_id[]
+
 [[edgetx_custom]]
 === Custom EdgeTx builds
 
@@ -613,7 +615,7 @@ Be sure to include `-DWMEXTENSION` and `-DWMESCAPE32`
 -DWMEXTENSION
 
 # activate ESCape32 extension
-# -DWMESCAPE32
+-DWMESCAPE32
 ----
 
 in your `super_defines.txt`.
@@ -621,7 +623,7 @@ in your `super_defines.txt`.
 Switch your ELRS receiver to wifi-mode with the ESC connected (to Serial1) and you should notice a new menu-item `Escape32` in the menu bar:
 
 .New menu-item for Escape32
-image::images/elrs/escape32.png[width=240, link="images/elrs/escape32.png"]
+image::elrs/escape32.png[width=240, link="elrs/escape32.png"]
 
 You see the actual state of the ESC.
 
@@ -633,6 +635,39 @@ You should see a progress bar and a finish popup.
 Afterward you can refresh the actual web-page and you should the new information (new state of the ESC).
 
 Thats all.
+
+[[elrs-3rd-serial]]
+==== Third serial interface for ELRS V4
+
+Sometimes you need even more serials! 
+
+On ESP32 receivers ELRS can setup up to two serial connections. On PWM receivers there is one serial (the first one: `Serial`) connected
+almost (at least: if unmodified hardware definition) to the JST-GH connector and the second serial (`Serial1`) may be mapped onto
+two of the PWM connectors. 
+
+This being said you can connect a FC or e.g. a _MultiSwitch_ via the JST-GH connector (this is absolutely fine because there is no 
+massive current flowing hrough these wires for this purpose) _and_ at the same time connect e.g. an ESC (like << escape32>>) via 
+`CRSF` in full-duplex. 
+
+But what to do if you have more than one ESC? 
+
+This situation is not uncommon in boats/ships and the like.
+
+Well, you van use the _CruiseController_ (see below). But you also can make use of the third serial each `ESP32` contains.
+
+Please find the source code here: https://github.com/wimalopaan/ExpressLRS/tree/wmextensions[]
+
+Be sure to include `-DWMEXTENSION` and `-DWMSERIAL2` 
+
+[source,console]
+----
+# activate Extensions (MultiSwitch, SumDV3, LedRGB)
+-DWMEXTENSION
+
+# activate 3rd serial (Serial2) (only for ESP32)
+-DWMSERIAL2
+----
+
 
 ==== ELRS V3 Modifications
 
@@ -911,6 +946,16 @@ The project: https://github.com/wimalopaan/ESCape32[ESCape32]
 === Sine startup
 
 Link to link:bldc/escape32/esc.m[Octave code] for calculation.
+
+=== Modifications
+
+==== Augmented `BATT` telemetry frames (CRSF)
+
+In this PR https://github.com/neoxic/ESCape32/pull/40[] you find a modification of `ESCape32` to produce
+_augmented_ `BATT` frames. These frame now carry an additional `id` field. This is used to discriminate different 
+`BATT` telemetry frames in the handset. 
+
+For `EdgeTx` you need this PR: <<crsf_batt_id>>.
 
 === Hardware
 
