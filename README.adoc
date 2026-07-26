@@ -49,8 +49,20 @@ See <<detailed_toc>>.
 https://github.com/EdgeTX/edgetx[EdgeTx] is my favorite radio firmware - together with <<elrs>> as the RC-link. Both are open-source software and therefore 
 offers full freedom realizing my (your) ideas and preventing a vendor-lock-in.
 
+[NOTE]
+--
+The following images are of unknown copyright or licence. They are originally published here: https://opentx-doc.fr/wiki/diagrammes-de-fonctionnement[], 
+the english version is of unknown origin (at least to me).
+--
+
 .Processing of inputs in EdgeTx
 image::edgetx/images/inputs.png[width=240, link="edgetx/images/inputs.png"]
+
+.Processing of mixers in EdgeTx
+image::edgetx/images/mixes.png[width=240, link="edgetx/images/mixes.png"]
+
+.Processing of outputs in EdgeTx
+image::edgetx/images/outputs.png[width=240, link="edgetx/images/outputs.png"]
 
 [[vcontrols]]
 === Virtual Controls for EdgeTx
