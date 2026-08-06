@@ -970,11 +970,23 @@ Link to link:bldc/escape32/esc.m[Octave code] for calculation.
 
 === Modifications
 
+[[esc32_mod]]
+==== Compile modified `ESCape32` in `github codespace`
+
+I added an _Arch Linux_ `docker` configuration to my `ESCape32` 
+repository: https://github.com/wimalopaan/ESCape32/tree/wm_codespace[]
+
+To compile one of my branches of `ESCape32` like <<esc32_batt>> please refer to <<cs_wm>>.
+
+[[esc32_batt]]
 ==== Augmented `BATT` telemetry frames (CRSF)
 
 In this PR https://github.com/neoxic/ESCape32/pull/40[] you find a modification of `ESCape32` to produce
 _augmented_ `BATT` frames. These frame now carry an additional `id` field. This is used to discriminate different 
 `BATT` telemetry frames in the handset. 
+
+If you already want to use this modification, you can use this branch https://github.com/wimalopaan/ESCape32/tree/wm_crsf_batt_id[]
+and compile the firmware in a _codespace_: <<esc32_mod>>.
 
 For `EdgeTx` you need this PR: <<crsf_batt_id>>.
 
@@ -1016,7 +1028,6 @@ So, putting all together, you get `EEEI`.
 If you push `EdgeTx`, `ExpressLRS`, `ESCape32` and `INAV` onto a stack, pop them off and take their first character, 
 you'll get `IEEE`, the *RC software stack* (please do not confuse with https://www.ieee.org[], that's another crucial thing ;-) ).
 --
-
 
 == Projects
 
