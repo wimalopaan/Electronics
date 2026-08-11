@@ -464,6 +464,12 @@ on the application. The MultiSwitch-Widget can display there status bits, see <<
 
 Overall packet: `[0xc8]` `[len]` `[0x7f]` `[` `[0xea]` `[crsf-address]` `[0xa1]` `[high_byte(6100)]` `[low_byte(6100)]` `[address]` `[statusbits]` `]` `[crc8]`
 
+[[crsf-esp-now]]
+=== CRSF over ESP-NOW
+
+Overall `ESP-NOW` packet: `[uid0]` `[uid1]` `[type]` `[payload]`
+
+See also <<elrs-esp-now>>.
 
 === ExpressLRS: modules and receivers
 
@@ -689,6 +695,31 @@ Be sure to include `-DWMEXTENSION` and `-DWMSERIAL2`
 -DWMSERIAL2
 ----
 
+[[elrs-esp-now]]
+==== CRSF-over-ESP-NOW for ELRS V4
+
+This extension adds the _CRSF-over-ESP-NOW_ to ExpressLRS (s.a. <<crsf-esp-now>>).
+
+Be sure to include `-DWMEXTENSION` and `-DWMESPNOW` 
+
+[source,console]
+----
+# activate Extensions (MultiSwitch, SumDV3, LedRGB)
+-DWMEXTENSION
+
+# activate ESP-NOW
+-DWMESPNOW
+----
+
+[[elrs-rx-relay]]
+==== ELRS-receiver as CRSF-Relay in ELRS V4
+
+t.b.d.
+
+[[elrs-io-expand]]
+==== ELRS-receiver with I2C IO-expander for MultiSwitch in ELRS V4
+
+t.b.d.
 
 ==== ELRS V3 Modifications
 
@@ -2853,17 +2884,25 @@ image::images/relay/menu02.jpg[width=240, link="images/relay/menu02.jpg"]
 .The Menu (click to enlarge)  
 image::images/relay/menu03.jpg[width=240, link="images/relay/menu03.jpg"]
 
-==== The Multi-Model problem
+==== The Multipart-Model problem
 
 Actually it is kind of a challenge to control more than one RC-model at the same and using also telemetry. You may wonder who is doing such crazy stuff, but 
 people want e.g. to control two ship-models (like the DGZRS-Cruisers and their daughter boats) or a RC-Crawler or RC-Truck together with its trailer. Often the RC-systems 
 is kept running when the truck drives around with the trailer parked somehow.
 
 So, it would be cool to have an RC-Link with a handset/transmitter-module to which more than one receiver using telemetry is connected to. But this is impossible, even with more than 
-one transmitter-module in the handset, because the is no solution for multiple telemetry streams inside e.g. EdgeTx.
+one transmitter-module in the handset, because there is no solution for multiple telemetry streams inside e.g. EdgeTx.
 
 So, the CRSF-relay could be a solution: the handset/transmitter connects to the master-rc-model. Inside this you have a receiver as usual but also the CRSF-Relay connected to another
 transmittre-module e.g. a very small and cheap ELRS rx-as-tx. This rx-as-tx connects to the slave-rc-model, where another receiver is placed in.
+
+But the is also a much more _simpler_ solution: forward all packets that the receiver gets from the handset to a slave unit be some means that the receiver already has built-in. And for this puepose
+_ESP-NOW_ comes into mind because every _ExpressLRS_ receiver is built upon an ESP32/ESP32C3/ESP8255! 
+
+Therefore, if the distance between the main receiver and the slave unit is small like some centimeter between the RC-truck and the trailer or some <25m between the main ship and its daughter boat we can 
+cut the chip count and use the ELRS-receiver also as an _ESP-NOW_ transceiver connected to a slave unit solely built on top of an e.g. ESP32C3mini dev-board.
+
+The drawback of this solution is, that you need another modification of _ELRS_ that brings _ESP-NOW_ to the receiver <<elrs-esp-now>>.
 
 [[devg0b1]]
 === WM STM32G0B1 development board
