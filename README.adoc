@@ -467,7 +467,9 @@ Overall packet: `[0xc8]` `[len]` `[0x7f]` `[` `[0xea]` `[crsf-address]` `[0xa1]`
 [[crsf-esp-now]]
 ==== CRSF over ESP-NOW
 
-Overall `ESP-NOW` packet: `[uid0]` `[uid1]` `[type]` `[payload]`
+Overall `ESP-NOW` packet: `[uid1]` `[uid0]` `[type]` `[payload]`
+
+`uid0` and `uid1` are the two bytes of a `CRC16` hash (big-endian). 
 
 See also <<elrs-esp-now>>.
 
