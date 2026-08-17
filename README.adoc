@@ -467,9 +467,15 @@ Overall packet: `[0xc8]` `[len]` `[0x7f]` `[` `[0xea]` `[crsf-address]` `[0xa1]`
 [[crsf-esp-now]]
 ==== CRSF over ESP-NOW
 
-Overall `ESP-NOW` packet: `[uid1]` `[uid0]` `[type]` `[payload]`
+Send a CRSF frame over ESP-Now.
 
-`uid0` and `uid1` are the two bytes of a `CRC16` hash (big-endian). 
+The _start-byte_ (`0xc8`), the fram-length field and CRC are omitted. They aren't needed.
+
+To authorize the ESP-Now frames of a device, the `UID` bytes are prepended.
+
+Overall `ESP-NOW` packet: `[uid5]` `[uid4]` `[uid3]` `[uid2]` `[uid1]` `[uid0]` `[type]` `[payload]`
+
+`uid0` ... `uid5` are the bytes of _bind-phrase_ hash.
 
 See also <<elrs-esp-now>>.
 
