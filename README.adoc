@@ -709,15 +709,38 @@ Be sure to include `-DWMEXTENSION` and `-DWMSERIAL2`
 
 This extension adds the _CRSF-over-ESP-NOW_ to ExpressLRS (s.a. <<crsf-esp-now>>).
 
-Be sure to include `-DWMEXTENSION` and `-DWMESPNOW` 
+With this extension one can use a dedicated ESP32-Module like the ESP32-C3-mini as a
+_slave_ devices. The _master_ receiver forwards all incoming RF-packets via CRSF-over-ESP-NOW
+to the _slave_ device. The slave device may then act as e.g. a MutliSwitch/E (see <<elrs_msw>>).
+
+The ESP-NOW-Master is activated via the compilation options `-DWMEXTENSION` and `-DWMESPNOW`.
+
+Aside from _slave_ devices like the ESP32-C3-mini one can also use a usual ELRS-receiver as slave
+device. This is activatd via the compilation option `-DWMESPNOW_RECV`. If this is activated, the receiver
+stops receiving rc-packets via LoRa-RF. Instead it then use ESP-NOW as the main input. Both the master receiver 
+and the slave receiver _must_ use the same bind-phrase in order to authenticate each other. 
+
+Using an normal ELRS-receiver as an _slave_ device, on can control _multiple_ models or parts of the 
+same model at the same time (see <<multi-part-model>>). 
+
+In contrast to the normal LoRa-RF connection between TX-module and ELRS-receiver (master), where only _one_ receiver
+(with telemetry) could be connected, the ESP-NOW connection between the _master_ receiver and the _slave_ receiver
+could be a 1-to-many. Therefore multiple slave receivers could be bound to a master receiver.
+
+Be sure to include `-DWMEXTENSION` and `-DWMESPNOW`. If you want to use an
+ELRS-receiver as an ESP-NOW
 
 [source,console]
 ----
 # activate Extensions (MultiSwitch, SumDV3, LedRGB)
 -DWMEXTENSION
 
-# activate ESP-NOW
+# activate ESP-NOW forwarding
 -DWMESPNOW
+
+# activate ESP-NOW receiver (disables esp-now forwarding, disables rf-connection)
+-DWMESPNOW_RECV 
+-DWMESPNOW_RECV_ADDR=0xEB
 ----
 
 [[elrs-rx-relay]]
@@ -2893,6 +2916,7 @@ image::images/relay/menu02.jpg[width=240, link="images/relay/menu02.jpg"]
 .The Menu (click to enlarge)  
 image::images/relay/menu03.jpg[width=240, link="images/relay/menu03.jpg"]
 
+[[multi-part-model]]
 ==== The Multipart-Model problem
 
 Actually it is kind of a challenge to control more than one RC-model at the same and using also telemetry. You may wonder who is doing such crazy stuff, but 
