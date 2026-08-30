@@ -49,8 +49,26 @@ See <<detailed_toc>>.
 https://github.com/EdgeTX/edgetx[EdgeTx] is my favorite radio firmware - together with <<elrs>> as the RC-link. Both are open-source software and therefore 
 offers full freedom realizing my (your) ideas and preventing a vendor-lock-in.
 
+[[edgetx-proc]]
+=== EdgeTx processing 
+
+The basic processing of _source_ (like gimbals) via _inputs_, then _mixers_ and finally _outputs_ that was (is) present in `OpenTx` 
+is still the same in `EdgeTx`. Therefore, the following images may help to understand that part of `EdgeTx`.
+
+[NOTE]
+--
+The following images are of unknown copyright or licence. They are originally published here: https://opentx-doc.fr/wiki/diagrammes-de-fonctionnement[], 
+the english version is of unknown origin (at least to me).
+--
+
 .Processing of inputs in EdgeTx
-image::edgetx/images/inputs.pdf[width=240, link="edgetx/images/inputs.pdf"]
+image::edgetx/images/inputs.png[width=240, link="edgetx/images/inputs.png"]
+
+.Processing of mixers in EdgeTx
+image::edgetx/images/mixes.png[width=240, link="edgetx/images/mixes.png"]
+
+.Processing of outputs in EdgeTx
+image::edgetx/images/outputs.png[width=240, link="edgetx/images/outputs.png"]
 
 [[vcontrols]]
 === Virtual Controls for EdgeTx
@@ -446,6 +464,20 @@ on the application. The MultiSwitch-Widget can display there status bits, see <<
 
 Overall packet: `[0xc8]` `[len]` `[0x7f]` `[` `[0xea]` `[crsf-address]` `[0xa1]` `[high_byte(6100)]` `[low_byte(6100)]` `[address]` `[statusbits]` `]` `[crc8]`
 
+[[crsf-esp-now]]
+==== CRSF over ESP-NOW
+
+Send a CRSF frame over ESP-Now.
+
+The _start-byte_ (`0xc8`), the fram-length field and CRC are omitted. They aren't needed.
+
+To authorize the ESP-Now frames of a device, the `UID` bytes are prepended.
+
+Overall `ESP-NOW` packet: `[uid5]` `[uid4]` `[uid3]` `[uid2]` `[uid1]` `[uid0]` `[type]` `[payload]`
+
+`uid0` ... `uid5` are the bytes of _bind-phrase_ hash.
+
+See also <<elrs-esp-now>>.
 
 === ExpressLRS: modules and receivers
 
@@ -535,6 +567,7 @@ The following modifications to ELRS
 * RGB Led via MultiSwitch-Widget
 * 32 channels extension <<elrs-ch32>>
 * ability to flash / setup ESCape32 ESCs <<elrs-escape32>> (s.a. <<escape32>>)
+* forward CRSF over ESP-NOW (s.a. <<elrs-esp-now>>)
 
 are also available for ELRS V4 now.
 
@@ -671,6 +704,54 @@ Be sure to include `-DWMEXTENSION` and `-DWMSERIAL2`
 -DWMSERIAL2
 ----
 
+[[elrs-esp-now]]
+==== CRSF-over-ESP-NOW for ELRS V4
+
+This extension adds the _CRSF-over-ESP-NOW_ to ExpressLRS (s.a. <<crsf-esp-now>>).
+
+With this extension one can use a dedicated ESP32-Module like the ESP32-C3-mini as a
+_slave_ devices. The _master_ receiver forwards all incoming RF-packets via CRSF-over-ESP-NOW
+to the _slave_ device. The slave device may then act as e.g. a MutliSwitch/E (see <<elrs_msw>>).
+
+The ESP-NOW-Master is activated via the compilation options `-DWMEXTENSION` and `-DWMESPNOW`.
+
+Aside from _slave_ devices like the ESP32-C3-mini one can also use a usual ELRS-receiver as slave
+device. This is activatd via the compilation option `-DWMESPNOW_RECV`. If this is activated, the receiver
+stops receiving rc-packets via LoRa-RF. Instead it then use ESP-NOW as the main input. Both the master receiver 
+and the slave receiver _must_ use the same bind-phrase in order to authenticate each other. 
+
+Using an normal ELRS-receiver as an _slave_ device, on can control _multiple_ models or parts of the 
+same model at the same time (see <<multi-part-model>>). 
+
+In contrast to the normal LoRa-RF connection between TX-module and ELRS-receiver (master), where only _one_ receiver
+(with telemetry) could be connected, the ESP-NOW connection between the _master_ receiver and the _slave_ receiver
+could be a 1-to-many. Therefore multiple slave receivers could be bound to a master receiver.
+
+Be sure to include `-DWMEXTENSION` and `-DWMESPNOW`. If you want to use an
+ELRS-receiver as an ESP-NOW
+
+[source,console]
+----
+# activate Extensions (MultiSwitch, SumDV3, LedRGB)
+-DWMEXTENSION
+
+# activate ESP-NOW forwarding
+-DWMESPNOW
+
+# activate ESP-NOW receiver (disables esp-now forwarding, disables rf-connection)
+-DWMESPNOW_RECV 
+-DWMESPNOW_RECV_ADDR=0xEB
+----
+
+[[elrs-rx-relay]]
+==== ELRS-receiver as CRSF-Relay in ELRS V4
+
+t.b.d.
+
+[[elrs-io-expand]]
+==== ELRS-receiver with I2C IO-expander for MultiSwitch in ELRS V4
+
+t.b.d.
 
 ==== ELRS V3 Modifications
 
@@ -952,11 +1033,23 @@ Link to link:bldc/escape32/esc.m[Octave code] for calculation.
 
 === Modifications
 
+[[esc32_mod]]
+==== Compile modified `ESCape32` in `github codespace`
+
+I added an _Arch Linux_ `docker` configuration to my `ESCape32` 
+repository: https://github.com/wimalopaan/ESCape32/tree/wm_codespace[]
+
+To compile one of my branches of `ESCape32` like <<esc32_batt>> please refer to <<cs_wm>>.
+
+[[esc32_batt]]
 ==== Augmented `BATT` telemetry frames (CRSF)
 
 In this PR https://github.com/neoxic/ESCape32/pull/40[] you find a modification of `ESCape32` to produce
 _augmented_ `BATT` frames. These frame now carry an additional `id` field. This is used to discriminate different 
 `BATT` telemetry frames in the handset. 
+
+If you already want to use this modification, you can use this branch https://github.com/wimalopaan/ESCape32/tree/wm_crsf_batt_id[]
+and compile the firmware in a _codespace_: <<esc32_mod>>.
 
 For `EdgeTx` you need this PR: <<crsf_batt_id>>.
 
@@ -998,7 +1091,6 @@ So, putting all together, you get `EEEI`.
 If you push `EdgeTx`, `ExpressLRS`, `ESCape32` and `INAV` onto a stack, pop them off and take their first character, 
 you'll get `IEEE`, the *RC software stack* (please do not confuse with https://www.ieee.org[], that's another crucial thing ;-) ).
 --
-
 
 == Projects
 
@@ -2824,17 +2916,26 @@ image::images/relay/menu02.jpg[width=240, link="images/relay/menu02.jpg"]
 .The Menu (click to enlarge)  
 image::images/relay/menu03.jpg[width=240, link="images/relay/menu03.jpg"]
 
-==== The Multi-Model problem
+[[multi-part-model]]
+==== The Multipart-Model problem
 
 Actually it is kind of a challenge to control more than one RC-model at the same and using also telemetry. You may wonder who is doing such crazy stuff, but 
 people want e.g. to control two ship-models (like the DGZRS-Cruisers and their daughter boats) or a RC-Crawler or RC-Truck together with its trailer. Often the RC-systems 
 is kept running when the truck drives around with the trailer parked somehow.
 
 So, it would be cool to have an RC-Link with a handset/transmitter-module to which more than one receiver using telemetry is connected to. But this is impossible, even with more than 
-one transmitter-module in the handset, because the is no solution for multiple telemetry streams inside e.g. EdgeTx.
+one transmitter-module in the handset, because there is no solution for multiple telemetry streams inside e.g. EdgeTx.
 
 So, the CRSF-relay could be a solution: the handset/transmitter connects to the master-rc-model. Inside this you have a receiver as usual but also the CRSF-Relay connected to another
 transmittre-module e.g. a very small and cheap ELRS rx-as-tx. This rx-as-tx connects to the slave-rc-model, where another receiver is placed in.
+
+But the is also a much more _simpler_ solution: forward all packets that the receiver gets from the handset to a slave unit be some means that the receiver already has built-in. And for this puepose
+_ESP-NOW_ comes into mind because every _ExpressLRS_ receiver is built upon an ESP32/ESP32C3/ESP8255! 
+
+Therefore, if the distance between the main receiver and the slave unit is small like some centimeter between the RC-truck and the trailer or some <25m between the main ship and its daughter boat we can 
+cut the chip count and use the ELRS-receiver also as an _ESP-NOW_ transceiver connected to a slave unit solely built on top of an e.g. ESP32C3mini dev-board.
+
+The drawback of this solution is, that you need another modification of _ELRS_ that brings _ESP-NOW_ to the receiver <<elrs-esp-now>>.
 
 [[devg0b1]]
 === WM STM32G0B1 development board
