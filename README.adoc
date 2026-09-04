@@ -748,7 +748,7 @@ ELRS-receiver as an ESP-NOW.
 ==== ELRS-receiver as TX-module with direct analog inputs
 
 Using a _rx-as-tx_ flashed receiver is one of the simplest way to renew an old analo handset (s.a. <<rcdesk32mini>>). One connects the 
-analog sources to he WeAct µC module, and connects this module full-duplex (or half-duplex) to a receiver flashed as rx-as-rx.
+analog sources to the WeAct µC module, and connects this module full-duplex (or half-duplex) to a receiver flashed as rx-as-rx.
 
 On the other hand, the additional µC module strictly isn't needed: a rx-as-tx pwm-receiver could read the analog values via the _former_ 
 pwm-pins and use the values as channel-sources for the first N RC-channels.
