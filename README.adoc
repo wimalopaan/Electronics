@@ -568,6 +568,7 @@ The following modifications to ELRS
 * 32 channels extension <<elrs-ch32>>
 * ability to flash / setup ESCape32 ESCs <<elrs-escape32>> (s.a. <<escape32>>)
 * forward CRSF over ESP-NOW (s.a. <<elrs-esp-now>>)
+* use RX-as-TX receiver as tx-module for reneweing old handsets (s.a. <<elrs-rxtx-analog>>) 
 
 are also available for ELRS V4 now.
 
@@ -727,8 +728,8 @@ In contrast to the normal LoRa-RF connection between TX-module and ELRS-receiver
 (with telemetry) could be connected, the ESP-NOW connection between the _master_ receiver and the _slave_ receiver
 could be a 1-to-many. Therefore multiple slave receivers could be bound to a master receiver.
 
-Be sure to include `-DWMEXTENSION` and `-DWMESPNOW`. If you want to use an
-ELRS-receiver as an ESP-NOW
+Be sure to include `-DWMEXTENSION` and `-DWMESPNOW`, if you want to use an
+ELRS-receiver as an ESP-NOW.
 
 [source,console]
 ----
@@ -741,6 +742,33 @@ ELRS-receiver as an ESP-NOW
 # activate ESP-NOW receiver (disables esp-now forwarding, disables rf-connection)
 -DWMESPNOW_RECV 
 -DWMESPNOW_RECV_ADDR=0xEB
+----
+
+[[elrs-rxtx-analog]]
+==== ELRS-receiver as TX-module with direct analog inputs
+
+Using a _rx-as-tx_ flashed receiver is one of the simplest way to renew an old analo handset (s.a. <<rcdesk32mini>>). One connects the 
+analog sources to he WeAct µC module, and connects this module full-duplex (or half-duplex) to a receiver flashed as rx-as-rx.
+
+On the other hand, the additional µC module strictly isn't needed: a rx-as-tx pwm-receiver could read the analog values via the _former_ 
+pwm-pins and use the values as channel-sources for the first N RC-channels.
+
+On the hardware-page (in WiFi mode) you find the `RX-as-TX ADC Inputs` section. Here you can provide a comma-separated list
+of inputs (e.g. use the list that you normally find as `pwm-outputs` if the rx is flashed as _normal_ receiver).
+
+t.b.d: calibraton
+
+Be sure to include `-DWMEXTENSION` and `-DWMRXTX_ANALOG`. 
+
+[source,console]
+----
+# activate Extensions (MultiSwitch, SumDV3, LedRGB)
+-DWMEXTENSION
+
+# when Rx-as-Tx 
+# - uses PWM-Pins as analog channel inputs, no channels-data via handset / elrs-buddy
+# - permanently turns on rf-mode (switch to wifi-mode using elrs-buddy)
+-DWMRXTX_ANALOG
 ----
 
 [[elrs-rx-relay]]
