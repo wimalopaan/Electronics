@@ -756,7 +756,18 @@ pwm-pins and use the values as channel-sources for the first N RC-channels.
 On the hardware-page (in WiFi mode) you find the `RX-as-TX ADC Inputs` section. Here you can provide a comma-separated list
 of inputs (e.g. use the list that you normally find as `pwm-outputs` if the rx is flashed as _normal_ receiver).
 
-t.b.d: calibraton
+If you want to use an analog gauge to monitor the battery, please select the corresponding pin.
+
+The configuration of the rx-as-tx receiver can be done via https://github.com/Fourflies/elrsbuddy[ELRS Buddy]. 
+
+There you find a button for the calibration. 
+The calibration is done in steps:
+
+* set the analog inputs to neutral position (will be saved in the next step)
+* click the _Calibration_ button
+* move all analog inputs to their extrem positions
+* if there are no more changes in the extrem values the calibration stops after 10 seconds.
+* done!
 
 Be sure to include `-DWMEXTENSION` and `-DWMRXTX_ANALOG`. 
 
