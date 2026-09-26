@@ -568,6 +568,7 @@ The following modifications to ELRS
 * 32 channels extension <<elrs-ch32>>
 * ability to flash / setup ESCape32 ESCs <<elrs-escape32>> (s.a. <<escape32>>)
 * forward CRSF over ESP-NOW (s.a. <<elrs-esp-now>>)
+* use ExpressLRS (on ESP32C3-mini) as USB2Serial/ESP-NOW bridge (s.a. <<elrs-esp-bridge>>)
 * use RX-as-TX receiver as tx-module for reneweing old handsets (s.a. <<elrs-rxtx-analog>>) 
 
 are also available for ELRS V4 now.
@@ -743,6 +744,14 @@ ELRS-receiver as an ESP-NOW.
 -DWMESPNOW_RECV 
 -DWMESPNOW_RECV_ADDR=0xEB
 ----
+
+[[elrs-esp-bridge]]
+==== ESP32C3-mini as USB/ESP-NOW-Bridge
+
+If one uses <<elrs-rxtx-analog>> and places the rx-as-tx inside the handset, there maybe no wired connection to the rx-as-tx from the outside
+to connect to the CRSF port (the JST-GH connector). And opening the enclosure to connect an USB2serial-adapter every time you want to change 
+some ELRS parameters or configure some device (be aware that with <<elrs-rxtx-analog>> you do not have the possibility to connect to the rx-as-tx
+with normal ELRS over the air).
 
 [[elrs-rxtx-analog]]
 ==== ELRS-receiver as TX-module with direct analog inputs
