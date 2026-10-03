@@ -791,10 +791,29 @@ Be sure to include `-DWMEXTENSION` and `-DWMRXTX_ANALOG`.
 -DWMRXTX_ANALOG
 ----
 
-[[elrs-rx-relay]]
-==== ELRS-receiver as CRSF-Relay in ELRS V4
+[[elrs-tx-relay]]
+==== ELRS-Transmitter as CRSF-Relay in ELRS V4
 
-t.b.d.
+This ELRS modification allows to use a tx-modue or a rx-as-tx as an ELRS-relay.
+
+To understand, what a relay does and why it is neccessary,
+see <<elrs-relay>> and <<rcreclay32>>.
+
+This is also usefull when using <<elrs-rxtx-analog>>.
+
+Be sure to include `-DWMEXTENSION` and `-DWMRELAY`. 
+
+[source,console]
+----
+# activate Extensions (MultiSwitch, SumDV3, LedRGB)
+-DWMEXTENSION
+
+# activate relay support in transmitter
+# NAT for receiver/transmitter CRSF address (to repeater addresses)
+# transform link-stat (0x14 -> 0x15)
+# suppress timing-packets
+-DWMRELAY
+----
 
 [[elrs-io-expand]]
 ==== ELRS-receiver with I2C IO-expander for MultiSwitch in ELRS V4
