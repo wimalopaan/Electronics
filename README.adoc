@@ -1135,6 +1135,7 @@ I've a mini-series of videos in my YouTube-channel: please check them out!
 == FlySky-I6X-rs: an alternative firmware for the FlySky FS-I6X transmitter 
 
 Project: https://ferroxrc.com[]
+
 Github: https://github.com/ferrox-rc/flysky-i6x-rs[]
 
 This project is a replacement-firmware for the FySky FS-I6S transmitter. 
@@ -1142,16 +1143,33 @@ This project is a replacement-firmware for the FySky FS-I6S transmitter.
 It is completely written from scratch in _Rust_. It has far more features that the original FlySky transmitter firmware (like <<oix6>>), 
 but has a complete different design compared to e.g <<oix6>>.
 
+=== Hardware-Modifications
+
+This firmware allows the same hardware modifications as <<oix6>>, but also some more modifications.
+
+* replace SWA...SWD with 2pos/3pos switches or potentiometers
+* add two additional digital-only switches SWE / SWF
+* add up to four analog input (potentiometers) VRC...VRF
+* add an external rf-module either full- or haalf-duplex
+* add a positve / negative-polarity power-switch for the external rf-module
+
+=== Images of hardware-modifications
+
+.Logo (click to enlarge)
+image::ferrox/fsi6x_mod1.jpg[width=240, link="ferrox/fsi6x_mod1.jpg"]
+
 
 [[flysky-i6s-rs]]
 == FlySky-I6S-rs: an alternative firmware for the FlySky FS-I6S transmitter 
 
 Project: https://ferroxrc.com[]
+
 Github: https://github.com/ferrox-rc/flysky-i6s-rs[]
 
 This project is a replacement-firmware for the FySky FS-I6S transmitter. 
 
-
+Because this handset does not have enough physical buttons, but does have a touch-controller, the UI operation 
+is a mix of touch-gestures and the two buttons on the back of the handset.
 
 [[inav]]
 == INAV: Nagivation-enabled flight control software
