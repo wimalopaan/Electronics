@@ -796,6 +796,13 @@ Be sure to include `-DWMEXTENSION` and `-DWMRXTX_ANALOG`.
 
 This ELRS modification allows to use a tx-modue or a rx-as-tx as an ELRS-relay.
 
+Be sure to use a valid _transmitter_ baudrate like 400KBaud or 921KBaud in the connected relay-receiver, that 
+is driving this ELRS relay transmitter.
+
+If you do not modify the hardware layout of the rx-as-tx primary serial interface, you'll have to connect the
+relay receiver with a JST-GH cable where the lines for rx and tx are crossed. if you do not want to use a special cable you can
+swap the pins of _crsf tx_ and _crsf rx_ on the hardware-layout wifi page of the rx-as-tx (or the relay-receiver).
+
 To understand, what a relay does and why it is neccessary,
 see <<elrs-relay>> and <<rcreclay32>>.
 
