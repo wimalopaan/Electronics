@@ -1155,8 +1155,29 @@ This firmware allows the same hardware modifications as <<oix6>>, but also some 
 
 === Images of hardware-modifications
 
-.Logo (click to enlarge)
+.Inside (click to enlarge)
 image::ferrox/fsi6x_mod1.jpg[width=240, link="ferrox/fsi6x_mod1.jpg"]
+
+.Pots (click to enlarge)
+image::ferrox/fsi6x_mod2.jpg[width=240, link="ferrox/fsi6x_mod2.jpg"]
+
+.Analog connector (click to enlarge)
+image::ferrox/fsi6x_mod3.jpg[width=240, link="ferrox/fsi6x_mod3.jpg"]
+
+.Outside (click to enlarge)
+image::ferrox/fsi6x_mod4.jpg[width=240, link="ferrox/fsi6x_mod4.jpg"]
+
+.Pots left (click to enlarge)
+image::ferrox/fsi6x_mod5.jpg[width=240, link="ferrox/fsi6x_mod5.jpg"]
+
+.Pots right (click to enlarge)
+image::ferrox/fsi6x_mod6.jpg[width=240, link="ferrox/fsi6x_mod6.jpg"]
+
+.Buttons SE/SF on the back (click to enlarge)
+image::ferrox/fsi6x_mod7.jpg[width=240, link="ferrox/fsi6x_mod7.jpg"]
+
+.Menu (click to enlarge)
+image::ferrox/fsi6x_mod8.jpg[width=240, link="ferrox/fsi6x_mod8.jpg"]
 
 
 [[flysky-i6s-rs]]
