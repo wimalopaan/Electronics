@@ -568,6 +568,7 @@ The following modifications to ELRS
 * 32 channels extension <<elrs-ch32>>
 * ability to flash / setup ESCape32 ESCs <<elrs-escape32>> (s.a. <<escape32>>)
 * forward CRSF over ESP-NOW (s.a. <<elrs-esp-now>>)
+* use ExpressLRS (on ESP32C3-mini) as USB2Serial/ESP-NOW bridge (s.a. <<elrs-esp-bridge>>)
 * use RX-as-TX receiver as tx-module for reneweing old handsets (s.a. <<elrs-rxtx-analog>>) 
 
 are also available for ELRS V4 now.
@@ -744,6 +745,14 @@ ELRS-receiver as an ESP-NOW.
 -DWMESPNOW_RECV_ADDR=0xEB
 ----
 
+[[elrs-esp-bridge]]
+==== ESP32C3-mini as USB/ESP-NOW-Bridge
+
+If one uses <<elrs-rxtx-analog>> and places the rx-as-tx inside the handset, there maybe no wired connection to the rx-as-tx from the outside
+to connect to the CRSF port (the JST-GH connector). And opening the enclosure to connect an USB2serial-adapter every time you want to change 
+some ELRS parameters or configure some device (be aware that with <<elrs-rxtx-analog>> you do not have the possibility to connect to the rx-as-tx
+with normal ELRS over the air).
+
 [[elrs-rxtx-analog]]
 ==== ELRS-receiver as TX-module with direct analog inputs
 
@@ -756,7 +765,18 @@ pwm-pins and use the values as channel-sources for the first N RC-channels.
 On the hardware-page (in WiFi mode) you find the `RX-as-TX ADC Inputs` section. Here you can provide a comma-separated list
 of inputs (e.g. use the list that you normally find as `pwm-outputs` if the rx is flashed as _normal_ receiver).
 
-t.b.d: calibraton
+If you want to use an analog gauge to monitor the battery, please select the corresponding pin.
+
+The configuration of the rx-as-tx receiver can be done via https://github.com/Fourflies/elrsbuddy[ELRS Buddy]. 
+
+There you find a button for the calibration. 
+The calibration is done in steps:
+
+* set the analog inputs to neutral position (will be saved in the next step)
+* click the _Calibration_ button
+* move all analog inputs to their extrem positions
+* if there are no more changes in the extrem values the calibration stops after 10 seconds.
+* done!
 
 Be sure to include `-DWMEXTENSION` and `-DWMRXTX_ANALOG`. 
 
@@ -771,10 +791,29 @@ Be sure to include `-DWMEXTENSION` and `-DWMRXTX_ANALOG`.
 -DWMRXTX_ANALOG
 ----
 
-[[elrs-rx-relay]]
-==== ELRS-receiver as CRSF-Relay in ELRS V4
+[[elrs-tx-relay]]
+==== ELRS-Transmitter as CRSF-Relay in ELRS V4
 
-t.b.d.
+This ELRS modification allows to use a tx-modue or a rx-as-tx as an ELRS-relay.
+
+To understand, what a relay does and why it is neccessary,
+see <<elrs-relay>> and <<rcreclay32>>.
+
+This is also usefull when using <<elrs-rxtx-analog>>.
+
+Be sure to include `-DWMEXTENSION` and `-DWMRELAY`. 
+
+[source,console]
+----
+# activate Extensions (MultiSwitch, SumDV3, LedRGB)
+-DWMEXTENSION
+
+# activate relay support in transmitter
+# NAT for receiver/transmitter CRSF address (to repeater addresses)
+# transform link-stat (0x14 -> 0x15)
+# suppress timing-packets
+-DWMRELAY
+----
 
 [[elrs-io-expand]]
 ==== ELRS-receiver with I2C IO-expander for MultiSwitch in ELRS V4
@@ -1091,6 +1130,46 @@ The project also defines special hardware targets (please contact me if you have
 === Info
 
 I've a mini-series of videos in my YouTube-channel: please check them out!
+
+[[flysky-i6x-rs]]
+== FlySky-I6X-rs: an alternative firmware for the FlySky FS-I6X transmitter 
+
+Project: https://ferroxrc.com[]
+
+Github: https://github.com/ferrox-rc/flysky-i6x-rs[]
+
+This project is a replacement-firmware for the FySky FS-I6S transmitter. 
+
+It is completely written from scratch in _Rust_. It has far more features that the original FlySky transmitter firmware (like <<oix6>>), 
+but has a complete different design compared to e.g <<oix6>>.
+
+=== Hardware-Modifications
+
+This firmware allows the same hardware modifications as <<oix6>>, but also some more modifications.
+
+* replace SWA...SWD with 2pos/3pos switches or potentiometers
+* add two additional digital-only switches SWE / SWF
+* add up to four analog input (potentiometers) VRC...VRF
+* add an external rf-module either full- or haalf-duplex
+* add a positve / negative-polarity power-switch for the external rf-module
+
+=== Images of hardware-modifications
+
+.Logo (click to enlarge)
+image::ferrox/fsi6x_mod1.jpg[width=240, link="ferrox/fsi6x_mod1.jpg"]
+
+
+[[flysky-i6s-rs]]
+== FlySky-I6S-rs: an alternative firmware for the FlySky FS-I6S transmitter 
+
+Project: https://ferroxrc.com[]
+
+Github: https://github.com/ferrox-rc/flysky-i6s-rs[]
+
+This project is a replacement-firmware for the FySky FS-I6S transmitter. 
+
+Because this handset does not have enough physical buttons, but does have a touch-controller, the UI operation 
+is a mix of touch-gestures and the two buttons on the back of the handset.
 
 [[inav]]
 == INAV: Nagivation-enabled flight control software
