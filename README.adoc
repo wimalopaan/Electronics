@@ -1150,6 +1150,8 @@ This project is a replacement-firmware for the FySky FS-I6S transmitter.
 It is completely written from scratch in _Rust_. It has far more features that the original FlySky transmitter firmware (like <<oix6>>), 
 but has a complete different design compared to e.g <<oix6>>.
 
+You'll find some videos about the hardware-modifications and the firmware itself on my https://www.youtube.com/@wilhelmmeier6124/videos[YouTube]-Channel.
+
 === Hardware-Modifications
 
 This firmware allows the same hardware modifications as <<oix6>>, but also some more modifications.
@@ -1198,6 +1200,47 @@ This project is a replacement-firmware for the FySky FS-I6S transmitter.
 
 Because this handset does not have enough physical buttons, but does have a touch-controller, the UI operation 
 is a mix of touch-gestures and the two buttons on the back of the handset.
+
+You'll find some videos about the hardware-modifications and the firmware itself on my https://www.youtube.com/@wilhelmmeier6124/videos[YouTube]-Channel.
+
+=== Hardware-Modifications
+
+This firmware allows the same hardware modifications as <<oix6>>, but also some more modifications.
+
+* replace SWA...SWD with 2pos/3pos switches or potentiometers
+* add up to five analog input (potentiometers or 2pos/3pos/6pos switches) VRC...VRG
+* add two 2pos switches SG and SH (in addition to the SE/SF on the back of the handset) 
+* add an external CRSF rf-module either full- or half-duplex
+* add a positve / negative-polarity power-switch for the external rf-module
+
+=== Images of hardware-modifications
+
+.Dashboard (click to enlarge)
+image::ferrox/fsi6s_mod1.jpg[width=240, link="ferrox/fsi6s_mod1.jpg"]
+
+.Outside (click to enlarge)
+image::ferrox/fsi6s_mod2.jpg[width=240, link="ferrox/fsi6s_mod2.jpg"]
+
+.Outside (click to enlarge)
+image::ferrox/fsi6s_mod3.jpg[width=240, link="ferrox/fsi6s_mod3.jpg"]
+
+.The five additional ADC channels (click to enlarge)
+image::ferrox/fsi6s_mod4.jpg[width=240, link="ferrox/fsi6s_mod4.jpg"]
+
+.The high-side switch for the external rf-module (click to enlarge)
+image::ferrox/fsi6s_mod5.jpg[width=240, link="ferrox/fsi6s_mod5.jpg"]
+
+.An ELRS rx-as-tx (TuneRC Nano PA 100mW) (click to enlarge)
+image::ferrox/fsi6s_mod6.jpg[width=240, link="ferrox/fsi6s_mod6.jpg"]
+
+.Voltage divider for the 3pos switch (click to enlarge)
+image::ferrox/fsi6s_mod7.jpg[width=240, link="ferrox/fsi6s_mod7.jpg"]
+
+.Connection of the 3pos-Switch as 2 2pos on the SWD connector J4 (click to enlarge)
+image::ferrox/fsi6s_mod8.jpg[width=240, link="ferrox/fsi6s_mod8.jpg"]
+
+.Bidirectional connection of the rf-module J15 (click to enlarge)
+image::ferrox/fsi6s_mod9.jpg[width=240, link="ferrox/fsi6s_mod9.jpg"]
 
 [[inav]]
 == INAV: Nagivation-enabled flight control software
