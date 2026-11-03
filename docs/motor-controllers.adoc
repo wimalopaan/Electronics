@@ -22,6 +22,7 @@ toc::[]
 
 == Brushed DC-motor controller with sensorless measurement of rotational speed
 
+[[brushed_dc]]
 [caption=""]
 .Project info
 [cols="1h,5",width="100%"]

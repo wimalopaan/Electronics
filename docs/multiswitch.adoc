@@ -161,6 +161,7 @@ here you can find the files to print a nice housing for the PCS: https://github.
 
 ==== Super simple MultiSwitch (ELRS/CRSF, FlySky/SBus, FlySky/IBus, FrSky/SBus, FrSky/S.Port, Graupner/SumDV3)
 
+[[supersimple]]
 [caption=""]
 .Project info
 [cols="1h,5",width="100%"]
