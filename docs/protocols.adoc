@@ -1,0 +1,357 @@
+= Protocols
+Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
+:toc:
+:toclevels: 3
+:toc-placement!:
+:sectnums:
+:sectnumlevels: 5
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+
+<<../README.adoc#,RC Electronics>> / Protocols
+
+[NOTE]
+--
+CRSF protocol extensions (MultiSwitch, Prop32, ESP-NOW), CRSF half-duplex bus, Hardware-Extension-Protocol.
+--
+
+toc::[]
+
+[[crsf_sw]]
+== Proposal for the CRSF protocol
+
+Following is a proposal for an extension to the the `CRSF` protocol. This can be used with every handset, transmitter-module and receiver 
+due to the extensability of the protocol. 
+
+Refer to https://github.com/crsf-wg/crsf/wiki[crsf].
+
+This is used by a <<multiswitch.adoc#msw_widget,EdgeTx-Widget>> (encoder) alongside with the <<cruise-control.adoc#CC,The `CruiseController`>> (decoder).
+
+.CRSF-protocol 
+[TIP]
+--
+For all commands (command frame `0x32`) new _realms_  are defined:
+
+* `0xa0`: `CruiseController`
+* `0xa1`: `MultiSwitch`
+* `0xa2`: `Schottel-Controller`
+* ...
+--
+
+[[crsf-sw]]
+=== Commands for MultiSwitch (realm `0xa1`)
+
+* Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
+* Command realm: `MultiSwitch`, `0xa1`, (user defined realm)
+
+Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa1]` `<command>` `<payload>` `]` `[crc8]`
+
+Defined commands in this realm are:
+
+* `0x01`: set 8 binary-switches
+* `0x02`: set a proportional value (8-bit resolution)
+* `0x03`: RequestTelemetry (deprecated)
+* `0x04`: RequestTelemetryItem (deprecated)
+* `0x05`: RequestConfigItem (deprecated)
+* `0x06`: RequestDeviceInfo (deprecated)
+* `0x07`: set 8 4-state switches (2-bits for each switch -> 2 bytes payload)
+* `0x08`: tbd
+* `0x09`: set multiple 4-state switches with different switch addresses
+* `0x0a`: set color of RGB leds of the switch
+* `0x10`: intermodule comunication (deprecated)
+* `0x11`: intermodule pattern start
+* `0x12`: intermodule pattern stop all
+* `0x13`: intermodule slave set
+
+==== Command `0x01` (Set)
+
+Payload: `<address>` `<state>` 
+
+* `<address>`: 1 byte : switch-address (0 ... 255)
+* `<state>`: 1 byte : state of 8 binary switches
+
+==== Command `0x07` (Set4)
+
+Payload: `<address>` `<stateH>` `<stateL>` 
+
+* `<address>`: 1 byte : switch-address (0 ... 255)
+* `<stateH>`: 1 byte : state of 4 2-ary switches
+* `<stateL>`: 1 byte : state of 4 2-ary switches
+
+==== Command `0x09` (Set4M)
+
+Payload: `<count>` [ `<address>` `<stateH>` `<stateL>` ](repeated `count` times) 
+
+* `<count>`: 1 byte: number of following 3-byte sequences
+* `<address>`: 1 byte : switch-address (0 ... 255)
+* `<stateH>`: 1 byte : state of 4 2-ary switches
+* `<stateL>`: 1 byte : state of 4 2-ary switches
+
+==== Command `0x02` (Prop)
+
+Payload: `<address>` `<channel>` `<duyt>` 
+
+* `<address>`: 1 byte : switch-address (0 ... 255)
+* `<channel>`: 1 byte : number of the output channel
+* `<duty>`: 1 byte : duty for the output channel
+
+==== Command `0x0a` (setRGB)
+
+Payload: `<address>` `<count<` [ `<adr_color_r>` `<color_gb>` ](repeated `count` times) 
+
+* `<address>`: 1 byte : switch-address (0 ... 255)
+* `<count>`  : 1 byte: number of following 2-byte sequences (1...8)
+* `<adr_color_r>` : 1 byte : upper nibble: number of output (0...7) ; lower nibble: red value (0...f)
+* `<color_gb>` : 1 byte : upper nibble: green value (0...f) ;  lower nibble: blue value (0...f)
+
+==== Command `0x11` (intermodule pattern start)
+
+This message type is intended to be send from one module to another, both are located _in_ the same model. 
+So, it is required to have a CRSF-Router (or similar like ELRS-v4 receiver) these modules are connected to.
+
+Typically, this is a _broadcast_ message (destination address: `0x00`), because the sending module does not
+know the crsf-address of the destination module.
+
+The purpose is to start a specific pattern-generator on the destination module.
+
+Payload: `<address>` `<pattern>` 
+
+* `<address>`: 1 byte : switch-address (0...255)
+* `<pattern>`: 1 byte : pattern (4 ... 7)
+
+
+==== Command `0x12` (intermodule pattern stop all)
+
+This message type is intended to be send from one module to another, both are located _in_ the same model. 
+So, it is required to have a CRSF-Router (or similar like ELRS-v4 receiver) these modules are connected to.
+
+Typically, this is a _broadcast_ message (destination address: `0x00`), because the sending module does not
+know the crsf-address of the destination module.
+
+The purpose is to stop the actual running pattern on all modules, that are member of the specific group.
+
+Payload: `<group>` 
+
+* `<group>`: 1 byte : group (0...255)
+
+==== Command `0x13` (intermodule slave set)
+
+This message type is intended to be send from one module to another, both are located _in_ the same model 
+_or_ in two different module (like mother- and daughter boat or trauck and trailer).
+So, it is required to have a CRSF-Router (or similar like ELRS-v4 receiver) these modules are connected to.
+
+Typically, this is a _broadcast_ message (destination address: `0x00`), because the sending module does not
+know the crsf-address of the destination module.
+
+The purpose is to stet the outputs of the slave according to the master. The message should be send
+from the master to the slave every time the state of the masters outputs change.
+
+Payload: `<src>` `<state>`  
+
+* `<src>`: 1 byte : source switch address (0...255)
+* `<state>`: 1 byte : state of 8 outputs
+
+
+[[prop32]]
+=== Proportional data (e.g. additional channels: >=8bit)
+
+The following is realized as https://github.com/wimalopaan/LUA/blob/main/SCRIPTS/MIXES/crsfch.lua[].
+
+.Variant `0x03`
+
+Total of 16 channels switches.
+
+The total number of bytes is transferred in chunks:
+
+* Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
+* Command realm: `CruiseController`, `0xa0`, (user defined realm)
+* Command: `0x3` (8 bit per channel) 
+* Data: 64 bits as 16 x 8 bytes (16 8-bit-channels)
+
+Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x03]` `<byte0>` ... `[byte15]` `]` `[crc8]`
+
+.Variant `0x04`
+
+The total number of bytes is transferred in chunks:
+
+* Paket type: `CRSF_FRAMETYPE_COMMAND`, `0x32`
+* Command realm: `CruiseController`, `0xa0`, (user defined realm)
+* Command: `0x4` (8 bit per channel)
+* Additional flags byte: 
+** bit0: flip ch1-16 and ch17-32 on SBUs capable receivers / controllers
+** bit1: filp ch1-16 and ch17-32 on SumDV3 capable receivers / controllers
+* Data: 64 bits as 16 x 8 bytes (16 8-bit-channels)
+
+Overall packet: `[0xc8]` `[len]` `[0x32]` `[` `[dst]` `[src]` `[0xa0]` `[0x04]` `<flags>` `<byte0>` ... `[byte15]` `]` `[crc8]`
+
+=== Telemetry passthrough messages
+
+Status messages originating from e.g. MultiSwitch (SuperSimpleMultiSwitch) with one byte of status bits. The meaning oth the bits depends
+on the application. The MultiSwitch-Widget can display there status bits, see <<multiswitch.adoc#msw_widget,MultiSwitch Widget>>.
+
+* Paket type: `CRSF_FRAMETYPE_PASSTHRU`, `0x7f`
+* sub type: MultiSwitch, `0xa1`
+* AppId: Status, `6100` 
+* `<switch address>`
+* `<status bits>` 
+
+Overall packet: `[0xc8]` `[len]` `[0x7f]` `[` `[0xea]` `[crsf-address]` `[0xa1]` `[high_byte(6100)]` `[low_byte(6100)]` `[address]` `[statusbits]` `]` `[crc8]`
+
+[[crsf-esp-now]]
+=== CRSF over ESP-NOW
+
+Send a CRSF frame over ESP-Now.
+
+The _start-byte_ (`0xc8`), the fram-length field and CRC are omitted. They aren't needed.
+
+To authorize the ESP-Now frames of a device, the `UID` bytes are prepended.
+
+Overall `ESP-NOW` packet: `[uid5]` `[uid4]` `[uid3]` `[uid2]` `[uid1]` `[uid0]` `[type]` `[payload]`
+
+`uid0` ... `uid5` are the bytes of _bind-phrase_ hash.
+
+See also <<elrs.adoc#elrs-esp-now,CRSF-over-ESP-NOW for ELRS V4>>.
+
+[[crsf-bus]]
+== CRSF-Half-Duplex Bus
+
+Allows to connect up to 4 half-duplex CRSF devices to a full-duplex receiver.
+
+[TIP]
+--
+If you use a TBS receiver e.g. TBS Nano RX 6Ch, then the `rx`-line of the receiver lacks a pullup-resistor. You need to solder an extra pullup of 4k7 or upto 20k between twe `+5V` and the `rx` -line. Using
+a `0805` SMD resistor you can solder this directly to the 4-pin `JST-GH` connector of the bus pcb.
+--
+
+This requires an external means (or arbitration scheme: see <<crsf_hd_scheme>>) to _activate_ the attached half-duplex devices (e.g. a button on the devices), because at most only _one_ device can be active on the bus (s.a. <<crsf-devices.adoc#crsf-switch,CRSF-Switch / Router>>). 
+
+[[crsf_hd_scheme]]
+[TIP]
+--
+.CRSF Half-Duplex Arbitration Scheme
+
+If all the devices obey a simple arbitration scheme, there could be more than _one active device_ on this half-dupley bus: 
+
+The arbritration scheme works as follows:
+
+* because this is half-duplex, the (immediate) time after receiving a _RC-channels_ packet is free to send packets for the attached devices
+* each device _has to_ use a special time slot (depending on his own crsf-address) to place his packet on the bus
+* a received _link-stat_ (`0x14`) crsf packet starts the counting of time-slots for sending packets
+* the time-slot number for a device is calculated as: (<crsf-address> - 192) * 2
+* requirement: the unique adresses of all attached devices are in the range: `0xc0` ... `0xcf` 
+
+The above scheme must hold for all packets to send: especially the `crsf device info` packet after receiving a `crsf ping` or the unconditionally send telemetry packets must be restricted to the devices time slot. 
+--
+
+.The schematic  (click to enlarge)
+image::../images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG[width=240, link="../images/elrs_msw/RC_CRSF_HalfDuplex_Bus_SCH.PNG"]
+
+.The PCB  (click to enlarge)
+image::../images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG[width=240, link="../images/elrs_msw/RC_CRSF_HalfDuplex_Bus_PCB.PNG"]
+
+Link to the PCB order (Aisler): https://aisler.net/p/KPBJUCXN[PCB Order]
+
+Link to link:../images/elrs_msw/RC_CRSF_HalfDuplex_Bus.T3001[Target 3001 design file].
+
+Link to link:../images/elrs_msw/RC_CRSF_HalfDuplex_Bus.zip[Gerber design files].
+
+=== Demo (Video)
+
+Prototyp: https://www.youtube.com/watch?v=PeuxACw40io[Video]
+
+[[hwext]]
+== Hardware-Extension-Protocol
+
+The _hardware-extension-protocol_ is a simple serial protocol to send the state of external switches and potentiometers to the handset. The `RadioMaster TX16S` handset has two 
+serial interfaces one can use to extend the handset, e.g. to provide more switches or potentiometers (s.a. <<hwlua>>).
+
+The protocol is designed as a multi-master / slave protocol, which gives the chance to have more than one external controller that sends data to the handset (s.a. <<radio-mods.adoc#extswitch,The TX16s internal switch controller>> and <<rc-desk.adoc#rcdesk,The RC-Desk (for RadioMaster TX16S, FrSky X12S, X9E, ...)>>).
+
+In the case of the `RadioMaster TX16S`, which has _two_ serial interfaces, the other serial interface remains free to used for other purposes, e.g. 
+to connect a `SBUS`-receiver realizing a trainer connection or connecting other gear (s.a. <<rc-desk.adoc#rcdesk,The RC-Desk (for RadioMaster TX16S, FrSky X12S, X9E, ...)>>).
+
+=== Physical layer
+
+* Baudrate: 115200 Baud
+* 8 Bits
+* no parity
+* 1 Stop bit
+* half-duplex
+
+=== Application Layer
+
+An external switch controller (_master_) sends packages to the handset. It is possible to connect more than one external switch controller to the
+same half-duplex serial-line (the `rx` line of the handset). This requires unique IDs of the switch controllers (s.a. <<hwext_timing>>)
+
+==== Packet Format
+
+Format: `[0xaa]` `<cntrl-nr>` `<type>` `<payload-length>` `<payload>` `<check-sum>`
+
+* `<cntrl-nr>`: the controller-number (source) (one instance of the LUA-scripts acts upon one specific controller-number (must be a unique number on the bus)
+* `<type>`: type of message
+** `0x00`: binary switches in payload (each byte encodes 8 switches)
+** `0x01`: 8-bit-values in the payload (each byte encodes an distinct value)
+** `0x02`: 16-bit-values in the payload (every two bytes encodes an distinct value), LSB-first
+** `0x03`: 64 binary switches (8 bytes) | 16 values (2 bytes each, 32 bytes total) (40 bytes payload total)
+* `<length>`: number of bytes of the `<payload>`
+* `<payload>`: bytes encoding switches or values
+* `<check-sum>`: arithmetic sum of `<payload>` byte, only one byte, may overflow
+
+[[hwext_timing]]
+==== Multi-Master Timing
+
+The master with the _controller-number_ `0` sends a package every 100ms (maybe down to 20ms) unconditionally. The user has to ensure, that excactly _one_ controller
+with number `0` exists on the serial bus.
+
+If there are other masters on the bus with _controller-number_ greater `0` (e.g. `N`), they listen on the bus and wait for a message to see with _controller-number_ `(N-1)`.
+If this master receives such a message, it waits 2 byte-times after the last byte of the just received message and then switches to send-mode and sends its own messages.
+
+The user has to ensure, that the inter-message gaps are long enough so that all masters can send their messages. All controllers must have numbers in ascending order 
+without gaps starting with `0`.
+
+[[hwlua]]
+== LUA-script for the Hardware-Extension-Protocol
+
+=== New version of the LUA-script for the Hardware-Extension-Protocol
+
+To use the new (`lvgl`) version you also have to use thsi PR https://github.com/EdgeTX/edgetx/pull/5885[].
+Please also see <<building.adoc#edgetx_custom,Custom EdgeTx builds>> how to build and install it.
+
+The new version can be found here: https://github.com/wimalopaan/LUA[]
+
+=== Old version
+
+There are several ways to read the information send via the <<hwext>> and some of the serial interfaces of a handset. The two most obvious are:
+
+* modify the `EdgeTx`-firmware to read the data via theserial interface, parse the <<hwext>> and modify the state of switches and inputs, or
+* use a `LUA`-script to read the data
+
+To modify the `EdgeTx`-firmware would be the most powerful, because the external hardware read via the <<hwext>> could _act_ like the internal control elements like sticks and switches. 
+But, this would be a huge modification of `edgeTx` for only a small number of users I think. So, there will be little chance to get these modifications _offcially_ approved and get them into
+the main version of the source code of `EdgeTx`.
+
+To use a LUA-script isn't intrusive in any way, one can use the standard LUA-API of `EdgeTx` (some useful functions for this I got into `EdgeTx` soem time ago). 
+Clearly, this approach has limitations: you can't introduce _new_ inputs or _new_ switches.
+
+But
+
+* the `LUA`-script can set/reset some of the 64 _logical-switches_ as a reaction to flipping of an external switch, and
+* it can set set one of the 16 _shared-memory_ variables, which then can be used inside a _mixer-script_ to produce an output-channel value.
+
+Sure, there is a limitation of 64 logical-switches and 16 shared-memory variables: but I think there is a good chance to increase these limits a least on the 
+color-LCD radios with a substantial amount of RAM.
+
+The code of the widget can be found here: https://github.com/wimalopaan/LUA[]
+
+[[hwluaimg1]]
+.Two widgets installed (click to enlarge)  
+image::../images/hwext/hwextlua1.png[width=240, link="../images/hwext/hwextlua1.png"]
+
+[[hwluaimg2]]
+.The information screnn of the widget (click to enlarge)  
+image::../images/hwext/hwextlua2.png[width=240, link="../images/hwext/hwextlua2.png"]
+
+https://www.youtube.com/watch?v=oPbaWQnMffA[Video]
