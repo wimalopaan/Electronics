@@ -1,0 +1,50 @@
+= Project template
+Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
+:tip-caption: :bulb:
+:note-caption: :information_source:
+
+<<../README.adoc#,RC Electronics>> / Project template
+
+Every project section uses the same structure, so readers find the same information in the same place.
+Copy the following skeleton into the corresponding document in `docs/` and add a row to the
+<<../README.adoc#project-status,project status>> table in the README.
+
+[NOTE]
+--
+Only rows that apply to the project are needed. Status values: `🟢 active`, `🔵 stable`, `🟡 experimental`, `📝 planned`, `⚪ superseded`.
+--
+
+[source,asciidoc]
+....
+[[my-project]]
+== My project
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Hardware | https://oshwlab.com/...[OSHWLab], link:../images/my-project/board.zip[Gerber/BOM (zip)]
+| Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/myProject[wmucpp: `boards/myProject`]
+| Software | LUA widget / mixer script
+| Configuration | CRSF menu on the handset / ELRS Buddy / WiFi
+| Video | https://www.youtube.com/...[YouTube]
+| See also | <<other.adoc#anchor,related project>>
+|===
+
+Purpose: what the project does and why (2-3 sentences).
+
+=== Hardware
+
+Schematic, PCB, images, production data.
+
+=== Firmware
+
+Where the source code is, how to build it (link to <<building.adoc#,Building firmware>>) and how to flash it.
+
+=== Configuration and usage
+
+Settings, CRSF menu, widgets, typical setups.
+
+=== Demo (Video)
+....

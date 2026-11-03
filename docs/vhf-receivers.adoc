@@ -1,0 +1,66 @@
+= Receivers for 27/35/40MHz
+Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
+:toc:
+:toclevels: 3
+:toc-placement!:
+:sectnums:
+:sectnumlevels: 5
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+
+<<../README.adoc#,RC Electronics>> / Receivers for 27/35/40MHz
+
+[NOTE]
+--
+Corona RP8D1 replacement firmware and SDR receiver.
+--
+
+toc::[]
+
+[[corona]]
+== Corona RP8D1 replacement firmware
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🔵 stable
+| Firmware | https://github.com/wimalopaan/CoronaRP8D1[wimalopaan/CoronaRP8D1]
+| Video | https://www.youtube.com/watch?v=q5oiHTnkp-k[2024-03-18], https://www.youtube.com/watch?v=cUGIk_Ka3Hw[2024-03-23], <<videos.adoc#v-corona,all videos (2)>>
+|===
+
+
+The `Corona RP8D1` receiver come into several flavors, for the 35MHz band, the 40MHz and the 72MHz band (afaik). 
+The reason for giving a substantial amount of time to develop a new firmware for this receiver is the fact that I am
+_hoarding_ vintage electronic RC stuff. Unfortunately some of this gear wasn't working anymore. In the process of 
+reworking these things I needed a good receiver and I decided to get a scan-receiver without external crystals. But it turns out
+that the mostly helpful signal filtering of the `Corona` receiver makes the situation worse if one tries to use these multi-channels
+s in the transmitters. These encoders produce a time-multiplex over one RC channel, and the correspondant decoder
+isn't capable decoding the time multiplex if the receiver modifies / filters the impulse durations. So, the project started ;-) 
+
+There is an extra repository https://github.com/wimalopaan/CoronaRP8D1[] for this project.
+
+For ease of compilation I've added a gitpod: https://gitpod.io/#https://github.com/wimalopaan/CoronaRP8D1[]
+
+[[sdr]]
+== SDR RC receiver for 27/35/40MHz
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟡 experimental
+|===
+
+
+My most ambitious project. The origin is also in <<corona>>. The goal is to design a SDR as a I/Q-mixer (tayloe-mixer) with zero-IF and a STM32G431 doing all
+the DSP stuff.
+
+Actually, this works for ppm/pcm-modulation in the near field of the transmitter. 
+
+Remaining problems are sensitivity and AGC.
+
+There is no documentation yet.
