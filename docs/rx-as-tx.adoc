@@ -23,6 +23,16 @@ toc::[]
 [[elrs_jr]]
 == JR-module-bay adapter for ELRS receiver as transmitter
 
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🔵 stable
+| Hardware | link:../elrs/jr/JR-ELRS.T3001[TARGET 3001!]
+| Firmware | stock ExpressLRS (receiver flashed as transmitter)
+|===
+
+
 === Using ELRS receivers as transmitter-modules
 
 Since the differences between ELRS receivers and transmitters (well: both are transceivers and the differences are mostly in transmit-power) are
@@ -210,6 +220,16 @@ image::../elrs/jr/f3.jpg[width=240, link="../elrs/jr/f3.jpg"]
 
 [[elrs_x12s]]
 == Adapter for ELRS receiver as internal XJT/ISRM module for FrSky X12S
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🔵 stable
+| Hardware | link:../elrs/x12s/X12S_ELRS_Adapter.T3001[TARGET 3001!]
+| Firmware | stock ExpressLRS (receiver flashed as transmitter)
+|===
+
 
 If you don't want to use an external ELRS transceiver module e.g. for the JR-bay of your handset, then you may choose to replace the 
 internal XJT / ISRM module of the X12S with an ELRS module. 

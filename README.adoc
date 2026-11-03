@@ -61,7 +61,7 @@ you'll get `IEEE`, the *RC software stack* (please do not confuse with https://w
 [[documents]]
 == Documents
 
-The content of this page is split into the following documents. The <<detailed_toc>> lists every section with a direct link.
+The content of this page is split into the following documents. The <<detailed_toc>> lists every section with a direct link. The <<project-status>> shows the state of every project.
 
 === Software, firmware and protocols
 
@@ -191,6 +191,68 @@ The content of this page is split into the following documents. The <<detailed_t
 * <<docs/misc.adoc#devg0b1,WM STM32G0B1 development board>>
 * <<docs/misc.adoc#_simple_rc_main_power_latched_switch,Simple RC main power latched switch>>
 
+|===
+
+[[project-status]]
+=== Project status
+
+Every project page starts with a _Project info_ box (status, hardware, firmware, software, links).
+New projects use the <<docs/project-template.adoc#,project template>>.
+
+.Status legend
+[cols="1,4"]
+|===
+| 🟢 active | under active development
+| 🔵 stable | finished and in use; maintenance only
+| 🟡 experimental | working partially / under test
+| 📝 planned | idea or design, not yet usable
+| ⚪ superseded | replaced by another project; kept for reference
+|===
+
+[cols="3,2,1",options="header"]
+|===
+| Project | Document | Status
+| <<docs/multiswitch.adoc#mswe8,MultiSwitch-E8>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🟢 active
+| <<docs/multiswitch.adoc#_super_simple_multiswitch_elrscrsf_flyskysbus_flyskyibus_frskysbus_frskys_port_graupnersumdv3,Super simple MultiSwitch>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🟢 active
+| <<docs/multiswitch.adoc#ssmsw,MultiSwitch 16-Outputs PCB>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🟢 active
+| <<docs/multiswitch.adoc#msw_nucleo,Nucleo-G031K8 as a MultiSwitch>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🟢 active
+| <<docs/multiswitch.adoc#msw_weact,WeAct STM32G031F8 as a MultiSwitch>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🟢 active
+| <<docs/multiswitch.adoc#msw_tht,WeAct MultiSwitch THT PCB>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🔵 stable
+| <<docs/multiswitch.adoc#msw_widget,MultiSwitch Widget>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🟢 active
+| <<docs/multiswitch.adoc#msw_bw,MultiSwitch Telemetry Script>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🔵 stable
+| <<docs/crsf-devices.adoc#led4x4,LED 4x4 Module>> | <<docs/crsf-devices.adoc#,CRSF devices>> | 🟢 active
+| <<docs/crsf-devices.adoc#crsf-switch,CRSF-Switch / Router>> | <<docs/crsf-devices.adoc#,CRSF devices>> | 🟢 active
+| <<docs/crsf-devices.adoc#elrs_ma,ELRS-MultiAdapter-EA>> | <<docs/crsf-devices.adoc#,CRSF devices>> | 🔵 stable
+| <<docs/crsf-devices.adoc#rcrelay32,RC-Relay32>> | <<docs/crsf-devices.adoc#,CRSF devices>> | 🟢 active
+| <<docs/crsf-devices.adoc#crsfserialservo,CRSF to Serial-Servo Converter>> | <<docs/crsf-devices.adoc#,CRSF devices>> | 🟢 active
+| <<docs/cruise-control.adoc#rc720e,Double Schottel-Control / Cruise-Controller (RC720E32)>> | <<docs/cruise-control.adoc#,Cruise-Controller>> | 🟢 active
+| <<docs/cruise-control.adoc#CC,The `CruiseController`>> | <<docs/cruise-control.adoc#,Cruise-Controller>> | ⚪ superseded
+| <<docs/rc-desk.adoc#rcdesk,RC-Desk>> | <<docs/rc-desk.adoc#,RC-Desk>> | 🟢 active
+| <<docs/rc-desk.adoc#rcdesk32mini,RC-Desk mini>> | <<docs/rc-desk.adoc#,RC-Desk>> | 🟢 active
+| <<docs/radio-mods.adoc#varioprop,Renewed mainboard for vintage transmitters>> | <<docs/radio-mods.adoc#,Transmitter modifications>> | 🟡 experimental
+| <<docs/radio-mods.adoc#x12s_touch,Touch-Screen for the FrSky X12S>> | <<docs/radio-mods.adoc#,Transmitter modifications>> | 🔵 stable
+| <<docs/radio-mods.adoc#sfrog,SFrog 5D Sticks for the FrSky X12S>> | <<docs/radio-mods.adoc#,Transmitter modifications>> | 🔵 stable
+| <<docs/radio-mods.adoc#_modification_of_an_old_graupner_jr_40mhz_transmitter_rf_modul_for_use_in_e_g_a_radiomaster_tx16s_frsky_x12sx9e_or_similar,Graupner / JR 40MHz RF module for modern radios>> | <<docs/radio-mods.adoc#,Transmitter modifications>> | 🔵 stable
+| <<docs/radio-mods.adoc#extswitch,TX16s internal switch controller>> | <<docs/radio-mods.adoc#,Transmitter modifications>> | 🔵 stable
+| <<docs/radio-mods.adoc#haptic,Haptic-control stick>> | <<docs/radio-mods.adoc#,Transmitter modifications>> | 📝 planned
+| <<docs/rx-as-tx.adoc#elrs_jr,JR-module-bay adapter for ELRS RX-as-TX>> | <<docs/rx-as-tx.adoc#,RX-as-TX>> | 🔵 stable
+| <<docs/rx-as-tx.adoc#elrs_x12s,X12S internal ELRS adapter>> | <<docs/rx-as-tx.adoc#,RX-as-TX>> | 🔵 stable
+| <<docs/flysky.adoc#flysky-i6x-rs,FlySky-I6X-rs>> | <<docs/flysky.adoc#,FlySky>> | 🟢 active
+| <<docs/flysky.adoc#flysky-i6s-rs,FlySky-I6S-rs>> | <<docs/flysky.adoc#,FlySky>> | 🟢 active
+| <<docs/flysky.adoc#elrs_i6x,ELRS for the FlySky-I6X>> | <<docs/flysky.adoc#,FlySky>> | 🔵 stable
+| <<docs/flysky.adoc#oix6,Openix6>> | <<docs/flysky.adoc#,FlySky>> | 🔵 stable
+| <<docs/motor-controllers.adoc#_brushed_dc_motor_controller_with_sensorless_measurement_of_rotational_speed,Brushed DC-motor controller>> | <<docs/motor-controllers.adoc#,Motor controllers>> | 🟡 experimental
+| <<docs/motor-controllers.adoc#vesc,V/ESC>> | <<docs/motor-controllers.adoc#,Motor controllers>> | 🟢 active
+| <<docs/vhf-receivers.adoc#corona,Corona RP8D1 replacement firmware>> | <<docs/vhf-receivers.adoc#,VHF receivers>> | 🔵 stable
+| <<docs/vhf-receivers.adoc#sdr,SDR RC receiver for 27/35/40MHz>> | <<docs/vhf-receivers.adoc#,VHF receivers>> | 🟡 experimental
+| <<docs/misc.adoc#devg0b1,WM STM32G0B1 development board>> | <<docs/misc.adoc#,Misc>> | 🔵 stable
+| <<docs/misc.adoc#_simple_rc_main_power_latched_switch,Simple RC main power latched switch>> | <<docs/misc.adoc#,Misc>> | 🔵 stable
+| <<docs/inav.adoc#mortimer,Mortimer (self-balancing robot)>> | <<docs/inav.adoc#,INAV>> | 🟡 experimental
+| <<docs/edgetx.adoc#vcontrols,EdgeTx: Virtual Controls>> | <<docs/edgetx.adoc#,EdgeTx>> | 🟢 active
+| <<docs/edgetx.adoc#edgetx_32channels,EdgeTx: 32-channels extension>> | <<docs/edgetx.adoc#,EdgeTx>> | 🟢 active
+| <<docs/edgetx.adoc#edgetx_shm_bw,EdgeTx: SHM-Variables for B&W radios>> | <<docs/edgetx.adoc#,EdgeTx>> | 🔵 stable
+| <<docs/edgetx.adoc#crsf_batt_id,EdgeTx: CRSF BATT frames with sensor-id>> | <<docs/edgetx.adoc#,EdgeTx>> | 🟢 active
+| <<docs/escape32.adoc#,ESCape32 (modifications)>> | <<docs/escape32.adoc#,ESCape32>> | 🟢 active
 |===
 
 === Gear

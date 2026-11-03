@@ -114,6 +114,18 @@ The CRSF protocol is extensible, and this fact is used to propose an to control 
 [[mswe8]]
 ==== MultiSwitch-E8
 
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Hardware | https://oshwlab.com/wilhelm.wm.meier/works[OSHWLab], https://aisler.net/p/GCSJNSFV[Aisler], link:../images/elrs_msw/RCMultiSwitchSmall10.zip[Gerber/BOM (zip)], link:../images/elrs_msw/RCMultiSwitchSmall10.T3001[TARGET 3001!]
+| Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcmultiswitchG030[wmucpp: `boards/rcmultiswitchG030`]
+| Control | <<msw_widget>>
+| See also | https://github.com/firlefantz/Elrs-Multiswitch-guide[housing / build guide]
+|===
+
+
 You find the actual version on https://oshwlab.com/wilhelm.wm.meier/works[].
 
 [CAUTION]
@@ -148,6 +160,16 @@ $ make all
 here you can find the files to print a nice housing for the PCS: https://github.com/firlefantz/Elrs-Multiswitch-guide[Housing and additional information].
 
 ==== Super simple MultiSwitch (ELRS/CRSF, FlySky/SBus, FlySky/IBus, FrSky/SBus, FrSky/S.Port, Graupner/SumDV3)
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcmultiswitch[wmucpp: `boards/rcmultiswitch`]
+| Control | <<msw_widget>>, <<msw_bw>>, https://github.com/wimalopaan/LUA/tree/main/SCRIPTS/MIXES[mixer scripts]
+|===
+
 
 There was demand for a much simpler hardware compared to the <<mswe8>>: it should comprise only THT parts, so one could solder it onto a simple
 stripe THT-PCB. And it should use simpler µC, since the STM32/ARM looks too complicated to some hobbyists.
@@ -231,6 +253,17 @@ and also 64 binary switches. Clearly you need a handset that is capable to defin
 [[ssmsw]]
 ==== 16-Outputs PCB
 
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Hardware | https://oshwlab.com/wilhelm.wm.meier/supersimplemultiswitch[OSHWLab]
+| Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcsupersimplemultiswitch[wmucpp: `boards/rcsupersimplemultiswitch`]
+| Control | <<msw_widget>>
+|===
+
+
 I designed a _SuperSimpleMultiSwitch_-Hardware using the AVR128DA28 in DIP-packes. This is a very easy reproducible hardware design that 
 you can find on https://oshwlab.com/wilhelm.wm.meier/supersimplemultiswitch[]. 
 If the PCB doen't attract you, you can use the schematics to design your own. 
@@ -270,6 +303,17 @@ the receiver, or the CRSF-switch/router has to be used.
 
 [[msw_nucleo]]
 ==== STM32G031F8 Nucleo-Board as a MultiSwitch
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Hardware | https://www.st.com/en/evaluation-tools/nucleo-g031k8.html[ST Nucleo-G031K8]
+| Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcmultiswitchG030[wmucpp: `boards/rcmultiswitchG030`]
+| Control | <<msw_widget>>
+|===
+
 
 Despite the fact that there are man people assembling there one <<mswe8>>, there are also people who do not want to order these boards and assemble all
 parts by themselves, nor do they want to use the assembly-service of some of the main pcb manufactorers. Therefore, there was some demand for more DIY friendly
@@ -326,6 +370,17 @@ modules in parallel.
 [[msw_weact]]
 ==== WeAct STM32G031F8 as a MultiSwitch
 
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Hardware | https://de.aliexpress.com/item/1005005748198584.html[WeAct STM32G0 board]
+| Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcmultiswitchG030[wmucpp: `boards/rcmultiswitchG030`]
+| Control | <<msw_widget>>
+|===
+
+
 The https://de.aliexpress.com/item/1005005748198584.html[] is even smaller than the <<msw_nucleo, nucleo>> version. So, this board is a really good choice in terms of price and size.
 
 The differences to the <<msw_nucleo, nucleo>> are, that there is no programmer included (you have to use a separate `st-link` programmer, and that the pin assignments are different
@@ -373,6 +428,17 @@ modules in parallel.
 [[msw_tht]]
 ==== WeAct STM32G031F8 as a MultiSwitch with PCB as THT
 
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🔵 stable
+| Hardware | link:../images/elrs_msw/seaspotter/Gerber_CRSF-Multiswitch-THT-v1.1.zip[Gerber (zip)]
+| Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcmultiswitchG030[wmucpp: `boards/rcmultiswitchG030`]
+| Control | <<msw_widget>>
+|===
+
+
 The following PCB design is by courtesy of Florian (`seaspotter`).
 
 .The `MultiSwitch` PCB with THT components
@@ -387,6 +453,16 @@ Link to link:../images/elrs_msw/seaspotter/Gerber_CRSF-Multiswitch-THT-v1.1.zip[
 
 [[msw_widget]]
 ==== MultiSwitch Widget
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Software | https://github.com/wimalopaan/LUA?tab=readme-ov-file#lvglmsw[LUA: `lvglMultiSw`] (color radios)
+| Protocol | <<protocols.adoc#crsf-sw,CRSF MultiSwitch commands>>
+|===
+
 
 The new widget can be found here: https://github.com/wimalopaan/LUA?tab=readme-ov-file#lvglmsw[]
 
@@ -446,6 +522,16 @@ To use this, enable the `AutoConf` option of the widget.
 
 [[msw_bw]]
 ==== MultiSwitch Telemetry Script
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🔵 stable
+| Software | https://github.com/wimalopaan/LUA?tab=readme-ov-file#multiswitch-bw-telemetry-script[LUA telemetry script] (B&W radios)
+| See also | <<edgetx.adoc#edgetx_shm_bw,SHM-Variables for B&W radios>>
+|===
+
 
 To use the `MultiSwitch` with black&white LCD radios you have to install a _telemetry_ script. 
 This _script_ can be found here: https://github.com/wimalopaan/LUA?tab=readme-ov-file#multiswitch-bw-telemetry-script[]

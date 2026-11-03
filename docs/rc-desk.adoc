@@ -23,6 +23,16 @@ toc::[]
 [[rcdesk]]
 == The RC-Desk (for RadioMaster TX16S, FrSky X12S, X9E, ...)
 
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Hardware | link:../desk/RC_Desk32_01.T3001[TARGET 3001!]
+| Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcDesk32[wmucpp: `boards/rcDesk32`]
+|===
+
+
 This project is a hardware extension for all radios with an exposed serial interface (s.a. <<protocols.adoc#hwext,Hardware-Extension-Protocol>>).
 
 It controls and sends the following data to the radio:
@@ -54,6 +64,16 @@ Link to the code repo: https://github.com/wimalopaan/wmucpp/tree/master/boards/r
 
 [[rcdesk32mini]]
 == The RC-Desk mini (for RadioMaster TX16S, TX15, FrSky X12S, X9E, ...)
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Hardware | https://de.aliexpress.com/item/1005005748198584.html[WeAct STM32G0 board]
+| Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcDesk32mini[wmucpp: `boards/rcDesk32mini`]
+|===
+
 
 This project is a hardware extension for all radios with an exposed serial interface. It is preferred
 to use it via `SBUS`-input / trainer-serial to the handset. One can connect up to 8 analog and

@@ -23,6 +23,16 @@ toc::[]
 [[flysky-i6x-rs]]
 == FlySky-I6X-rs: an alternative firmware for the FlySky FS-I6X transmitter
 
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Firmware | https://github.com/ferrox-rc/flysky-i6x-rs[ferrox-rc/flysky-i6x-rs]
+| See also | https://ferroxrc.com[ferroxrc.com], https://www.youtube.com/@wilhelmmeier6124/videos[videos]
+|===
+
+
 Project: https://ferroxrc.com[]
 
 Github: https://github.com/ferrox-rc/flysky-i6x-rs[]
@@ -73,6 +83,16 @@ image::../ferrox/fsi6x_mod8.jpg[width=240, link="../ferrox/fsi6x_mod8.jpg"]
 
 [[flysky-i6s-rs]]
 == FlySky-I6S-rs: an alternative firmware for the FlySky FS-I6S transmitter
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Firmware | https://github.com/ferrox-rc/flysky-i6s-rs[ferrox-rc/flysky-i6s-rs]
+| See also | https://ferroxrc.com[ferroxrc.com], https://www.youtube.com/@wilhelmmeier6124/videos[videos]
+|===
+
 
 Project: https://ferroxrc.com[]
 
@@ -127,6 +147,16 @@ image::../ferrox/fsi6s_mod9.jpg[width=240, link="../ferrox/fsi6s_mod9.jpg"]
 [[elrs_i6x]]
 == ELRS for the FlySky-I6X
 
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🔵 stable
+| Hardware | hardware modification of the FS-i6X (see below)
+| See also | https://github.com/OpenI6X/opentx/wiki/Modifications#all-optional-hardware-connections[OpenI6X modifications], <<rx-as-tx.adoc#elrs_jr,ELRS receiver as transmitter>>
+|===
+
+
 === Since Version `1.13`
 
 Because of problems with the half-duplex solution and `CRSF_UNINVERTED`, this option was removed and the option `CRSF_FULLDUPLEX`
@@ -178,6 +208,16 @@ tbd
 
 [[oix6]]
 == Openix6
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🔵 stable
+| Firmware | https://github.com/wimalopaan/opentx[wimalopaan/opentx] (fork of https://github.com/OpenI6X/opentx[OpenI6X/opentx])
+| Video | https://www.youtube.com/watch?v=tvDtpW6TglE[YouTube]
+|===
+
 
 === Firmware
 

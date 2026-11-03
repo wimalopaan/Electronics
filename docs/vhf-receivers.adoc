@@ -23,6 +23,15 @@ toc::[]
 [[corona]]
 == Corona RP8D1 replacement firmware
 
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🔵 stable
+| Firmware | https://github.com/wimalopaan/CoronaRP8D1[wimalopaan/CoronaRP8D1]
+|===
+
+
 The `Corona RP8D1` receiver come into several flavors, for the 35MHz band, the 40MHz and the 72MHz band (afaik). 
 The reason for giving a substantial amount of time to develop a new firmware for this receiver is the fact that I am
 _hoarding_ vintage electronic RC stuff. Unfortunately some of this gear wasn't working anymore. In the process of 
@@ -37,6 +46,14 @@ For ease of compilation I've added a gitpod: https://gitpod.io/#https://github.c
 
 [[sdr]]
 == SDR RC receiver for 27/35/40MHz
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟡 experimental
+|===
+
 
 My most ambitious project. The origin is also in <<corona>>. The goal is to design a SDR as a I/Q-mixer (tayloe-mixer) with zero-IF and a STM32G431 doing all
 the DSP stuff.

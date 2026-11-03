@@ -47,6 +47,17 @@ image::../edgetx/images/outputs.png[width=240, link="../edgetx/images/outputs.pn
 [[vcontrols]]
 == Virtual Controls for EdgeTx
 
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Upstream | https://github.com/EdgeTX/edgetx/pull/5885[EdgeTX PR #5885] (open)
+| Software | https://github.com/wimalopaan/LUA/tree/main/WIDGETS/lvglControls[LUA: `lvglControls`]
+| Firmware | https://github.com/wimalopaan/Electronics/tree/main/edgetx/firmware[precompiled EdgeTx]
+|===
+
+
 In the good old days there were radios like the FrSky X9E that provide a large amount of potentiometers and switches. 
 This type of radio was/is very popular for controlling crawler/ships- or other functional-models. 
 The number of these physical items is still limited and due to their physical nature, the labels for all these elements are also handwritten on paper.
@@ -83,6 +94,16 @@ and simple return them (only up to 6). These output values of the mixer script c
 [[edgetx_32channels]]
 == 32-Channels extension for the CRSF-Protocol
 
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Firmware | https://github.com/wimalopaan/edgetx/tree/wmcrsfchanext[edgetx: `wmcrsfchanext`], https://github.com/wimalopaan/edgetx/tree/wmextensions[edgetx: `wmextensions`], https://github.com/wimalopaan/Electronics/tree/main/edgetx/firmware[precompiled]
+| See also | <<elrs.adoc#elrs-ch32,32-channels extension for ELRS V4>>
+|===
+
+
 EdgeTx manages internally 32 channels. But most RF-links only transport 16 out of these 32 channels to the connected receiver. 
 
 A modified ExpressLRS can transport 32 channels: <<elrs.adoc#elrs-ch32,32-channels extension for ELRS V4>>
@@ -98,6 +119,15 @@ It is also available as https://github.com/wimalopaan/edgetx/tree/wmextensions[]
 [[edgetx_shm_bw]]
 == SHM-Variables for B&W radios
 
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🔵 stable
+| Firmware | https://github.com/wimalopaan/edgetx/tree/wmshmbw[edgetx: `wmshmbw`]
+|===
+
+
 Due to the limited amount of RAM of black-and-white radios (128kB to 192kB) some features are only compiled-in for color-lcd radios.
 One of these features is the support of SHM variables (useful to transport of data from one LUA context (e.g. telemety scripts) to another (e.g. mixer scripts)).
 
@@ -111,6 +141,17 @@ to enable this also for b&w radios, for color-lcd radios this feature is always 
 
 [[crsf_batt_id]]
 == Enhanced Parser for instance-id augmented CRSF BATT-sensor frames
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Upstream | https://github.com/EdgeTX/edgetx/pull/7571[EdgeTX PR #7571] (open)
+| Firmware | https://github.com/wimalopaan/edgetx/tree/wmextensions[edgetx: `wmextensions`]
+| See also | <<escape32.adoc#_modifications,ESCape32 modifications>>
+|===
+
 
 The CRSF protocol definition lacks a sensor type for sensing more than _one_ current measurement from a device like an ESC to
 the handset. All crafts that have more than one motor / ESC would benefit if there would be a possiblility to 

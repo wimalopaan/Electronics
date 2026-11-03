@@ -23,6 +23,17 @@ toc::[]
 [[led4x4]]
 == LED 4x4 Module
 
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Hardware | https://oshwlab.com/wilhelm.wm.meier/works[OSHWLab], link:../images/led4x4/RC_Led4x4_32.zip[Gerber/BOM (zip)], link:../images/led4x4/RC_Led4x4_32.T3001[TARGET 3001!]
+| Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcLed4x4[wmucpp: `boards/rcLed4x4`]
+| Control | <<multiswitch.adoc#msw_widget,MultiSwitch widget>> (<<protocols.adoc#crsf-sw,CRSF MultiSwitch commands>>)
+|===
+
+
 This module can control up to 16 leds. All these leds can be individually controlled, but also can be grouped into up to 4 groups. 
 It is especially well suited for _RC crawlers_. 
 
@@ -76,6 +87,17 @@ Link to link:../images/led4x4/RC_Led4x4_32.zip[Gerber].
 [[crsf-switch]]
 == CRSF-Switch / Router
 
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Hardware | https://oshwlab.com/wilhelm.wm.meier/crsfcswitch01[OSHWLab]
+| Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcCrsfSwitch[wmucpp: `boards/rcCrsfSwitch`]
+| See also | <<protocols.adoc#crsf-bus,CRSF-Half-Duplex Bus>>
+|===
+
+
 Allows to connect up to seven half-duplex CRSF devices to a full-duplex receiver.
 
 In contrast to <<protocols.adoc#crsf-bus,CRSF-Half-Duplex Bus>> this `CRSF-Switch` allows _all_ attached devices to be active at the same time (no external activation required).
@@ -103,6 +125,16 @@ The project is shared on OSHWLAB: https://oshwlab.com/wilhelm.wm.meier/crsfcswit
 [[elrs_ma]]
 == ELRS-MultiAdapter-EA
 
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🔵 stable
+| Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcmultiadapterG030[wmucpp: `boards/rcmultiadapterG030`]
+| Control | <<multiswitch.adoc#msw_widget,MultiSwitch widget>>, <<protocols.adoc#prop32,Prop32>>
+|===
+
+
 The `ELRS-MultiAdapter-EA` converts CRSF-serial input into 
 
 * 4 Servo-PWM outputs for arbitrary channels (out of the 16 CRSF channels) or for 4 individual out-of-band channels (4 additional 8-bit channels), or 
@@ -113,6 +145,17 @@ The `ELRS-MultiAdapter-EA` converts CRSF-serial input into
 
 [[rcrelay32]]
 == RC-Relay32: a CRSF-Relay
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Hardware | https://de.aliexpress.com/item/1005005748198584.html[WeAct STM32G0 board]
+| Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcRelay32[wmucpp: `boards/rcRelay32`]
+| See also | <<elrs.adoc#elrs-relay,ELRS relay configuration>>, <<elrs.adoc#elrs-tx-relay,ELRS-Transmitter as CRSF-Relay>>
+|===
+
 
 (the following documentation is work-in-progess)
 
@@ -218,6 +261,17 @@ The drawback of this solution is, that you need another modification of _ELRS_ t
 
 [[crsfserialservo]]
 == The CRSF to Serial-Servo Converter
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcSerialServo[wmucpp: `boards/rcSerialServo`]
+| Configuration | CRSF menu on the handset
+| Video | https://youtu.be/_jWBiEMZoZ8[YouTube]
+|===
+
 
 This project is an adapter to use _serial servos_ together with an CRSF receiver.
 

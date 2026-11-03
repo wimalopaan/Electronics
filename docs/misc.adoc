@@ -23,6 +23,16 @@ toc::[]
 [[devg0b1]]
 == WM STM32G0B1 development board
 
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🔵 stable
+| Hardware | https://github.com/wimalopaan/Electronics/tree/main/hardware/wmg0b1[`hardware/wmg0b1`]
+| Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/WmG0B1[wmucpp: `boards/WmG0B1`]
+|===
+
+
 [[devg0b1img]]
 .The WM STM32G0B1 (click to enlarge)  
 image::../images/wm/wmstm32g0b1.jpg[width=240, link="../images/wm/wmstm32g0b1.jpg"]
@@ -48,6 +58,16 @@ The alternate STM32G0B1 (or G051 and G071) dev-board alleviates these burdens.
 You can find the board here: https://github.com/wimalopaan/Electronics/tree/main/hardware/wmg0b1[]
 
 == Simple RC main power latched switch
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🔵 stable
+| Hardware | link:../rc/boards/onoff_simple.T3001[TARGET 3001!]
+| See also | https://github.com/wimalopaan/Electronics/blob/main/Old.adoc#diy-rc-hauptschalter[DIY RC-Hauptschalter (Old.adoc)]
+|===
+
 
 In the old days there was this simple project: https://github.com/wimalopaan/Electronics/blob/main/Old.adoc#diy-rc-hauptschalter[main switch]. 
 Please follow the preceeding link to get the documentation (unfortunately only in german, don't have the time to translated all documents). 

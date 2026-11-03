@@ -22,6 +22,16 @@ toc::[]
 
 == Brushed DC-motor controller with sensorless measurement of rotational speed
 
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟡 experimental
+| Hardware | link:../bdc/BDC_ESC_G431_02.T3001[V1], link:../bdc/BDC_ESC_mC_Module_01.T3001[V2 µC module], link:../bdc/BDC_ESC_PWR_Module_01.T3001[V2 power module] (TARGET 3001!)
+| Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcBdc[wmucpp: `boards/rcBdc`]
+|===
+
+
 Features:
 
 * SBus(2)/IBus/SumDV3 serial input
@@ -111,6 +121,15 @@ image::../bdc/bdc_L_4.jpg[width=240, link="../bdc/bdc_L_4.jpg"]
 
 [[vesc]]
 == V/ESC: the ultimate firmware for medium/big BLDC motor controller (brushless ESC)
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Firmware | https://github.com/wimalopaan/bldc/tree/master[wimalopaan/bldc]
+|===
+
 
 Clearly, _V/ESC_ is the king. The firmware provides sensorless FOC, that gives us full torque from *zero* RPM and silent motor 
 operation. This comes together with an incredible configuration software.

@@ -20,6 +20,17 @@ ESCape32 firmware for small/medium BLDC (and brushed) ESCs and my modifications.
 
 toc::[]
 
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Firmware | https://github.com/wimalopaan/ESCape32[wimalopaan/ESCape32] (fork of https://github.com/neoxic/ESCape32[neoxic/ESCape32]), branch https://github.com/wimalopaan/ESCape32/tree/wm_crsf_batt_id[`wm_crsf_batt_id`]
+| Upstream | https://github.com/neoxic/ESCape32/pull/40[ESCape32 PR #40] (not merged)
+| See also | <<elrs.adoc#elrs-escape32,Flash / set up ESCape32 via ELRS>>, <<building.adoc#build_escape32,Building ESCape32>>
+|===
+
+
 `ESCape32` is a firmware for a family of brushless motor controller sharing a common hardware design (originated in the _BLHeli_-project). 
 One of the most outstanding feature of `ESCape32` is the possibility to use a great variety of serial input (SBus(2), CRSF, SumDV3(HoTT), ...) 
 and telemetry (CRSF, SBus2, S.Port, HoTT-Telemetry, ...). 
