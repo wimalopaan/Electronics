@@ -110,10 +110,11 @@ The content of this page is split into the following documents. The <<detailed_t
 | INAV and the self-balancing robot Mortimer.
 
 | <<docs/flysky.adoc#,FlySky FS-i6X / FS-i6S>>
-| Alternative firmware for FlySky FS-i6X/FS-i6S, ELRS for the FS-i6X, Openix6:
+| Alternative firmware for FlySky FS-i6X/FS-i6S (Rust and C++), ELRS for the FS-i6X, Openix6:
 
 * <<docs/flysky.adoc#flysky-i6x-rs,FlySky-I6X-rs: an alternative firmware for the FlySky FS-I6X transmitter>>
 * <<docs/flysky.adoc#flysky-i6s-rs,FlySky-I6S-rs: an alternative firmware for the FlySky FS-I6S transmitter>>
+* <<docs/flysky.adoc#i6s-cpp,i6s-cpp: a C++26 port of the FlySky-I6X-rs / FlySky-I6S-rs firmware>>
 * <<docs/flysky.adoc#elrs_i6x,ELRS for the FlySky-I6X>>
 * <<docs/flysky.adoc#oix6,Openix6>>
 
@@ -239,6 +240,7 @@ New projects use the <<docs/project-template.adoc#,project template>>.
 | <<docs/rx-as-tx.adoc#elrs_x12s,X12S internal ELRS adapter>> | <<docs/rx-as-tx.adoc#,RX-as-TX>> | 🔵 stable
 | <<docs/flysky.adoc#flysky-i6x-rs,FlySky-I6X-rs>> | <<docs/flysky.adoc#,FlySky>> | 🟢 active
 | <<docs/flysky.adoc#flysky-i6s-rs,FlySky-I6S-rs>> | <<docs/flysky.adoc#,FlySky>> | 🟢 active
+| <<docs/flysky.adoc#i6s-cpp,i6s-cpp (C++26 port)>> | <<docs/flysky.adoc#,FlySky>> | 🟡 experimental
 | <<docs/flysky.adoc#elrs_i6x,ELRS for the FlySky-I6X>> | <<docs/flysky.adoc#,FlySky>> | 🔵 stable
 | <<docs/flysky.adoc#oix6,Openix6>> | <<docs/flysky.adoc#,FlySky>> | 🔵 stable
 | <<docs/motor-controllers.adoc#_brushed_dc_motor_controller_with_sensorless_measurement_of_rotational_speed,Brushed DC-motor controller>> | <<docs/motor-controllers.adoc#,Motor controllers>> | 🟡 experimental
@@ -384,6 +386,11 @@ On https://schiffsmodell.blogspot.com/p/grundlagen-zu-opentx.html[Holger Meyer] 
 * [[flysky-i6s-rs]]<<docs/flysky.adoc#flysky-i6s-rs,FlySky-I6S-rs: an alternative firmware for the FlySky FS-I6S transmitter>>
 ** [[_hardware_modifications_2]]<<docs/flysky.adoc#_hardware_modifications_2,Hardware-Modifications>>
 ** [[_images_of_hardware_modifications_2]]<<docs/flysky.adoc#_images_of_hardware_modifications_2,Images of hardware-modifications>>
+* [[i6s-cpp]]<<docs/flysky.adoc#i6s-cpp,i6s-cpp: a C++26 port of the FlySky-I6X-rs / FlySky-I6S-rs firmware>>
+** [[i6s-cpp-design]]<<docs/flysky.adoc#i6s-cpp-design,Design>>
+** [[i6s-cpp-features]]<<docs/flysky.adoc#i6s-cpp-features,Features>>
+** [[i6s-cpp-deviations]]<<docs/flysky.adoc#i6s-cpp-deviations,Differences from the Rust firmware>>
+** [[i6s-cpp-build]]<<docs/flysky.adoc#i6s-cpp-build,Building>>
 * [[inav]]<<docs/inav.adoc#,INAV: Navigation-enabled flight control software>>
 ** [[gitpod_wm]]<<docs/building.adoc#gitpod_wm,Compiling the source code of my projects (`wmucpp`)>>
 *** [[cs_wm]]<<docs/building.adoc#cs_wm,Using `github` CodeSpaces>>
