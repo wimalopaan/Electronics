@@ -15,7 +15,7 @@ Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 
 [NOTE]
 --
-Alternative firmware for FlySky FS-i6X/FS-i6S, ELRS for the FS-i6X, Openix6.
+Alternative firmware for FlySky FS-i6X/FS-i6S (Rust and the C++26 port i6s-cpp), ELRS for the FS-i6X, Openix6.
 --
 
 toc::[]
@@ -30,7 +30,7 @@ toc::[]
 | Status | 🟢 active
 | Firmware | https://github.com/ferrox-rc/flysky-i6x-rs[ferrox-rc/flysky-i6x-rs]
 | Video | https://www.youtube.com/watch?v=7YuYtvskK0I[2026-09-30], https://www.youtube.com/watch?v=2TSJ0OFOgvg[2026-10-04], <<videos.adoc#v-flysky-i6x-rs,all videos (2)>>
-| See also | https://ferroxrc.com[ferroxrc.com], https://www.youtube.com/@wilhelmmeier6124/videos[videos]
+| See also | https://ferroxrc.com[ferroxrc.com], https://www.youtube.com/@wilhelmmeier6124/videos[videos], <<i6s-cpp,C++26 port i6s-cpp>>
 |===
 
 
@@ -92,7 +92,7 @@ image::../ferrox/fsi6x_mod8.jpg[width=240, link="../ferrox/fsi6x_mod8.jpg"]
 | Status | 🟢 active
 | Firmware | https://github.com/ferrox-rc/flysky-i6s-rs[ferrox-rc/flysky-i6s-rs]
 | Video | https://www.youtube.com/watch?v=YNmbtbyfR2w[2026-10-11], https://www.youtube.com/watch?v=tevIXoXirtI[2026-10-25], <<videos.adoc#v-flysky-i6s-rs,all videos (2)>>
-| See also | https://ferroxrc.com[ferroxrc.com], https://www.youtube.com/@wilhelmmeier6124/videos[videos]
+| See also | https://ferroxrc.com[ferroxrc.com], https://www.youtube.com/@wilhelmmeier6124/videos[videos], <<i6s-cpp,C++26 port i6s-cpp>>
 |===
 
 
@@ -145,6 +145,90 @@ image::../ferrox/fsi6s_mod8.jpg[width=240, link="../ferrox/fsi6s_mod8.jpg"]
 
 .Bidirectional connection of the rf-module J15 (click to enlarge)
 image::../ferrox/fsi6s_mod9.jpg[width=240, link="../ferrox/fsi6s_mod9.jpg"]
+
+[[i6s-cpp]]
+== i6s-cpp: a C++26 port of the FlySky-I6X-rs / FlySky-I6S-rs firmware
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟡 experimental
+| Firmware | https://github.com/wimalopaan/i6s-cpp[wimalopaan/i6s-cpp] (AGPL-3.0)
+| Configuration | Menus on the handset, CRSF module parameter browser, USB CDC command line
+| See also | <<flysky-i6x-rs>>, <<flysky-i6s-rs>>, <<building.adoc#,Building firmware>>
+|===
+
+This project ports the _Rust_ firmware <<flysky-i6x-rs>> and <<flysky-i6s-rs>> to _modern C++_ (C++26).
+One code base serves both handsets; the board is selected at compile time.
+
+[WARNING]
+--
+The firmware is not verified on hardware yet. The pin and timer assignments come from the Rust source and are not
+yet checked against the schematic.
+--
+
+[[i6s-cpp-design]]
+=== Design
+
+* CMSIS only (no HAL)
+* `constexpr` / `consteval` wherever possible
+* static polymorphism only (no virtual functions), no heap, no exceptions, no RTTI
+* pure logic (`src/wm/logic/`, `src/wm/util/`) is separated from the hardware drivers (`src/wm/hw/`) and is tested on the host
+* target: STM32F072 (Cortex-M0), built with clang and `-Oz`
+
+[[i6s-cpp-features]]
+=== Features
+
+All parts of the Rust firmware are ported:
+
+* RF: AFHDS 2A (A7105) and an external CRSF module (full- or half-duplex), including the CRSF parameter menu for the module
+* mixer, dual rate / expo, throttle curve, wing mixer, aux channels, trims, calibration, safety / preflight checks
+* telemetry (AFHDS 2A and CRSF), vario, flight timer, dashboard pages P1 to P5
+* model memory with A/B slots in the I2C EEPROM, model copy, migration of older EEPROM layouts
+* USB: HID gamepad (simulator mode) and CDC serial (command line, telemetry)
+* trainer port (PPM)
+* FS-i6S: power latch, touch navigation (FT6236), rear pots VRA/VRB as jog wheels, rear buttons, SG/SH, VRC..VRG
+
+The hardware modifications are the same as for the Rust firmware: see <<_hardware_modifications,FS-i6X>>
+and <<_hardware_modifications_2,FS-i6S>>.
+
+[[i6s-cpp-deviations]]
+=== Differences from the Rust firmware
+
+* CRSF: the telemetry tiles VSPD and ALT show CRSF data instead of AFHDS 2A data.
+* FS-i6S: SE/SF availability follows the function of the rear buttons; timer and mix switches accept all switch
+  conditions up to SWM.
+* Some small differences in the Rust user interface are not ported (row order of Protocol/Vario, "Audio Test" row
+  in the vario setup).
+
+The complete list is in the https://github.com/wimalopaan/i6s-cpp#known-deviations-from-rust[README] of the repository.
+
+[[i6s-cpp-build]]
+=== Building
+
+You need CMake (>= 3.20), clang with C++26 support and the `arm-none-eabi-gcc` toolchain (for the libraries).
+
+----
+cmake -S . -B build-fw -DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-clang.cmake -DCMAKE_BUILD_TYPE=MinSizeRel -DPCB=I6X
+cmake --build build-fw
+----
+
+[cols="1m,3",options="header"]
+|===
+| Option | Meaning
+| PCB=I6X | FlySky FS-i6X (default), output `i6x_fw.hex`
+| PCB=I6S | FlySky FS-i6S, output `i6s_fw.hex`
+| USE_USB=OFF | leave out the USB device stack to save flash (default `ON`)
+|===
+
+Host tests for the logic part:
+
+----
+cmake -S . -B build-host -DCMAKE_CXX_COMPILER=clang++ -DPCB=I6X
+cmake --build build-host --target host_logic_tests
+./build-host/host_logic_tests
+----
 
 [[elrs_i6x]]
 == ELRS for the FlySky-I6X
