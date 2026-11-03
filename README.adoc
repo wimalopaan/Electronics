@@ -240,7 +240,7 @@ New projects use the <<docs/project-template.adoc#,project template>>.
 | <<docs/rx-as-tx.adoc#elrs_x12s,X12S internal ELRS adapter>> | <<docs/rx-as-tx.adoc#,RX-as-TX>> | 🔵 stable
 | <<docs/flysky.adoc#flysky-i6x-rs,FlySky-I6X-rs>> | <<docs/flysky.adoc#,FlySky>> | 🟢 active
 | <<docs/flysky.adoc#flysky-i6s-rs,FlySky-I6S-rs>> | <<docs/flysky.adoc#,FlySky>> | 🟢 active
-| <<docs/flysky.adoc#i6s-cpp,i6s-cpp (C++26 port)>> | <<docs/flysky.adoc#,FlySky>> | 🟡 experimental
+| <<docs/flysky.adoc#i6s-cpp,i6s-cpp (C++26 port)>> | <<docs/flysky.adoc#,FlySky>> | 🟢 active
 | <<docs/flysky.adoc#elrs_i6x,ELRS for the FlySky-I6X>> | <<docs/flysky.adoc#,FlySky>> | 🔵 stable
 | <<docs/flysky.adoc#oix6,Openix6>> | <<docs/flysky.adoc#,FlySky>> | 🔵 stable
 | <<docs/motor-controllers.adoc#_brushed_dc_motor_controller_with_sensorless_measurement_of_rotational_speed,Brushed DC-motor controller>> | <<docs/motor-controllers.adoc#,Motor controllers>> | 🟡 experimental
