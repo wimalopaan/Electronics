@@ -264,6 +264,9 @@ On https://schiffsmodell.blogspot.com/p/grundlagen-zu-opentx.html[Holger Meyer] 
 * [[elrs]]<<docs/elrs.adoc#,ExpressLRS>>
 ** [[_expresslrs_for_short_range_radio_control]][[elrs_feat]][[elrs_func]]<<docs/elrs.adoc#_expresslrs_for_short_range_radio_control,ExpressLRS for short range radio control>>
 ** [[crsf_sw]]<<docs/protocols.adoc#crsf_sw,Proposal for the CRSF protocol>>
+*** [[crsf-frame]]<<docs/protocols.adoc#crsf-frame,Frame structure>>
+**** [[_general_crsf_frame]]<<docs/protocols.adoc#_general_crsf_frame,General CRSF frame>>
+**** [[crsf-cmd-frame]]<<docs/protocols.adoc#crsf-cmd-frame,Command frame (type `0x32`)>>
 *** [[crsf-sw]]<<docs/protocols.adoc#crsf-sw,Commands for MultiSwitch (realm `0xa1`)>>
 **** [[_command_0x01_set]]<<docs/protocols.adoc#_command_0x01_set,Command `0x01` (Set)>>
 **** [[_command_0x07_set4]]<<docs/protocols.adoc#_command_0x07_set4,Command `0x07` (Set4)>>
