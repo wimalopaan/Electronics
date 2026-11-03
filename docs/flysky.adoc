@@ -153,20 +153,16 @@ image::../ferrox/fsi6s_mod9.jpg[width=240, link="../ferrox/fsi6s_mod9.jpg"]
 .Project info
 [cols="1h,5",width="100%"]
 |===
-| Status | 🟡 experimental
+| Status | 🟢 active
 | Firmware | https://github.com/wimalopaan/i6s-cpp[wimalopaan/i6s-cpp] (AGPL-3.0)
 | Configuration | Menus on the handset, CRSF module parameter browser, USB CDC command line
 | See also | <<flysky-i6x-rs>>, <<flysky-i6s-rs>>, <<building.adoc#,Building firmware>>
 |===
 
-This project ports the _Rust_ firmware <<flysky-i6x-rs>> and <<flysky-i6s-rs>> to _modern C++_ (C++26).
+This project ports the _Rust_ firmware <<flysky-i6x-rs>> and <<flysky-i6s-rs>> to C++26.
 One code base serves both handsets; the board is selected at compile time.
 
-[WARNING]
---
-The firmware is not verified on hardware yet. The pin and timer assignments come from the Rust source and are not
-yet checked against the schematic.
---
+The firmware is tested on real hardware.
 
 [[i6s-cpp-design]]
 === Design
