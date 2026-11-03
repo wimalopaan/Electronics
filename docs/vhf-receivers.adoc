@@ -29,6 +29,7 @@ toc::[]
 |===
 | Status | 🔵 stable
 | Firmware | https://github.com/wimalopaan/CoronaRP8D1[wimalopaan/CoronaRP8D1]
+| Video | https://www.youtube.com/watch?v=q5oiHTnkp-k[2024-03-18], https://www.youtube.com/watch?v=cUGIk_Ka3Hw[2024-03-23], <<videos.adoc#v-corona,all videos (2)>>
 |===
 
 

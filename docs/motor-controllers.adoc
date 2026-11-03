@@ -29,6 +29,7 @@ toc::[]
 | Status | 🟡 experimental
 | Hardware | link:../bdc/BDC_ESC_G431_02.T3001[V1], link:../bdc/BDC_ESC_mC_Module_01.T3001[V2 µC module], link:../bdc/BDC_ESC_PWR_Module_01.T3001[V2 power module] (TARGET 3001!)
 | Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcBdc[wmucpp: `boards/rcBdc`]
+| Video | https://www.youtube.com/watch?v=-AuSsFyT9KE[2024-06-17], https://www.youtube.com/watch?v=pSujc2e9Vw8[2024-08-15], https://www.youtube.com/watch?v=01CGYFpl2ts[2024-09-11], https://www.youtube.com/watch?v=bP0L_lYn8nw[2024-10-02], <<videos.adoc#v-brushed,all videos (4)>>
 |===
 
 
@@ -128,6 +129,7 @@ image::../bdc/bdc_L_4.jpg[width=240, link="../bdc/bdc_L_4.jpg"]
 |===
 | Status | 🟢 active
 | Firmware | https://github.com/wimalopaan/bldc/tree/master[wimalopaan/bldc]
+| Video | https://www.youtube.com/watch?v=0YcNDozbAes[2026-03-29], <<videos.adoc#v-vesc,all videos (1)>>
 |===
 
 

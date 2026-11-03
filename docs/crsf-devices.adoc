@@ -31,6 +31,7 @@ toc::[]
 | Hardware | https://oshwlab.com/wilhelm.wm.meier/works[OSHWLab], link:../images/led4x4/RC_Led4x4_32.zip[Gerber/BOM (zip)], link:../images/led4x4/RC_Led4x4_32.T3001[TARGET 3001!]
 | Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcLed4x4[wmucpp: `boards/rcLed4x4`]
 | Control | <<multiswitch.adoc#msw_widget,MultiSwitch widget>> (<<protocols.adoc#crsf-sw,CRSF MultiSwitch commands>>)
+| Video | https://www.youtube.com/watch?v=Zr4yXvoaQ9k[2025-09-15], <<videos.adoc#v-led4x4,all videos (1)>>
 |===
 
 
@@ -94,6 +95,7 @@ Link to link:../images/led4x4/RC_Led4x4_32.zip[Gerber].
 | Status | 🟢 active
 | Hardware | https://oshwlab.com/wilhelm.wm.meier/crsfcswitch01[OSHWLab]
 | Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcCrsfSwitch[wmucpp: `boards/rcCrsfSwitch`]
+| Video | https://www.youtube.com/watch?v=QvIe8XSXLU8[2025-09-27], https://www.youtube.com/watch?v=eo3Svl30hE8[2025-11-19], <<videos.adoc#v-crsf-switch,all videos (2)>>
 | See also | <<protocols.adoc#crsf-bus,CRSF-Half-Duplex Bus>>
 |===
 
@@ -153,6 +155,7 @@ The `ELRS-MultiAdapter-EA` converts CRSF-serial input into
 | Status | 🟢 active
 | Hardware | https://de.aliexpress.com/item/1005005748198584.html[WeAct STM32G0 board]
 | Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcRelay32[wmucpp: `boards/rcRelay32`]
+| Video | https://www.youtube.com/watch?v=U8FipSOZ5B8[2025-12-10], https://www.youtube.com/watch?v=5iENS7tGbj4[2025-12-13], https://www.youtube.com/watch?v=hsxlTjcT4t8[2025-12-13 #2], https://www.youtube.com/watch?v=TunZTMcnqxQ[2025-12-15], <<videos.adoc#v-rcrelay32,all videos (4)>>
 | See also | <<elrs.adoc#elrs-relay,ELRS relay configuration>>, <<elrs.adoc#elrs-tx-relay,ELRS-Transmitter as CRSF-Relay>>
 |===
 
@@ -269,7 +272,7 @@ The drawback of this solution is, that you need another modification of _ELRS_ t
 | Status | 🟢 active
 | Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcSerialServo[wmucpp: `boards/rcSerialServo`]
 | Configuration | CRSF menu on the handset
-| Video | https://youtu.be/_jWBiEMZoZ8[YouTube]
+| Video | https://www.youtube.com/watch?v=e9p31QfDSqo[2026-05-17], https://youtu.be/_jWBiEMZoZ8[more], <<videos.adoc#v-crsfserialservo,all videos (2)>>
 |===
 
 

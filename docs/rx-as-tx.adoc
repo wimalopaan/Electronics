@@ -30,6 +30,7 @@ toc::[]
 | Status | 🔵 stable
 | Hardware | link:../elrs/jr/JR-ELRS.T3001[TARGET 3001!]
 | Firmware | stock ExpressLRS (receiver flashed as transmitter)
+| Video | https://www.youtube.com/watch?v=uC7tb50pWVg[2024-04-09], <<videos.adoc#v-elrs_jr,all videos (1)>>
 |===
 
 
@@ -228,6 +229,7 @@ image::../elrs/jr/f3.jpg[width=240, link="../elrs/jr/f3.jpg"]
 | Status | 🔵 stable
 | Hardware | link:../elrs/x12s/X12S_ELRS_Adapter.T3001[TARGET 3001!]
 | Firmware | stock ExpressLRS (receiver flashed as transmitter)
+| Video | https://www.youtube.com/watch?v=WdRQwT1bnJs[2023-12-23], <<videos.adoc#v-elrs_x12s,all videos (1)>>
 |===
 
 

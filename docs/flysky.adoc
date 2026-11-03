@@ -29,6 +29,7 @@ toc::[]
 |===
 | Status | 🟢 active
 | Firmware | https://github.com/ferrox-rc/flysky-i6x-rs[ferrox-rc/flysky-i6x-rs]
+| Video | https://www.youtube.com/watch?v=7YuYtvskK0I[2026-09-30], https://www.youtube.com/watch?v=2TSJ0OFOgvg[2026-10-04], <<videos.adoc#v-flysky-i6x-rs,all videos (2)>>
 | See also | https://ferroxrc.com[ferroxrc.com], https://www.youtube.com/@wilhelmmeier6124/videos[videos]
 |===
 
@@ -90,6 +91,7 @@ image::../ferrox/fsi6x_mod8.jpg[width=240, link="../ferrox/fsi6x_mod8.jpg"]
 |===
 | Status | 🟢 active
 | Firmware | https://github.com/ferrox-rc/flysky-i6s-rs[ferrox-rc/flysky-i6s-rs]
+| Video | https://www.youtube.com/watch?v=YNmbtbyfR2w[2026-10-11], https://www.youtube.com/watch?v=tevIXoXirtI[2026-10-25], <<videos.adoc#v-flysky-i6s-rs,all videos (2)>>
 | See also | https://ferroxrc.com[ferroxrc.com], https://www.youtube.com/@wilhelmmeier6124/videos[videos]
 |===
 
@@ -153,6 +155,7 @@ image::../ferrox/fsi6s_mod9.jpg[width=240, link="../ferrox/fsi6s_mod9.jpg"]
 |===
 | Status | 🔵 stable
 | Hardware | hardware modification of the FS-i6X (see below)
+| Video | https://www.youtube.com/watch?v=qdF16vabytI[2023-12-27], <<videos.adoc#v-elrs_i6x,all videos (1)>>
 | See also | https://github.com/OpenI6X/opentx/wiki/Modifications#all-optional-hardware-connections[OpenI6X modifications], <<rx-as-tx.adoc#elrs_jr,ELRS receiver as transmitter>>
 |===
 
@@ -215,7 +218,7 @@ tbd
 |===
 | Status | 🔵 stable
 | Firmware | https://github.com/wimalopaan/opentx[wimalopaan/opentx] (fork of https://github.com/OpenI6X/opentx[OpenI6X/opentx])
-| Video | https://www.youtube.com/watch?v=tvDtpW6TglE[YouTube]
+| Video | https://www.youtube.com/watch?v=tvDtpW6TglE[2021-12-26], https://www.youtube.com/watch?v=yNH3Q6GaMy4[2025-12-28], <<videos.adoc#v-oix6,all videos (2)>>
 |===
 
 

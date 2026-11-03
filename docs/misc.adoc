@@ -30,6 +30,7 @@ toc::[]
 | Status | 🔵 stable
 | Hardware | https://github.com/wimalopaan/Electronics/tree/main/hardware/wmg0b1[`hardware/wmg0b1`]
 | Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/WmG0B1[wmucpp: `boards/WmG0B1`]
+| Video | https://www.youtube.com/watch?v=sgfcfx7HFlQ[2025-12-21], <<videos.adoc#v-devg0b1,all videos (1)>>
 |===
 
 

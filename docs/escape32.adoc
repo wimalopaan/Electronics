@@ -27,6 +27,7 @@ toc::[]
 | Status | 🟢 active
 | Firmware | https://github.com/wimalopaan/ESCape32[wimalopaan/ESCape32] (fork of https://github.com/neoxic/ESCape32[neoxic/ESCape32]), branch https://github.com/wimalopaan/ESCape32/tree/wm_crsf_batt_id[`wm_crsf_batt_id`]
 | Upstream | https://github.com/neoxic/ESCape32/pull/40[ESCape32 PR #40] (not merged)
+| Video | https://www.youtube.com/watch?v=Ml0HefXdywQ[2026-06-27], https://www.youtube.com/watch?v=faEkrqY5Qcw[2026-06-28], https://www.youtube.com/watch?v=_6bDXWGudbA[2026-07-04], https://www.youtube.com/watch?v=t_e8S7JaIZU[2026-07-07], https://www.youtube.com/watch?v=L-Nj9KezeGk[2026-07-17], https://www.youtube.com/watch?v=WrCTSGZR8j8[2026-07-28], <<videos.adoc#v-escape32,all videos (7)>>
 | See also | <<elrs.adoc#elrs-escape32,Flash / set up ESCape32 via ELRS>>, <<building.adoc#build_escape32,Building ESCape32>>
 |===
 

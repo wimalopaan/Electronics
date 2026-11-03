@@ -32,7 +32,7 @@ toc::[]
 | Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rc720E32[wmucpp: `boards/rc720E32`]
 | Software | https://github.com/wimalopaan/LUA?tab=readme-ov-file#widget-for-rc720e32-schottel-controller[Widget], https://github.com/wimalopaan/LUA?tab=readme-ov-file#mixer-script-crsfch-lua[`crsfch.lua`]
 | Configuration | CRSF menu on the handset, https://github.com/Fourflies/elrsbuddy[ELRS Buddy], https://roboremo.app[RoboRemo]
-| Video | https://www.youtube.com/watch?v=Hkk3GpHR4N8[1], https://www.youtube.com/watch?v=VOI6-u9Bq1s[2], https://www.youtube.com/watch?v=yr4b6svxh-k[3]
+| Video | https://www.youtube.com/watch?v=SKY4m7ZwLko[2024-11-29 #2], https://www.youtube.com/watch?v=N4GWDGqdjiw[2024-11-29 #3], https://www.youtube.com/watch?v=xTm-Tu6g5xw[2024-11-30], https://www.youtube.com/watch?v=H0YH8MUBlFo[2025-09-22], https://www.youtube.com/watch?v=_Te1dMsY6Sw[2026-04-04], https://www.youtube.com/watch?v=Z9C6JLJYIQY[2026-04-12], <<videos.adoc#v-rc720e,all videos (10)>>
 |===
 
 
@@ -154,6 +154,7 @@ LUA https://github.com/wimalopaan/LUA?tab=readme-ov-file#widget-for-rc720e32-sch
 |===
 | Status | ⚪ superseded
 | Successor | <<rc720e>>
+| Video | https://www.youtube.com/watch?v=jZPSYHhzt6Y[2023-12-16], https://www.youtube.com/watch?v=sN7MZ1YkrwE[2025-05-17], https://www.youtube.com/watch?v=E6eoninhrBU[2025-06-04], https://www.youtube.com/watch?v=DcMbOoBRKYs[2026-05-11], <<videos.adoc#v-CC,all videos (4)>>
 |===
 
 

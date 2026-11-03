@@ -61,7 +61,7 @@ you'll get `IEEE`, the *RC software stack* (please do not confuse with https://w
 [[documents]]
 == Documents
 
-The content of this page is split into the following documents. The <<detailed_toc>> lists every section with a direct link. The <<project-status>> shows the state of every project.
+The content of this page is split into the following documents. The <<detailed_toc>> lists every section with a direct link. The <<project-status>> shows the state of every project. All videos are listed in <<docs/videos.adoc#,Videos by project>>.
 
 === Software, firmware and protocols
 
@@ -308,6 +308,9 @@ An increasing number of PCB designs are available on https://oshwlab.com/wilhelm
 _OpenTx weekly_ is a https://www.youtube.com/channel/UCedl1hS-dfWh-V4WBz_jGog[YouTube]-channel mostly 
 for EdgeTx and OpenTx stuff but also for my above electronic projects. Unfortunately the spoken language is german :-( 
 
+All videos of the channel, sorted by project: <<docs/videos.adoc#,Videos by project>>.
+Every _Project info_ box also lists the videos of the project.
+
 On https://schiffsmodell.blogspot.com/p/grundlagen-zu-opentx.html[Holger Meyer] you may find an up-to-date table of contents.
 
 [[detailed_toc]]
@@ -419,7 +422,7 @@ On https://schiffsmodell.blogspot.com/p/grundlagen-zu-opentx.html[Holger Meyer] 
 **** [[_jumper_t12]]<<docs/rx-as-tx.adoc#_jumper_t12,Jumper T12>>
 **** [[_frsky_x9e]]<<docs/rx-as-tx.adoc#_frsky_x9e,FrSky X9e>>
 ** [[elrs_x12s]][[x12s_elrs_target]][[x12s_elrs_sch]][[x12s_elrs_pcb]]<<docs/rx-as-tx.adoc#elrs_x12s,Adapter for ELRS receiver as internal XJT/ISRM module for FrSky X12S>>
-** [[elrs_i6x]]<<docs/flysky.adoc#elrs_i6x,ELRS for the FlySky-I6X>>
+** [[elrs_i6x]][[elrx_i6x]]<<docs/flysky.adoc#elrs_i6x,ELRS for the FlySky-I6X>>
 *** [[_since_version_1_13]]<<docs/flysky.adoc#_since_version_1_13,Since Version `1.13`>>
 *** [[_before_version_1_13]]<<docs/flysky.adoc#_before_version_1_13,Before Version `1.13`>>
 *** [[_images_wiring_and_schematic]]<<docs/flysky.adoc#_images_wiring_and_schematic,Images, wiring and schematic>>
@@ -511,6 +514,21 @@ On https://schiffsmodell.blogspot.com/p/grundlagen-zu-opentx.html[Holger Meyer] 
 *** [[_transmitter]]<<docs/vintage.adoc#_transmitter,Transmitter>>
 *** [[_receiver_3]]<<docs/vintage.adoc#_receiver_3,Receiver>>
 *** [[_other_4]]<<docs/vintage.adoc#_other_4,Other>>
+* [[videos]]<<docs/videos.adoc#,Videos by project>>
+** [[vg-crsf-devices]]<<docs/videos.adoc#vg-crsf-devices,CRSF devices>>
+** [[vg-multiswitch]]<<docs/videos.adoc#vg-multiswitch,MultiSwitch>>
+** [[vg-cruise-control]]<<docs/videos.adoc#vg-cruise-control,Cruise-Controller>>
+** [[vg-elrs]]<<docs/videos.adoc#vg-elrs,ExpressLRS>>
+** [[vg-rx-as-tx]]<<docs/videos.adoc#vg-rx-as-tx,ELRS receivers as transmitter modules>>
+** [[vg-edgetx]]<<docs/videos.adoc#vg-edgetx,EdgeTx and protocols>>
+** [[vg-flysky]]<<docs/videos.adoc#vg-flysky,FlySky>>
+** [[vg-inav]]<<docs/videos.adoc#vg-inav,INAV>>
+** [[vg-motor-controllers]]<<docs/videos.adoc#vg-motor-controllers,Motor controllers>>
+** [[vg-rc-desk]]<<docs/videos.adoc#vg-rc-desk,RC-Desk>>
+** [[vg-radio-mods]]<<docs/videos.adoc#vg-radio-mods,Transmitter modifications>>
+** [[vg-vhf]]<<docs/videos.adoc#vg-vhf,Receivers for 27/35/40MHz>>
+** [[vg-misc]]<<docs/videos.adoc#vg-misc,Miscellaneous>>
+** [[vg-weekly]]<<docs/videos.adoc#vg-weekly,OpenTx / EdgeTx weekly (tutorials)>>
 
 == License
 

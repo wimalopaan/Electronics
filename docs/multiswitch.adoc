@@ -168,6 +168,7 @@ here you can find the files to print a nice housing for the PCS: https://github.
 | Status | 🟢 active
 | Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcmultiswitch[wmucpp: `boards/rcmultiswitch`]
 | Control | <<msw_widget>>, <<msw_bw>>, https://github.com/wimalopaan/LUA/tree/main/SCRIPTS/MIXES[mixer scripts]
+| Video | https://www.youtube.com/watch?v=SQZCM9e6v1E[2025-03-23], https://www.youtube.com/watch?v=e6teZWhJzoQ[2025-03-25], https://www.youtube.com/watch?v=ES77NcNwEtA[2025-10-12], https://www.youtube.com/watch?v=N7wzqSIUbUA[2026-06-20], <<videos.adoc#v-supersimple,all videos (4)>>
 |===
 
 
@@ -261,6 +262,7 @@ and also 64 binary switches. Clearly you need a handset that is capable to defin
 | Hardware | https://oshwlab.com/wilhelm.wm.meier/supersimplemultiswitch[OSHWLab]
 | Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcsupersimplemultiswitch[wmucpp: `boards/rcsupersimplemultiswitch`]
 | Control | <<msw_widget>>
+| Video | https://www.youtube.com/watch?v=mU0vg94EXQQ[2025-10-23], <<videos.adoc#v-ssmsw,all videos (1)>>
 |===
 
 
@@ -312,6 +314,7 @@ the receiver, or the CRSF-switch/router has to be used.
 | Hardware | https://www.st.com/en/evaluation-tools/nucleo-g031k8.html[ST Nucleo-G031K8]
 | Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcmultiswitchG030[wmucpp: `boards/rcmultiswitchG030`]
 | Control | <<msw_widget>>
+| Video | https://www.youtube.com/watch?v=-KHh-UYU7IA[2025-08-21], <<videos.adoc#v-msw_nucleo,all videos (1)>>
 |===
 
 
@@ -378,6 +381,7 @@ modules in parallel.
 | Hardware | https://de.aliexpress.com/item/1005005748198584.html[WeAct STM32G0 board]
 | Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcmultiswitchG030[wmucpp: `boards/rcmultiswitchG030`]
 | Control | <<msw_widget>>
+| Video | https://www.youtube.com/watch?v=vY8LG9SDndU[2025-08-23], https://www.youtube.com/watch?v=LgFiy0gqKGg[2025-09-07], <<videos.adoc#v-msw_weact,all videos (2)>>
 |===
 
 
@@ -436,6 +440,7 @@ modules in parallel.
 | Hardware | link:../images/elrs_msw/seaspotter/Gerber_CRSF-Multiswitch-THT-v1.1.zip[Gerber (zip)]
 | Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcmultiswitchG030[wmucpp: `boards/rcmultiswitchG030`]
 | Control | <<msw_widget>>
+| Video | https://www.youtube.com/watch?v=DVyyuaLCTKw[2025-09-17], <<videos.adoc#v-msw_tht,all videos (1)>>
 |===
 
 
@@ -461,6 +466,7 @@ Link to link:../images/elrs_msw/seaspotter/Gerber_CRSF-Multiswitch-THT-v1.1.zip[
 | Status | 🟢 active
 | Software | https://github.com/wimalopaan/LUA?tab=readme-ov-file#lvglmsw[LUA: `lvglMultiSw`] (color radios)
 | Protocol | <<protocols.adoc#crsf-sw,CRSF MultiSwitch commands>>
+| Video | https://www.youtube.com/watch?v=aaKBlDT08Tc[2025-07-28], https://www.youtube.com/watch?v=s7mjQJYgb9o[2025-08-15], https://www.youtube.com/watch?v=fQk5mrm1Hiw[2025-10-15], https://www.youtube.com/watch?v=NAWFy8ZdQog[2025-11-05], https://www.youtube.com/watch?v=Gw56sHEIoD8[2025-11-12], https://www.youtube.com/watch?v=7_HkYi2aqZk[2025-11-15], <<videos.adoc#v-msw_widget,all videos (7)>>
 |===
 
 
@@ -529,6 +535,7 @@ To use this, enable the `AutoConf` option of the widget.
 |===
 | Status | 🔵 stable
 | Software | https://github.com/wimalopaan/LUA?tab=readme-ov-file#multiswitch-bw-telemetry-script[LUA telemetry script] (B&W radios)
+| Video | https://www.youtube.com/watch?v=bK-Kyz6lSjs[2025-06-20], <<videos.adoc#v-msw_bw,all videos (1)>>
 | See also | <<edgetx.adoc#edgetx_shm_bw,SHM-Variables for B&W radios>>
 |===
 

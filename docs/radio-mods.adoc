@@ -29,6 +29,7 @@ toc::[]
 |===
 | Status | 🟡 experimental
 | Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcVarioprop[wmucpp: `boards/rcVarioprop`]
+| Video | https://www.youtube.com/watch?v=kfBMQlL-LIU[2024-03-25], <<videos.adoc#v-varioprop,all videos (1)>>
 |===
 
 
@@ -197,7 +198,7 @@ tbd
 | Status | 🔵 stable
 | Documentation | https://htmlpreview.github.io/?https://github.com/wimalopaan/Electronics/blob/main/rc/touch.html[details]
 | Hardware | https://www.printables.com/model/1342784-frsky-horus-x12s-touch-screen-mod-fpc-6p-05mm-adap[FPC adapter (Printables)]
-| Video | https://www.youtube.com/watch?v=BhzwIHQNJnw[YouTube]
+| Video | https://www.youtube.com/watch?v=BhzwIHQNJnw[2022-03-31], <<videos.adoc#v-x12s_touch,all videos (1)>>
 |===
 
 
@@ -222,6 +223,7 @@ Video: https://www.youtube.com/watch?v=BhzwIHQNJnw[Demo]
 |===
 | Status | 🔵 stable
 | Documentation | https://htmlpreview.github.io/?https://github.com/wimalopaan/Electronics/blob/main/rc/sfrog.html[details]
+| Video | https://www.youtube.com/watch?v=AKuuXripmW0[2026-01-15], <<videos.adoc#v-sfrog,all videos (1)>>
 |===
 
 
@@ -238,6 +240,7 @@ https://htmlpreview.github.io/?https://github.com/wimalopaan/Electronics/blob/ma
 |===
 | Status | 🔵 stable
 | Documentation | https://htmlpreview.github.io/?https://github.com/wimalopaan/Electronics/blob/main/rc/jr40mhz.html[details]
+| Video | https://www.youtube.com/watch?v=Ts7rE-eQF9k[2021-11-25], https://www.youtube.com/watch?v=zVdzESDU7Og[2021-11-30], https://www.youtube.com/watch?v=gUPJTPywyzM[2021-12-04], https://www.youtube.com/watch?v=OCwq4FE56SY[2021-12-09], <<videos.adoc#v-jr40,all videos (4)>>
 |===
 
 
@@ -314,6 +317,7 @@ The following stick end switches are used for my RadioMaster TX16s: https://rcte
 [cols="1h,5",width="100%"]
 |===
 | Status | 📝 planned
+| Video | https://www.youtube.com/watch?v=KmKqtQulzzM[2021-08-03], https://www.youtube.com/watch?v=Rj6FijD5dco[2021-08-03 #2], https://www.youtube.com/watch?v=1llRP9EBrLc[2021-08-03 #3], https://www.youtube.com/watch?v=G81UkoHOj9A[2021-08-03 #4], https://www.youtube.com/watch?v=i7hTHSYI2aA[2021-08-03 #5], <<videos.adoc#v-haptic,all videos (5)>>
 |===
 
 

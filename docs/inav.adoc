@@ -35,7 +35,7 @@ One of the first projects I did as _Mortimer_: <<mortimer>>
 | Status | 🟡 experimental
 | Hardware | https://radiomasterrc.com/products/nexus-xr-control-system[RadioMaster Nexus-XR], Waveshare DDSM210 motors
 | Firmware | https://github.com/wimalopaan/inav/tree/wm_pendulum[inav: `wm_pendulum`], https://github.com/wimalopaan/inav/tree/wm_ddsm210[inav: `wm_ddsm210`]
-| Video | https://www.youtube.com/watch?v=JkGJ32tAq5U[1], https://youtu.be/_f_BZltnOyI[2]
+| Video | https://www.youtube.com/watch?v=JkGJ32tAq5U[2026-03-23], https://youtu.be/_f_BZltnOyI[more], <<videos.adoc#v-mortimer,all videos (2)>>
 |===
 
 

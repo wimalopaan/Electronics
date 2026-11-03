@@ -55,6 +55,7 @@ image::../edgetx/images/outputs.png[width=240, link="../edgetx/images/outputs.pn
 | Upstream | https://github.com/EdgeTX/edgetx/pull/5885[EdgeTX PR #5885] (open)
 | Software | https://github.com/wimalopaan/LUA/tree/main/WIDGETS/lvglControls[LUA: `lvglControls`]
 | Firmware | https://github.com/wimalopaan/Electronics/tree/main/edgetx/firmware[precompiled EdgeTx]
+| Video | https://www.youtube.com/watch?v=1ZBTZqaJLPo[2025-01-29], https://www.youtube.com/watch?v=v7tzDOXMhIc[2025-08-14], <<videos.adoc#v-vcontrols,all videos (2)>>
 |===
 
 
@@ -149,6 +150,7 @@ to enable this also for b&w radios, for color-lcd radios this feature is always 
 | Status | 🟢 active
 | Upstream | https://github.com/EdgeTX/edgetx/pull/7571[EdgeTX PR #7571] (open)
 | Firmware | https://github.com/wimalopaan/edgetx/tree/wmextensions[edgetx: `wmextensions`]
+| Video | https://www.youtube.com/watch?v=zS-a66S6qLg[2026-07-31], <<videos.adoc#v-crsf_batt_id,all videos (1)>>
 | See also | <<escape32.adoc#_modifications,ESCape32 modifications>>
 |===
 

@@ -72,6 +72,7 @@ Link to the code repo: https://github.com/wimalopaan/wmucpp/tree/master/boards/r
 | Status | 🟢 active
 | Hardware | https://de.aliexpress.com/item/1005005748198584.html[WeAct STM32G0 board]
 | Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcDesk32mini[wmucpp: `boards/rcDesk32mini`]
+| Video | https://www.youtube.com/watch?v=B_YVf5j0ufc[2025-11-28], https://www.youtube.com/watch?v=4ywRSnH-egw[2025-12-02], <<videos.adoc#v-rcdesk32mini,all videos (2)>>
 |===
 
 
