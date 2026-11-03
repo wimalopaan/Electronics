@@ -86,6 +86,7 @@ The content of this page is split into the following documents. The <<detailed_t
 * <<docs/elrs.adoc#_expresslrs_modules_and_receivers,ExpressLRS: modules and receivers>>
 * <<docs/elrs.adoc#_multiple_elrs_receivers_bound_to_one_elrs_module,Multiple ELRS-receivers bound to one ELRS-module>>
 * <<docs/elrs.adoc#_32_channels_for_elrs,32-channels for ELRS>>
+* <<docs/elrs.adoc#elrs-matrix,Feature matrix>>
 * <<docs/elrs.adoc#elrs-mods,ELRS modifications and pull-requests>>
 * <<docs/elrs.adoc#elrs-relay,ELRS relay configuration>>
 
@@ -282,6 +283,7 @@ On https://schiffsmodell.blogspot.com/p/grundlagen-zu-opentx.html[Holger Meyer] 
 ** [[_expresslrs_modules_and_receivers]][[hm_es24tx]][[hm_ep1ep2]][[rm_er6]]<<docs/elrs.adoc#_expresslrs_modules_and_receivers,ExpressLRS: modules and receivers>>
 ** [[_multiple_elrs_receivers_bound_to_one_elrs_module]]<<docs/elrs.adoc#_multiple_elrs_receivers_bound_to_one_elrs_module,Multiple ELRS-receivers bound to one ELRS-module>>
 ** [[_32_channels_for_elrs]]<<docs/elrs.adoc#_32_channels_for_elrs,32-channels for ELRS>>
+** [[elrs-matrix]]<<docs/elrs.adoc#elrs-matrix,Feature matrix>>
 ** [[elrs-mods]]<<docs/elrs.adoc#elrs-mods,ELRS modifications and pull-requests>>
 *** [[elrs-mods-v4]]<<docs/elrs.adoc#elrs-mods-v4,ExpressLRS V4>>
 *** [[elrs-ch32]]<<docs/elrs.adoc#elrs-ch32,32-channels extension for ELRS V4>>

@@ -16,6 +16,7 @@ Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 [NOTE]
 --
 ExpressLRS: features, modules, receivers and my modifications (V3/V4).
+See the <<elrs-matrix>> for an overview of what is available in V3 and V4.
 --
 
 toc::[]
@@ -123,6 +124,138 @@ Clearly, a special CRSF-decoder is needed: it has to decode the normal RC channe
 --
 
 The <<cruise-control.adoc#CC,The `CruiseController`>> uses two `SBus`-interface, one for channel 1-16, and one for the channels 17-32.
+
+[[elrs-matrix]]
+== Feature matrix
+
+Overview of the ELRS features and modifications described on this page. The table shows for each feature whether it is available
+in ELRS V3 and V4, and how to get it.
+
+.Legend
+[cols="1,5"]
+|===
+| *stock* | included in the official ExpressLRS release
+| *fork* | in my branch https://github.com/wimalopaan/ExpressLRS/tree/wmextensions[`wmextensions`] (V4). Always requires `-DWMEXTENSION`, plus the listed build switch in `super_defines.txt` (see <<elrs-switches>>).
+| *branch* | separate V3 branch in https://github.com/wimalopaan/ExpressLRS[wimalopaan/ExpressLRS] (based on `3.x.x-maintenance`)
+| *PR* | pull request to ExpressLRS
+| – | not available
+|===
+
+[cols="4,4,4,5",options="header"]
+|===
+| Feature | V3 | V4 | Remarks
+
+4+h| Multiple receivers / addressing
+| <<_multiple_elrs_receivers_bound_to_one_elrs_module,TeamRace (select the active receiver via a channel)>>
+| stock (≥ 3.4, https://github.com/ExpressLRS/ExpressLRS/pull/2176[PR #2176])
+| stock
+| Inactive receivers go into failsafe.
+| <<_multiple_elrs_receivers_bound_to_one_elrs_module,TeamRace without failsafe (multi-model telemetry)>>
+| https://github.com/ExpressLRS/ExpressLRS/pull/2685[PR #2685] (not merged; select the PR in the configurator)
+| –
+| Inactive receivers keep outputting channel data.
+| <<elrs-route,Extended CRSF addresses other than `0xc8`>>
+| branch `3.x.x-wmaddress` (https://github.com/ExpressLRS/ExpressLRS/pull/2975[PR #2975], not merged)
+| stock (full CRSF routing, see <<elrs_v4>>)
+| Required for all CRSF devices with their own address (MultiSwitch, CruiseController, ...).
+
+4+h| Arming
+| <<elrs_arm4,Switch-based arming>>
+| branch `3.x.x-arm4`
+| stock
+|
+| <<elrs_perm_arm,Permanent arming>>
+| branch `3.x.x-perm-arm`
+| stock
+| Only useful with _PPM_ input.
+
+4+h| Channels and serial protocols
+| <<elrs-ch32,32 channels>>
+| stock + `crsfch.lua` (<<protocols.adoc#prop32,Prop32>>), needs a Prop32-capable decoder
+| fork: `WMCRSF_CHAN_EXT`
+| V4: flash the fork on TX _and_ RX. Requires the EdgeTX mod https://github.com/wimalopaan/edgetx/tree/wmcrsfchanext[`wmcrsfchanext`].
+| <<elrs_sbus_flip,Channels 17-32 on SBus>>
+| branch `3.x.x-wmchanext` (`crsfch.lua`: `Flags` bit 0)
+| fork: `WMCRSF_CHAN_EXT` (SBus on `Serial2`: ch17-32)
+|
+| <<elrs_sumdv3,SumDV3 output with 64 binary switches>>
+| branch `3.x.x-wmsumdv3`
+| fork
+| Switch addresses `240` ... `247`
+| <<elrs_sumdv3,SumDV3: swap ch1-16 and ch17-32>>
+| branch `3.x.x-wmsumdv3` (`crsfch.lua`: `Flags` bit 1)
+| fork: `WMSUMDV3_SWAP`
+| e.g. for USM-RC-3
+
+4+h| MultiSwitch and LEDs
+| <<elrs_pwm_msw,PWM receiver as MultiSwitch>>
+| branch `3.x.x-wmswitch`
+| fork
+| Switch addresses `240`, `241`. Outputs in `on/off` mode.
+| <<elrs_pwm_msw,WS2812 RGB LEDs via MultiSwitch widget>>
+| branch `3.x.x-wmswitch`
+| fork
+| Switch addresses `248` ... `255`
+| <<elrs-io-expand,I2C IO expander for MultiSwitch>>
+| –
+| planned
+|
+
+4+h| Devices and interfaces
+| <<elrs-escape32,Flash / set up `ESCape32` ESCs>>
+| –
+| fork: `WMESCAPE32`
+| Via the receiver's WiFi web interface
+| <<elrs-3rd-serial,Third serial interface>>
+| –
+| fork: `WMSERIAL2`
+| ESP32 receivers only
+| <<elrs-esp-now,CRSF over ESP-NOW (master)>>
+| –
+| fork: `WMESPNOW`
+| Forwards to ESP-NOW slaves with the same bind phrase
+| <<elrs-esp-now,Receiver as ESP-NOW slave>>
+| –
+| fork: `WMESPNOW_RECV`, `WMESPNOW_RECV_ADDR`
+| Disables reception over LoRa RF
+| <<elrs-esp-bridge,ESP32C3-mini as USB/ESP-NOW bridge>>
+| –
+| fork: `WMESPNOW_SERIAL_NO_RADIO`
+| ESP32-C3 only
+| <<elrs-rxtx-analog,RX-as-TX with direct analog inputs>>
+| –
+| fork: `WMRXTX_ANALOG`
+| Configure with ELRS Buddy
+| <<elrs-tx-relay,TX module / RX-as-TX as CRSF relay>>
+| –
+| fork: `WMRELAY`
+| See also <<elrs-relay>>
+|===
+
+[TIP]
+--
+For V3 the branch `3.x.x-wmaddress-arm4-sumdv3-chanext-switch` combines several of the V3 modifications (see <<elrs_combined>>).
+--
+
+[[elrs-switches]]
+.Build switches of the `wmextensions` branch (`super_defines.txt`)
+[cols="3,6",options="header"]
+|===
+| Switch | Effect
+| `-DWMEXTENSION` | Required for all extensions. Enables MultiSwitch, SumDV3 and RGB LEDs.
+| `-DWMCRSF_CHAN_EXT` | 32-channel extension (TX and RX)
+| `-DWMCRSF_NO_HIGH_CHANNELS` | Do not output ch17-32 on the CRSF serial output
+| `-DWMCRSF_CH_OUT_CONCAT` | Output ch1-16 and ch17-32 (frame type `0x26`) back-to-back on every update, instead of alternating
+| `-DWMSUMDV3_SWAP` | Output ch17-32 as SumDV3 ch1-16
+| `-DWMFILTER32`, `-DWMFILTER32W=500` | Low-pass filter of channel values
+| `-DWMESCAPE32` | ESCape32 support
+| `-DWMSERIAL2` | Third serial interface (ESP32 only)
+| `-DWMESPNOW` | Forward CRSF over ESP-NOW (master)
+| `-DWMESPNOW_RECV`, `-DWMESPNOW_RECV_ADDR=0xEB` | Receiver as ESP-NOW slave, with the CRSF address of the slave
+| `-DWMESPNOW_SERIAL_NO_RADIO` | ESP32-C3 as USB/ESP-NOW bridge (no LoRa radio)
+| `-DWMRXTX_ANALOG` | RX-as-TX with analog inputs on the PWM pins
+| `-DWMRELAY` | TX as CRSF relay (address NAT, link-stat `0x14` -> `0x15`)
+|===
 
 [[elrs-mods]]
 == ELRS modifications and pull-requests
