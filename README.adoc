@@ -2395,10 +2395,39 @@ If you want to produce this PCB, you can use the following link to the gerber fi
 
 Link to link:images/elrs_msw/seaspotter/Gerber_CRSF-Multiswitch-THT-v1.1.zip[Gerber].
 
-[[msw_widget]]
-===== MultiSwitch Widget
+[[msw_widget_ng]]
+===== MultiSwitch NG Widget (active)
 
-The new widget can be found here: https://github.com/wimalopaan/LUA?tab=readme-ov-file#lvglmsw[]
+`MultiSwitch NG` is the actively developed reimplementation of the LVGL MultiSwitch widget for EdgeTX 2.11.3 or newer with LVGL support.
+It controls MultiSwitch modules via CRSF/ELRS, S.Port WM or S.Port ACW (1.5 and 1.4).
+The user interface automatically follows the EdgeTX menu language (German or English, with English as the fallback).
+
+The widget provides:
+
+* multiple configurable tabs with individual default addresses and layouts
+* latching buttons, on/off switches, three-position controls, momentary buttons and sliders
+* physical switch and source assignments, activation switches and exclusive groups across tabs
+* configurable names, colors, fonts and button images, with optional RGB LED color transmission via CRSF
+* shared configuration and output states across widget instances of the same model, including background processing of inactive tabs
+* on-screen configuration, automatic saving and separate configuration files without modifying the previous widget's files
+
+Copy the widget directory to `/WIDGETS/lvglMultiSwNG/` on the SD card and select `MultiSw NG`.
+Operation and configuration take place in fullscreen mode.
+The full description, installation instructions and screenshots are available here:
+https://github.com/wimalopaan/LUA/blob/main/WIDGETS/lvglMultiSwNG/README.adoc[MultiSwitch NG documentation].
+
+[IMPORTANT]
+--
+Test the widget on the radio or in the EdgeTX simulator before using it with a model.
+Migration of the previous widget's configuration, SHM, telemetry actions and setting virtual inputs/switches are not yet implemented.
+--
+
+[[msw_widget]]
+===== MultiSwitch Widget (stable)
+
+The previous `lvglMultiSw` widget is *stable* and remains available unchanged.
+Active development continues in <<msw_widget_ng,MultiSwitch NG>>.
+The stable widget can be found here: https://github.com/wimalopaan/LUA?tab=readme-ov-file#lvglmsw[]
 
 [TIP]
 --
