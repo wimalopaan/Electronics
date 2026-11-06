@@ -457,6 +457,42 @@ If you want to produce this PCB, you can use the following link to the gerber fi
 
 Link to link:../images/elrs_msw/seaspotter/Gerber_CRSF-Multiswitch-THT-v1.1.zip[Gerber].
 
+[[msw_widget_ng]]
+==== MultiSwitch NG Widget
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 active
+| Software | https://github.com/wimalopaan/LUA/tree/main/WIDGETS/lvglMultiSwNG[LUA: `lvglMultiSwNG`] (color radios)
+| Requirements | EdgeTX 2.11.3 or newer with LVGL support
+| Protocol | <<protocols.adoc#crsf_sw,CRSF MultiSwitch commands>>, S.Port WM, S.Port ACW 1.5 / 1.4
+| Documentation | https://github.com/wimalopaan/LUA/blob/main/WIDGETS/lvglMultiSwNG/README.adoc[Installation, operation and configuration]
+|===
+
+`MultiSwitch NG` is a new implementation of the LVGL MultiSwitch widget. The existing <<msw_widget,MultiSwitch Widget>> remains available and unchanged.
+
+The widget provides:
+
+* configurable tabs with individual default addresses, layouts and controls
+* latching buttons, toggles, three-position controls, momentary buttons and sliders (sliders require CRSF)
+* physical switch and source assignments, activation switches and exclusive groups across tabs
+* configurable names, colors, fonts and optional button images
+* CRSF switching, proportional outputs and optional LED color transmission, or S.Port WM / ACW output
+* shared configuration and output states across widget instances of the same model
+* automatic saving and separate configuration, storage and operating status displays
+* a German or English interface selected automatically from the EdgeTX menu language
+
+Copy the complete directory to `/WIDGETS/lvglMultiSwNG/` on the SD card and select the widget `MultiSw NG`.
+Operation and configuration take place in fullscreen mode.
+
+[WARNING]
+--
+Test the widget on the radio or in the EdgeTX simulator before using it in a model.
+The old widget's configuration is neither loaded nor overwritten; migration is not yet supported.
+--
+
 [[msw_widget]]
 ==== MultiSwitch Widget
 
@@ -464,14 +500,15 @@ Link to link:../images/elrs_msw/seaspotter/Gerber_CRSF-Multiswitch-THT-v1.1.zip[
 .Project info
 [cols="1h,5",width="100%"]
 |===
-| Status | 🟢 active
+| Status | 🔵 stable
 | Software | https://github.com/wimalopaan/LUA?tab=readme-ov-file#lvglmsw[LUA: `lvglMultiSw`] (color radios)
 | Protocol | <<protocols.adoc#crsf-sw,CRSF MultiSwitch commands>>
 | Video | https://www.youtube.com/watch?v=aaKBlDT08Tc[2025-07-28], https://www.youtube.com/watch?v=s7mjQJYgb9o[2025-08-15], https://www.youtube.com/watch?v=fQk5mrm1Hiw[2025-10-15], https://www.youtube.com/watch?v=NAWFy8ZdQog[2025-11-05], https://www.youtube.com/watch?v=Gw56sHEIoD8[2025-11-12], https://www.youtube.com/watch?v=7_HkYi2aqZk[2025-11-15], <<videos.adoc#v-msw_widget,all videos (7)>>
 |===
 
 
-The new widget can be found here: https://github.com/wimalopaan/LUA?tab=readme-ov-file#lvglmsw[]
+The stable widget can be found here: https://github.com/wimalopaan/LUA?tab=readme-ov-file#lvglmsw[]
+For the actively developed new implementation, see <<msw_widget_ng,MultiSwitch NG Widget>>.
 
 [TIP]
 --

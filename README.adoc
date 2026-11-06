@@ -135,7 +135,7 @@ The content of this page is split into the following documents. The <<detailed_t
 | Document | Contents
 
 | <<docs/multiswitch.adoc#,MultiSwitch>>
-| ELRS/CRSF MultiSwitch modules, widget and telemetry script.
+| ELRS/CRSF MultiSwitch modules, <<docs/multiswitch.adoc#msw_widget_ng,MultiSwitch NG Widget>>, stable MultiSwitch Widget and telemetry script.
 
 | <<docs/crsf-devices.adoc#,CRSF devices>>
 | LED 4x4, CRSF-Switch/Router, MultiAdapter, RC-Relay32, CRSF to Serial-Servo converter:
@@ -219,7 +219,8 @@ New projects use the <<docs/project-template.adoc#,project template>>.
 | <<docs/multiswitch.adoc#msw_nucleo,Nucleo-G031K8 as a MultiSwitch>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🟢 active
 | <<docs/multiswitch.adoc#msw_weact,WeAct STM32G031F8 as a MultiSwitch>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🟢 active
 | <<docs/multiswitch.adoc#msw_tht,WeAct MultiSwitch THT PCB>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🔵 stable
-| <<docs/multiswitch.adoc#msw_widget,MultiSwitch Widget>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🟢 active
+| <<docs/multiswitch.adoc#msw_widget_ng,MultiSwitch NG Widget>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🟢 active
+| <<docs/multiswitch.adoc#msw_widget,MultiSwitch Widget>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🔵 stable
 | <<docs/multiswitch.adoc#msw_bw,MultiSwitch Telemetry Script>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🔵 stable
 | <<docs/crsf-devices.adoc#led4x4,LED 4x4 Module>> | <<docs/crsf-devices.adoc#,CRSF devices>> | 🟢 active
 | <<docs/crsf-devices.adoc#crsf-switch,CRSF-Switch / Router>> | <<docs/crsf-devices.adoc#,CRSF devices>> | 🟢 active
@@ -446,6 +447,7 @@ On https://schiffsmodell.blogspot.com/p/grundlagen-zu-opentx.html[Holger Meyer] 
 **** [[msw_nucleo]]<<docs/multiswitch.adoc#msw_nucleo,STM32G031F8 Nucleo-Board as a MultiSwitch>>
 **** [[msw_weact]]<<docs/multiswitch.adoc#msw_weact,WeAct STM32G031F8 as a MultiSwitch>>
 **** [[msw_tht]]<<docs/multiswitch.adoc#msw_tht,WeAct STM32G031F8 as a MultiSwitch with PCB as THT>>
+**** [[msw_widget_ng]]<<docs/multiswitch.adoc#msw_widget_ng,MultiSwitch NG Widget>>
 **** [[msw_widget]]<<docs/multiswitch.adoc#msw_widget,MultiSwitch Widget>>
 **** [[msw_bw]]<<docs/multiswitch.adoc#msw_bw,MultiSwitch Telemetry Script>>
 **** [[crsf_enc]]<<docs/multiswitch.adoc#crsf_enc,CRSF encoding>>
