@@ -11,6 +11,8 @@ Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 :caution-caption: :fire:
 :warning-caption: :warning:
 
+*English* | <<vhf-receivers.de.adoc#,Deutsch>>
+
 <<../README.adoc#,RC Electronics>> / Receivers for 27/35/40MHz
 
 [NOTE]

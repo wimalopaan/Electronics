@@ -1,0 +1,81 @@
+= INAV: Flugsteuerungssoftware mit Navigationsfunktionen
+Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
+:toc:
+:toclevels: 3
+:toc-placement!:
+:sectnums:
+:sectnumlevels: 5
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+:lang: de
+:toc-title: Inhaltsverzeichnis
+:figure-caption: Abbildung
+:table-caption: Tabelle
+:example-caption: Beispiel
+
+<<inav.adoc#,English>> | *Deutsch*
+
+<<../README.de.adoc#,RC-Elektronik>> / INAV: Flugsteuerungssoftware mit Navigationsfunktionen
+
+[NOTE]
+--
+INAV und der selbstbalancierende Roboter Mortimer.
+--
+
+toc::[]
+
+Seit Kurzem nutze ich auch das Projekt `INAV`. Der Einstieg ergab sich, als ich feststellte, dass
+`INAV` auch auf der wirklich schönen `NexusX(R)`-Hardware von _Radiomaster_ läuft.
+
+Eines meiner ersten Projekte war _Mortimer_: <<mortimer>>
+
+[[mortimer]]
+== Selbstbalancierender Roboter als inverses Pendel mit INav (Projekt: Mortimer)
+
+[caption=""]
+.Projektinfo
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟡 experimentell
+| Hardware | https://radiomasterrc.com/products/nexus-xr-control-system[RadioMaster Nexus-XR], Waveshare DDSM210-Motoren
+| Firmware | https://github.com/wimalopaan/inav/tree/wm_pendulum[inav: `wm_pendulum`], https://github.com/wimalopaan/inav/tree/wm_ddsm210[inav: `wm_ddsm210`]
+| Video | https://www.youtube.com/watch?v=JkGJ32tAq5U[2026-03-23], https://youtu.be/_f_BZltnOyI[mehr], <<videos.de.adoc#v-mortimer,alle Videos (2)>>
+|===
+
+
+Beim Ansehen einiger Videos über selbstbalancierende Roboter kam mir die Idee, selbst so etwas zu bauen,
+allerdings mit meinem eigenen Ansatz ;-)
+
+Da ich https://github.com/iNavFlight/inav[INav] auf dem Radiomaster https://radiomasterrc.com/products/nexus-xr-control-system[Nexus-XR]
+bereits in einigen anderen Projekten verwende, lag es nahe, es auch für dieses Projekt zu nutzen. INav hat eine Reihe frei nutzbarer PID-Regler eingebaut, und der Nexus-XR enthält
+einen sofort nutzbaren ELRS-Empfänger und eine IMU. Es scheint also recht einfach zu sein ...
+
+Die meisten balancierenden Roboter nach dem Prinzip des inversen Pendels verwenden Bürsten-Getriebemotoren mit Encodern oder Schrittmotoren. Ich war zunächst versucht,
+meinen eigenen Gimbal-Motortreiber einzusetzen. Da dieser aber noch in einem frühen Entwicklungsstadium war, ließ sich das nicht wirklich schnell umsetzen.
+
+Ich fand diese https://www.waveshare.com/wiki/DDSM210?srsltid=AfmBOoq7uD7-XkhQ9nspMRGSAIVBgr8Upqys0ygCCtGbGOxuoT5TQB3U[Waveshare DDSM210]-Motoren.
+Sie scheinen ideal für das Projekt geeignet zu sein, abgesehen davon, dass sie ein eigenes serielles Protokoll verwenden.
+
+Also musste ich dieses in INav implementieren: https://github.com/wimalopaan/inav/tree/wm_ddsm210[INav mit seriellem Protokoll für DDSM210]
+
+Danach stellte sich heraus, dass die Regelschleife in INav mit 10Hz läuft. Das ist viel zu langsam.
+Auch das musste ich ändern (auf maximal 4KHz). Die Koeffizienten und weitere Parameter wie Filterkoeffizienten fest
+im Quellcode zu hinterlegen, ist keine gute Idee. Deshalb entschied ich mich, einige der GVars in INav zu verwenden, um diese Parameter für die ersten beiden frei nutzbaren PID-Regler
+in INav einzustellen.
+
+* GVar[0]: Verstärkung 1/10 für PID-Regler 0
+* GVar[1]: errorLPF-Grenzfrequenz 1/10 Hz für PID-Regler 0
+* GVar[2]: dtermLPF-Grenzfrequenz 1/10 Hz für PID-Regler 0
+
+* GVar[3]: Verstärkung 1/10 für PID-Regler 1
+* GVar[4]: errorLPF-Grenzfrequenz 1/10 Hz für PID-Regler 1
+* GVar[5]: dtermLPF-Grenzfrequenz 1/10 Hz für PID-Regler 1
+
+Alle Änderungen befinden sich in: https://github.com/wimalopaan/inav/tree/wm_pendulum[INav mit Änderungen] für den Pendelroboter
+
+https://www.youtube.com/watch?v=JkGJ32tAq5U[Erklärvideo] (nur auf Deutsch)
+
+https://youtu.be/_f_BZltnOyI[Der Roboter in Aktion]

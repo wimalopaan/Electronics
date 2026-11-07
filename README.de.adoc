@@ -1,0 +1,563 @@
+= RC Elektronik
+Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
+:toc:
+:toclevels: 5
+:numbered:
+:sectnums:
+:sectnumlevels: 5
+:toc-placement!:
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+  
+:ddir: https://wimalopaan.github.io/Electronics
+:rcb: {ddir}/rc/boards
+:lang: de
+:toc-title: Inhaltsverzeichnis
+:figure-caption: Abbildung
+:table-caption: Tabelle
+:example-caption: Beispiel
+
+<<README.adoc#,English>> | *Deutsch*
+
+image::images/logo/Logo.png[width=50%]
+
+[NOTE]
+--
+Diese Seite und die zugehörigen Repositories behandeln hauptsächlich meine Elektronik für RC-Modelle (ferngesteuerte Modelle), einschließlich Erweiterungen für EdgeTx/OpenTx und ExpressLRS, LUA-Skripten, Videos und vielem mehr.
+--
+
+[WARNING]
+--
+Kein KI-generierter Code enthalten, alle Fehler sind menschlich!
+--
+
+:toclevels: 2
+toc::[]
+
+[[_foreword]]
+== Vorwort
+
+[NOTE]
+.An die deutschsprachigen Leser
+--
+Die alte Seite ist noch (und bleibt auch) als <<Old.adoc#,Old.adoc>> verfügbar.
+--
+
+[[ieee]]
+== IEEE: der RC-Software-Verbund (Stack)
+
+`EdgeTx`, `ExpressLRS` und `ESCape32` sind _die_ Kombination von RC-bezogenen Open-Source-Softwareprojekten, die ich
+inzwischen in allen meinen Modellen verwende.
+
+[NOTE]
+--
+Die drei großen `E`s: `EdgeTx`, `ExpressLRS` und `ESCape32`
+--
+
+Wenn ich eine Funktion wie _Return-to-Home_ (automatische Rückkehr zum Startpunkt) benötige, würde ich eindeutig `INAV` wählen.
+Zusammen ergibt das also `EEEI`.
+
+[IMPORTANT]
+--
+Wenn man `EdgeTx`, `ExpressLRS`, `ESCape32` und `INAV` auf einen Stapel legt, sie wieder herunternimmt und jeweils den ersten Buchstaben verwendet,
+ergibt das `IEEE`, den *RC-Software-Stack* (bitte nicht mit https://www.ieee.org[] verwechseln, das ist eine andere wichtige Sache ;-) ).
+--
+
+[[documents]]
+== Dokumente
+
+Der Inhalt dieser Seite ist auf die folgenden Dokumente verteilt. Das <<detailed_toc>> enthält jeden Abschnitt mit einem direkten Link. Der <<project-status>> zeigt den Stand jedes Projekts. Alle Videos sind unter <<docs/videos.de.adoc#,Videos nach Projekt>> aufgeführt.
+
+[[_software_firmware_and_protocols]]
+=== Software, Firmware und Protokolle
+
+[cols="1,3a",options="header"]
+|===
+| Dokument | Inhalt
+
+| <<docs/edgetx.de.adoc#,EdgeTx>>
+| Erweiterungen und Pull Requests für die EdgeTx-Senderfirmware:
+
+* <<docs/edgetx.de.adoc#edgetx-proc,Signalverarbeitung in EdgeTx>>
+* <<docs/edgetx.de.adoc#vcontrols,Virtuelle Geber (Virtual Controls) für EdgeTx>>
+* <<docs/edgetx.de.adoc#edgetx_32channels,32-Kanal-Erweiterung für das CRSF-Protokoll>>
+* <<docs/edgetx.de.adoc#edgetx_shm_bw,SHM-Variablen für Sender mit Schwarzweißdisplay>>
+* <<docs/edgetx.de.adoc#crsf_batt_id,Erweiterter Parser für CRSF-BATT-Sensorframes mit Instanz-ID>>
+* <<docs/edgetx.de.adoc#edgetx_custom_moved,Angepasste EdgeTx-Builds>>
+
+| <<docs/elrs.de.adoc#,ExpressLRS>>
+| ExpressLRS: Funktionen, Module, Empfänger und meine Modifikationen (V3/V4):
+
+* <<docs/elrs.de.adoc#_expresslrs_for_short_range_radio_control,ExpressLRS für Fernsteuerungen auf kurze Distanz>>
+* <<docs/elrs.de.adoc#_expresslrs_modules_and_receivers,ExpressLRS: Module und Empfänger>>
+* <<docs/elrs.de.adoc#_multiple_elrs_receivers_bound_to_one_elrs_module,Mehrere ELRS-Empfänger an ein ELRS-Modul binden>>
+* <<docs/elrs.de.adoc#_32_channels_for_elrs,32 Kanäle für ELRS>>
+* <<docs/elrs.de.adoc#elrs-matrix,Funktionsmatrix>>
+* <<docs/elrs.de.adoc#elrs-mods,ELRS-Modifikationen und Pull Requests>>
+* <<docs/elrs.de.adoc#elrs-relay,ELRS-Relaiskonfiguration>>
+
+| <<docs/protocols.de.adoc#,Protokolle>>
+| CRSF-Protokollerweiterungen (MultiSwitch, Prop32, ESP-NOW), CRSF-Halbduplex-Bus, Hardware-Erweiterungsprotokoll:
+
+* <<docs/protocols.de.adoc#crsf_sw,Vorschlag für das CRSF-Protokoll>>
+* <<docs/protocols.de.adoc#crsf-bus,CRSF-Halbduplex-Bus>>
+* <<docs/protocols.de.adoc#hwext,Hardware-Erweiterungsprotokoll>>
+* <<docs/protocols.de.adoc#hwlua,LUA-Skript für das Hardware-Erweiterungsprotokoll>>
+
+| <<docs/escape32.de.adoc#,ESCape32: Firmware für eine Familie kleiner und mittlerer BLDC- und Bürstenmotorregler (Brushless-/Brushed-ESC)>>
+| ESCape32-Firmware für kleine und mittlere BLDC- und Bürstenmotorregler sowie meine Modifikationen:
+
+* <<docs/escape32.de.adoc#_sine_startup,Sinusförmiger Anlauf>>
+* <<docs/escape32.de.adoc#_modifications,Modifikationen>>
+* <<docs/escape32.de.adoc#_hardware,Hardware>>
+* <<docs/escape32.de.adoc#_info,Info>>
+
+| <<docs/inav.de.adoc#,INAV: Flugsteuerungssoftware mit Navigationsfunktionen>>
+| INAV und der selbstbalancierende Roboter Mortimer.
+
+| <<docs/flysky.de.adoc#,FlySky FS-i6X / FS-i6S>>
+| Alternative Firmware für FlySky FS-i6X/FS-i6S (Rust und C++), ELRS für die FS-i6X, Openix6:
+
+* <<docs/flysky.de.adoc#flysky-i6x-rs,FlySky-I6X-rs: alternative Firmware für den FlySky-FS-I6X-Sender>>
+* <<docs/flysky.de.adoc#flysky-i6s-rs,FlySky-I6S-rs: alternative Firmware für den FlySky-FS-I6S-Sender>>
+* <<docs/flysky.de.adoc#i6s-cpp,i6s-cpp: eine C++26-Portierung der FlySky-I6X-rs-/FlySky-I6S-rs-Firmware>>
+* <<docs/flysky.de.adoc#elrs_i6x,ELRS für die FlySky-I6X>>
+* <<docs/flysky.de.adoc#oix6,Openix6>>
+
+| <<docs/building.de.adoc#,Firmware kompilieren>>
+| Kompilieren meiner Projekte (`wmucpp`), von EdgeTx, ExpressLRS und ESCape32 mit `github` Codespaces:
+
+* <<docs/building.de.adoc#gitpod_wm,Quellcode meiner Projekte (`wmucpp`) kompilieren>>
+* <<docs/building.de.adoc#edgetx_custom,Angepasste EdgeTx-Builds>>
+* <<docs/building.de.adoc#build_elrs,ExpressLRS>>
+* <<docs/building.de.adoc#build_escape32,ESCape32>>
+
+|===
+
+[[_projects_hardware_and_firmware]]
+=== Projekte (Hardware und Firmware)
+
+[cols="1,3a",options="header"]
+|===
+| Dokument | Inhalt
+
+| <<docs/multiswitch.de.adoc#,MultiSwitch>>
+| ELRS/CRSF-MultiSwitch-Module, <<docs/multiswitch.de.adoc#msw_widget_ng,MultiSwitch NG Widget>>, stabiles MultiSwitch Widget und Telemetrieskript.
+
+| <<docs/crsf-devices.de.adoc#,CRSF-Geräte>>
+| LED 4x4, CRSF-Switch/Router, MultiAdapter, RC-Relay32, CRSF-zu-Serial-Servo-Konverter:
+
+* <<docs/crsf-devices.de.adoc#led4x4,LED-4x4-Modul>>
+* <<docs/crsf-devices.de.adoc#crsf-switch,CRSF-Switch / Router>>
+* <<docs/crsf-devices.de.adoc#elrs_ma,ELRS-MultiAdapter-EA>>
+* <<docs/crsf-devices.de.adoc#rcrelay32,RC-Relay32: ein CRSF-Relais>>
+* <<docs/crsf-devices.de.adoc#crsfserialservo,Der CRSF-zu-Serial-Servo-Konverter>>
+
+| <<docs/cruise-control.de.adoc#,Cruise-Controller>>
+| Doppelte Schottel-Steuerung (RC720E) und der CruiseController:
+
+* <<docs/cruise-control.de.adoc#rc720e,Doppelte Schottel-Steuerung (auch Cruise-Controller genannt)>>
+* <<docs/cruise-control.de.adoc#CC,Der `CruiseController`>>
+
+| <<docs/rx-as-tx.de.adoc#,ELRS-Empfänger als Sendermodule>>
+| JR-Modulschachtadapter und interner X12S-Adapter für ELRS-Empfänger:
+
+* <<docs/rx-as-tx.de.adoc#elrs_jr,JR-Modulschachtadapter für ELRS-Empfänger als Sender>>
+* <<docs/rx-as-tx.de.adoc#elrs_x12s,Adapter für ELRS-Empfänger als internes XJT/ISRM-Modul für die FrSky X12S>>
+
+| <<docs/radio-mods.de.adoc#,Senderumbauten>>
+| Erneuertes VarioProp-Mainboard, X12S-Touchscreen/Knüppel, 40MHz-Modul, TX16S-Schaltercontroller, haptischer Steuerknüppel:
+
+* <<docs/radio-mods.de.adoc#varioprop,Erneuertes Mainboard für einige (alte) 27/35/40MHz-RC-Sender>>
+* <<docs/radio-mods.de.adoc#x12s_touch,Touchscreen für die FrSky X12S>>
+* <<docs/radio-mods.de.adoc#sfrog,SFrog-5D-Knüppel für die FrSky X12S>>
+* <<docs/radio-mods.de.adoc#_modification_of_an_old_graupner_jr_40mhz_transmitter_rf_modul_for_use_in_e_g_a_radiomaster_tx16s_frsky_x12sx9e_or_similar,Umbau eines alten Graupner-/JR-40MHz-HF-Sendermoduls für z. B. RadioMaster TX16s, FrSky X12S/X9e oder ähnliche Sender>>
+* <<docs/radio-mods.de.adoc#extswitch,Der interne Schaltercontroller der TX16s>>
+* <<docs/radio-mods.de.adoc#haptic,Ein neuartiger Steuerknüppel: haptische Steuerung>>
+
+| <<docs/rc-desk.de.adoc#,RC-Desk>>
+| RC-Desk und RC-Desk mini für TX16S, TX15, X12S, X9E:
+
+* <<docs/rc-desk.de.adoc#rcdesk,Das RC-Desk (für RadioMaster TX16S, FrSky X12S, X9E, ...)>>
+* <<docs/rc-desk.de.adoc#rcdesk32mini,Das RC-Desk mini (für RadioMaster TX16S, TX15, FrSky X12S, X9E, ...)>>
+
+| <<docs/motor-controllers.de.adoc#,Motorregler>>
+| Bürsten-Gleichstrommotorregler und V/ESC:
+
+* <<docs/motor-controllers.de.adoc#_brushed_dc_motor_controller_with_sensorless_measurement_of_rotational_speed,Bürsten-Gleichstrommotorregler mit sensorloser Drehzahlmessung>>
+* <<docs/motor-controllers.de.adoc#vesc,V/ESC: die ultimative Firmware für mittlere und große BLDC-Motorregler (Brushless-ESC)>>
+
+| <<docs/vhf-receivers.de.adoc#,Empfänger für 27/35/40MHz>>
+| Ersatzfirmware für den Corona RP8D1 und SDR-Empfänger:
+
+* <<docs/vhf-receivers.de.adoc#corona,Ersatzfirmware für den Corona RP8D1>>
+* <<docs/vhf-receivers.de.adoc#sdr,SDR-RC-Empfänger für 27/35/40MHz>>
+
+| <<docs/misc.de.adoc#,Weitere Projekte>>
+| STM32G0B1-Entwicklungsboard, einfacher Hauptschalter für die Stromversorgung:
+
+* <<docs/misc.de.adoc#devg0b1,WM-STM32G0B1-Entwicklungsboard>>
+* <<docs/misc.de.adoc#_simple_rc_main_power_latched_switch,Einfacher selbsthaltender RC-Hauptschalter>>
+
+|===
+
+[[project-status]]
+=== Projektstatus
+
+Jede Projektseite beginnt mit einem Kasten _Projektinfo_ (Status, Hardware, Firmware, Software, Links).
+Neue Projekte verwenden die <<docs/project-template.de.adoc#,Projektvorlage>>.
+
+.Statuslegende
+[cols="1,4"]
+|===
+| 🟢 aktiv | in aktiver Entwicklung
+| 🔵 stabil | fertiggestellt und im Einsatz; nur noch Wartung
+| 🟡 experimentell | teilweise funktionsfähig / im Test
+| 📝 geplant | Idee oder Entwurf, noch nicht nutzbar
+| ⚪ abgelöst | durch ein anderes Projekt ersetzt; als Referenz erhalten
+|===
+
+[cols="3,2,1",options="header"]
+|===
+| Projekt | Dokument | Status
+| <<docs/multiswitch.de.adoc#mswe8,MultiSwitch-E8>> | <<docs/multiswitch.de.adoc#,MultiSwitch>> | 🟢 aktiv
+| <<docs/multiswitch.de.adoc#_super_simple_multiswitch_elrscrsf_flyskysbus_flyskyibus_frskysbus_frskys_port_graupnersumdv3,Besonders einfacher MultiSwitch>> | <<docs/multiswitch.de.adoc#,MultiSwitch>> | 🟢 aktiv
+| <<docs/multiswitch.de.adoc#ssmsw,MultiSwitch-Platine mit 16 Ausgängen>> | <<docs/multiswitch.de.adoc#,MultiSwitch>> | 🟢 aktiv
+| <<docs/multiswitch.de.adoc#msw_nucleo,Nucleo-G031K8 als MultiSwitch>> | <<docs/multiswitch.de.adoc#,MultiSwitch>> | 🟢 aktiv
+| <<docs/multiswitch.de.adoc#msw_weact,WeAct STM32G031F8 als MultiSwitch>> | <<docs/multiswitch.de.adoc#,MultiSwitch>> | 🟢 aktiv
+| <<docs/multiswitch.de.adoc#msw_tht,WeAct-MultiSwitch-THT-Platine>> | <<docs/multiswitch.de.adoc#,MultiSwitch>> | 🔵 stabil
+| <<docs/multiswitch.de.adoc#msw_widget_ng,MultiSwitch NG Widget>> | <<docs/multiswitch.de.adoc#,MultiSwitch>> | 🟢 aktiv
+| <<docs/multiswitch.de.adoc#msw_widget,MultiSwitch Widget>> | <<docs/multiswitch.de.adoc#,MultiSwitch>> | 🔵 stabil
+| <<docs/multiswitch.de.adoc#msw_bw,MultiSwitch-Telemetrieskript>> | <<docs/multiswitch.de.adoc#,MultiSwitch>> | 🔵 stabil
+| <<docs/crsf-devices.de.adoc#led4x4,LED-4x4-Modul>> | <<docs/crsf-devices.de.adoc#,CRSF-Geräte>> | 🟢 aktiv
+| <<docs/crsf-devices.de.adoc#crsf-switch,CRSF-Switch / Router>> | <<docs/crsf-devices.de.adoc#,CRSF-Geräte>> | 🟢 aktiv
+| <<docs/crsf-devices.de.adoc#elrs_ma,ELRS-MultiAdapter-EA>> | <<docs/crsf-devices.de.adoc#,CRSF-Geräte>> | 🔵 stabil
+| <<docs/crsf-devices.de.adoc#rcrelay32,RC-Relay32>> | <<docs/crsf-devices.de.adoc#,CRSF-Geräte>> | 🟢 aktiv
+| <<docs/crsf-devices.de.adoc#crsfserialservo,CRSF-zu-Serial-Servo-Konverter>> | <<docs/crsf-devices.de.adoc#,CRSF-Geräte>> | 🟢 aktiv
+| <<docs/cruise-control.de.adoc#rc720e,Doppelte Schottel-Steuerung / Cruise-Controller (RC720E32)>> | <<docs/cruise-control.de.adoc#,Cruise-Controller>> | 🟢 aktiv
+| <<docs/cruise-control.de.adoc#CC,Der `CruiseController`>> | <<docs/cruise-control.de.adoc#,Cruise-Controller>> | ⚪ abgelöst
+| <<docs/rc-desk.de.adoc#rcdesk,RC-Desk>> | <<docs/rc-desk.de.adoc#,RC-Desk>> | 🟢 aktiv
+| <<docs/rc-desk.de.adoc#rcdesk32mini,RC-Desk mini>> | <<docs/rc-desk.de.adoc#,RC-Desk>> | 🟢 aktiv
+| <<docs/radio-mods.de.adoc#varioprop,Erneuertes Mainboard für historische Sender>> | <<docs/radio-mods.de.adoc#,Senderumbauten>> | 🟡 experimentell
+| <<docs/radio-mods.de.adoc#x12s_touch,Touchscreen für die FrSky X12S>> | <<docs/radio-mods.de.adoc#,Senderumbauten>> | 🔵 stabil
+| <<docs/radio-mods.de.adoc#sfrog,SFrog-5D-Knüppel für die FrSky X12S>> | <<docs/radio-mods.de.adoc#,Senderumbauten>> | 🔵 stabil
+| <<docs/radio-mods.de.adoc#_modification_of_an_old_graupner_jr_40mhz_transmitter_rf_modul_for_use_in_e_g_a_radiomaster_tx16s_frsky_x12sx9e_or_similar,Graupner-/JR-40MHz-HF-Modul für moderne Sender>> | <<docs/radio-mods.de.adoc#,Senderumbauten>> | 🔵 stabil
+| <<docs/radio-mods.de.adoc#extswitch,Interner Schaltercontroller der TX16s>> | <<docs/radio-mods.de.adoc#,Senderumbauten>> | 🔵 stabil
+| <<docs/radio-mods.de.adoc#haptic,Haptischer Steuerknüppel>> | <<docs/radio-mods.de.adoc#,Senderumbauten>> | 📝 geplant
+| <<docs/rx-as-tx.de.adoc#elrs_jr,JR-Modulschachtadapter für ELRS RX-as-TX>> | <<docs/rx-as-tx.de.adoc#,RX-as-TX>> | 🔵 stabil
+| <<docs/rx-as-tx.de.adoc#elrs_x12s,Interner ELRS-Adapter für die X12S>> | <<docs/rx-as-tx.de.adoc#,RX-as-TX>> | 🔵 stabil
+| <<docs/flysky.de.adoc#flysky-i6x-rs,FlySky-I6X-rs>> | <<docs/flysky.de.adoc#,FlySky>> | 🟢 aktiv
+| <<docs/flysky.de.adoc#flysky-i6s-rs,FlySky-I6S-rs>> | <<docs/flysky.de.adoc#,FlySky>> | 🟢 aktiv
+| <<docs/flysky.de.adoc#i6s-cpp,i6s-cpp (C++26-Portierung)>> | <<docs/flysky.de.adoc#,FlySky>> | 🟢 aktiv
+| <<docs/flysky.de.adoc#elrs_i6x,ELRS für die FlySky-I6X>> | <<docs/flysky.de.adoc#,FlySky>> | 🔵 stabil
+| <<docs/flysky.de.adoc#oix6,Openix6>> | <<docs/flysky.de.adoc#,FlySky>> | 🔵 stabil
+| <<docs/motor-controllers.de.adoc#_brushed_dc_motor_controller_with_sensorless_measurement_of_rotational_speed,Bürsten-Gleichstrommotorregler>> | <<docs/motor-controllers.de.adoc#,Motorregler>> | 🟡 experimentell
+| <<docs/motor-controllers.de.adoc#vesc,V/ESC>> | <<docs/motor-controllers.de.adoc#,Motorregler>> | 🟢 aktiv
+| <<docs/vhf-receivers.de.adoc#corona,Ersatzfirmware für den Corona RP8D1>> | <<docs/vhf-receivers.de.adoc#,27/35/40MHz-Empfänger>> | 🔵 stabil
+| <<docs/vhf-receivers.de.adoc#sdr,SDR-RC-Empfänger für 27/35/40MHz>> | <<docs/vhf-receivers.de.adoc#,27/35/40MHz-Empfänger>> | 🟡 experimentell
+| <<docs/misc.de.adoc#devg0b1,WM-STM32G0B1-Entwicklungsboard>> | <<docs/misc.de.adoc#,Sonstiges>> | 🔵 stabil
+| <<docs/misc.de.adoc#_simple_rc_main_power_latched_switch,Einfacher selbsthaltender RC-Hauptschalter>> | <<docs/misc.de.adoc#,Sonstiges>> | 🔵 stabil
+| <<docs/inav.de.adoc#mortimer,Mortimer (selbstbalancierender Roboter)>> | <<docs/inav.de.adoc#,INAV>> | 🟡 experimentell
+| <<docs/edgetx.de.adoc#vcontrols,EdgeTx: virtuelle Geber (Virtual Controls)>> | <<docs/edgetx.de.adoc#,EdgeTx>> | 🟢 aktiv
+| <<docs/edgetx.de.adoc#edgetx_32channels,EdgeTx: 32-Kanal-Erweiterung>> | <<docs/edgetx.de.adoc#,EdgeTx>> | 🟢 aktiv
+| <<docs/edgetx.de.adoc#edgetx_shm_bw,EdgeTx: SHM-Variablen für Sender mit Schwarzweißdisplay>> | <<docs/edgetx.de.adoc#,EdgeTx>> | 🔵 stabil
+| <<docs/edgetx.de.adoc#crsf_batt_id,EdgeTx: CRSF-BATT-Frames mit Sensor-ID>> | <<docs/edgetx.de.adoc#,EdgeTx>> | 🟢 aktiv
+| <<docs/escape32.de.adoc#,ESCape32 (Modifikationen)>> | <<docs/escape32.de.adoc#,ESCape32>> | 🟢 aktiv
+|===
+
+[[_gear]]
+=== Ausstattung
+
+[cols="1,3a",options="header"]
+|===
+| Dokument | Inhalt
+
+| <<docs/gear.de.adoc#,Aktuelle Ausstattung>>
+| Meine aktuelle RC-Ausstattung und Modifikationen:
+
+* <<docs/gear.de.adoc#_radiomaster,RadioMaster>>
+* <<docs/gear.de.adoc#_flysky,FlySky>>
+* <<docs/gear.de.adoc#_jumper,Jumper>>
+* <<docs/gear.de.adoc#_frsky,FrSky>>
+* <<docs/gear.de.adoc#_graupnersj,Graupner/SJ>>
+
+| <<docs/vintage.de.adoc#,Historische RC-Technik>>
+| Historische RC-Ausstattung:
+
+* <<docs/vintage.de.adoc#_graupner_grundig_jr,Graupner / Grundig / JR>>
+* <<docs/vintage.de.adoc#_robbe_futaba,Robbe / Futaba>>
+* <<docs/vintage.de.adoc#_other_3,Sonstiges>>
+
+|===
+
+
+[[_projects]]
+== Projekte
+
+Die unter <<documents>> aufgeführten Dokumente beschreiben einige meiner aktiven Projekte. Die meisten meiner früheren Projekte (siehe <<Old.adoc#,alte Seite>> auf Deutsch)
+werden inzwischen nicht mehr weiterentwickelt. Der Grund dafür ist, dass ich bei den µCs vollständig von der AVR-Familie (DA, DB, tiny1/2) auf die leistungsfähigere
+STM32-Familie umgestiegen bin, hauptsächlich auf STM32G4xx und STM32G0xx. Diese bieten genügend Rechenleistung für das Projekt <<docs/vhf-receivers.de.adoc#sdr,SDR-RC-Empfänger für 27/35/40MHz>>, das mit
+AVRs nicht möglich gewesen wäre. Auch die G0xx verfügen über genügend interne Peripherie, um all diese verrückten RC-Ideen bequem umzusetzen.
+
+Eine Ausnahme gibt es allerdings: die <<docs/vhf-receivers.de.adoc#corona,Ersatzfirmware für den Corona RP8D1>>.
+
+[[trademark]]
+=== Logo
+
+Obwohl ich alle meine Projekte als Open Hardware (meist unter CC-Lizenzen) und Open Source (meist unter GPLV3)
+veröffentliche, verwende ich auf den physischen Projekten das folgende _Logo_.
+
+.Logo (Lizenz des Logos: https://creativecommons.org/licenses/by-nc-nd/4.0[CC BY-NC-ND 4.0]) (zum Vergrößern anklicken)
+image::images/logo/Logo.png[width=240, link="images/logo/Logo.png"]
+
+[[oshwlab]]
+=== Hardware-Entwürfe auf OSHWLab
+
+Immer mehr Platinenentwürfe sind auf https://oshwlab.com/wilhelm.wm.meier/works[OSHWLab] verfügbar.
+
+[[_opentx_edgetx_weekly]]
+== OpenTx / EdgeTx weekly
+
+_OpenTx weekly_ ist ein https://www.youtube.com/channel/UCedl1hS-dfWh-V4WBz_jGog[YouTube]-Kanal, der hauptsächlich
+EdgeTx und OpenTx, aber auch meine oben genannten Elektronikprojekte behandelt. Die Videos sind deutschsprachig.
+
+Alle Videos des Kanals, nach Projekt sortiert: <<docs/videos.de.adoc#,Videos nach Projekt>>.
+Jeder Kasten _Projektinfo_ enthält außerdem die Videos des jeweiligen Projekts.
+
+Bei https://schiffsmodell.blogspot.com/p/grundlagen-zu-opentx.html[Holger Meyer] findet sich ein aktuelles Inhaltsverzeichnis.
+
+[[detailed_toc]]
+== Ausführliches Inhaltsverzeichnis
+
+[[dtoc]]Alle Abschnitte der früheren einseitigen README mit einem Link zu ihrem neuen Ort. Die Anker der früheren Seite bleiben hier erhalten, damit alte Links wie `README.adoc#elrs-mods-v4` weiterhin zum richtigen Ziel führen. In dieser deutschen Fassung führen die Verweise zu den deutschen Dokumenten.
+
+* [[edgetx]]<<docs/edgetx.de.adoc#,EdgeTx>>
+** [[edgetx-proc]]<<docs/edgetx.de.adoc#edgetx-proc,Signalverarbeitung in EdgeTx>>
+** [[vcontrols]]<<docs/edgetx.de.adoc#vcontrols,Virtuelle Geber (Virtual Controls) für EdgeTx>>
+** [[edgetx_32channels]]<<docs/edgetx.de.adoc#edgetx_32channels,32-Kanal-Erweiterung für das CRSF-Protokoll>>
+** [[edgetx_shm_bw]]<<docs/edgetx.de.adoc#edgetx_shm_bw,SHM-Variablen für Sender mit Schwarzweißdisplay>>
+** [[crsf_batt_id]]<<docs/edgetx.de.adoc#crsf_batt_id,Erweiterter Parser für CRSF-BATT-Sensorframes mit Instanz-ID>>
+** [[edgetx_custom]]<<docs/building.de.adoc#edgetx_custom,Angepasste EdgeTx-Builds>>
+*** [[_setting_up_gitpod_not_recommended]]<<docs/building.de.adoc#_setting_up_gitpod_not_recommended,`gitpod` einrichten (nicht empfohlen)>>
+*** [[compiling_edgetx]]<<docs/building.de.adoc#compiling_edgetx,EdgeTx kompilieren>>
+* [[elrs]]<<docs/elrs.de.adoc#,ExpressLRS>>
+** [[_expresslrs_for_short_range_radio_control]][[elrs_feat]][[elrs_func]]<<docs/elrs.de.adoc#_expresslrs_for_short_range_radio_control,ExpressLRS für Fernsteuerungen auf kurze Distanz>>
+** [[crsf_sw]]<<docs/protocols.de.adoc#crsf_sw,Vorschlag für das CRSF-Protokoll>>
+*** [[crsf-frame]]<<docs/protocols.de.adoc#crsf-frame,Frame-Aufbau>>
+**** [[_general_crsf_frame]]<<docs/protocols.de.adoc#_general_crsf_frame,Allgemeiner CRSF-Frame>>
+**** [[crsf-cmd-frame]]<<docs/protocols.de.adoc#crsf-cmd-frame,Befehlsframe (Typ `0x32`)>>
+*** [[crsf-sw]]<<docs/protocols.de.adoc#crsf-sw,Befehle für MultiSwitch (Bereich `0xa1`)>>
+**** [[_command_0x01_set]]<<docs/protocols.de.adoc#_command_0x01_set,Befehl `0x01` (Set)>>
+**** [[_command_0x07_set4]]<<docs/protocols.de.adoc#_command_0x07_set4,Befehl `0x07` (Set4)>>
+**** [[_command_0x09_set4m]]<<docs/protocols.de.adoc#_command_0x09_set4m,Befehl `0x09` (Set4M)>>
+**** [[_command_0x02_prop]]<<docs/protocols.de.adoc#_command_0x02_prop,Befehl `0x02` (Prop)>>
+**** [[_command_0x0a_setrgb]]<<docs/protocols.de.adoc#_command_0x0a_setrgb,Befehl `0x0a` (setRGB)>>
+**** [[_command_0x11_intermodule_pattern_start]]<<docs/protocols.de.adoc#_command_0x11_intermodule_pattern_start,Befehl `0x11` (modulübergreifendes Muster starten)>>
+**** [[_command_0x12_intermodule_pattern_stop_all]]<<docs/protocols.de.adoc#_command_0x12_intermodule_pattern_stop_all,Befehl `0x12` (alle modulübergreifenden Muster stoppen)>>
+**** [[_command_0x13_intermodule_slave_set]]<<docs/protocols.de.adoc#_command_0x13_intermodule_slave_set,Befehl `0x13` (modulübergreifenden Slave setzen)>>
+*** [[prop32]]<<docs/protocols.de.adoc#prop32,Proportionaldaten (z. B. zusätzliche Kanäle: >=8 Bit)>>
+*** [[_telemetry_passthrough_messages]]<<docs/protocols.de.adoc#_telemetry_passthrough_messages,Telemetrie-Passthrough-Nachrichten>>
+*** [[crsf-esp-now]]<<docs/protocols.de.adoc#crsf-esp-now,CRSF über ESP-NOW>>
+** [[_expresslrs_modules_and_receivers]][[hm_es24tx]][[hm_ep1ep2]][[rm_er6]]<<docs/elrs.de.adoc#_expresslrs_modules_and_receivers,ExpressLRS: Module und Empfänger>>
+** [[_multiple_elrs_receivers_bound_to_one_elrs_module]]<<docs/elrs.de.adoc#_multiple_elrs_receivers_bound_to_one_elrs_module,Mehrere ELRS-Empfänger an ein ELRS-Modul binden>>
+** [[_32_channels_for_elrs]]<<docs/elrs.de.adoc#_32_channels_for_elrs,32 Kanäle für ELRS>>
+** [[elrs-matrix]]<<docs/elrs.de.adoc#elrs-matrix,Funktionsmatrix>>
+** [[elrs-mods]]<<docs/elrs.de.adoc#elrs-mods,ELRS-Modifikationen und Pull Requests>>
+*** [[elrs-mods-v4]]<<docs/elrs.de.adoc#elrs-mods-v4,ExpressLRS V4>>
+*** [[elrs-ch32]]<<docs/elrs.de.adoc#elrs-ch32,32-Kanal-Erweiterung für ELRS V4>>
+*** [[elrs-escape32]]<<docs/elrs.de.adoc#elrs-escape32,Unterstützung für das Flashen / Einrichten von `ESCape32`-Reglern>>
+*** [[elrs-3rd-serial]]<<docs/elrs.de.adoc#elrs-3rd-serial,Dritte serielle Schnittstelle für ELRS V4>>
+*** [[elrs-esp-now]]<<docs/elrs.de.adoc#elrs-esp-now,CRSF über ESP-NOW für ELRS V4>>
+*** [[elrs-esp-bridge]]<<docs/elrs.de.adoc#elrs-esp-bridge,ESP32C3-mini als USB/ESP-NOW-Brücke>>
+*** [[elrs-rxtx-analog]]<<docs/elrs.de.adoc#elrs-rxtx-analog,ELRS-Empfänger als TX-Modul mit direkten Analogeingängen>>
+*** [[elrs-tx-relay]]<<docs/elrs.de.adoc#elrs-tx-relay,ELRS-Sender als CRSF-Relais in ELRS V4>>
+*** [[elrs-io-expand]]<<docs/elrs.de.adoc#elrs-io-expand,ELRS-Empfänger mit I2C-IO-Expander für MultiSwitch in ELRS V4>>
+*** [[_elrs_v3_modifications]]<<docs/elrs.de.adoc#_elrs_v3_modifications,ELRS-V3-Modifikationen>>
+**** [[elrs-route]]<<docs/elrs.de.adoc#elrs-route,Andere erweiterte Adressen als `0xc8` zulassen (nur Version 3.x.x)>>
+**** [[elrs_cs]]<<docs/building.de.adoc#elrs_cs,ExpressLRS mit `github` Codespaces kompilieren>>
+**** [[_use_gitpod_to_compile_expresslrs_not_recommended]]<<docs/building.de.adoc#_use_gitpod_to_compile_expresslrs_not_recommended,ExpressLRS mit `gitpod` kompilieren (nicht empfohlen)>>
+**** [[elrs_compile]]<<docs/building.de.adoc#elrs_compile,Kompilieren>>
+**** [[elrs_arm4]]<<docs/elrs.de.adoc#elrs_arm4,ELRS4: neue Arming-Methode für Version 3 (nur Version 3.x.x)>>
+**** [[elrs_perm_arm]]<<docs/elrs.de.adoc#elrs_perm_arm,ELRS4: dauerhaftes Arming (nur Version 3.x.x)>>
+**** [[elrs_sbus_flip]]<<docs/elrs.de.adoc#elrs_sbus_flip,ELRS, 32 Kanäle und SBus-Ausgabe (mit Kanalumschaltung) (nur Version 3.x.x)>>
+*** [[elrs_sumdv3]]<<docs/elrs.de.adoc#elrs_sumdv3,ELRS, SumDV3 und MultiSwitch (V4 und V3)>>
+*** [[elrs_pwm_msw]]<<docs/elrs.de.adoc#elrs_pwm_msw,Einen ELRS-PWM-Empfänger als MultiSwitch verwenden>>
+*** [[elrs_combined]]<<docs/elrs.de.adoc#elrs_combined,Kombinierte ELRS-Modifikationen>>
+**** [[_multiple_crsf_devices_connected_to_a_receiver]][[elrs_v4]]<<docs/elrs.de.adoc#elrs_v4,Mehrere CRSF-Geräte an einem Empfänger>>
+* [[escape32]]<<docs/escape32.de.adoc#,ESCape32: Firmware für eine Familie kleiner und mittlerer BLDC- und Bürstenmotorregler (Brushless-/Brushed-ESC)>>
+** [[_sine_startup]]<<docs/escape32.de.adoc#_sine_startup,Sinusförmiger Anlauf>>
+** [[_modifications]]<<docs/escape32.de.adoc#_modifications,Modifikationen>>
+*** [[esc32_mod]]<<docs/building.de.adoc#esc32_mod,Modifiziertes `ESCape32` in einem `github codespace` kompilieren>>
+*** [[esc32_batt]]<<docs/escape32.de.adoc#esc32_batt,Erweiterte `BATT`-Telemetrieframes (CRSF)>>
+** [[_hardware]]<<docs/escape32.de.adoc#_hardware,Hardware>>
+** [[_info]]<<docs/escape32.de.adoc#_info,Info>>
+* [[flysky-i6x-rs]]<<docs/flysky.de.adoc#flysky-i6x-rs,FlySky-I6X-rs: alternative Firmware für den FlySky-FS-I6X-Sender>>
+** [[_hardware_modifications]]<<docs/flysky.de.adoc#_hardware_modifications,Hardware-Modifikationen>>
+** [[_images_of_hardware_modifications]]<<docs/flysky.de.adoc#_images_of_hardware_modifications,Bilder der Hardware-Modifikationen>>
+* [[flysky-i6s-rs]]<<docs/flysky.de.adoc#flysky-i6s-rs,FlySky-I6S-rs: alternative Firmware für den FlySky-FS-I6S-Sender>>
+** [[_hardware_modifications_2]]<<docs/flysky.de.adoc#_hardware_modifications_2,Hardware-Modifikationen>>
+** [[_images_of_hardware_modifications_2]]<<docs/flysky.de.adoc#_images_of_hardware_modifications_2,Bilder der Hardware-Modifikationen>>
+* [[i6s-cpp]]<<docs/flysky.de.adoc#i6s-cpp,i6s-cpp: eine C++26-Portierung der FlySky-I6X-rs-/FlySky-I6S-rs-Firmware>>
+** [[i6s-cpp-design]]<<docs/flysky.de.adoc#i6s-cpp-design,Design>>
+** [[i6s-cpp-features]]<<docs/flysky.de.adoc#i6s-cpp-features,Funktionen>>
+** [[i6s-cpp-deviations]]<<docs/flysky.de.adoc#i6s-cpp-deviations,Unterschiede zur Rust-Firmware>>
+** [[i6s-cpp-build]]<<docs/flysky.de.adoc#i6s-cpp-build,Kompilieren>>
+* [[inav]]<<docs/inav.de.adoc#,INAV: Flugsteuerungssoftware mit Navigationsfunktionen>>
+** [[gitpod_wm]]<<docs/building.de.adoc#gitpod_wm,Quellcode meiner Projekte (`wmucpp`) kompilieren>>
+*** [[cs_wm]]<<docs/building.de.adoc#cs_wm,`github` Codespaces verwenden>>
+*** [[_using_gitpod_not_recommended]]<<docs/building.de.adoc#_using_gitpod_not_recommended,`gitpod` verwenden (nicht empfohlen)>>
+** [[corona]]<<docs/vhf-receivers.de.adoc#corona,Ersatzfirmware für den Corona RP8D1>>
+** [[varioprop]]<<docs/radio-mods.de.adoc#varioprop,Erneuertes Mainboard für einige (alte) 27/35/40MHz-RC-Sender>>
+*** [[_the_new_mainboard]]<<docs/radio-mods.de.adoc#_the_new_mainboard,Das neue Mainboard>>
+**** [[_previous_versions_of_the_new_mainboard]][[VarNG02]][[VarNG03]][[VarNG03pcbtop]][[VarNG03pcbbot]][[hardsw]][[gausssw]][[f14spec]][[grspec]]<<docs/radio-mods.de.adoc#_previous_versions_of_the_new_mainboard,Frühere Versionen des neuen Mainboards>>
+*** [[_the_new_switches_board]]<<docs/radio-mods.de.adoc#_the_new_switches_board,Die neue Schalterplatine>>
+*** [[_remote_control_the_remote_control_via_bluetooth]]<<docs/radio-mods.de.adoc#_remote_control_the_remote_control_via_bluetooth,Fernsteuerung der Fernsteuerung über Bluetooth>>
+*** [[_inside_the_housing]]<<docs/radio-mods.de.adoc#_inside_the_housing,Im Gehäuse>>
+** [[sdr]]<<docs/vhf-receivers.de.adoc#sdr,SDR-RC-Empfänger für 27/35/40MHz>>
+** [[x12s_touch]]<<docs/radio-mods.de.adoc#x12s_touch,Touchscreen für die FrSky X12S>>
+** [[sfrog]]<<docs/radio-mods.de.adoc#sfrog,SFrog-5D-Knüppel für die FrSky X12S>>
+** [[_modification_of_an_old_graupner_jr_40mhz_transmitter_rf_modul_for_use_in_e_g_a_radiomaster_tx16s_frsky_x12sx9e_or_similar]]<<docs/radio-mods.de.adoc#_modification_of_an_old_graupner_jr_40mhz_transmitter_rf_modul_for_use_in_e_g_a_radiomaster_tx16s_frsky_x12sx9e_or_similar,Umbau eines alten Graupner-/JR-40MHz-HF-Sendermoduls für z. B. RadioMaster TX16s, FrSky X12S/X9e oder ähnliche Sender>>
+** [[_brushed_dc_motor_controller_with_sensorless_measurement_of_rotational_speed]]<<docs/motor-controllers.de.adoc#_brushed_dc_motor_controller_with_sensorless_measurement_of_rotational_speed,Bürsten-Gleichstrommotorregler mit sensorloser Drehzahlmessung>>
+*** [[_rotational_speed_measurement]]<<docs/motor-controllers.de.adoc#_rotational_speed_measurement,Drehzahlmessung>>
+*** [[_version_1_max_8a_36v]]<<docs/motor-controllers.de.adoc#_version_1_max_8a_36v,Version 1: max. 8A / 36V>>
+**** [[bdc_S_sch]]<<docs/motor-controllers.de.adoc#bdc_S_sch,Schaltplan und Platine>>
+**** [[_images]]<<docs/motor-controllers.de.adoc#_images,Bilder>>
+*** [[_version_2_max_50a_36v]]<<docs/motor-controllers.de.adoc#_version_2_max_50a_36v,Version 2: max. 50A / 36V>>
+**** [[_µc_module]]<<docs/motor-controllers.de.adoc#_µc_module,µC-Modul>>
+**** [[_power_module]]<<docs/motor-controllers.de.adoc#_power_module,Leistungsmodul>>
+**** [[_images_2]]<<docs/motor-controllers.de.adoc#_images_2,Bilder>>
+** [[vesc]]<<docs/motor-controllers.de.adoc#vesc,V/ESC: die ultimative Firmware für mittlere und große BLDC-Motorregler (Brushless-ESC)>>
+** [[elrs_jr]]<<docs/rx-as-tx.de.adoc#elrs_jr,JR-Modulschachtadapter für ELRS-Empfänger als Sender>>
+*** [[_using_elrs_receivers_as_transmitter_modules]]<<docs/rx-as-tx.de.adoc#_using_elrs_receivers_as_transmitter_modules,ELRS-Empfänger als Sendermodule verwenden>>
+*** [[_esp8285_based_receivers]][[elrs_esp8285]]<<docs/rx-as-tx.de.adoc#_esp8285_based_receivers,ESP8285-basierte Empfänger>>
+*** [[_esp32_and_esp32c3_based_receivers]]<<docs/rx-as-tx.de.adoc#_esp32_and_esp32c3_based_receivers,ESP32- und ESP32C3-basierte Empfänger>>
+**** [[_using_expresslrs_configurator_to_flash_an_esp32c3_receiver_as_a_transmitter]][[elrs_esp32]]<<docs/rx-as-tx.de.adoc#_using_expresslrs_configurator_to_flash_an_esp32c3_receiver_as_a_transmitter,Einen ESP32/C3-Empfänger mit `expresslrs-configurator` als Sender flashen>>
+**** [[_using_platformio_cli_to_flash_an_esp32c3_receiver_as_a_transmitter]]<<docs/rx-as-tx.de.adoc#_using_platformio_cli_to_flash_an_esp32c3_receiver_as_a_transmitter,Einen ESP32/C3-Empfänger mit der `platformio`-`cli` als Sender flashen>>
+**** [[_outdated_information]]<<docs/rx-as-tx.de.adoc#_outdated_information,Veraltete Informationen>>
+*** [[_jr_module_bay_adapter]][[jr_elrs_sch]][[jr_elrs_pcb]][[jr_elrs_target]][[jr_elrs_la]]<<docs/rx-as-tx.de.adoc#_jr_module_bay_adapter,JR-Modulschachtadapter>>
+*** [[_assembling]]<<docs/rx-as-tx.de.adoc#_assembling,Zusammenbau>>
+*** [[_usages]]<<docs/rx-as-tx.de.adoc#_usages,Anwendungsbeispiele>>
+**** [[_jumper_t12]]<<docs/rx-as-tx.de.adoc#_jumper_t12,Jumper T12>>
+**** [[_frsky_x9e]]<<docs/rx-as-tx.de.adoc#_frsky_x9e,FrSky X9e>>
+** [[elrs_x12s]][[x12s_elrs_target]][[x12s_elrs_sch]][[x12s_elrs_pcb]]<<docs/rx-as-tx.de.adoc#elrs_x12s,Adapter für ELRS-Empfänger als internes XJT/ISRM-Modul für die FrSky X12S>>
+** [[elrs_i6x]][[elrx_i6x]]<<docs/flysky.de.adoc#elrs_i6x,ELRS für die FlySky-I6X>>
+*** [[_since_version_1_13]]<<docs/flysky.de.adoc#_since_version_1_13,Seit Version `1.13`>>
+*** [[_before_version_1_13]]<<docs/flysky.de.adoc#_before_version_1_13,Vor Version `1.13`>>
+*** [[_images_wiring_and_schematic]]<<docs/flysky.de.adoc#_images_wiring_and_schematic,Bilder, Verkabelung und Schaltplan>>
+** [[elrs_msw]]<<docs/multiswitch.de.adoc#elrs_msw,ELRS-MultiSwitch>>
+*** [[_in_the_old_days]]<<docs/multiswitch.de.adoc#_in_the_old_days,Früher>>
+*** [[_new_elrs_version]]<<docs/multiswitch.de.adoc#_new_elrs_version,Neue ELRS-Version>>
+**** [[_overview]]<<docs/multiswitch.de.adoc#_overview,Übersicht>>
+**** [[_puzzeling_parts]]<<docs/multiswitch.de.adoc#_puzzling_parts,Knifflige Aspekte>>
+**** [[_design]]<<docs/multiswitch.de.adoc#_design,Design>>
+**** [[mswe8]]<<docs/multiswitch.de.adoc#mswe8,MultiSwitch-E8>>
+**** [[_housing]]<<docs/multiswitch.de.adoc#_housing,Gehäuse>>
+**** [[_super_simple_multiswitch_elrscrsf_flyskysbus_flyskyibus_frskysbus_frskys_port_graupnersumdv3]]<<docs/multiswitch.de.adoc#_super_simple_multiswitch_elrscrsf_flyskysbus_flyskyibus_frskysbus_frskys_port_graupnersumdv3,Besonders einfacher MultiSwitch (ELRS/CRSF, FlySky/SBus, FlySky/IBus, FrSky/SBus, FrSky/S.Port, Graupner/SumDV3)>>
+**** [[ssmsw]]<<docs/multiswitch.de.adoc#ssmsw,Platine mit 16 Ausgängen>>
+**** [[msw_nucleo]]<<docs/multiswitch.de.adoc#msw_nucleo,STM32G031F8-Nucleo-Board als MultiSwitch>>
+**** [[msw_weact]]<<docs/multiswitch.de.adoc#msw_weact,WeAct STM32G031F8 als MultiSwitch>>
+**** [[msw_tht]]<<docs/multiswitch.de.adoc#msw_tht,WeAct STM32G031F8 als MultiSwitch mit THT-Platine>>
+**** [[msw_widget_ng]]<<docs/multiswitch.de.adoc#msw_widget_ng,MultiSwitch NG Widget>>
+**** [[msw_widget]]<<docs/multiswitch.de.adoc#msw_widget,MultiSwitch Widget>>
+**** [[msw_bw]]<<docs/multiswitch.de.adoc#msw_bw,MultiSwitch-Telemetrieskript>>
+**** [[crsf_enc]]<<docs/multiswitch.de.adoc#crsf_enc,CRSF-Kodierung>>
+**** [[sport_enc]]<<docs/multiswitch.de.adoc#sport_enc,S.Port-Kodierung>>
+**** [[sbus_enc]]<<docs/multiswitch.de.adoc#sbus_enc,Einfache (unzuverlässige) SBus-Kodierung>>
+** [[led4x4]]<<docs/crsf-devices.de.adoc#led4x4,LED-4x4-Modul>>
+*** [[_schematic]]<<docs/crsf-devices.de.adoc#_schematic,Schaltplan>>
+*** [[_pcb]]<<docs/crsf-devices.de.adoc#_pcb,PCB>>
+*** [[_firmware]]<<docs/crsf-devices.de.adoc#_firmware,Firmware>>
+*** [[_production_data]]<<docs/crsf-devices.de.adoc#_production_data,Fertigungsdaten>>
+** [[crsf-bus]][[crsf_hd_scheme]]<<docs/protocols.de.adoc#crsf-bus,CRSF-Halbduplex-Bus>>
+*** [[_demo_video]]<<docs/protocols.de.adoc#_demo_video,Demo (Video)>>
+** [[rc720e]]<<docs/cruise-control.de.adoc#rc720e,Doppelte Schottel-Steuerung (auch Cruise-Controller genannt)>>
+*** [[_demo_video_2]]<<docs/cruise-control.de.adoc#_demo_video,Demo (Video)>>
+*** [[_schematics]]<<docs/cruise-control.de.adoc#_schematics,Schaltpläne>>
+*** [[_pcb_2]]<<docs/cruise-control.de.adoc#_pcb,PCB>>
+*** [[_firmware_2]]<<docs/cruise-control.de.adoc#_firmware,Firmware>>
+*** [[_widget]]<<docs/cruise-control.de.adoc#_widget,Widget>>
+** [[crsf-switch]]<<docs/crsf-devices.de.adoc#crsf-switch,CRSF-Switch / Router>>
+** [[elrs-relay]]<<docs/elrs.de.adoc#elrs-relay,ELRS-Relaiskonfiguration>>
+** [[elrs_ma]]<<docs/crsf-devices.de.adoc#elrs_ma,ELRS-MultiAdapter-EA>>
+** [[CC]]<<docs/cruise-control.de.adoc#CC,Der `CruiseController`>>
+** [[hwext]]<<docs/protocols.de.adoc#hwext,Hardware-Erweiterungsprotokoll>>
+*** [[_physical_layer]]<<docs/protocols.de.adoc#_physical_layer,Physikalische Schicht>>
+*** [[_application_layer]]<<docs/protocols.de.adoc#_application_layer,Anwendungsschicht>>
+**** [[_packet_format]]<<docs/protocols.de.adoc#_packet_format,Paketformat>>
+**** [[hwext_timing]]<<docs/protocols.de.adoc#hwext_timing,Multi-Master-Timing>>
+** [[hwlua]]<<docs/protocols.de.adoc#hwlua,LUA-Skript für das Hardware-Erweiterungsprotokoll>>
+*** [[_new_version_of_the_lua_script_for_the_hardware_extension_protocol]]<<docs/protocols.de.adoc#_new_version_of_the_lua_script_for_the_hardware_extension_protocol,Neue Version des LUA-Skripts für das Hardware-Erweiterungsprotokoll>>
+*** [[_old_version]][[hwluaimg1]][[hwluaimg2]]<<docs/protocols.de.adoc#_old_version,Alte Version>>
+** [[extswitch]][[hwattiny1]][[hwattiny2]][[hwattiny3]][[hwattiny4]]<<docs/radio-mods.de.adoc#extswitch,Der interne Schaltercontroller der TX16s>>
+*** [[_code]]<<docs/radio-mods.de.adoc#_code,Code>>
+*** [[_stick_end_switches]]<<docs/radio-mods.de.adoc#_stick_end_switches,Schalter an den Knüppelenden>>
+** [[rcdesk]]<<docs/rc-desk.de.adoc#rcdesk,Das RC-Desk (für RadioMaster TX16S, FrSky X12S, X9E, ...)>>
+** [[rcdesk32mini]]<<docs/rc-desk.de.adoc#rcdesk32mini,Das RC-Desk mini (für RadioMaster TX16S, TX15, FrSky X12S, X9E, ...)>>
+** [[rcrelay32]][[relay_img01]][[relay_img02]][[relay_img03]][[relay_menu04]][[relay_menu01]][[relay_menu02]][[relay_menu03]]<<docs/crsf-devices.de.adoc#rcrelay32,RC-Relay32: ein CRSF-Relais>>
+*** [[multi-part-model]]<<docs/crsf-devices.de.adoc#multi-part-model,Das Problem mehrteiliger Modelle>>
+** [[devg0b1]][[devg0b1img]]<<docs/misc.de.adoc#devg0b1,WM-STM32G0B1-Entwicklungsboard>>
+** [[crsfserialservo]][[serialservo01]][[serialservo02]][[serialservo03]]<<docs/crsf-devices.de.adoc#crsfserialservo,Der CRSF-zu-Serial-Servo-Konverter>>
+** [[mortimer]]<<docs/inav.de.adoc#mortimer,Selbstbalancierender Roboter als inverses Pendel mit INav (Projekt: Mortimer)>>
+** [[haptic]]<<docs/radio-mods.de.adoc#haptic,Ein neuartiger Steuerknüppel: haptische Steuerung>>
+** [[_simple_rc_main_power_latched_switch]]<<docs/misc.de.adoc#_simple_rc_main_power_latched_switch,Einfacher selbsthaltender RC-Hauptschalter>>
+* [[oix6]]<<docs/flysky.de.adoc#oix6,Openix6>>
+** [[_firmware_3]]<<docs/flysky.de.adoc#_firmware,Firmware>>
+** [[_compiling]]<<docs/flysky.de.adoc#_compiling,Kompilieren>>
+** [[_flashing]]<<docs/flysky.de.adoc#_flashing,Flashen>>
+* [[gear]]<<docs/gear.de.adoc#,Aktuelle Ausstattung>>
+** [[_radiomaster]]<<docs/gear.de.adoc#_radiomaster,RadioMaster>>
+*** [[_tx16s_mk3]]<<docs/gear.de.adoc#_tx16s_mk3,TX16S MK3>>
+*** [[_tx15]]<<docs/gear.de.adoc#_tx15,TX15>>
+*** [[_mt12]]<<docs/gear.de.adoc#_mt12,MT12>>
+*** [[_tx16s]]<<docs/gear.de.adoc#_tx16s,TX16S>>
+*** [[_desk_for_the_tx16s]]<<docs/gear.de.adoc#_desk_for_the_tx16s,Senderpult für die TX16s>>
+** [[_flysky]]<<docs/gear.de.adoc#_flysky,FlySky>>
+*** [[_fs_i6x]]<<docs/gear.de.adoc#_fs_i6x,FS-i6X>>
+** [[_jumper]]<<docs/gear.de.adoc#_jumper,Jumper>>
+*** [[_t12]]<<docs/gear.de.adoc#_t12,T12>>
+** [[_frsky]]<<docs/gear.de.adoc#_frsky,FrSky>>
+*** [[_x9e]]<<docs/gear.de.adoc#_x9e,X9e>>
+*** [[_x12s]]<<docs/gear.de.adoc#_x12s,X12S>>
+** [[_graupnersj]]<<docs/gear.de.adoc#_graupnersj,Graupner/SJ>>
+*** [[_mc_16]]<<docs/gear.de.adoc#_mc_16,MC-16>>
+* [[vintage]]<<docs/vintage.de.adoc#,Historische RC-Technik>>
+** [[_graupner_grundig_jr]]<<docs/vintage.de.adoc#_graupner_grundig_jr,Graupner / Grundig / JR>>
+*** [[gr_txs]][[varioprop_black]][[varioprop_yellow]][[varioprop_red]]<<docs/vintage.de.adoc#gr_txs,Sender>>
+*** [[_receiver]]<<docs/vintage.de.adoc#_receiver,Empfänger>>
+*** [[_other]]<<docs/vintage.de.adoc#_other,Sonstiges>>
+** [[_robbe_futaba]]<<docs/vintage.de.adoc#_robbe_futaba,Robbe / Futaba>>
+*** [[rb_txs]][[robbe_f14]]<<docs/vintage.de.adoc#rb_txs,Sender>>
+*** [[_receiver_2]]<<docs/vintage.de.adoc#_receiver_2,Empfänger>>
+*** [[_other_2]]<<docs/vintage.de.adoc#_other_2,Sonstiges>>
+** [[_other_3]]<<docs/vintage.de.adoc#_other_3,Sonstiges>>
+*** [[_transmitter]]<<docs/vintage.de.adoc#_transmitter,Sender>>
+*** [[_receiver_3]]<<docs/vintage.de.adoc#_receiver_3,Empfänger>>
+*** [[_other_4]]<<docs/vintage.de.adoc#_other_4,Sonstiges>>
+* [[videos]]<<docs/videos.de.adoc#,Videos nach Projekt>>
+** [[vg-crsf-devices]]<<docs/videos.de.adoc#vg-crsf-devices,CRSF-Geräte>>
+** [[vg-multiswitch]]<<docs/videos.de.adoc#vg-multiswitch,MultiSwitch>>
+** [[vg-cruise-control]]<<docs/videos.de.adoc#vg-cruise-control,Cruise-Controller>>
+** [[vg-elrs]]<<docs/videos.de.adoc#vg-elrs,ExpressLRS>>
+** [[vg-rx-as-tx]]<<docs/videos.de.adoc#vg-rx-as-tx,ELRS-Empfänger als Sendermodule>>
+** [[vg-edgetx]]<<docs/videos.de.adoc#vg-edgetx,EdgeTx und Protokolle>>
+** [[vg-flysky]]<<docs/videos.de.adoc#vg-flysky,FlySky>>
+** [[vg-inav]]<<docs/videos.de.adoc#vg-inav,INAV>>
+** [[vg-motor-controllers]]<<docs/videos.de.adoc#vg-motor-controllers,Motorregler>>
+** [[vg-rc-desk]]<<docs/videos.de.adoc#vg-rc-desk,RC-Desk>>
+** [[vg-radio-mods]]<<docs/videos.de.adoc#vg-radio-mods,Senderumbauten>>
+** [[vg-vhf]]<<docs/videos.de.adoc#vg-vhf,Empfänger für 27/35/40MHz>>
+** [[vg-misc]]<<docs/videos.de.adoc#vg-misc,Sonstiges>>
+** [[vg-weekly]]<<docs/videos.de.adoc#vg-weekly,OpenTx / EdgeTx weekly (Anleitungen)>>
+
+[[_license]]
+== Lizenz
+
+Siehe link:LICENSE[Lizenz], sofern keine anderen Lizenzen gelten (z. B. im Quellcode).
+
+[[_contact]]
+== Kontakt
+
+mailto:wilhelm.wm.meier@googlemail.com[E-Mail]

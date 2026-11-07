@@ -11,6 +11,8 @@ Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 :caution-caption: :fire:
 :warning-caption: :warning:
 
+*English* | <<building.de.adoc#,Deutsch>>
+
 <<../README.adoc#,RC Electronics>> / Building firmware
 
 [NOTE]

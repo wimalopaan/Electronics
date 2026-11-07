@@ -3,6 +3,8 @@ Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 :tip-caption: :bulb:
 :note-caption: :information_source:
 
+*English* | <<project-template.de.adoc#,Deutsch>>
+
 <<../README.adoc#,RC Electronics>> / Project template
 
 Every project section uses the same structure, so readers find the same information in the same place.

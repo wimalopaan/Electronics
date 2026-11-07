@@ -1,0 +1,57 @@
+= Projektvorlage
+Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:lang: de
+:toc-title: Inhaltsverzeichnis
+:figure-caption: Abbildung
+:table-caption: Tabelle
+:example-caption: Beispiel
+
+<<project-template.adoc#,English>> | *Deutsch*
+
+<<../README.de.adoc#,RC-Elektronik>> / Projektvorlage
+
+Jeder Projektabschnitt verwendet dieselbe Struktur, damit die Leser dieselben Informationen immer an derselben Stelle finden.
+Kopiere das folgende Grundgerüst in das entsprechende Dokument unter `docs/` und füge der Tabelle zum
+<<../README.de.adoc#project-status,Projektstatus>> in der README eine Zeile hinzu.
+
+[NOTE]
+--
+Es werden nur die Zeilen benötigt, die auf das Projekt zutreffen. Statuswerte: `🟢 aktiv`, `🔵 stabil`, `🟡 experimentell`, `📝 geplant`, `⚪ abgelöst`.
+--
+
+[source,asciidoc]
+....
+[[my-project]]
+== Mein Projekt
+
+[caption=""]
+.Projektinfo
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 aktiv
+| Hardware | https://oshwlab.com/...[OSHWLab], link:../images/my-project/board.zip[Gerber/BOM (zip)]
+| Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/myProject[wmucpp: `boards/myProject`]
+| Software | LUA-Widget / Mischerskript
+| Konfiguration | CRSF-Menü am Sender / ELRS Buddy / WLAN
+| Video | https://www.youtube.com/...[YouTube]
+| Siehe auch | <<other.de.adoc#anchor,verwandtes Projekt>>
+|===
+
+Zweck: Was das Projekt tut und warum (2-3 Sätze).
+
+=== Hardware
+
+Schaltplan, Platine, Bilder, Fertigungsdaten.
+
+=== Firmware
+
+Wo sich der Quellcode befindet, wie er kompiliert wird (Link zu <<building.de.adoc#,Firmware kompilieren>>) und wie die Firmware geflasht wird.
+
+=== Konfiguration und Verwendung
+
+Einstellungen, CRSF-Menü, Widgets, typische Konfigurationen.
+
+=== Vorführung (Video)
+....

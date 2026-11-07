@@ -1,0 +1,73 @@
+= Empfänger für 27/35/40MHz
+Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
+:toc:
+:toclevels: 3
+:toc-placement!:
+:sectnums:
+:sectnumlevels: 5
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+:lang: de
+:toc-title: Inhaltsverzeichnis
+:figure-caption: Abbildung
+:table-caption: Tabelle
+:example-caption: Beispiel
+
+<<vhf-receivers.adoc#,English>> | *Deutsch*
+
+<<../README.de.adoc#,RC-Elektronik>> / Empfänger für 27/35/40MHz
+
+[NOTE]
+--
+Alternative Firmware für den Corona RP8D1 und SDR-Empfänger.
+--
+
+toc::[]
+
+[[corona]]
+== Alternative Firmware für den Corona RP8D1
+
+[caption=""]
+.Projektinfo
+[cols="1h,5",width="100%"]
+|===
+| Status | 🔵 stabil
+| Firmware | https://github.com/wimalopaan/CoronaRP8D1[wimalopaan/CoronaRP8D1]
+| Video | https://www.youtube.com/watch?v=q5oiHTnkp-k[2024-03-18], https://www.youtube.com/watch?v=cUGIk_Ka3Hw[2024-03-23], <<videos.de.adoc#v-corona,alle Videos (2)>>
+|===
+
+
+Den Empfänger `Corona RP8D1` gibt es in mehreren Varianten, für das 35MHz-Band, das 40MHz- und das 72MHz-Band (soweit ich weiß).
+Der Grund dafür, dass ich beträchtlich viel Zeit in die Entwicklung einer neuen Firmware für diesen Empfänger investiere, ist, dass ich
+alte RC-Elektronik _horte_. Leider funktionierten einige dieser Geräte nicht mehr. Beim
+Überarbeiten dieser Geräte brauchte ich einen guten Empfänger und entschied mich für einen Scan-Empfänger ohne externe Quarze. Es stellte sich jedoch heraus,
+dass die meist hilfreiche Signalfilterung des `Corona`-Empfängers die Situation verschlechtert, wenn man solche
+Mehrkanal-Encoder in den Sendern einsetzen möchte. Diese Encoder erzeugen ein Zeitmultiplexsignal auf einem RC-Kanal, und der zugehörige Decoder
+kann dieses Zeitmultiplexsignal nicht dekodieren, wenn der Empfänger die Impulsdauern verändert / filtert. So begann das Projekt ;-)
+
+Für dieses Projekt gibt es ein eigenes Repository https://github.com/wimalopaan/CoronaRP8D1[].
+
+Um das Kompilieren zu erleichtern, habe ich einen Gitpod eingerichtet: https://gitpod.io/#https://github.com/wimalopaan/CoronaRP8D1[]
+
+[[sdr]]
+== SDR-RC-Empfänger für 27/35/40MHz
+
+[caption=""]
+.Projektinfo
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟡 experimentell
+|===
+
+
+Mein ambitioniertestes Projekt. Der Ursprung liegt ebenfalls in <<corona>>. Ziel ist es, einen SDR als I/Q-Mischer (Tayloe-Mischer) mit Null-ZF und einem STM32G431 zu entwickeln, der die gesamte
+digitale Signalverarbeitung übernimmt.
+
+Derzeit funktioniert dies für ppm/pcm-Modulation im Nahfeld des Senders.
+
+Verbleibende Probleme sind die Empfindlichkeit und die AGC.
+
+Es gibt noch keine Dokumentation.

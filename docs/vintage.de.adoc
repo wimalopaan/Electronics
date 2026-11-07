@@ -1,0 +1,122 @@
+= Historische RC-Technik
+Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
+:toc:
+:toclevels: 3
+:toc-placement!:
+:sectnums:
+:sectnumlevels: 5
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+:lang: de
+:toc-title: Inhaltsverzeichnis
+:figure-caption: Abbildung
+:table-caption: Tabelle
+:example-caption: Beispiel
+
+<<vintage.adoc#,English>> | *Deutsch*
+
+<<../README.de.adoc#,RC-Elektronik>> / Historische RC-Technik
+
+[NOTE]
+--
+Historische RC-Ausrüstung.
+--
+
+toc::[]
+
+[[_graupner_grundig_jr]]
+== Graupner / Grundig / JR
+
+[[gr_txs]]
+=== Sender
+
+.MiniProp4-Sender
+image::../images/retro/miniprop1.jpg[width=480]
+
+.MiniProp4-Empfänger
+image::../images/retro/miniprop2.jpg[width=480]
+
+.Varioprop Expert Modulsystem FM 6014
+image::../images/retro/Graupner6014.jpg[width=480]
+
+.Varioprop Graupner Grundig 12S
+image::../images/retro/Varioprop12S.jpg[width=480]
+
+.Varioprop Graupner Grundig T14 Expert Modulsystem
+image::../images/retro/Varioprop14_Expert.jpg[width=480]
+
+.Varioprop Graupner Grundig 14S 27MHz
+image::../images/retro/Varioprop14S_schwarz27.jpg[width=480]
+
+[[varioprop_black]]
+.Varioprop Graupner Grundig 8S 40MHz
+image::../images/retro/Varioprop8S_schwarz.jpg[width=480]
+
+[[varioprop_yellow]]
+.Varioprop Graupner Grundig 8S 27MHz
+image::../images/retro/Varioprop8S.jpg[width=480]
+
+[[varioprop_red]]
+.Varioprop Graupner Grundig C8 27MHz
+image::../images/retro/VariopropC8.jpg[width=480]
+
+[[_receiver]]
+=== Empfänger
+
+.Varioprop miniSuperhet FM 40S
+image::../images/retro/RX01.jpg[width=480]
+
+.Varioprop miniSuperhet 27MHz
+image::../images/retro/RX02.jpg[width=480]
+
+.Varioprop miniSuperhet FM 35S
+image::../images/retro/RX03.jpg[width=480]
+
+[[_other]]
+=== Sonstiges
+
+.Varioprop Fahrtregler
+image::../images/retro/ESC_Varioprop.jpg[width=480]
+
+[[_robbe_futaba]]
+== Robbe / Futaba
+
+[[rb_txs]]
+=== Sender
+
+.Robbe Promars
+image::../images/retro/promars.jpg[width=480]
+
+.Robbe digital4
+image::../images/retro/RobbeDigital4.jpg[width=480]
+
+[[robbe_f14]]
+.Robbe Futaba F-14 Navy 40MHz
+image::../images/retro/FutabaF14.jpg[width=480]
+
+[[_receiver_2]]
+=== Empfänger
+
+[[_other_2]]
+=== Sonstiges
+
+[[_other_3]]
+== Sonstiges
+
+[[_transmitter]]
+=== Sender
+
+[[_receiver_3]]
+=== Empfänger
+
+[[_other_4]]
+=== Sonstiges
+
+.Model Craft Fahrtregler
+image::../images/retro/ESC_Modellcraft.jpg[width=480]
+
+.hitec Fahrtregler
+image::../images/retro/ESC_hitec.jpg[width=480]

@@ -1,0 +1,376 @@
+= FlySky FS-i6X / FS-i6S
+Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
+:toc:
+:toclevels: 3
+:toc-placement!:
+:sectnums:
+:sectnumlevels: 5
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+:lang: de
+:toc-title: Inhaltsverzeichnis
+:figure-caption: Abbildung
+:table-caption: Tabelle
+:example-caption: Beispiel
+
+<<flysky.adoc#,English>> | *Deutsch*
+
+<<../README.de.adoc#,RC-Elektronik>> / FlySky FS-i6X / FS-i6S
+
+[NOTE]
+--
+Alternative Firmware für FlySky FS-i6X/FS-i6S (Rust und die C++26-Portierung i6s-cpp), ELRS für den FS-i6X, Openix6.
+--
+
+toc::[]
+
+[[flysky-i6x-rs]]
+== FlySky-I6X-rs: eine alternative Firmware für den Sender FlySky FS-I6X
+
+[caption=""]
+.Projektinfo
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 aktiv
+| Firmware | https://github.com/ferrox-rc/flysky-i6x-rs[ferrox-rc/flysky-i6x-rs]
+| Video | https://www.youtube.com/watch?v=7YuYtvskK0I[2026-09-30], https://www.youtube.com/watch?v=2TSJ0OFOgvg[2026-10-04], <<videos.de.adoc#v-flysky-i6x-rs,alle Videos (2)>>
+| Siehe auch | https://ferroxrc.com[ferroxrc.com], https://www.youtube.com/@wilhelmmeier6124/videos[Videos], <<i6s-cpp,C++26-Portierung i6s-cpp>>
+|===
+
+
+Projekt: https://ferroxrc.com[]
+
+Github: https://github.com/ferrox-rc/flysky-i6x-rs[]
+
+Dieses Projekt ist eine Ersatz-Firmware für den Sender FySky FS-I6S.
+
+Sie wurde vollständig von Grund auf in _Rust_ geschrieben. Sie bietet deutlich mehr Funktionen als die ursprüngliche FlySky-Senderfirmware (ähnlich wie <<oix6>>),
+hat aber im Vergleich zu beispielsweise <<oix6>> ein völlig anderes Konzept.
+
+Auf meinem https://www.youtube.com/@wilhelmmeier6124/videos[YouTube]-Kanal gibt es einige Videos zu den Hardware-Modifikationen und zur Firmware selbst.
+
+[[_hardware_modifications]]
+=== Hardware-Modifikationen
+
+Diese Firmware ermöglicht dieselben Hardware-Modifikationen wie <<oix6>>, aber auch einige weitere Änderungen.
+
+* SWA...SWD durch 2-Stufen-/3-Stufen-Schalter oder Potentiometer ersetzen
+* zwei zusätzliche, rein digitale Schalter SWE / SWF hinzufügen
+* bis zu vier analoge Eingänge (Potentiometer) VRC...VRF hinzufügen
+* ein externes HF-Modul mit Voll- oder Halbduplex hinzufügen
+* einen Versorgungsschalter mit positiver / negativer Schaltpolarität für das externe HF-Modul hinzufügen
+
+[[_images_of_hardware_modifications]]
+=== Bilder der Hardware-Modifikationen
+
+.Innenansicht (zum Vergrößern anklicken)
+image::../ferrox/fsi6x_mod1.jpg[width=240, link="../ferrox/fsi6x_mod1.jpg"]
+
+.Potentiometer (zum Vergrößern anklicken)
+image::../ferrox/fsi6x_mod2.jpg[width=240, link="../ferrox/fsi6x_mod2.jpg"]
+
+.Analoganschluss (zum Vergrößern anklicken)
+image::../ferrox/fsi6x_mod3.jpg[width=240, link="../ferrox/fsi6x_mod3.jpg"]
+
+.Außenansicht (zum Vergrößern anklicken)
+image::../ferrox/fsi6x_mod4.jpg[width=240, link="../ferrox/fsi6x_mod4.jpg"]
+
+.Potentiometer links (zum Vergrößern anklicken)
+image::../ferrox/fsi6x_mod5.jpg[width=240, link="../ferrox/fsi6x_mod5.jpg"]
+
+.Potentiometer rechts (zum Vergrößern anklicken)
+image::../ferrox/fsi6x_mod6.jpg[width=240, link="../ferrox/fsi6x_mod6.jpg"]
+
+.Taster SE/SF auf der Rückseite (zum Vergrößern anklicken)
+image::../ferrox/fsi6x_mod7.jpg[width=240, link="../ferrox/fsi6x_mod7.jpg"]
+
+.Menü (zum Vergrößern anklicken)
+image::../ferrox/fsi6x_mod8.jpg[width=240, link="../ferrox/fsi6x_mod8.jpg"]
+
+
+[[flysky-i6s-rs]]
+== FlySky-I6S-rs: eine alternative Firmware für den Sender FlySky FS-I6S
+
+[caption=""]
+.Projektinfo
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 aktiv
+| Firmware | https://github.com/ferrox-rc/flysky-i6s-rs[ferrox-rc/flysky-i6s-rs]
+| Video | https://www.youtube.com/watch?v=YNmbtbyfR2w[2026-10-11], https://www.youtube.com/watch?v=tevIXoXirtI[2026-10-25], <<videos.de.adoc#v-flysky-i6s-rs,alle Videos (2)>>
+| Siehe auch | https://ferroxrc.com[ferroxrc.com], https://www.youtube.com/@wilhelmmeier6124/videos[Videos], <<i6s-cpp,C++26-Portierung i6s-cpp>>
+|===
+
+
+Projekt: https://ferroxrc.com[]
+
+Github: https://github.com/ferrox-rc/flysky-i6s-rs[]
+
+Dieses Projekt ist eine Ersatz-Firmware für den Sender FySky FS-I6S.
+
+Da dieser Sender nicht genügend physische Taster hat, aber über einen Touch-Controller verfügt, erfolgt die Bedienung der Benutzeroberfläche
+über eine Kombination aus Touch-Gesten und den beiden Tastern auf der Rückseite des Senders.
+
+Auf meinem https://www.youtube.com/@wilhelmmeier6124/videos[YouTube]-Kanal gibt es einige Videos zu den Hardware-Modifikationen und zur Firmware selbst.
+
+[[_hardware_modifications_2]]
+=== Hardware-Modifikationen
+
+Diese Firmware ermöglicht dieselben Hardware-Modifikationen wie <<oix6>>, aber auch einige weitere Änderungen.
+
+* SWA...SWD durch 2-Stufen-/3-Stufen-Schalter oder Potentiometer ersetzen
+* bis zu fünf analoge Eingänge (Potentiometer oder 2-Stufen-/3-Stufen-/6-Stufen-Schalter) VRC...VRG hinzufügen
+* zwei 2-Stufen-Schalter SG und SH hinzufügen (zusätzlich zu SE/SF auf der Rückseite des Senders)
+* ein externes CRSF-HF-Modul mit Voll- oder Halbduplex hinzufügen
+* einen Versorgungsschalter mit positiver / negativer Schaltpolarität für das externe HF-Modul hinzufügen
+
+[[_images_of_hardware_modifications_2]]
+=== Bilder der Hardware-Modifikationen
+
+.Übersichtsseite (zum Vergrößern anklicken)
+image::../ferrox/fsi6s_mod1.jpg[width=240, link="../ferrox/fsi6s_mod1.jpg"]
+
+.Außenansicht (zum Vergrößern anklicken)
+image::../ferrox/fsi6s_mod2.jpg[width=240, link="../ferrox/fsi6s_mod2.jpg"]
+
+.Außenansicht (zum Vergrößern anklicken)
+image::../ferrox/fsi6s_mod3.jpg[width=240, link="../ferrox/fsi6s_mod3.jpg"]
+
+.Die fünf zusätzlichen ADC-Kanäle (zum Vergrößern anklicken)
+image::../ferrox/fsi6s_mod4.jpg[width=240, link="../ferrox/fsi6s_mod4.jpg"]
+
+.Der High-Side-Schalter für das externe HF-Modul (zum Vergrößern anklicken)
+image::../ferrox/fsi6s_mod5.jpg[width=240, link="../ferrox/fsi6s_mod5.jpg"]
+
+.Ein ELRS-Rx-as-Tx (TuneRC Nano PA 100mW) (zum Vergrößern anklicken)
+image::../ferrox/fsi6s_mod6.jpg[width=240, link="../ferrox/fsi6s_mod6.jpg"]
+
+.Spannungsteiler für den 3-Stufen-Schalter (zum Vergrößern anklicken)
+image::../ferrox/fsi6s_mod7.jpg[width=240, link="../ferrox/fsi6s_mod7.jpg"]
+
+.Anschluss des 3-Stufen-Schalters als 2 Schalter mit je 2 Stufen am SWD-Steckverbinder J4 (zum Vergrößern anklicken)
+image::../ferrox/fsi6s_mod8.jpg[width=240, link="../ferrox/fsi6s_mod8.jpg"]
+
+.Bidirektionaler Anschluss des HF-Moduls an J15 (zum Vergrößern anklicken)
+image::../ferrox/fsi6s_mod9.jpg[width=240, link="../ferrox/fsi6s_mod9.jpg"]
+
+[[i6s-cpp]]
+== i6s-cpp: eine C++26-Portierung der Firmware FlySky-I6X-rs / FlySky-I6S-rs
+
+[caption=""]
+.Projektinfo
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟢 aktiv
+| Firmware | https://github.com/wimalopaan/i6s-cpp[wimalopaan/i6s-cpp] (AGPL-3.0)
+| Konfiguration | Menüs am Sender, Parameterbrowser für das CRSF-Modul, USB-CDC-Kommandozeile
+| Siehe auch | <<flysky-i6x-rs>>, <<flysky-i6s-rs>>, <<building.de.adoc#,Firmware kompilieren>>
+|===
+
+Dieses Projekt portiert die _Rust_-Firmware <<flysky-i6x-rs>> und <<flysky-i6s-rs>> nach C++26.
+Eine gemeinsame Codebasis unterstützt beide Sender; die Platine wird beim Kompilieren ausgewählt.
+
+Die Firmware wird auf echter Hardware getestet.
+
+[[i6s-cpp-design]]
+=== Entwurf
+
+* ausschließlich CMSIS (keine HAL)
+* `constexpr` / `consteval`, wo immer möglich
+* ausschließlich statischer Polymorphismus (keine virtuellen Funktionen), kein Heap, keine Exceptions, kein RTTI
+* reine Logik (`src/wm/logic/`, `src/wm/util/`) ist von den Hardware-Treibern (`src/wm/hw/`) getrennt und wird auf dem Host getestet
+* Zielplattform: STM32F072 (Cortex-M0), kompiliert mit clang und `-Oz`
+
+[[i6s-cpp-features]]
+=== Funktionen
+
+Alle Teile der Rust-Firmware sind portiert:
+
+* HF: AFHDS 2A (A7105) und ein externes CRSF-Modul (Voll- oder Halbduplex), einschließlich des CRSF-Parametermenüs für das Modul
+* Mischer, Dual Rate / Expo, Gaskurve, Flächenmischer, Zusatzkanäle, Trimmungen, Kalibrierung, Sicherheits- / Vorflugprüfungen
+* Telemetrie (AFHDS 2A und CRSF), Vario, Flugtimer, Übersichtsseiten P1 bis P5
+* Modellspeicher mit A/B-Slots im I2C-EEPROM, Modellkopie, Migration älterer EEPROM-Layouts
+* USB: HID-Gamepad (Simulatormodus) und serielle CDC-Schnittstelle (Kommandozeile, Telemetrie)
+* Lehrer-Schüler-Anschluss (PPM)
+* FS-i6S: Selbsthaltung der Stromversorgung, Touch-Navigation (FT6236), rückseitige Potentiometer VRA/VRB als Drehräder, rückseitige Taster, SG/SH, VRC..VRG
+
+Die Hardware-Modifikationen sind dieselben wie bei der Rust-Firmware: siehe <<_hardware_modifications,FS-i6X>>
+und <<_hardware_modifications_2,FS-i6S>>.
+
+[[i6s-cpp-deviations]]
+=== Unterschiede zur Rust-Firmware
+
+* CRSF: Die Telemetriekacheln VSPD und ALT zeigen CRSF-Daten statt AFHDS-2A-Daten.
+* FS-i6S: Die Verfügbarkeit von SE/SF richtet sich nach der Funktion der rückseitigen Taster; Timer- und Mischerschalter akzeptieren alle
+  Schaltbedingungen bis SWM.
+* Einige kleine Besonderheiten der Rust-Benutzeroberfläche sind nicht portiert (Zeilenreihenfolge von „Protocol“/„Vario“, Zeile „Audio Test“
+  in den Vario-Einstellungen).
+
+Die vollständige Liste steht in der https://github.com/wimalopaan/i6s-cpp#known-deviations-from-rust[README] des Repositorys.
+
+[[i6s-cpp-build]]
+=== Kompilieren
+
+Benötigt werden CMake (>= 3.20), clang mit C++26-Unterstützung und die `arm-none-eabi-gcc`-Toolchain (für die Bibliotheken).
+
+----
+cmake -S . -B build-fw -DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-clang.cmake -DCMAKE_BUILD_TYPE=MinSizeRel -DPCB=I6X
+cmake --build build-fw
+----
+
+[cols="1m,3",options="header"]
+|===
+| Option | Bedeutung
+| PCB=I6X | FlySky FS-i6X (Standard), Ausgabe `i6x_fw.hex`
+| PCB=I6S | FlySky FS-i6S, Ausgabe `i6s_fw.hex`
+| USE_USB=OFF | USB-Gerätestack weglassen, um Flash-Speicher zu sparen (Standard `ON`)
+|===
+
+Host-Tests für den Logikteil:
+
+----
+cmake -S . -B build-host -DCMAKE_CXX_COMPILER=clang++ -DPCB=I6X
+cmake --build build-host --target host_logic_tests
+./build-host/host_logic_tests
+----
+
+[[elrs_i6x]]
+== ELRS für den FlySky-I6X
+
+[caption=""]
+.Projektinfo
+[cols="1h,5",width="100%"]
+|===
+| Status | 🔵 stabil
+| Hardware | Hardware-Modifikation des FS-i6X (siehe unten)
+| Video | https://www.youtube.com/watch?v=qdF16vabytI[2023-12-27], <<videos.de.adoc#v-elrs_i6x,alle Videos (1)>>
+| Siehe auch | https://github.com/OpenI6X/opentx/wiki/Modifications#all-optional-hardware-connections[OpenI6X-Modifikationen], <<rx-as-tx.de.adoc#elrs_jr,ELRS-Empfänger als Sender>>
+|===
+
+
+[[_since_version_1_13]]
+=== Ab Version `1.13`
+
+Wegen Problemen mit der Halbduplexlösung und `CRSF_UNINVERTED` wurde diese Option entfernt und die Option `CRSF_FULLDUPLEX`
+eingeführt. Wie der Name besagt, ermöglicht diese Option eine nicht invertierte (normale) serielle Vollduplexverbindung zum RX-as-TX.
+
+Man muss lediglich die Lötpads `TX2` und `PA15` auf der Hauptplatine des `I6X` finden, siehe https://github.com/OpenI6X/opentx/wiki/Modifications#all-optional-hardware-connections[I6X ELRS]
+Den `rx`-Pin des RX-as-TX mit dem Lötpad `TX2` auf der Platine verbinden und den `tx`-Pin des RX-as-TX mit dem Lötpad `PA15` auf der Platine.
+Anschließend die Firmware mit den folgenden Optionen kompilieren:
+
+.cmake für nicht invertiertes Vollduplex-`crsf` an den Lötpads `TX2` und `PA15` der I6X-Hauptplatine.
+[source]
+--
+$ cmake -DCRSF_FULLDUPLEX=YES -DEXTPWR_INVERT=YES -DUSB_SERIAL=OFF -DCMAKE_BUILD_TYPE=Release -DSPLASH=OFF  -DTIMERS=1 -DHELI=OFF -DTRANSLATIONS=DE -DPCB=I6X 
+-DLUA_COMPILER=NO -DLUA=NO -DGVARS=YES  -DMULTIMODULE=OFF -DOVERRIDE_CHANNEL_FUNCTION=OFF -DPCBI6X_ELRS=YES -DPCBI6X_HELLO=YES ..
+--
+
+Die Option `EXTPWR_INVERT` invertiert die Logik am Lötpad `PC13`, das als Einschaltsignal für ein externes Modul verwendet wird. Normalerweise signalisiert _logisch High_
+das Einschalten. Soll ein einfacher P-Kanal-MOSFET als Versorgungsschalter für den RX-as-TX verwendet werden, muss zum Einschalten ein logisch niedriges Signal
+am Gate des P-Kanal-MOSFETs anliegen. Unbedingt einen MOSFET mit niedriger (<=2V) Gate-Source-Schwellenspannung `Ugs` verwenden
+(ich verwende den https://www.digikey.de/de/products/detail/microchip-technology/LP0701N3-G/4902364?s=N4IgjCBcpgTAnBaIDGUBmBDANgZwKYA0IA9lANogAsYAzAOwAMVIAusQA4AuUIAylwBOASwB2AcxABfKcVgUQ2DoyYRWUoA[LP0701N3] im
+TO-92-Gehäuse)
+
+[[_before_version_1_13]]
+=== Vor Version `1.13`
+
+(Achtung: Aus irgendeinem Grund tritt bei dieser Modifikation auf der Verbindung Sender <-> Rx-as-Tx ein Paketverlust von 5-8% auf)
+
+Man muss lediglich das Lötpad `TX2` auf der Hauptplatine des `I6X` finden,
+siehe https://github.com/OpenI6X/opentx/wiki/Modifications#all-optional-hardware-connections[I6X ELRS]. Dieses wird für das
+`S.Port`-Signal verwendet, das invertiert wäre. Glücklicherweise gibt es aber eine Firmware-Option (`CRSF_UNINVERTED`), die beim Kompilieren gesetzt werden kann.
+Die `cmake`-Zeile sollte daher wie folgt lauten:
+
+.cmake für nicht invertiertes `crsf` am `tx2`-Pin der I6X-Hauptplatine.
+[source]
+--
+$ cmake -DCRSF_UNINVERTED=YES -DUSB_SERIAL=OFF -DCMAKE_BUILD_TYPE=Release -DSPLASH=OFF  -DTIMERS=1 -DHELI=OFF -DTRANSLATIONS=DE -DPCB=I6X 
+-DLUA_COMPILER=NO -DLUA=NO -DGVARS=YES  -DMULTIMODULE=OFF -DOVERRIDE_CHANNEL_FUNCTION=OFF -DPCBI6X_ELRS=YES -DPCBI6X_HELLO=YES ..
+--
+
+Die nächste Schwierigkeit ist die Bereitstellung geregelter `5V` für den Rx-as-Tx. Man kann einen _LDO_ einbauen, es hat sich aber als ausreichend erwiesen,
+den Rx-as-Tx mit den internen `3.3V` der https://github.com/OpenI6X/opentx/wiki/Modifications#all-optional-hardware-connections[Hauptplatine] zu versorgen.
+
+Um das externe Modul ausschalten zu können, lässt sich `PC13` des µC zur Ansteuerung eines Versorgungsschalters für das Modul verwenden. Wer mutig ist, lötet den
+Spannungsregler vom ELRS-Empfänger (Tx-Modul) aus und versucht, einen P-Kanal-MOSFET mit _Source_ und _Drain_ auf dasselbe Lötpadmuster zu löten. Dann _PC13_
+zur Ansteuerung des Gates verwenden (über einen zusätzlichen N-Kanal-MOSFET zur Polaritätsumkehr) oder die Kompilieroption `-DEXTPWR_INVERT=YES` nutzen.
+
+[[_images_wiring_and_schematic]]
+=== Bilder, Verdrahtung und Schaltplan
+
+Noch auszuarbeiten
+
+[[oix6]]
+== Openix6
+
+[caption=""]
+.Projektinfo
+[cols="1h,5",width="100%"]
+|===
+| Status | 🔵 stabil
+| Firmware | https://github.com/wimalopaan/opentx[wimalopaan/opentx] (Fork von https://github.com/OpenI6X/opentx[OpenI6X/opentx])
+| Video | https://www.youtube.com/watch?v=tvDtpW6TglE[2021-12-26], https://www.youtube.com/watch?v=yNH3Q6GaMy4[2025-12-28], <<videos.de.adoc#v-oix6,alle Videos (2)>>
+|===
+
+
+[[_firmware]]
+=== Firmware
+
+Das Projekt https://github.com/OpenI6X/opentx[OpenI6X] stellt OpenTx für
+kleine Sender vom Typ _FlySky_ *FS-i6x* bereit.
+
+[[_compiling]]
+=== Kompilieren
+
+Die folgende Konfiguration aktiviert in der Firmware die folgenden wichtigen Optionen:
+
+[horizontal]
+CRSF_FULLDUPLEX:: aktiviert die Vollduplexkommunikation mit einem ELRS-Modul
+CRSF_EXTENDED_TYPES:: aktiviert die Dekodierung der CRSF-Typen `float` und `string`
+EXTPWR_INVERT:: invertiert den Pegel des Pins zur externen Versorgungsschaltung, um einen P-Kanal-MOSFET zu verwenden
+TRANSLATIONS:: wählt die deutsche Übersetzung aus
+PCBI6X_ELRS:: aktiviert das interne ELRS-_Skript_
+
+[source]
+--
+cmake -DCROSSFIRE=YES -DCRSF_FULLDUPLEX=YES -DCRSF_EXTENDED_TYPES=YES -DUSB_MSD=OFF -DEXTPWR_INVERT=YES -DSBUS_TRAINER=OFF -DUSB_SERIAL=OFF -DCMAKE_BUILD_TYPE=Release -DSPLASH=OFF  -DTIMERS=1 -DHELI=OFF -DTRANSLATIONS=DE -DPCB=I6X -DLUA_COMPILER=NO -DLUA=NO -DGVARS=YES  -DMULTIMODULE=OFF -DOVERRIDE_CHANNEL_FUNCTION=OFF -DPCBI6X_ELRS=YES -DPCBI6X_HELLO=YES ..
+--
+
+Wer `gitpod.io` zum Kompilieren der Firmware verwenden möchte (siehe auch <<building.de.adoc#edgetx_custom,Angepasste EdgeTx-Builds>> und <<building.de.adoc#gitpod_wm,Den Quellcode meiner Projekte (`wmucpp`) kompilieren>>),
+verwendet die folgende URI im Browser (der URL https://github.com/wimalopaan/opentx[] wird `https://gitpod.io/#` vorangestellt):
+https://gitpod.io/#https://github.com/wimalopaan/opentx[].
+
+Nach einigen Minuten erscheint eine `vscode`-ähnliche Benutzeroberfläche mit einem Terminal im unteren Drittel des Arbeitsbereichs.
+Die obige `cmake`-Zeile in das Terminal kopieren und `enter` drücken.
+
+Anschließend den Befehl eingeben: `make firmware`
+
+Nach Abschluss kann die Datei `firmware.bin` heruntergeladen und wie gewohnt auf den Sender geflasht werden.
+
+[[_flashing]]
+=== Flashen
+
+Deutsche https://www.youtube.com/watch?v=tvDtpW6TglE&t[Anleitung]
+
+Liste der _Geräte_:
+
+----
+$ dfu-util  -l 
+dfu-util 0.11
+
+Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
+Copyright 2010-2021 Tormod Volden and Stefan Schmidt
+This program is Free Software and has ABSOLUTELY NO WARRANTY
+Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
+
+Found DFU: [0483:df11] ver=2200, devnum=10, cfg=1, intf=0, path="1-2", alt=1, name="@Option Bytes  /0x1FFFF800/01*016 e", serial="FFFFFFFEFFFF"
+Found DFU: [0483:df11] ver=2200, devnum=10, cfg=1, intf=0, path="1-2", alt=0, name="@Internal Flash  /0x08000000/064*0002Kg", serial="FFFFFFFEFFFF"
+----
+
+Flashen:
+----
+dfu-util -s 0x08000000 -a 0 -D firmware.bin
+----

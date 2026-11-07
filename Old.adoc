@@ -15,6 +15,8 @@ Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 :ddir: https://wimalopaan.github.io/Electronics
 :rcb: {ddir}/rc/boards
 
+Aktuelle Übersicht: <<README.adoc#,English>> | <<README.de.adoc#,Deutsch>>
+
 [NOTE]
 --
 Hier finden Sie Informationen zu den von mir entworfenen RC-Elektronik-Modulen, OpenTx-Addons, LUA-Scripting, und vieles mehr.

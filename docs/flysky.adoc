@@ -11,6 +11,8 @@ Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 :caution-caption: :fire:
 :warning-caption: :warning:
 
+*English* | <<flysky.de.adoc#,Deutsch>>
+
 <<../README.adoc#,RC Electronics>> / FlySky FS-i6X / FS-i6S
 
 [NOTE]

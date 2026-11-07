@@ -15,6 +15,8 @@ Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 :ddir: https://wimalopaan.github.io/Electronics
 :rcb: {ddir}/rc/boards
 
+*English* | <<README.de.adoc#,Deutsch>>
+
 image::images/logo/Logo.png[width=50%]
 
 [NOTE]

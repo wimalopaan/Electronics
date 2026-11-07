@@ -33,6 +33,8 @@ Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 // for attributes in link:[] macro like link:xxx[window="_blank"]
 :linkattrs:
 
+Übersicht: <<../README.adoc#,English>> | <<../README.de.adoc#,Deutsch>>
+
 image::images/Logo_transp.png[width=25%]
 
 == Einführung

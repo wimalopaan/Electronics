@@ -11,6 +11,8 @@ Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
 :caution-caption: :fire:
 :warning-caption: :warning:
 
+*English* | <<escape32.de.adoc#,Deutsch>>
+
 <<../README.adoc#,RC Electronics>> / ESCape32: firmware for a family of small/medium BLDC (and brushed) motor controller (brushless/brushed ESC)
 
 [NOTE]

@@ -1,0 +1,772 @@
+= Videos nach Projekt
+Wilhelm Meier <wilhelm.wm.meier@googlemail.com>
+:toc:
+:toclevels: 2
+:toc-placement!:
+:sectnums:
+:sectnumlevels: 2
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+:lang: de
+:toc-title: Inhaltsverzeichnis
+:figure-caption: Abbildung
+:table-caption: Tabelle
+:example-caption: Beispiel
+
+<<videos.adoc#,English>> | *Deutsch*
+
+<<../README.de.adoc#,RC-Elektronik>> / Videos nach Projekt
+
+[NOTE]
+--
+Alle 309 Videos meines https://www.youtube.com/@wilhelmmeier6124/videos[YouTube-Kanals] (Sprache: Deutsch), nach Projekt sortiert, die ältesten zuerst.
+Jede Gruppe beginnt mit einem Link zum zugehörigen Projektabschnitt.
+Mit _(?)_ gekennzeichnete Einträge wurden nur anhand ihres Titels zugeordnet und gehören möglicherweise zu einem anderen Projekt.
+Stand der Liste: 2026-10-25.
+--
+
+toc::[]
+
+[[vg-crsf-devices]]
+== CRSF-Geräte
+
+[[v-led4x4]]
+=== LED-4x4-Modul
+
+Projekt: <<crsf-devices.de.adoc#led4x4,LED-4x4-Modul>>
+
+* 2025-09-15: https://www.youtube.com/watch?v=Zr4yXvoaQ9k[16-fach LED-Modul (mit EdgeTx und ExpressLRS)]
+
+[[v-crsf-switch]]
+=== CRSF-Switch / Router
+
+Projekt: <<crsf-devices.de.adoc#crsf-switch,CRSF-Switch / Router>>
+
+* 2025-09-27: https://www.youtube.com/watch?v=QvIe8XSXLU8[ExpressLRS V4 preview: viele CRSF-Geräte am Empfänger mit dem Crsf-Switch/Router]
+* 2025-10-31: https://www.youtube.com/watch?v=r-cS3wKuoE4[Zwei neue Projekte: CRSF-Router und FOC-Servo (Appetizer)] _(?)_
+* 2025-11-19: https://www.youtube.com/watch?v=eo3Svl30hE8[ExpressLRS: der CRSF-Router]
+
+[[v-rcrelay32]]
+=== RC-Relay32: ein CRSF-Relais
+
+Projekt: <<crsf-devices.de.adoc#rcrelay32,RC-Relay32: ein CRSF-Relais>>
+
+* 2025-12-10: https://www.youtube.com/watch?v=U8FipSOZ5B8[CRSF-Relais: was ist das und was kann man damit alles anstellen?]
+* 2025-12-13: https://www.youtube.com/watch?v=5iENS7tGbj4[CRSF-Relais (2): Großer Fehler und Korrektur]
+* 2025-12-13: https://www.youtube.com/watch?v=hsxlTjcT4t8[CRSF-Relais (2): ist das sinnvoll oder kann das weg?]
+* 2025-12-15: https://www.youtube.com/watch?v=TunZTMcnqxQ[CRSF-Relais (3): Aufbau mit dem CRSF-Router]
+
+[[v-crsfserialservo]]
+=== CRSF-zu-Serial-Servo-Konverter
+
+Projekt: <<crsf-devices.de.adoc#crsfserialservo,CRSF-zu-Serial-Servo-Konverter>>
+
+* 2026-05-17: https://www.youtube.com/watch?v=e9p31QfDSqo[Serielle Servos am ELRS-Empfänger]
+* https://youtu.be/_jWBiEMZoZ8[Weiteres Video] (nicht in der Kanalliste)
+
+[[vg-multiswitch]]
+== MultiSwitch
+
+[[v-msw]]
+=== ELRS-MultiSwitch (Allgemeines, Funktionen, Aktualisierungen)
+
+Projekt: <<multiswitch.de.adoc#elrs_msw,ELRS-MultiSwitch (Allgemeines, Funktionen, Aktualisierungen)>>
+
+* 2024-07-16: https://www.youtube.com/watch?v=PeuxACw40io[ExpressLRS Schalt- und Sonderfunktionsmodule]
+* 2024-07-23: https://www.youtube.com/watch?v=E_VdQ-gHf6A[ExpressLRS Schalt- und Sonderfunktionsmodule (2)]
+* 2024-07-26: https://www.youtube.com/watch?v=8slOsv5aXh0[ExpressLRS Schalt- und Sonderfunktionsmodule (3)]
+* 2024-08-09: https://www.youtube.com/watch?v=phL5rL1_PKw[Irgendwas ist immer: Schaltmodule und Ausgangsbelastbarkeit]
+* 2024-09-23: https://www.youtube.com/watch?v=UJBWStQ7cVA[Schaltmodule mit ExpressLRS: Update]
+* 2024-10-04: https://www.youtube.com/watch?v=xIhLG6AOUPY[Schaltmodule mit ExpressLRS: Update (II)]
+* 2024-10-08: https://www.youtube.com/watch?v=QnkShkt_n7Q[Schaltmodule mit ExpressLRS: Update(III)]
+* 2025-01-05: https://www.youtube.com/watch?v=kwONN8pGUxg[Update: ELRS-Schaltmodul]
+* 2025-04-04: https://www.youtube.com/watch?v=e5QubodRgzM[ELRS-Schaltmodule: Update zur Verständigung]
+* 2025-04-15: https://www.youtube.com/watch?v=1-wrfIcEa1U[ExpressLRS Schaltmodule: eine längliche Funktionsbeschreibung]
+* 2025-11-22: https://www.youtube.com/watch?v=auXzSZPhu48[ExpressLRS-MultiSwitch: Neuigkeiten (1)]
+* 2025-11-27: https://www.youtube.com/watch?v=Hc-aHDqosP4[ExpressLRS-MultiSwitch: Neuigkeiten (2)]
+* 2025-12-18: https://www.youtube.com/watch?v=bGkz1Hcla1o[ELRS-MultiSwitch: Master/Slave-Mode ... was ist das?]
+* 2025-12-19: https://www.youtube.com/watch?v=_g43FvJxcP8[ELRS-MultiSwitch: Master/Slave-Mode (2)]
+* 2025-12-23: https://www.youtube.com/watch?v=JhFAoKbSaak[ELRS-Multiswitch: Master/Slave-Mode (3)]
+* 2026-01-25: https://www.youtube.com/watch?v=fK5KLaPoNbc[ELRS-MultiSwitch: Globales Dimmen]
+* 2026-02-07: https://www.youtube.com/watch?v=o_OJoxx28KE[ELRS-MultiSwitch: Globales Dimmen (2)]
+
+[[v-supersimple]]
+=== Super einfacher MultiSwitch
+
+Projekt: <<multiswitch.de.adoc#_super_simple_multiswitch_elrscrsf_flyskysbus_flyskyibus_frskysbus_frskys_port_graupnersumdv3,Super einfacher MultiSwitch>>
+
+* 2025-03-23: https://www.youtube.com/watch?v=SQZCM9e6v1E[Super simpel RC-Multiswitch: ohne Schnick-Schnack]
+* 2025-03-25: https://www.youtube.com/watch?v=e6teZWhJzoQ[Super simpel RC-Multiswitch: ohne Schnick-Schnack (2)]
+* 2025-10-12: https://www.youtube.com/watch?v=ES77NcNwEtA[SuperSimpleMultiSwitch: was gibt es Neues?]
+* 2026-06-20: https://www.youtube.com/watch?v=N7wzqSIUbUA[SuperSimpleMultiSwitch: Graupner/Hott mit SumDV3]
+
+[[v-ssmsw]]
+=== Platine mit 16 Ausgängen
+
+Projekt: <<multiswitch.de.adoc#ssmsw,Platine mit 16 Ausgängen>>
+
+* 2025-10-23: https://www.youtube.com/watch?v=mU0vg94EXQQ[SuperSimpleMultiSwitch: die Platine zum Nachbau]
+
+[[v-msw_nucleo]]
+=== STM32G031F8-Nucleo-Board als MultiSwitch
+
+Projekt: <<multiswitch.de.adoc#msw_nucleo,STM32G031F8-Nucleo-Board als MultiSwitch>>
+
+* 2025-08-21: https://www.youtube.com/watch?v=-KHh-UYU7IA[ExpressLRS-MultiSwitch: vereinfacht mit fertigen µC-Board]
+
+[[v-msw_weact]]
+=== WeAct STM32G031F8 als MultiSwitch
+
+Projekt: <<multiswitch.de.adoc#msw_weact,WeAct STM32G031F8 als MultiSwitch>>
+
+* 2025-08-23: https://www.youtube.com/watch?v=vY8LG9SDndU[ExpressLRS-MultiSwitch: vereinfacht mit fertigen µC-Board (2)]
+* 2025-09-07: https://www.youtube.com/watch?v=LgFiy0gqKGg[ExpressLRS-MultiSwitch: vereinfacht mit fertigen µC-Board (3)]
+
+[[v-msw_tht]]
+=== WeAct STM32G031F8 als MultiSwitch mit THT-Platine
+
+Projekt: <<multiswitch.de.adoc#msw_tht,WeAct STM32G031F8 als MultiSwitch mit THT-Platine>>
+
+* 2025-09-17: https://www.youtube.com/watch?v=DVyyuaLCTKw[ExpressLRS-MultiSwitch: vereinfacht mit fertigen µC-Board (4) und Platine]
+
+[[v-msw_widget]]
+=== MultiSwitch-Widget
+
+Projekt: <<multiswitch.de.adoc#msw_widget,MultiSwitch-Widget>>
+
+* 2025-01-24: https://www.youtube.com/watch?v=XkN4KYH6PgA[EdgeTx weekly: das "letzte" preview für Version 2.11]
+* 2025-07-28: https://www.youtube.com/watch?v=aaKBlDT08Tc[MultiSwitch-Widget auf Abwegen (ohne ELRS)]
+* 2025-08-15: https://www.youtube.com/watch?v=s7mjQJYgb9o[ExpressLRS (und EdgeTx): die versteckten Perlen (3)]
+* 2025-10-15: https://www.youtube.com/watch?v=fQk5mrm1Hiw[MultiSwitch-Widget (EdgeTx): was gibt es Neues? (V23)]
+* 2025-11-05: https://www.youtube.com/watch?v=NAWFy8ZdQog[Neues zum MultiSwitch-E/L Widget]
+* 2025-11-12: https://www.youtube.com/watch?v=Gw56sHEIoD8[MultiSwitch-E/L Widget: versteckte Perlen]
+* 2025-11-15: https://www.youtube.com/watch?v=7_HkYi2aqZk[MultiSwitch-E/L Widget: versteckte Perlen (2)]
+
+[[v-msw_bw]]
+=== MultiSwitch-Telemetrieskript (Sender mit Schwarzweißdisplay)
+
+Projekt: <<multiswitch.de.adoc#msw_bw,MultiSwitch-Telemetrieskript (Sender mit Schwarzweißdisplay)>>
+
+* 2025-06-20: https://www.youtube.com/watch?v=bK-Kyz6lSjs[EdgeTx, ExpressLRS und Schaltmodule mit B&W-Sendern]
+
+[[v-msw_old]]
+=== Frühere Generation (RC-Switch 2.0, Graupner/SJ HoTT, AVR)
+
+Projekt: <<multiswitch.de.adoc#_in_the_old_days,Frühere Generation (RC-Switch 2.0, Graupner/SJ HoTT, AVR)>>
+
+* 2020-08-17: https://www.youtube.com/watch?v=9jtkGHBHYuU[Digitale Schaltmodule für Graupner/SJ-Hott]
+* 2021-01-13: https://www.youtube.com/watch?v=QqL4qkeNWYk[OpenTx weekly - Folge 045: Schaltfunktion von Gr/SJ-Empfängern und OpenTx (Hardware included)]
+* 2021-09-08: https://www.youtube.com/watch?v=i-CEtlaVzoU[RC Elektronik und EdgeTx: Digitale Schaltmodule mit Touch-Bedienung]
+* 2021-09-09: https://www.youtube.com/watch?v=Uj8SFiOsNHM[RC-Elektronik: Digitale Schaltmodule und Touch-Bedienung mit EdgeTx]
+* 2021-10-23: https://www.youtube.com/watch?v=_3QynoHeIF8[RC Elektronik: generelles Update der Schaltmodul-Software]
+* 2021-11-16: https://www.youtube.com/watch?v=OXvXEkVQR3s[RC-Elektronik: Sender-Software Version 2.0x für OpenTx / EdgeTx und ColorLCD wie auch B&W-Sender]
+* 2021-12-04: https://www.youtube.com/watch?v=bXph2fjgUPk[RC-Elektronik: Graupner/SJ Hott RC-MultiSwitch-D]
+* 2021-12-05: https://www.youtube.com/watch?v=Tq6k3PlNBvM[RC-Elektronik: Einbinden fremder Module in die Software zur Steuerung der digitalen Schaltmodule]
+* 2021-12-12: https://www.youtube.com/watch?v=GYLZabz25m0[RC-Switch-2.0: Grundsätzliche Einrichtung]
+* 2021-12-14: https://www.youtube.com/watch?v=quLPIzcJRus[RC-Switch-2.0: Einrichtung eines RC-MultiAdapters-DA]
+* 2022-01-31: https://www.youtube.com/watch?v=dZxG6OkD08s[OpenTx weekly - Folge 084: Fremde Module] _(?)_
+* 2022-02-03: https://www.youtube.com/watch?v=o4zR8OupAv8[OpenTx weekly - Folge 086: QuickTip Schaltmodule "autoreset"]
+* 2022-02-04: https://www.youtube.com/watch?v=eKTNzwrMLPo[OpenTx weekly - Folge 087: "Virtuelle" Schaltfunktionen (Schaltmodule)]
+* 2022-02-08: https://www.youtube.com/watch?v=sx4gpohIBS8[OpenTx weekly - Folge 089: Kleine Besonderheiten des Touch-Button-Widgets und des Schaltmodul-Widget]
+* 2022-02-24: https://www.youtube.com/watch?v=d_xsAgn0lhg[OpenTx weekly - Folge 092: Hochstrom-Schaltfunktionen]
+
+[[vg-cruise-control]]
+== Cruise-Controller
+
+[[v-rc720e]]
+=== Doppel-Schottelsteuerung RC720E32 (auch Cruise-Controller genannt)
+
+Projekt: <<cruise-control.de.adoc#rc720e,Doppel-Schottelsteuerung RC720E32 (auch Cruise-Controller genannt)>>
+
+* 2024-10-31: https://www.youtube.com/watch?v=Hkk3GpHR4N8[RC-720-E-32: der Anfang einer neuen Doppel-Schottel-Steuerung]
+* 2024-11-23: https://www.youtube.com/watch?v=VOI6-u9Bq1s[Update der Doppelschottelsteuerung RC720E32]
+* 2024-11-25: https://www.youtube.com/watch?v=yr4b6svxh-k[Doppel-Schottelsteuerung: Unklarheiten ;-)]
+* 2024-11-29: https://www.youtube.com/watch?v=bFocTlSWDag[Doppelschottelsteuerung mit ELRS-Buddy]
+* 2024-11-29: https://www.youtube.com/watch?v=SKY4m7ZwLko[Doppelschottelsteuerung: zurück in die Vergangenheit mit 40MHz]
+* 2024-11-29: https://www.youtube.com/watch?v=N4GWDGqdjiw[Doppelschottelsteuerung: zurück in die Vergangenheit mit 40MHz(2)]
+* 2024-11-30: https://www.youtube.com/watch?v=xTm-Tu6g5xw[Update der Doppelschottelsteuerung RC720E32: IBus, SBus und SumDV3 als Input]
+* 2025-09-22: https://www.youtube.com/watch?v=H0YH8MUBlFo[RC-Elektronik: der CruiseController (aka Doppel-Schottelsteuerung) und RGB-Leds]
+* 2026-04-04: https://www.youtube.com/watch?v=_Te1dMsY6Sw[Doppel-Schottel-Steuerung RC720E32: Wiederherstellung der Funktion]
+* 2026-04-12: https://www.youtube.com/watch?v=Z9C6JLJYIQY[Doppel-Schottel-Steuerung RC720E32: Das Widget]
+
+[[v-CC]]
+=== Der CruiseController
+
+Projekt: <<cruise-control.de.adoc#CC,Der CruiseController>>
+
+* 2023-12-16: https://www.youtube.com/watch?v=jZPSYHhzt6Y[OpenTx weekly Folge 105: CruiseControl und Messestandsteuerung]
+* 2023-12-31: https://www.youtube.com/watch?v=BfxuRHAgHrI[RC-Elektronik: Alternative Steuerung (aka Messestand)] _(?)_
+* 2025-05-17: https://www.youtube.com/watch?v=sN7MZ1YkrwE[CruiseController auf Abwegen: Umsetzung von S.Port/SBus auf SumDV3 u. CRSF für Kanäle/Schaltfunktion]
+* 2025-06-04: https://www.youtube.com/watch?v=E6eoninhrBU[RC-Elektronik: CruiseController und Messe-Modus mit Telemetrie]
+* 2026-05-11: https://www.youtube.com/watch?v=DcMbOoBRKYs[CruiseController: Servo im Windenbetrieb]
+
+[[v-rc720d_old]]
+=== RC-720-D (Vorgänger)
+
+Projekt: <<cruise-control.de.adoc#rc720e,RC-720-D (Vorgänger)>>
+
+* 2021-02-26: https://www.youtube.com/watch?v=n65u5VO-_PI[Schottelsteuerung]
+* 2021-08-27: https://www.youtube.com/watch?v=OjqTbdiSOGY[RC-720-D: die Doppel-Schottelsteuerung (Update)]
+* 2021-09-09: https://www.youtube.com/watch?v=JyByGGWq8U0[RC-Elektronik: Update der RC-720-D Doppel-Schottelsteuerung]
+
+[[vg-elrs]]
+== ExpressLRS
+
+[[v-elrs]]
+=== ExpressLRS allgemein (Empfänger, Binden, Konfiguration)
+
+Projekt: <<elrs.de.adoc#,ExpressLRS allgemein (Empfänger, Binden, Konfiguration)>>
+
+* 2023-12-08: https://www.youtube.com/watch?v=ghTQZU4qRCM[OpenTx weekly 104: Neustart mit ELRS]
+* 2023-12-17: https://www.youtube.com/watch?v=Cdt1HYdH2sk[OpenTx weekly - Folge 106: A new star was born ... "ELRS"]
+* 2023-12-22: https://www.youtube.com/watch?v=OXRNRJzmlb8[OpenTx weekly Folge 107: ELRS Update]
+* 2024-04-11: https://www.youtube.com/watch?v=NZH_-T2zais[OpenTx weekly Folge 119: Was ist ELRS "model match"?]
+* 2025-01-02: https://www.youtube.com/watch?v=kgt-FVmc6Q4[EdgeTx und ExpressLRS: TBS Agent Lite]
+* 2025-01-11: https://www.youtube.com/watch?v=qbFPZ85BLWo[ELRS-Empfänger 16-Kanal-PWM aus der Bastelkiste ;-)]
+* 2025-07-03: https://www.youtube.com/watch?v=taS3T0B9b30[ExpressLRS: Speichern der Binde-Information]
+* 2025-07-16: https://www.youtube.com/watch?v=48PSEUa7zh8[ExpressLRS 3..6 steht vor der Tür mit guten Neuigkeiten]
+* 2025-08-13: https://www.youtube.com/watch?v=xSOQ-c-aAsA[ExpressLRS (und EdgeTx): die versteckten Perlen]
+* 2025-10-18: https://www.youtube.com/watch?v=NUdiiFEroGc[ExpressLRS 12 Kanal Empfänger mit Telemetrie: ganz einfach selbstgebaut]
+* 2026-01-27: https://www.youtube.com/watch?v=5khRcL9UmU4[ExpressLRS: der kleinste PWM-Empfänger]
+
+[[v-elrs_v4]]
+=== ExpressLRS V4 und meine Erweiterungen
+
+Projekt: <<elrs.de.adoc#elrs-mods-v4,ExpressLRS V4 und meine Erweiterungen>>
+
+* 2025-10-03: https://www.youtube.com/watch?v=LqEKa2__vu4[ExpressLRS V4 preview: mehrere CRSF-Geräte am Empfänger (ohne CRSF-Switch/Router)]
+* 2025-12-17: https://www.youtube.com/watch?v=xT56YaTkE-Q[ExpressLRS V4: kann ein ELRS-Empfänger als CRSF-Router arbeiten (oder sogar als CRSF-Relais)?]
+* 2026-01-04: https://www.youtube.com/watch?v=_l0LYMHtrck[ExpressLRS-V4: Tipps zum neuen Release (und Erweiterungen)]
+* 2026-01-11: https://www.youtube.com/watch?v=FPmD-s1q_Rk[ExpressLRS-V4 mit meinen Erweiterungen: was man wissen sollte ;-)]
+
+[[v-elrs-multi]]
+=== Mehrere ELRS-Empfänger an ein ELRS-Modul binden
+
+Projekt: <<elrs.de.adoc#_multiple_elrs_receivers_bound_to_one_elrs_module,Mehrere ELRS-Empfänger an ein ELRS-Modul binden>>
+
+* 2024-05-01: https://www.youtube.com/watch?v=m8e4adNfDEc[OpenTx weekly Folge 121: Viele Modelle gleichzeitig] _(?)_
+* 2026-08-19: https://www.youtube.com/watch?v=Do4xHyf6RLo[ExpressLRS: Master/Slave für mehrteilige Modelle]
+
+[[v-elrs_32]]
+=== 32 Kanäle für ELRS
+
+Projekt: <<elrs.de.adoc#_32_channels_for_elrs,32 Kanäle für ELRS>>
+
+* 2024-10-17: https://www.youtube.com/watch?v=xWdPHz-IbmA[32 Kanäle über ein ELRS-Modul/Empfänger]
+* 2025-08-08: https://www.youtube.com/watch?v=k_Mat1IfS-4[ExpressLRS und 32 Kanäle: geht das?]
+
+[[v-elrs-escape32]]
+=== Unterstützung beim Flashen / Einrichten von ESCape32-Motorstellern
+
+Projekt: <<elrs.de.adoc#elrs-escape32,Unterstützung beim Flashen / Einrichten von ESCape32-Motorstellern>>
+
+* 2026-08-05: https://www.youtube.com/watch?v=CzP5rgKY7yI[ESCape32-Update via ExpressLRS: die Symbiose geht weiter]
+
+[[v-elrs-3rd-serial]]
+=== Dritte serielle Schnittstelle für ELRS V4
+
+Projekt: <<elrs.de.adoc#elrs-3rd-serial,Dritte serielle Schnittstelle für ELRS V4>>
+
+* 2026-07-30: https://www.youtube.com/watch?v=Rg5dbTFq_rM[ExpressLRS: Erweiterung auf drei serielle Schnittstellen]
+
+[[v-elrs-rxtx-analog]]
+=== ELRS-Empfänger als Sendemodul mit direkten Analogeingängen
+
+Projekt: <<elrs.de.adoc#elrs-rxtx-analog,ELRS-Empfänger als Sendemodul mit direkten Analogeingängen>>
+
+* 2026-09-21: https://www.youtube.com/watch?v=RvhE9Iwz_oc[Alte Sender super einfach renovieren und auf ExpressLRS umbauen (mit kleinen Einschränkungen)]
+* 2026-09-28: https://www.youtube.com/watch?v=PVpO9QLf3Fg[Alte Sender super einfach renovieren und auf ExpressLRS umbauen (mehr Details)]
+* 2026-10-03: https://www.youtube.com/watch?v=XLVpLSAS2JQ[Alte Sender super einfach renovieren und auf ExpressLRS umbauen (noch mehr Details): Relais-Betrieb]
+
+[[v-elrs-route]]
+=== Andere erweiterte Adressen als 0xc8 zulassen
+
+Projekt: <<elrs.de.adoc#elrs-route,Andere erweiterte Adressen als 0xc8 zulassen>>
+
+* 2025-05-11: https://www.youtube.com/watch?v=l_hDYU0vOGQ[TBS: es ist gut, Alternativen zu haben ;-)]
+
+[[v-elrs_perm_arm]]
+=== ELRS4 dauerhaft scharf schalten (V3)
+
+Projekt: <<elrs.de.adoc#elrs_perm_arm,ELRS4 dauerhaft scharf schalten (V3)>>
+
+* 2025-01-15: https://www.youtube.com/watch?v=Jj_9fWlgC_8[Alten Sender mit ELRS renovieren (2)]
+
+[[v-elrs_sumdv3]]
+=== ELRS, SumDV3 und MultiSwitch
+
+Projekt: <<elrs.de.adoc#elrs_sumdv3,ELRS, SumDV3 und MultiSwitch>>
+
+* 2025-05-02: https://www.youtube.com/watch?v=CZuU1shT2SM[Soundmodul USM-RC3 (Fa. Beier) zusammen mit ExpressLRS, EdgeTx und Bedienwidgets]
+* 2025-05-04: https://www.youtube.com/watch?v=_eisBNklMeI[Soundmodul USM-RC-3 (Fa. Beier) zusammen mit ExpressLRS, EdgeTx und Bedienwidgets (2)]
+* 2025-08-10: https://www.youtube.com/watch?v=fCmJO6x7Wjw[ExpressLRS, USM-RC-3 und 32 Kanäle]
+* 2025-08-31: https://www.youtube.com/watch?v=hHL93bXfIuA[EdgeTx, ExpressLRS und Beier USM-RC-3 mit 64 Schaltfunktionen]
+
+[[v-elrs_pwm_msw]]
+=== ELRS-PWM-Empfänger als MultiSwitch
+
+Projekt: <<elrs.de.adoc#elrs_pwm_msw,ELRS-PWM-Empfänger als MultiSwitch>>
+
+* 2025-08-17: https://www.youtube.com/watch?v=6Y07k_BKWAo[ExpressLRS PWM-Empfänger als MultiSwitch (mit EdgeTx MultiSwitch-Widget)]
+* 2025-09-03: https://www.youtube.com/watch?v=SJOUn1S2Glg[ExpressLRS PWM-Empfänger als MultiSwitch (mit EdgeTx MultiSwitch-Widget) (2)]
+* 2025-09-18: https://www.youtube.com/watch?v=qV3PLen03Dw[ExpressLRS PWM-Empfänger als MultiSwitch (mit EdgeTx MultiSwitch-Widget) (3) und RGB-Leds]
+
+[[v-elrs-relay]]
+=== ELRS-Relaiskonfiguration
+
+Projekt: <<elrs.de.adoc#elrs-relay,ELRS-Relaiskonfiguration>>
+
+* 2025-08-03: https://www.youtube.com/watch?v=5QtpB4gcxM8[ExpressLRS Relais-Station: aber wofür?]
+
+[[v-elrs-teacher]]
+=== Lehrer/Schüler mit ELRS
+
+Projekt: <<elrs.de.adoc#,Lehrer/Schüler mit ELRS>>
+
+* 2024-04-22: https://www.youtube.com/watch?v=9vjaWayBvvg[OpenTX weekly Folge 120: Lehrer/Schüler mit ELRS]
+* 2026-04-19: https://www.youtube.com/watch?v=N85e9OR5AGM[EdgeTx/ExpressLRS: flexible Senderkoppelung (Lehrer-Schüler-Betrieb)]
+
+[[v-elrs-lua]]
+=== ELRS-LUA-Skripte (Konfiguration, Verwaltung der Bindungen)
+
+Projekt: <<elrs.de.adoc#,ELRS-LUA-Skripte (Konfiguration, Verwaltung der Bindungen)>>
+
+* 2026-02-28: https://www.youtube.com/watch?v=weXc5d1tP9I[ExpressLRS: das neue Konfigurationskript]
+* 2026-06-21: https://www.youtube.com/watch?v=TPBL41C7xG8[ExpressLRS: das neue LUA-Script zum Konfigurieren]
+* 2026-08-13: https://www.youtube.com/watch?v=2qP8EF8u_4Y[ExpressLRS: Das neue LUA-Skript für das Bind-Management]
+* 2026-08-23: https://www.youtube.com/watch?v=JcIzRooNR4c[ExpressLRS: Das neue LUA-Skript für B&W-Sender]
+
+[[v-build_elrs]]
+=== ExpressLRS kompilieren
+
+Projekt: <<building.de.adoc#build_elrs,ExpressLRS kompilieren>>
+
+* 2026-09-02: https://www.youtube.com/watch?v=UDgz5fybjHA[ExpressLRS: Erstellen von alternativen ExpressLRS-Versionen mit Windows]
+* 2026-09-03: https://www.youtube.com/watch?v=0WlLOKrBpx0[ExpressLRS: Erstellen von alternativen ExpressLRS-Versionen mit Windows (Optionen)]
+
+[[vg-rx-as-tx]]
+== ELRS-Empfänger als Sendemodule
+
+[[v-rxtx]]
+=== ELRS-Empfänger als Sendemodule (Allgemeines)
+
+Projekt: <<rx-as-tx.de.adoc#_using_elrs_receivers_as_transmitter_modules,ELRS-Empfänger als Sendemodule (Allgemeines)>>
+
+* 2025-01-09: https://www.youtube.com/watch?v=EX939VNYxls[Alter Sender mit ExpressLRS modernisiert] _(?)_
+* 2025-06-27: https://www.youtube.com/watch?v=zO1bnC88xhI[Alter Sender mit ExpressLRS modernisiert (3)] _(?)_
+* 2025-12-04: https://www.youtube.com/watch?v=UdLcUznPpWI[ExpressLRS spezial: Empfänger als Sendemodul verwenden]
+* 2026-01-18: https://www.youtube.com/watch?v=lvRJbc5Z1LA[ExpressLRS: mal eben schnell ein ELRS-Sendemodul]
+
+[[v-elrs_jr]]
+=== JR-Modulschachtadapter
+
+Projekt: <<rx-as-tx.de.adoc#elrs_jr,JR-Modulschachtadapter>>
+
+* 2024-04-09: https://www.youtube.com/watch?v=uC7tb50pWVg[OpenTx weekly Folge 118: ELRS Empfänger auf Abwegen]
+
+[[v-elrs_x12s]]
+=== Internes Modul für die FrSky X12S
+
+Projekt: <<rx-as-tx.de.adoc#elrs_x12s,Internes Modul für die FrSky X12S>>
+
+* 2023-12-23: https://www.youtube.com/watch?v=WdRQwT1bnJs[OpenTx weekly Folge 108: ELRS (intern) in der X12s]
+
+[[vg-edgetx]]
+== EdgeTx und Protokolle
+
+[[v-vcontrols]]
+=== Virtuelle Bedienelemente für EdgeTx
+
+Projekt: <<edgetx.de.adoc#vcontrols,Virtuelle Bedienelemente für EdgeTx>>
+
+* 2025-01-29: https://www.youtube.com/watch?v=1ZBTZqaJLPo[EdgeTx weekly 137: Virtuelle Bedienelemente (mal wieder)]
+* 2025-08-14: https://www.youtube.com/watch?v=v7tzDOXMhIc[ExpressLRS (und EdgeTx): die versteckten Perlen (2)]
+
+[[v-crsf_batt_id]]
+=== CRSF-BATT-Telegramme mit Instanz-ID
+
+Projekt: <<edgetx.de.adoc#crsf_batt_id,CRSF-BATT-Telegramme mit Instanz-ID>>
+
+* 2026-07-31: https://www.youtube.com/watch?v=zS-a66S6qLg[ExpressLRS: Telemetrie-Dickicht aufgelöst]
+
+[[v-edgetx_custom]]
+=== Angepasste EdgeTx-Versionen
+
+Projekt: <<building.de.adoc#edgetx_custom,Angepasste EdgeTx-Versionen>>
+
+* 2022-02-14: https://www.youtube.com/watch?v=-sWc-2uXXoo[OpenTx weekly - Folge 090: Warum deaktiviere ich die "Override Channel" Funktion?]
+* 2022-04-08: https://www.youtube.com/watch?v=9GC8KGylCf8[OpenTx weekly - Folge 097: Serielle Schnittstellen, wozu?]
+* 2022-04-10: https://www.youtube.com/watch?v=hQDyOoMXjNY[OpenTx weekly - Folge 098: Serielle Schnittstellen im Einsatz] _(?)_
+* 2026-04-03: https://www.youtube.com/watch?v=8ix07NCa_Zg[EdgeTx 2.12: was gibt es zu beachten?]
+
+[[v-crsf-bus]]
+=== CRSF-Halbduplex-Bus
+
+Projekt: <<protocols.de.adoc#crsf-bus,CRSF-Halbduplex-Bus>>
+
+* 2024-05-07: https://www.youtube.com/watch?v=2H6u0s_e_UU[OpenTx weekly Folge 122: Busfahren mit ELRS]
+* 2024-05-08: https://www.youtube.com/watch?v=j-j5ORaUVSA[OpenTx weekly Folge 123: Busfahren mit ELRS, Teil2]
+
+[[v-hwext]]
+=== Hardware-Erweiterungsprotokoll
+
+Projekt: <<protocols.de.adoc#hwext,Hardware-Erweiterungsprotokoll>>
+
+* 2024-08-06: https://www.youtube.com/watch?v=oPbaWQnMffA[OpenTx weekly Folge 125: EdgeTx 2.11 und mehr]
+* 2024-08-10: https://www.youtube.com/watch?v=wxXbM5jaMqs[OpenTx weekly Folge 126: flexible Hardware-Erweiterung einfach gemacht]
+* 2025-03-02: https://www.youtube.com/watch?v=bdoX8Ycks6o[EdgeTx auf Expansionskurs]
+* 2025-03-06: https://www.youtube.com/watch?v=PQR-vFETq7s[EdgeTx auf Expansionskurs (2)]
+* 2025-03-09: https://www.youtube.com/watch?v=X6WbH0IkBN4[EdgeTx auf Expansionskurs (Q&A)]
+
+[[vg-flysky]]
+== FlySky
+
+[[v-flysky-i6x-rs]]
+=== FlySky-I6X-rs
+
+Projekt: <<flysky.de.adoc#flysky-i6x-rs,FlySky-I6X-rs>>
+
+* 2026-09-30: https://www.youtube.com/watch?v=7YuYtvskK0I[Flysky-i6x-rs: eine neue, alternative Firmware für den Sender FlySky FS-I6X]
+* 2026-10-04: https://www.youtube.com/watch?v=2TSJ0OFOgvg[Flysky-i6x-rs: eine neue, alternative Firmware für den Sender FlySky FS-I6X, neue Version 0.20.1]
+
+[[v-flysky-i6s-rs]]
+=== FlySky-I6S-rs
+
+Projekt: <<flysky.de.adoc#flysky-i6s-rs,FlySky-I6S-rs>>
+
+* 2026-10-11: https://www.youtube.com/watch?v=YNmbtbyfR2w[Flysky-i6s-rs: eine neue, alternative Firmware für den Sender FlySky FS-I6S]
+* 2026-10-25: https://www.youtube.com/watch?v=tevIXoXirtI[Flysky-i6s-rs: alternative Firmware für den Sender FlySky FS-I6S (Ver: 0.3), maximaler Ausbau]
+
+[[v-elrs_i6x]]
+=== ELRS für die FlySky-I6X
+
+Projekt: <<flysky.de.adoc#elrs_i6x,ELRS für die FlySky-I6X>>
+
+* 2023-12-27: https://www.youtube.com/watch?v=qdF16vabytI[OpenTx weekly Folge 109: Einbau externes ELRX in die FS-i6X]
+* 2025-07-19: https://www.youtube.com/watch?v=W_Gf_q7ZYQA[ExpressLRS 3.6: Antworten zu einigen Fragen] _(?)_
+
+[[v-oix6]]
+=== Openix6
+
+Projekt: <<flysky.de.adoc#oix6,Openix6>>
+
+* 2021-12-26: https://www.youtube.com/watch?v=tvDtpW6TglE[OpenTx weekly - Folge 076: Mini-Sender mit Mini-OpenTx]
+* 2025-12-28: https://www.youtube.com/watch?v=yNH3Q6GaMy4[FlySky FS-i6x mit OpenI6X Ver. 2.2.0: was gibt es neues?]
+
+[[vg-inav]]
+== INAV
+
+[[v-inav]]
+=== INAV (Radiomaster Nexus-XR)
+
+Projekt: <<inav.de.adoc#,INAV (Radiomaster Nexus-XR)>>
+
+* 2026-03-06: https://www.youtube.com/watch?v=dcwfxXr_l4U[Radiomaster Nexus-XR: brauche ich wirklich einen Flight-Controller?]
+* 2026-03-15: https://www.youtube.com/watch?v=MHKioIJPmEM[Radiomaster Nexus-X(R): Fragen zum letzten Video und ein bisschen mehr]
+
+[[v-mortimer]]
+=== Mortimer: selbstbalancierender Roboter
+
+Projekt: <<inav.de.adoc#mortimer,Mortimer: selbstbalancierender Roboter>>
+
+* 2026-03-23: https://www.youtube.com/watch?v=JkGJ32tAq5U[INav@NexusXR regelt fahrendes, invertiertes Pendel (balancing bot)]
+* https://youtu.be/_f_BZltnOyI[Weiteres Video] (nicht in der Kanalliste)
+
+[[vg-motor-controllers]]
+== Motorsteller
+
+[[v-brushed]]
+=== Bürsten-Gleichstrommotorsteller mit sensorloser Drehzahlmessung
+
+Projekt: <<motor-controllers.de.adoc#_brushed_dc_motor_controller_with_sensorless_measurement_of_rotational_speed,Bürsten-Gleichstrommotorsteller mit sensorloser Drehzahlmessung>>
+
+* 2024-06-17: https://www.youtube.com/watch?v=-AuSsFyT9KE[Bürstenmotorsteller mit sensorloser Drehzahlmessung: wie geht's?]
+* 2024-08-15: https://www.youtube.com/watch?v=pSujc2e9Vw8[Bürstenmotorsteller mit sensorloser Drehzahlmessung]
+* 2024-09-11: https://www.youtube.com/watch?v=01CGYFpl2ts[Bürstenmotorsteller mit sensorloser Drehzahlmessung (Abschluß)]
+* 2024-10-02: https://www.youtube.com/watch?v=bP0L_lYn8nw[Bürstenmotorsteller mit sensorloser Drehzahlmessung, die große Version]
+
+[[v-vesc]]
+=== V/ESC
+
+Projekt: <<motor-controllers.de.adoc#vesc,V/ESC>>
+
+* 2026-03-29: https://www.youtube.com/watch?v=0YcNDozbAes[INav-Erweiterung für V/ESC]
+
+[[v-bmc_old]]
+=== RC-BMC-D und ältere Bürstenmotorsteller
+
+Projekt: <<motor-controllers.de.adoc#,RC-BMC-D und ältere Bürstenmotorsteller>>
+
+* 2021-01-07: https://www.youtube.com/watch?v=4H3EkyGBGj4[Nix OpenTx: diesmal PWM und Motorstrom ;-)] _(?)_
+* 2021-03-13: https://www.youtube.com/watch?v=YcGqh6H6jHw[RC-BMC-D: Der Bürstenmotorsteller (vulgo Fahrtregler)]
+* 2021-03-13: https://www.youtube.com/watch?v=bvdUeQNDzLk[RC-BMC-D: Der Bürstenmotorsteller - Folge 2]
+* 2021-03-13: https://www.youtube.com/watch?v=zHA3FsItgLM[RC-BMC-D: Der Bürstenmotorsteller - Folge 3]
+* 2021-03-14: https://www.youtube.com/watch?v=5HorOrrKEpc[RC-BMC-D: Der Bürstenmotorsteller - Folge 4]
+* 2021-03-19: https://www.youtube.com/watch?v=sqW2s__IBT0[RC-BMC-D: Der Bürstenmotorsteller - Folge 5]
+* 2022-05-07: https://www.youtube.com/watch?v=YkcYKYew4hk[OpenTx weekly - Folge 102: Kleiner HV-Bürstensteller mit SBus/IBus/Pwm-Input]
+
+[[v-escape32]]
+=== ESCape32
+
+Projekt: <<escape32.de.adoc#,ESCape32>>
+
+* 2026-06-22: https://www.youtube.com/watch?v=bDFK7ZiZNOg[ESCape32: Open-Source brushless/brushed ESC Firmware (1)]
+* 2026-06-27: https://www.youtube.com/watch?v=Ml0HefXdywQ[ESCape32: Open-Source brushless/brushed ESC Firmware (2)]
+* 2026-06-28: https://www.youtube.com/watch?v=faEkrqY5Qcw[ESCape32: Open-Source brushless/brushed ESC Firmware (3)]
+* 2026-07-04: https://www.youtube.com/watch?v=_6bDXWGudbA[ESCape32: Open-Source brushless/brushed ESC Firmware (4)]
+* 2026-07-07: https://www.youtube.com/watch?v=t_e8S7JaIZU[ESCape32: Open-Source brushless/brushed ESC Firmware (5) PREVIEW auf nä. Release 17]
+* 2026-07-17: https://www.youtube.com/watch?v=L-Nj9KezeGk[ESCape32: Open-Source brushless/brushed ESC Firmware (6)]
+* 2026-07-28: https://www.youtube.com/watch?v=WrCTSGZR8j8[ESCape32: Open-Source brushless/brushed ESC Firmware (7)]
+
+[[v-esc32_mod]]
+=== Modifiziertes ESCape32 kompilieren
+
+Projekt: <<building.de.adoc#esc32_mod,Modifiziertes ESCape32 kompilieren>>
+
+* 2026-08-06: https://www.youtube.com/watch?v=QTOvv0O9noc[ESCape32: Compilieren im github CodeSpace]
+
+[[vg-rc-desk]]
+== RC-Desk
+
+[[v-rcdesk]]
+=== Der RC-Desk
+
+Projekt: <<rc-desk.de.adoc#rcdesk,Der RC-Desk>>
+
+* 2021-08-14: https://www.youtube.com/watch?v=UBqiqOP0Xog[RC-Elektronik: Senderpult] _(?)_
+* 2022-04-03: https://www.youtube.com/watch?v=3VDebEMJIIw[OpenTx weekly - Folge 096: Senderpult (mini)] _(?)_
+* 2022-05-03: https://www.youtube.com/watch?v=0-uABJydv84[OpenTx weekly - Folge 101: Senderpult (2)] _(?)_
+* 2025-04-20: https://www.youtube.com/watch?v=fmjKu9yLX5k[Senderpult-Elektronik, Schaltmodule (alt und neu), Virtuelle Geber und Widgets] _(?)_
+
+[[v-rcdesk32mini]]
+=== Der RC-Desk mini
+
+Projekt: <<rc-desk.de.adoc#rcdesk32mini,Der RC-Desk mini>>
+
+* 2025-11-28: https://www.youtube.com/watch?v=B_YVf5j0ufc[Neue Senderpult-/Sendererweiterungs-Elektronik: einfacher Nachbau]
+* 2025-12-02: https://www.youtube.com/watch?v=4ywRSnH-egw[Renovieren alter Sender super leicht gemacht: nachbaufreundliche Senderelektronik mit ExpressLRS]
+
+[[vg-radio-mods]]
+== Senderumbauten
+
+[[v-varioprop]]
+=== Neue Hauptplatine für alte Sender (VarioProp)
+
+Projekt: <<radio-mods.de.adoc#varioprop,Neue Hauptplatine für alte Sender (VarioProp)>>
+
+* 2024-03-14: https://www.youtube.com/watch?v=WjJ9qK_8eX4[OpenTx weekly Folge 112: Retro-Technik neu aufgelegt] _(?)_
+* 2024-03-24: https://www.youtube.com/watch?v=ZVeV3JBxfd4[OpenTx weekly Folge 115: alte und neue Technik verbunden] _(?)_
+* 2024-03-25: https://www.youtube.com/watch?v=kfBMQlL-LIU[OpenTx weekly Folge 116: die renovierte VarioProp, Widgets in EdgeTx und einige Klarstellungen]
+
+[[v-x12s_touch]]
+=== Touchscreen für die FrSky X12S
+
+Projekt: <<radio-mods.de.adoc#x12s_touch,Touchscreen für die FrSky X12S>>
+
+* 2022-03-31: https://www.youtube.com/watch?v=BhzwIHQNJnw[OpenTx weekly - Folge 095 : Touch-Screen für die FrSky X12S]
+
+[[v-sfrog]]
+=== SFrog 5D Sticks für die FrSky X12S
+
+Projekt: <<radio-mods.de.adoc#sfrog,SFrog 5D Sticks für die FrSky X12S>>
+
+* 2026-01-15: https://www.youtube.com/watch?v=AKuuXripmW0[FrSky X12S: der letzte Vertreter seiner Art wird fit für die Zukunft gemacht ... mit SFrog 5D Sticks]
+
+[[v-jr40]]
+=== Graupner / JR 40MHz-HF-Modul
+
+Projekt: <<radio-mods.de.adoc#_modification_of_an_old_graupner_jr_40mhz_transmitter_rf_modul_for_use_in_e_g_a_radiomaster_tx16s_frsky_x12sx9e_or_similar,Graupner / JR 40MHz-HF-Modul>>
+
+* 2021-08-24: https://www.youtube.com/watch?v=NoHuX-6Vqxw[RC-Elektronik: Das digitale FM-Sendemodul] _(?)_
+* 2021-11-25: https://www.youtube.com/watch?v=Ts7rE-eQF9k[OpenTx weekly - Folge 067: 40MHz Mini-Serie]
+* 2021-11-30: https://www.youtube.com/watch?v=zVdzESDU7Og[OpenTx weekly - Folge 068: 40MHz Mini-Serie Teil 2]
+* 2021-12-04: https://www.youtube.com/watch?v=gUPJTPywyzM[OpenTx weekly - Folge 071: 40MHz Mini-Serie Teil 3]
+* 2021-12-09: https://www.youtube.com/watch?v=OCwq4FE56SY[OpenTx weekly 073: 40MHz Mini-Serie Teil 4]
+
+[[v-extswitch]]
+=== Interner Schaltercontroller für die TX16s
+
+Projekt: <<radio-mods.de.adoc#extswitch,Interner Schaltercontroller für die TX16s>>
+
+* 2022-04-20: https://www.youtube.com/watch?v=WDcdgDbyYB4[OpenTx weekly - Folge 099: Radiomaster TX16s Ausbau (die x-te)] _(?)_
+
+[[v-haptic]]
+=== Haptiksteuerung
+
+Projekt: <<radio-mods.de.adoc#haptic,Haptiksteuerung>>
+
+* 2021-08-03: https://www.youtube.com/watch?v=KmKqtQulzzM[RC-Elektronik: RC-Haptik 01]
+* 2021-08-03: https://www.youtube.com/watch?v=Rj6FijD5dco[RC-Elektronik: RC-Haptik 02]
+* 2021-08-03: https://www.youtube.com/watch?v=1llRP9EBrLc[RC-Elektronik: RC-Haptik 03]
+* 2021-08-03: https://www.youtube.com/watch?v=G81UkoHOj9A[RC-Elektronik: RC-Haptik 04]
+* 2021-08-03: https://www.youtube.com/watch?v=i7hTHSYI2aA[RC-Elektronik: RC-Haptik 05]
+
+[[vg-vhf]]
+== Empfänger für 27/35/40MHz
+
+[[v-corona]]
+=== Alternative Firmware für den Corona RP8D1
+
+Projekt: <<vhf-receivers.de.adoc#corona,Alternative Firmware für den Corona RP8D1>>
+
+* 2024-03-18: https://www.youtube.com/watch?v=q5oiHTnkp-k[OpenTx weekly Folge 113: Schaltmodule am Scan-Empfänger Corona RP8D1 (mit alternativer Firmware)]
+* 2024-03-23: https://www.youtube.com/watch?v=cUGIk_Ka3Hw[OpenTx weekly Folge 114: Neue Firmware für den Corona RP8D1 die zweite ...]
+
+[[vg-misc]]
+== Verschiedenes
+
+[[v-devg0b1]]
+=== WM STM32G0B1-Entwicklungsplatine
+
+Projekt: <<misc.de.adoc#devg0b1,WM STM32G0B1-Entwicklungsplatine>>
+
+* 2025-12-21: https://www.youtube.com/watch?v=sgfcfx7HFlQ[Ein neues µC-Modul: das WmG0B1 ist der große Bruder des WeAct-STM32G031]
+
+[[v-gitpod_wm]]
+=== Firmware kompilieren und flashen (wmucpp)
+
+Projekt: <<building.de.adoc#gitpod_wm,Firmware kompilieren und flashen (wmucpp)>>
+
+* 2025-12-07: https://www.youtube.com/watch?v=nmDGVVHOgnY[RC-Elektronik: wie bekomme ich denn nun die Firmware auf den STM32-Microcontroller?]
+
+[[v-gear]]
+=== Testberichte und Ausrüstung
+
+Projekt: <<gear.de.adoc#,Testberichte und Ausrüstung>>
+
+* 2026-01-22: https://www.youtube.com/watch?v=gwQktlNaL68[TX16S MK3: Vorstellung und Test des neuen Senders von Radiomaster]
+* 2026-01-29: https://www.youtube.com/watch?v=ECkvme8WfYQ[Vorstellung und Test der Radiomaster ERS-Sensoren CV01 CU01 BA01 RB01 RC01 GPS]
+* 2026-05-25: https://www.youtube.com/watch?v=hdcYGFWxuUI[Kostenloser Ersatz des RM XR2: vielen Dank an Fa. Radiomaster]
+* 2026-08-12: https://www.youtube.com/watch?v=YxEwdN25exU[GX15: Vorstellung und Test des neuen Senders von Radiomaster]
+* 2026-09-08: https://www.youtube.com/watch?v=WaZn4r4KFAc[FM2M D-Clock Widget: neues Leben für alte Sender und lustiges Gadget]
+* 2026-09-10: https://www.youtube.com/watch?v=-2C6ztEt3CM[Radiomaster ExpressLRS Gemini-X Empfänger ER3Pro, ER12 und ER16 Review mit allen Details]
+
+[[v-general]]
+=== Kanalneuigkeiten, Jahresrückblick, Modelle im Einsatz
+
+* 2025-03-14: https://www.youtube.com/watch?v=_95GXZ4URu0[EdgeTx, OpenI6X, eigene Projekte: einfach machen!]
+* 2025-05-28: https://www.youtube.com/watch?v=iqwLHhI3PTo[RC-Elektronik: Nach der Messe ist vor der Messe]
+* 2025-06-09: https://www.youtube.com/watch?v=OxbqwTgNjSM[RC-Elektronik: GPS im Sender und im Modell ... ein Erfahrungsbericht]
+* 2025-06-13: https://www.youtube.com/watch?v=PI19QcayxS4[RC-Elektronik: alles im Modell und in Aktion ...]
+* 2025-12-30: https://www.youtube.com/watch?v=c__Lx5_J3vM[Jetzt ist Schluss!]
+
+[[v-diy]]
+=== Serie: RC-Elektronik im Eigenbau
+
+* 2025-03-19: https://www.youtube.com/watch?v=4LrH7xl4PDU[RCElektronik als DIY, was ist zu beachten? (1)]
+* 2025-03-22: https://www.youtube.com/watch?v=DeOINCcViDk[RCElektronik als DIY, was ist zu beachten? (2)]
+* 2025-03-30: https://www.youtube.com/watch?v=6YQC_2wjRHA[RCElektronik als DIY, was ist zu beachten? (3)]
+* 2025-04-07: https://www.youtube.com/watch?v=nFzso7g_Nxk[RCElektronik als DIY, was ist zu beachten (4)]
+* 2025-04-10: https://www.youtube.com/watch?v=ByX0VqHzLmE[RCElektronik als DIY, was ist zu beachten (5)]
+
+[[v-misc]]
+=== Sonstiges (Winden, Inkrementalgeber, Space-Mouse, Kransteuerung)
+
+* 2020-10-01: https://www.youtube.com/watch?v=efW16WbXVp0[Sonderfunktions- und Kransteuerung (Prototype 1)]
+* 2021-01-23: https://www.youtube.com/watch?v=WiSR4y86gIM[DDorf Testrumpf]
+* 2021-02-14: https://www.youtube.com/watch?v=jsHxym2csJ4[Inkrementalgeber]
+* 2021-09-10: https://www.youtube.com/watch?v=yVJQCCdaMxI[RC-Elektronik: Eine neue Idee für eine Ankerwinde]
+* 2021-09-15: https://www.youtube.com/watch?v=QI7Y4JSp_Vc[RC-Elektronik: Die Schleppwinde (NG)]
+* 2021-09-30: https://www.youtube.com/watch?v=7z7eUnw9v0Y[RC-Elektronik: Schleppwinde (2)]
+* 2022-01-19: https://www.youtube.com/watch?v=JE4P0tiB6Xo[RC-Elektronik: Space-Mouse]
+
+[[vg-weekly]]
+== OpenTx / EdgeTx weekly (Anleitungen)
+
+[[v-weekly]]
+=== Anleitungen und Neuigkeiten zu OpenTx / EdgeTx
+
+* 2020-03-26: https://www.youtube.com/watch?v=VqgvSSnup8I[OpenTx 001 - Was ist das?]
+* 2020-03-26: https://www.youtube.com/watch?v=6c70CqfVniY[OpenTx 003 - Flashen eines Senders mit OpenTx]
+* 2020-04-01: https://www.youtube.com/watch?v=8oY6gqg2OOc[OpenTx 007 - Schalter und ihre Verwendung]
+* 2020-04-02: https://www.youtube.com/watch?v=Eqz7m1iK338[OpenTx 008 - Fortsetzung des einfachen Modells: rückwärts per Schalter]
+* 2020-04-05: https://www.youtube.com/watch?v=FnZgxrmKiOs[OpenTx 011 - Fortsetzung des einfachen Schiffsmodells: sicheres V/R per Schalter]
+* 2020-04-09: https://www.youtube.com/watch?v=vXYKFv_U5_M[OpenTx 013 - Auf dem Weg zu Fahrzuständen: Dual-Rate]
+* 2020-04-17: https://www.youtube.com/watch?v=wljmu9GL8nk[OpenTx 015 - Spezial Funktionen: die kleinen Helferlein]
+* 2020-05-08: https://www.youtube.com/watch?v=gaAL3eIf2lc[OpenTx 018 - Telemetrie: mehr Details]
+* 2020-07-08: https://www.youtube.com/watch?v=yv5LIM7u7l8[OpenTx  022 - BUS-Systeme]
+* 2020-07-29: https://www.youtube.com/watch?v=ioxe7ruJU6k[OpenTx weekly - 024: Bootloader]
+* 2020-07-30: https://www.youtube.com/watch?v=5r8H34rBf-k[OpenTx weekly - 025 : Kurven]
+* 2020-08-03: https://www.youtube.com/watch?v=7n50qh-YqCs[OpenTx weekly - 026: Graupner/SJ Hott]
+* 2020-08-03: https://www.youtube.com/watch?v=8k-mIaWXfwE[OpenTx weekly - 026a : Graupner/SJ Hott]
+* 2020-08-08: https://www.youtube.com/watch?v=f1tkxwIYwiw[OpenTx weekly - 027: Widgets]
+* 2020-08-17: https://www.youtube.com/watch?v=k_j1y0WfJXU[OpenTx weekly - Folge 028: Grundeinstellungen revisited]
+* 2020-08-18: https://www.youtube.com/watch?v=yX1v6QeoQGY[OpenTx weekly 029 (spezial): Ebenenumschaltung]
+* 2020-08-19: https://www.youtube.com/watch?v=MZ9upd5UKGw[OpenTx weekly - Folge 030 (spezial): 3-motoriges Modell (Kettenmischer)]
+* 2020-08-26: https://www.youtube.com/watch?v=EebehMDiVCc[OpenTx weekly - Folge 031 : Zellensensoren (FrSky, Hott)]
+* 2020-09-02: https://www.youtube.com/watch?v=F1GEXHZeGIU[OpenTx weekly Folge 032 : Erweiterte Telemetrie]
+* 2020-10-08: https://www.youtube.com/watch?v=beQVHxAEoHY[OpenTX weekly - Folge 33: Spaß mit OpenTx]
+* 2020-10-09: https://www.youtube.com/watch?v=S02d4F99aaU[OpenTx weekly - Folge 34: Spaß mit OpenTx (Fortsetzung), mit Ziel einer Ebenenumschaltung]
+* 2020-10-12: https://www.youtube.com/watch?v=59IXIQWZtO8[OpenTx weekly - Folge 035: Spaß mit OpenTx]
+* 2020-10-15: https://www.youtube.com/watch?v=xCZsmgXcNMc[OpenTx weekly - Folge 036: Geber, Inputs, Mixer und Outputs nochmal am Beispiel Ebenenumschaltung]
+* 2020-10-19: https://www.youtube.com/watch?v=1NNmNAnSDfk[OpenTx weekly - Folge 037: Ebenenumschaltung und Inkrementalgeber]
+* 2020-10-29: https://www.youtube.com/watch?v=Z5S6aO5XqME[OpenTx weekly - Folge 038: Das Ende der Ebenenumschaltung inkl. Inkrementalgeberersatz]
+* 2020-11-08: https://www.youtube.com/watch?v=ESTAzEpiuLA[OpenTxweekly Folge 039: Beginn einer Mini-Serie für OpenTx-Neulinge]
+* 2020-11-10: https://www.youtube.com/watch?v=1hqoMyUtNv4[OpenTx Weekly - Folge 040: Mini-Serie: Logischer Aufbau von OpenTx]
+* 2020-11-17: https://www.youtube.com/watch?v=t_BfIT4m4M8[OpenTx weekly - Folge 041: Fortsetzung der Mini-Serie. Was ist AETR? Was bedeutet Mode 1-4?]
+* 2020-11-28: https://www.youtube.com/watch?v=7k_t2bNWKDk[OpenTx weekly - Folge 042: Mehrere Empfänger für ein HF-Modul]
+* 2021-01-08: https://www.youtube.com/watch?v=FM3R7plQZqY[OpenTx Weekly - Folge 043 - Unsymmetrische Mischer (1)]
+* 2021-01-11: https://www.youtube.com/watch?v=JfiOUsks_HA[OpenTx weekly - Folge 044: Unsymmetrische Mischer (2): Die Auflösung]
+* 2021-04-05: https://www.youtube.com/watch?v=NEZhwGEVwiM[OpenTx weekly - Folge 046: Lehrer-Schüler-Betrieb auf besondere Weise]
+* 2021-04-06: https://www.youtube.com/watch?v=6Q9Nq7vWPvQ[OpenTx weekly - Folge 047: Lehrer/Schüler nächste Stufe ;-)]
+* 2021-04-07: https://www.youtube.com/watch?v=-D1fCnDMStA[OpenTx weekly - Folge 048: Für Vergessliche!]
+* 2021-04-08: https://www.youtube.com/watch?v=hQmfFtPtoBs[OpenTx weekly - Folge 049: Krach machen]
+* 2021-04-10: https://www.youtube.com/watch?v=6NzZiVSwTYs[OpenTx weekly - Folge 050: Musik mit 6p]
+* 2021-04-15: https://www.youtube.com/watch?v=oGF-02og7rk[OpenTx weekly - Folge 051: Von 0 auf 100]
+* 2021-04-16: https://www.youtube.com/watch?v=I2hYFLPzTFQ[OpenTx weekly - Folge 052: Hardwaredschungel, oder wie ich meine Empfänger update]
+* 2021-05-05: https://www.youtube.com/watch?v=8GP_Fb6t0s4[OpenTx weekly - Folge 053: Wo sind alle meine Schalter hin?]
+* 2021-05-17: https://www.youtube.com/watch?v=G0kSlaCY88Q[OpenTx weekly - Folge 054: Trimm Dich!]
+* 2021-06-06: https://www.youtube.com/watch?v=pKT0h_1I9TQ[OpenTx weekly - Folge 055: The bleeding edge]
+* 2021-07-09: https://www.youtube.com/watch?v=SKijQUYsKVw[OpenTx weekly - Folge 056: Neues von EdgeTx]
+* 2021-07-21: https://www.youtube.com/watch?v=MyZ6TCZevBc[OpenTx weekly - Folge 057: Das "Totmann"-Problem ;-)]
+* 2021-08-30: https://www.youtube.com/watch?v=kr7XNqMDOYo[OpenTx weekly - Folge 058: Sneak Preview EdgeTx 2.5.0]
+* 2021-09-16: https://www.youtube.com/watch?v=18DOW1cguzQ[OpenTx weekly - Folge 058: Von OpenTx nach EdgeTx]
+* 2021-09-17: https://www.youtube.com/watch?v=JFSiEaaHdCs[OpenTx weekly - Folge 059: Preview EdgeTx 2.5.0]
+* 2021-09-26: https://www.youtube.com/watch?v=tAFuhcZ6PN4[OpenTx Weekly - Folge 060: Quicktip Screenshots]
+* 2021-10-05: https://www.youtube.com/watch?v=5hlFNC9ujQw[OpenTx weekly - Folge 061: Preview EdgeTx 2.6.0]
+* 2021-10-06: https://www.youtube.com/watch?v=bYgZqYNjLrE[OpenTx weekly - Folge 062: Für Nachteulen]
+* 2021-10-17: https://www.youtube.com/watch?v=Vz3UJ0D4-Qg[OpenTx weekly - Folge 063: Spieltrieb]
+* 2021-10-24: https://www.youtube.com/watch?v=ERetfflchgs[OpenTx weekly - Folge 064: Mischer, das unbekannte Wesen]
+* 2021-10-31: https://www.youtube.com/watch?v=4btNG24hErM[OpenTx weekly - Folge 065: Inputs sind keine Mischer]
+* 2021-11-15: https://www.youtube.com/watch?v=04stcZSA9R8[OpenTx weekly - Folge 066: News]
+* 2021-11-30: https://www.youtube.com/watch?v=r-BCWpao59w[OpenTx weekly - Folge 069: Wer sich ewig bindet: Teil 1]
+* 2021-12-03: https://www.youtube.com/watch?v=PH6DG5mLel4[OpenTx weekly - Folge 070: Quicktip "Hydrauliksimulation" revisited]
+* 2021-12-07: https://www.youtube.com/watch?v=H38fbM5dDfI[OpenTx weekly 072: Wer sich ewig bindet Teil 2]
+* 2021-12-10: https://www.youtube.com/watch?v=U_p2P28mhL0[OpenTx weekly - Folge 074: Wer sich ewig bindet Teil 3]
+* 2021-12-16: https://www.youtube.com/watch?v=A-dJj3fHKIM[OpenTx weekly - Folge 075: Trim Dich]
+* 2021-12-26: https://www.youtube.com/watch?v=Ip5GGlLL_BQ[OpenTx weekly - Folge 077: Wer sich ewig bindet Teil 4]
+* 2022-01-08: https://www.youtube.com/watch?v=zWZ4AviYyeM[OpenTx weekly - Folge 078: Wer sich ewig bindet Teil 5]
+* 2022-01-12: https://www.youtube.com/watch?v=7WFhJU8wJkQ[OpenTx weekly - Folge 079: Logische Schalter als Touch-Buttons]
+* 2022-01-13: https://www.youtube.com/watch?v=rMYZfN3s3q4[OpenTx weekly - Folge 080: To be or not to be ... fullscreen]
+* 2022-01-18: https://www.youtube.com/watch?v=944lLsOa0O4[OpenTx weekly - Folge 081: "Wer sich ewig bindet, Teil6" (Ende)]
+* 2022-01-23: https://www.youtube.com/watch?v=_utuHrlHzbg[OpenTx weekly - Folge 082: Virtuelle Schieberegler]
+* 2022-01-30: https://www.youtube.com/watch?v=2jR5d_Ryrvk[OpenTw weekly - Folge 083: Endlich mal was für Funktionsmodellbauer ;-)]
+* 2022-02-01: https://www.youtube.com/watch?v=ltXmEJ3zB9Y[OpenTx weekly - Folge 085: Schieberegler, die zweite]
+* 2022-02-06: https://www.youtube.com/watch?v=2pzLM69BDq0[OpenTx weekly - Folge 088: Animationen]
+* 2022-02-22: https://www.youtube.com/watch?v=3jWauTiGm1Y[OpenTx weekly - Folge 091: Quick-Tipp Audio-Ausgabe]
+* 2022-03-06: https://www.youtube.com/watch?v=ea4adnxYukA[OpenTx weekly - Folge 093: Trimmung (1)]
+* 2022-03-12: https://www.youtube.com/watch?v=tzd_x8kW-p4[OpenTx weekly - Folge 094: Vierhändig]
+* 2022-04-30: https://www.youtube.com/watch?v=uprF8X8Gh7U[OpenTx weekly -Folge 100: Wie ist die Lage?]
+* 2022-06-19: https://www.youtube.com/watch?v=gjliEUocjHw[OpenTx weekly - Folge 103: Neues Look-n-Feel für EdgeTx (ab 2.8.0)]
+* 2023-12-30: https://www.youtube.com/watch?v=hZT4i2tI9iI[OpenTx weekly Folge 110: Musik ab ...]
+* 2024-01-29: https://www.youtube.com/watch?v=ufdMBe3Vu1M[OpenTx weekly Folge 111: Mischer-Skripte]
+* 2024-04-01: https://www.youtube.com/watch?v=6iiRxRbFnAs[OpenTx weekly Folge 117: Neues von EdgeTx 2.10]
+* 2024-05-11: https://www.youtube.com/watch?v=MTyzz-MbefQ[OpenTx weekly Folge 124: Geschüttelt oder gerührt]
+* 2024-09-20: https://www.youtube.com/watch?v=QIdRRefO6Qo[EdgeTx (OpenTx) weekly Folge 127: Back to Basics]
+* 2024-09-26: https://www.youtube.com/watch?v=yEeTYgmk4eI[EdgeTx (OpenTx) weekly Folge 128: Back to Basics (II)]
+* 2024-10-02: https://www.youtube.com/watch?v=vrzt1Y2HNhQ[EdgeTx (OpenTx) weekly Folge 129: Back to Basics (III)]
+* 2024-10-09: https://www.youtube.com/watch?v=lDgVru12QPw[EdgeTx weekly Folge 130: Back to Basics (IV)]
+* 2024-10-15: https://www.youtube.com/watch?v=KQAuCvGeU7M[EdgeTx weekly Folge 131: Back to Basics (V)]
+* 2024-10-22: https://www.youtube.com/watch?v=R__OJWP0r_8[EdgeTx weekly Folge 132: Back to Basics (VI)]
+* 2024-11-01: https://www.youtube.com/watch?v=1K3dKCz51qs[EdgeTx weekly Folge 133: Back to Basics (VII)]
+* 2024-12-05: https://www.youtube.com/watch?v=zbebdIh7n08[EdgeTx weekly: 2.11 preview - Simulator und die echte Welt]
+* 2024-12-31: https://www.youtube.com/watch?v=NS57GCD2dKk[EdgeTx weekly: preview 2.11, ExpressLRS 4 und Rückblick]
+* 2025-03-27: https://www.youtube.com/watch?v=okJajEES7cA[EdgeTx weekly 138: Servotester]
+* 2025-04-03: https://www.youtube.com/watch?v=eyvoe86J_pk[EdgeTx weekly 139: Kleine Überraschung]
+* 2025-04-18: https://www.youtube.com/watch?v=rjNVqe1mqmw[EdgeTx weekly 140: Preview 2.11 und ein Hinweis in eigener Sache]
+* 2025-05-07: https://www.youtube.com/watch?v=OGyf0yCBMqU[EdgeTx weekly Folge 141: Besonderheiten in 2.11 und Simulator]
+* 2025-05-23: https://www.youtube.com/watch?v=zQEl80Igxgk[EdgeTx weekly Folge 142: Große Verwirrung ;-)]
+* 2025-08-20: https://www.youtube.com/watch?v=z4Yhxg110Mk[EdgeTx weekly 143: Tempomat]
