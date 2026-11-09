@@ -166,6 +166,8 @@ Der `ELRS-MultiAdapter-EA` setzt den seriellen CRSF-Eingang wie folgt um:
 | Status | 🟢 aktiv
 | Hardware | https://de.aliexpress.com/item/1005005748198584.html[WeAct STM32G0-Platine]
 | Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcRelay32[wmucpp: `boards/rcRelay32`]
+| ESP32-C3-Port | https://github.com/wimalopaan/wmucpp/tree/master/boards/esp32/relay[wmucpp: `boards/esp32/relay`] für das WeAct ESP32-C3 Core Board
+| ESP32-C3-Dokumentation | https://github.com/wimalopaan/wmucpp/blob/master/boards/esp32/relay/README.de.adoc[Deutsche README], https://github.com/wimalopaan/wmucpp/blob/master/boards/esp32/relay/README.adoc[Englische README]
 | Video | https://www.youtube.com/watch?v=U8FipSOZ5B8[2025-12-10], https://www.youtube.com/watch?v=5iENS7tGbj4[2025-12-13], https://www.youtube.com/watch?v=hsxlTjcT4t8[2025-12-13 #2], https://www.youtube.com/watch?v=TunZTMcnqxQ[2025-12-15], <<videos.de.adoc#v-rcrelay32,alle Videos (4)>>
 | Siehe auch | <<elrs.de.adoc#elrs-relay,ELRS-Relaiskonfiguration>>, <<elrs.de.adoc#elrs-tx-relay,ELRS-Sender als CRSF-Relais>>
 |===
@@ -198,6 +200,12 @@ werden nicht nur die RC-Kanäle übertragen, sondern auch die Telemetriedaten al
 Möglicherweise ist ein LUA-Widget auf dem Sender erforderlich, um die getunnelten RC-LinkStat-Pakete der zweiten RC-Funkstrecke (oder weiterer RC-Funkstrecken) umzusetzen.
 
 Die Firmware findet sich hier: https://github.com/wimalopaan/wmucpp/tree/master/boards/rcRelay32[]
+
+Zusätzlich ist ein ESP-IDF-Port für das WeAct ESP32-C3 Core Board verfügbar.
+Seine https://github.com/wimalopaan/wmucpp/blob/master/boards/esp32/relay/README.de.adoc[README]
+beschreibt die ESP32-C3-Pinbelegung, unterstützte Funktionen, Unterschiede zur
+STM32-Version sowie Bau- und Flash-Anleitung. Ein Hardwaretest dieses Ports
+steht noch aus; die folgende STM32-Pinbelegung gilt dafür nicht.
 
 Als Hardwareplattform wird die https://de.aliexpress.com/item/1005005748198584.html[WeAct STM32G031F8] verwendet.
 
