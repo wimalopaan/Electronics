@@ -157,6 +157,7 @@ The `ELRS-MultiAdapter-EA` converts CRSF-serial input into
 | Status | 🟢 active
 | Hardware | https://de.aliexpress.com/item/1005005748198584.html[WeAct STM32G0 board]
 | Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/rcRelay32[wmucpp: `boards/rcRelay32`]
+| Firmware downloads | https://github.com/wimalopaan/wmucpp/releases?q=rcRelay32[Precompiled rcRelay32 releases]
 | ESP32-C3 port | https://github.com/wimalopaan/wmucpp/tree/master/boards/esp32/relay[wmucpp: `boards/esp32/relay`] for the WeAct ESP32-C3 Core Board
 | ESP32-C3 documentation | https://github.com/wimalopaan/wmucpp/blob/master/boards/esp32/relay/README.adoc[English README], https://github.com/wimalopaan/wmucpp/blob/master/boards/esp32/relay/README.de.adoc[German README]
 | Video | https://www.youtube.com/watch?v=U8FipSOZ5B8[2025-12-10], https://www.youtube.com/watch?v=5iENS7tGbj4[2025-12-13], https://www.youtube.com/watch?v=hsxlTjcT4t8[2025-12-13 #2], https://www.youtube.com/watch?v=TunZTMcnqxQ[2025-12-15], <<videos.adoc#v-rcrelay32,all videos (4)>>
@@ -190,7 +191,14 @@ the rc-channels are transported this way, but also the telemetry data from all r
 
 There maybe need for a LUA-widget running on the handset to convert the tunneled RC-LinkStat packages from the secondary RC-Link (or even more RC-Links).
 
-The firmware can be fund here: https://github.com/wimalopaan/wmucpp/tree/master/boards/rcRelay32[]
+The firmware source code is available here: https://github.com/wimalopaan/wmucpp/tree/master/boards/rcRelay32[]
+
+[TIP]
+--
+Ready-to-flash firmware is available in the https://github.com/wimalopaan/wmucpp/releases?q=rcRelay32[rcRelay32 releases].
+Under _Assets_, select the `.bin` file matching your board: `WEACT`, `WMG0B1` or `NUCLEO431`.
+The corresponding `.elf` files are also provided. These STM32 builds are not suitable for the ESP32-C3 port.
+--
 
 An ESP-IDF port for the WeAct ESP32-C3 Core Board is also available.
 Its https://github.com/wimalopaan/wmucpp/blob/master/boards/esp32/relay/README.adoc[README]
