@@ -459,6 +459,253 @@ If you want to produce this PCB, you can use the following link to the gerber fi
 
 Link to link:../images/elrs_msw/seaspotter/Gerber_CRSF-Multiswitch-THT-v1.1.zip[Gerber].
 
+[[msw_weact_esp32c3]]
+==== WeAct ESP32-C3 Core Board as a MultiSwitch
+
+[caption=""]
+.Project info
+[cols="1h,5",width="100%"]
+|===
+| Status | 🟡 experimental
+| Hardware | https://github.com/WeActStudio/WeActStudio.ESP32C3CoreBoard[WeAct ESP32-C3 Core Board]
+| Firmware | https://github.com/wimalopaan/wmucpp/tree/master/boards/esp32/multiswitch[wmucpp: `boards/esp32/multiswitch`]
+| Control | <<msw_widget>>
+| Configuration | CRSF parameter menu on the transmitter
+| Documentation | https://github.com/wimalopaan/wmucpp/blob/master/boards/esp32/multiswitch/README.en.adoc[Firmware README]
+| See also | <<msw_weact,WeAct STM32G031F8 as a MultiSwitch>>
+|===
+
+ESP-IDF port of `boards/rcmultiswitchG030` for the WeAct ESP32-C3FH4
+Core Board (4 MB flash). The ESP32 configuration (`EEProm`) is kept
+separately in `main/settings.h`; the `config-v4` NVS layout remains unchanged.
+Pattern parameters and CRSF parameter serialization are reused from the
+original project and `include_stm32`, respectively. The STM32 hardware
+abstraction is not required.
+
+The following paths and build commands refer to the firmware directory
+`boards/esp32/multiswitch` in the `wmucpp` repository.
+
+===== Connections
+
+[cols="1,2"]
+|===
+|Function |GPIO
+|Output 0..7 |0, 1, 3, 4, 5, 6, 7, 10
+|CRSF RX (from receiver TX) |20
+|CRSF TX (to receiver RX) |21
+|Blue onboard LED, active low |8
+|BOOT button, active low |9
+|Status input IN0, active low with pull-up |2
+|USB Serial/JTAG |18/19, unchanged
+|===
+
+Pin assignment: `main/board.h`. Connect a common ground with the receiver.
+The UART uses non-inverted 3.3 V signals in two-wire full-duplex mode.
+The outputs are active-high logic signals, not power outputs:
+connect loads through suitable drivers/MOSFETs. External pull-downs are
+required to keep loads safely off during reset/boot.
+GPIO4..7 cannot be used for external JTAG with this pin assignment.
+GPIO2/8/9 are strapping pins; holding BOOT during power-up starts the ROM
+bootloader.
+
+The onboard LED and button pin assignments follow the
+https://github.com/WeActStudio/WeActStudio.ESP32C3CoreBoard/tree/master/Hardware[WeAct schematic].
+
+===== Features
+
+* Eight switching outputs with software PWM, interval/multiple-flash
+  operation, and Morse.
+* CRSF switch commands Set, Set4, Set4M, and Prop; default switch address 0.
+* Automatic baud-rate scanning at 400000, 420000, and 921600 baud;
+  starting at 420000.
+* CRSF device discovery and a dynamic parameter menu including
+  Operate/Test, Morse text, failsafe, and a confirmed factory reset.
+* Four virtual groups, four pattern generators with chaining, and
+  global PWM modulation through a separate virtual address.
+* Master/slave operation with broadcast output states and individual
+  slave enable settings per output, compatible with the STM32 command.
+* Failsafe after one second without valid channel, link, ping, or matching
+  switch command packets: Hold, All-Off, or a configured output state.
+  All-Off also sets remote PWM to zero.
+* NVS persistence, 500 ms after the last configuration change.
+  Operate/Test and Prop values are not saved. Factory reset is saved.
+* CRSF status telemetry in the original format, every 500 ms.
+  Status input IN0 on GPIO2 is reported in bit 0; bits 1..7 remain zero.
+  Telemetry pauses for 30 seconds after discovery/configuration accesses.
+
+The status LED uses the original timing: 100 ms flashes, with 100 ms gaps
+between flashes in a sequence. Baud-rate scanning: one flash followed by
+a 1200 ms pause; operation without telemetry: one flash followed by a
+5000 ms pause; with telemetry: two flashes followed by a 5000 ms pause.
+Connection lost: one flash followed by a 210 ms pause.
+A temporarily enabled configuration window in Button mode is indicated by
+a steady light while connected.
+
+====== Differences from the STM32 version
+
+All eight outputs share one PWM frequency from 100 to 1000 Hz
+(`PWM f (O0..7)`, in 100 Hz units, default 1000 Hz).
+The logical duty resolution is 1 percent. A GPTimer switches only at the
+required edges; outputs continue running during NVS accesses.
+Software PWM is nevertheless not jitter-free and must be checked under
+real load using a logic analyzer.
+
+PWM modes Off/On/Remote/Global-Indiv match the original.
+PWM Expo has no effect, as in the original.
+IrDA, half-duplex, and STM32-specific ADC/voltage/temperature measurements
+are not part of this port.
+Parameters are listed dynamically; their indices do not match those of
+individual STM32 hardware variants.
+
+`Config resp.` is enabled by default. In Button mode, holding BOOT for
+at least one second enables replies for 30 seconds; parameter accesses
+extend this window.
+Reading the reset menu entry does not trigger a reset; CRSF confirmation
+is required.
+Morse output can be stopped while running; spaces and unknown characters
+are handled with bounded processing.
+
+===== Status input
+
+GPIO2 is an active-low input with its pull-up enabled:
+open/high reports status bit 0 = 0, and a connection to GND reports
+status bit 0 = 1. Use a dry contact or an open-drain output with a common
+ground. The input is suitable for 3.3 V signals only; do not connect 5 V
+or receiver battery voltage.
+
+GPIO2 is a strapping pin with a pull-up on the WeAct board.
+For reliable startup/flashing, keep the input open/high during reset
+where possible. All other pin assignments are retained; there is no
+second status input. The level is sampled when status telemetry is sent,
+without debouncing or pulse latching.
+The existing telemetry enable setting and the 30-second pause after
+discovery/configuration accesses also apply to this status report.
+
+===== Morse with four text fields
+
+The `Morse` menu provides `Text1` through `Text4`, each holding up to
+15 characters. Non-empty fields are joined in this order with one space
+between them; empty fields and fields containing only spaces are skipped.
+`Full Text` shows the combined text as a read-only value
+(up to 63 characters).
+All outputs in Morse mode use this shared text and the shared Morse timing.
+Field boundaries introduce a word pause; the fields are not four
+independently selectable messages. After an upgrade, the previous text
+remains in `Text1`; `Text2` through `Text4` are empty.
+
+===== Virtuals, patterns, and global dimming
+
+`Global / Switch Addr` addresses the eight physical outputs;
+`Global / Virtual Addr` addresses virtual functions (default 1).
+The two addresses should be different. Under `Virtuals`, four groups
+with up to four outputs each can be configured;
+`None` leaves a member slot unused.
+Set, Set4, and Set4M commands to the virtual address switch these groups
+using indices 0..3. With `Enable Virtuals = On`, their members ignore
+physical switch commands; Operate/Test remains directly usable.
+
+Virtual switch indices 4..7 start/stop the four generators under
+`Pattern / Pattern Virt. 5` through `Pattern Virt. 8`. Each generator has
+its own ordered member list with up to eight slots, On/Off times in
+10 ms increments, and six modes:
+Cont-LR, Cont-RL, Cont-LRL, Single-LR, Single-RL, and Single-LRL.
+`Off` disables the generator. Members of an enabled pattern are reserved
+for its control, even when `Enable Virtuals` is off.
+Empty lists stay off; single-member lists are also supported.
+Avoid overlapping groups/patterns so that multiple controllers do not
+switch the same output. For PWM within a pattern, use PWM mode
+On or Global/Indiv, not the independent Remote mode.
+
+After a single run, a broadcast start command for the same pattern number
+is sent to `Next Address`. An incoming start command can trigger the next
+run. To repeat a local test, select Stop/Off, then Start/On.
+Stop is propagated to other modules using `Group`; a received group stop
+stops all matching local generators without retransmission.
+Group 0 disables stop propagation. If `Next Address` is one of the module's
+own addresses, no chaining command is sent. Failsafe All-Off/Set stops
+running patterns and sets physical outputs regardless of their assignments.
+
+`Virtuals / Virtual 4 = Global Dimming` enables Prop commands on channel 4
+of the virtual address. These scale the individual duty values of all
+outputs in Global/Indiv mode by 0..100 percent. Off, On, and Remote remain
+unchanged. Disabling virtuals/global dimming resets the global factor to
+100 percent. Test, Start/Stop, and current dimming values are not saved;
+addresses, assignments, and pattern settings are saved.
+
+===== Master/slave operation
+
+On the master, set `Global / Slave Cmd = On`. When enabled and whenever
+states change, the module sends the states of its eight outputs as a
+CRSF broadcast `InterModuleSlaveSet` (0x13), using `Switch Addr` as the
+master identifier. This is independent of `Config resp.`/status telemetry.
+A state packet contains all eight bits; unchanged states are not
+continuously retransmitted.
+
+On each slave, set `Global / Master` to the master's `Switch Addr`
+and enable `Output N / Slave = On` for the desired outputs.
+Output N always follows bit N of the master; outputs not enabled as slaves
+remain locally controllable. Slave outputs ignore normal physical and
+virtual switch commands. Operate/Test and failsafe remain effective.
+Leave `Slave Cmd` off on slave-only modules and use different switch
+addresses to avoid feedback loops. The connection must forward CRSF
+broadcasts between modules; sharing a receiver connection does not
+guarantee this forwarding.
+
+The transmitted on/off state represents the output envelope, including
+interval, Morse, and pattern transitions, not individual PWM edges or
+duty values. A duty value greater than zero counts as on.
+The slave uses its own PWM/interval/Morse settings.
+For direct mirroring, disable interval/Morse on the slave and use PWM mode
+Off or On/Global-Indiv; Remote operates independently of switch commands.
+Do not also assign slave outputs to local patterns. The protocol provides
+neither acknowledgements nor periodic state refreshes; if a slave restarts
+later, toggle `Slave Cmd` off and on again on the master if necessary.
+
+===== Existing settings
+
+Valid settings from previous firmware versions (`config-v1`, `config-v2`,
+and `config-v3`) are automatically migrated and saved as `config-v4`.
+Output, Morse, failsafe, and existing virtual/pattern and master/slave
+settings are preserved. When upgrading from v1/v2, master transmission
+and all per-output slave settings are initially off.
+When upgrading from v1, new groups are empty, and patterns and global
+dimming are disabled. The new virtual address is 1, or 2 if it would
+conflict with the previous switch address. After flashing, reopen the
+device menu on the transmitter to reload the expanded parameter list.
+No factory reset or NVS erase is required.
+
+===== Building and flashing
+
+Activate ESP-IDF with an installed ESP32-C3 toolchain. This port was built
+with ESP-IDF 6.1 and uses the GPTimer and UART drivers.
+
+[source,sh]
+----
+. "$IDF_PATH/export.sh"
+idf.py set-target esp32c3
+idf.py build
+idf.py -p /dev/ttyACM0 flash monitor
+----
+
+USB is used for console/debug output; logs are not sent over the CRSF UART.
+Firmware: `build/multiswitch.bin`. For the first USB connection, hold BOOT
+and press Reset if necessary.
+
+Host tests cover framing/CRC, command lengths and addressing, PWM edges,
+interval operation, four Morse text fields, failsafe outputs, parameters/reset,
+virtuals, all pattern modes, chaining, global dimming, master/slave,
+status input/telemetry, and NVS migration:
+
+[source,sh]
+----
+make -C tests test
+----
+
+The new virtual/pattern/master-slave features and inter-module chaining
+have not yet been tested with a real receiver/output driver. In particular,
+verify interaction between multiple modules and PWM jitter under load on
+the actual hardware before use.
+
 [[msw_widget_ng]]
 ==== MultiSwitch NG Widget
 

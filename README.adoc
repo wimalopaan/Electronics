@@ -220,6 +220,7 @@ New projects use the <<docs/project-template.adoc#,project template>>.
 | <<docs/multiswitch.adoc#ssmsw,MultiSwitch 16-Outputs PCB>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🟢 active
 | <<docs/multiswitch.adoc#msw_nucleo,Nucleo-G031K8 as a MultiSwitch>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🟢 active
 | <<docs/multiswitch.adoc#msw_weact,WeAct STM32G031F8 as a MultiSwitch>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🟢 active
+| <<docs/multiswitch.adoc#msw_weact_esp32c3,WeAct ESP32-C3 Core Board as a MultiSwitch>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🟡 experimental
 | <<docs/multiswitch.adoc#msw_tht,WeAct MultiSwitch THT PCB>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🔵 stable
 | <<docs/multiswitch.adoc#msw_widget_ng,MultiSwitch NG Widget>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🟢 active
 | <<docs/multiswitch.adoc#msw_widget,MultiSwitch Widget>> | <<docs/multiswitch.adoc#,MultiSwitch>> | 🔵 stable
@@ -448,6 +449,7 @@ On https://schiffsmodell.blogspot.com/p/grundlagen-zu-opentx.html[Holger Meyer] 
 **** [[ssmsw]]<<docs/multiswitch.adoc#ssmsw,16-Outputs PCB>>
 **** [[msw_nucleo]]<<docs/multiswitch.adoc#msw_nucleo,STM32G031F8 Nucleo-Board as a MultiSwitch>>
 **** [[msw_weact]]<<docs/multiswitch.adoc#msw_weact,WeAct STM32G031F8 as a MultiSwitch>>
+**** [[msw_weact_esp32c3]]<<docs/multiswitch.adoc#msw_weact_esp32c3,WeAct ESP32-C3 Core Board as a MultiSwitch>>
 **** [[msw_tht]]<<docs/multiswitch.adoc#msw_tht,WeAct STM32G031F8 as a MultiSwitch with PCB as THT>>
 **** [[msw_widget_ng]]<<docs/multiswitch.adoc#msw_widget_ng,MultiSwitch NG Widget>>
 **** [[msw_widget]]<<docs/multiswitch.adoc#msw_widget,MultiSwitch Widget>>

@@ -228,6 +228,7 @@ Neue Projekte verwenden die <<docs/project-template.de.adoc#,Projektvorlage>>.
 | <<docs/multiswitch.de.adoc#ssmsw,MultiSwitch-Platine mit 16 Ausgängen>> | <<docs/multiswitch.de.adoc#,MultiSwitch>> | 🟢 aktiv
 | <<docs/multiswitch.de.adoc#msw_nucleo,Nucleo-G031K8 als MultiSwitch>> | <<docs/multiswitch.de.adoc#,MultiSwitch>> | 🟢 aktiv
 | <<docs/multiswitch.de.adoc#msw_weact,WeAct STM32G031F8 als MultiSwitch>> | <<docs/multiswitch.de.adoc#,MultiSwitch>> | 🟢 aktiv
+| <<docs/multiswitch.de.adoc#msw_weact_esp32c3,WeAct ESP32-C3 Core Board als MultiSwitch>> | <<docs/multiswitch.de.adoc#,MultiSwitch>> | 🟡 experimentell
 | <<docs/multiswitch.de.adoc#msw_tht,WeAct-MultiSwitch-THT-Platine>> | <<docs/multiswitch.de.adoc#,MultiSwitch>> | 🔵 stabil
 | <<docs/multiswitch.de.adoc#msw_widget_ng,MultiSwitch NG Widget>> | <<docs/multiswitch.de.adoc#,MultiSwitch>> | 🟢 aktiv
 | <<docs/multiswitch.de.adoc#msw_widget,MultiSwitch Widget>> | <<docs/multiswitch.de.adoc#,MultiSwitch>> | 🔵 stabil
@@ -459,6 +460,7 @@ Bei https://schiffsmodell.blogspot.com/p/grundlagen-zu-opentx.html[Holger Meyer]
 **** [[ssmsw]]<<docs/multiswitch.de.adoc#ssmsw,Platine mit 16 Ausgängen>>
 **** [[msw_nucleo]]<<docs/multiswitch.de.adoc#msw_nucleo,STM32G031F8-Nucleo-Board als MultiSwitch>>
 **** [[msw_weact]]<<docs/multiswitch.de.adoc#msw_weact,WeAct STM32G031F8 als MultiSwitch>>
+**** [[msw_weact_esp32c3]]<<docs/multiswitch.de.adoc#msw_weact_esp32c3,WeAct ESP32-C3 Core Board als MultiSwitch>>
 **** [[msw_tht]]<<docs/multiswitch.de.adoc#msw_tht,WeAct STM32G031F8 als MultiSwitch mit THT-Platine>>
 **** [[msw_widget_ng]]<<docs/multiswitch.de.adoc#msw_widget_ng,MultiSwitch NG Widget>>
 **** [[msw_widget]]<<docs/multiswitch.de.adoc#msw_widget,MultiSwitch Widget>>
